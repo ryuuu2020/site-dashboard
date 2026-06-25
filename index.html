@@ -360,7 +360,14 @@ async function checkSite(site) {
   try { await fetch(site.url,{mode:'no-cors',cache:'no-store'}); r.online=true; } catch(e){}
   if(r.online){
     try { const resp=await fetch(site.url+'/ads.txt',{cache:'no-store'}); r.adstxt=(await resp.text()).includes('pub-8925824244664340'); } catch(e){}
-    try { await new Promise((res,rej)=>{const i=new Image();i.onload=res;i.onerror=rej;i.src=site.url+'/hero.jpg';setTimeout(rej,5000)}); r.hero=true; } catch(e){}
+    // Check both .jpg and .png
+    try {
+      await Promise.race([
+        new Promise((res,rej)=>{const i=new Image();i.onload=res;i.onerror=rej;i.src=site.url+'/hero.jpg';setTimeout(rej,4000)}),
+        new Promise((res,rej)=>{const i=new Image();i.onload=res;i.onerror=rej;i.src=site.url+'/hero.png';setTimeout(rej,4000)})
+      ]);
+      r.hero=true;
+    } catch(e){}
   }
   return r;
 }
@@ -473,8 +480,9 @@ async function scanAll(){
   btn.textContent='⏳ 扫描中…';btn.disabled=true;
   document.getElementById('scan-status').textContent='扫描中…';
   document.getElementById('global-pulse').className='pulse';
-  const results=[];
-  for(const site of SITES){results.push(await checkSite(site));renderAll(results);}
+  // Parallel scan — all 7 sites concurrently
+  const results=await Promise.all(SITES.map(s=>checkSite(s)));
+  renderAll(results);
   btn.textContent='⟳ 扫描全网';btn.disabled=false;
 }
 
