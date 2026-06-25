@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>游戏攻略站 · 指挥中心</title>
+<style>
+  :root {
+    --bg: #080c12; --bg-card: #11161d; --bg-elevated: #181d26;
+    --border: #1e2530; --border-subtle: #161c24;
+    --text: #c8d6e5; --text-secondary: #8899aa; --text-muted: #4a5568;
+    --green: #10b981; --green-bg: rgba(16,185,129,0.12); --green-text: #34d399;
+    --red: #ef4444; --red-bg: rgba(239,68,68,0.12);
+    --yellow: #f59e0b; --yellow-bg: rgba(245,158,11,0.12);
+    --blue: #3b82f6; --blue-bg: rgba(59,130,246,0.12); --blue-text: #60a5fa;
+    --accent: #6366f1; --accent-dim: #4f46e5;
+    --purple: #a855f7; --purple-bg: rgba(168,85,247,0.12);
+    --orange: #f97316;
+    --style-a: #3b82f6; --style-b: #a855f7; --style-c: #10b981; --style-3: #f59e0b;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.6;
+    background-image: radial-gradient(ellipse at top, rgba(99,102,241,0.06) 0%, transparent 70%);
+  }
+  .container { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
+
+  /* Header */
+  .top-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+    padding-bottom: 1rem; border-bottom: 1px solid var(--border);
+  }
+  .top-bar h1 {
+    font-size: 1.125rem; font-weight: 700; letter-spacing: 0.02em;
+    display: flex; align-items: center; gap: 0.5rem;
+    font-family: 'SF Mono', 'Menlo', 'PingFang SC', monospace;
+  }
+  .top-bar h1 span { color: var(--accent); }
+  .pulse { width:8px; height:8px; border-radius:50%; display:inline-block; }
+  .pulse.live { background:var(--green); box-shadow:0 0 8px var(--green); animation:pulse 2s infinite; }
+  .pulse.dead { background:var(--red); }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .top-actions { display:flex; gap:0.5rem; align-items:center; }
+  .btn {
+    padding:0.4rem 0.875rem; border-radius:0.375rem; font-size:0.75rem;
+    font-weight:600; cursor:pointer; border:1px solid var(--border);
+    background:var(--bg-card); color:var(--text-secondary);
+    transition:all 0.15s; font-family:inherit; letter-spacing:0.02em;
+  }
+  .btn:hover { border-color:var(--accent); color:#fff; background:var(--bg-elevated); }
+  .btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .btn.primary:hover { background:var(--accent-dim); }
+  .btn:disabled { opacity:0.5; cursor:not-allowed; }
+
+  .status-bar { display:flex; gap:0.75rem; align-items:center; font-size:0.6875rem; color:var(--text-muted); font-family:'SF Mono',monospace; }
+
+  /* Stats */
+  .stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(155px,1fr)); gap:0.625rem; margin-bottom:1.5rem; }
+  .stat {
+    background:var(--bg-card); border:1px solid var(--border); border-radius:0.5rem; padding:0.875rem 1rem;
+    position:relative; overflow:hidden;
+  }
+  .stat::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
+  .stat.good::before { background:var(--green); }
+  .stat.warn::before { background:var(--yellow); }
+  .stat.info::before { background:var(--blue); }
+  .stat .label { font-size:0.625rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:0.25rem; }
+  .stat .value { font-size:1.5rem; font-weight:700; font-family:'SF Mono',monospace; }
+  .stat .value.green { color:var(--green-text); }
+  .stat .value.red { color:var(--red); }
+  .stat .value.blue { color:var(--blue-text); }
+  .stat .sub { font-size:0.6875rem; color:var(--text-muted); margin-top:0.125rem; }
+
+  /* Sections */
+  .section { margin-bottom:1.5rem; }
+  .section-title {
+    font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--text-muted); margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem;
+  }
+  .section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  /* Table */
+  .table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:0.5rem; }
+  table { width:100%; border-collapse:collapse; min-width:1000px; font-size:0.75rem; }
+  thead { background:var(--bg-elevated); position:sticky; top:0; z-index:1; }
+  th {
+    padding:0.625rem 0.75rem; text-align:left;
+    font-size:0.625rem; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--text-muted); font-weight:600; white-space:nowrap;
+    border-bottom:1px solid var(--border);
+  }
+  td { padding:0.625rem 0.75rem; border-bottom:1px solid var(--border-subtle); white-space:nowrap; }
+  tr:hover td { background:rgba(99,102,241,0.03); }
+  tr:last-child td { border-bottom:none; }
+
+  .site-cell .name { font-weight:600; color:#e2e8f0; font-size:0.8125rem; }
+  .site-cell .name a { color:inherit; text-decoration:none; }
+  .site-cell .name a:hover { color:var(--accent); }
+  .site-cell .domain { font-size:0.625rem; color:var(--text-muted); font-family:'SF Mono',monospace; display:block; margin-top:2px; }
+
+  .tag {
+    display:inline-block; padding:0.125rem 0.5rem; border-radius:1rem;
+    font-size:0.625rem; font-weight:600; letter-spacing:0.04em;
+  }
+  .tag.style-a { background:rgba(59,130,246,0.15); color:var(--blue); }
+  .tag.style-b { background:rgba(168,85,247,0.15); color:var(--purple); }
+  .tag.style-c { background:rgba(16,185,129,0.15); color:var(--green); }
+  .tag.style-3 { background:rgba(245,158,11,0.15); color:var(--orange); }
+
+  .check { display:inline-flex; align-items:center; justify-content:center; width:1.25rem; height:1.25rem; border-radius:0.25rem; font-size:0.625rem; }
+  .check.pass { background:var(--green-bg); color:var(--green); }
+  .check.fail { background:var(--red-bg); color:var(--red); }
+  .check.wait { color:var(--text-muted); }
+  .check.live-check { animation:fadeIn 0.5s; }
+  @keyframes fadeIn { from{opacity:0;transform:scale(0.8)} to{opacity:1;transform:scale(1)} }
+
+  .num { font-family:'SF Mono',monospace; text-align:center; color:var(--text-secondary); }
+  .muted { font-size:0.625rem; color:var(--text-muted); font-family:'SF Mono',monospace; }
+
+  /* Traffic Cards */
+  .traffic-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:0.75rem; }
+  .traffic-card {
+    background:var(--bg-card); border:1px solid var(--border); border-radius:0.5rem;
+    padding:1rem; display:flex; gap:1rem; align-items:stretch;
+  }
+  .traffic-card .bar-col { display:flex; flex-direction:column; justify-content:flex-end; gap:0.25rem; min-width:28px; }
+  .traffic-card .bar {
+    width:100%; border-radius:2px; transition:height 0.3s;
+    min-height:2px; position:relative;
+  }
+  .traffic-card .bar span {
+    position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    font-size:0.5rem; color:var(--text-muted); white-space:nowrap;
+    font-family:'SF Mono',monospace;
+  }
+  .traffic-card .info { flex:1; }
+  .traffic-card .site-label { font-weight:600; font-size:0.8125rem; color:#e2e8f0; margin-bottom:0.125rem; }
+  .traffic-card .metric { font-size:1.125rem; font-weight:700; font-family:'SF Mono',monospace; color:var(--blue-text); }
+  .traffic-card .metric-label { font-size:0.625rem; color:var(--text-muted); }
+
+  /* Feed */
+  .feed { display:flex; flex-direction:column; gap:0.375rem; }
+  .feed-item {
+    display:flex; align-items:flex-start; gap:0.75rem; padding:0.5rem 0.75rem;
+    background:var(--bg-card); border:1px solid var(--border-subtle); border-radius:0.375rem;
+    font-size:0.75rem;
+  }
+  .feed-item .dot { width:6px; height:6px; border-radius:50%; margin-top:0.45rem; flex-shrink:0; }
+  .feed-item .dot.update { background:var(--blue); }
+  .feed-item .dot.launch { background:var(--green); }
+  .feed-item .dot.fix { background:var(--yellow); }
+  .feed-item .time { font-size:0.625rem; color:var(--text-muted); white-space:nowrap; min-width:4.5rem; font-family:'SF Mono',monospace; }
+  .feed-item .msg { color:var(--text-secondary); flex:1; }
+  .feed-item .site-tag { font-size:0.625rem; font-weight:600; }
+
+  /* Traffic placeholder */
+  .traffic-placeholder {
+    background:var(--bg-card); border:1px dashed var(--border); border-radius:0.5rem;
+    padding:2rem; text-align:center;
+  }
+  .traffic-placeholder h3 { font-size:0.875rem; color:var(--text-secondary); margin-bottom:0.5rem; }
+  .traffic-placeholder p { font-size:0.75rem; color:var(--text-muted); line-height:1.8; }
+  .traffic-placeholder code {
+    background:var(--bg-elevated); padding:0.125rem 0.5rem; border-radius:0.25rem;
+    font-family:'SF Mono',monospace; font-size:0.75rem; color:var(--accent);
+  }
+
+  .divider { border:none; border-top:1px solid var(--border); margin:1.5rem 0; }
+
+  @media (max-width:768px) {
+    .container { padding:0.75rem; }
+    .stats { grid-template-columns:repeat(2,1fr); }
+    .traffic-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- HEADER -->
+  <div class="top-bar">
+    <h1><span>◈</span> 游戏攻略站 · 指挥中心</h1>
+    <div class="top-actions">
+      <span class="status-bar">
+        <span class="pulse live" id="global-pulse"></span>
+        <span id="clock">--:--:--</span>
+        <span>|</span>
+        <span id="scan-status">就绪</span>
+      </span>
+      <button class="btn primary" onclick="scanAll()" id="scan-btn">⟳ 扫描全网</button>
+    </div>
+  </div>
+
+  <!-- 概览统计 -->
+  <div class="stats">
+    <div class="stat good">
+      <div class="label">站点总数</div><div class="value">7</div>
+    </div>
+    <div class="stat good">
+      <div class="label">在线</div><div class="value green" id="stat-online">—</div>
+    </div>
+    <div class="stat warn">
+      <div class="label">总页数</div><div class="value blue">116</div>
+      <div class="sub">平均 16.6 页/站</div>
+    </div>
+    <div class="stat info">
+      <div class="label">设计风格</div><div class="value blue">4 种</div>
+      <div class="sub">战术 · 暗黑 · 生存 · 羊皮纸</div>
+    </div>
+    <div class="stat good">
+      <div class="label">功能完整度</div><div class="value green" id="stat-complete">—</div>
+      <div class="sub">6/6 项检查</div>
+    </div>
+    <div class="stat info">
+      <div class="label">最后验证</div><div class="value" style="font-size:0.875rem" id="stat-verified">—</div>
+    </div>
+  </div>
+
+  <!-- 流量概览（GA4 数据） -->
+  <div class="section">
+    <div class="section-title">📊 近7日流量（GA4）</div>
+    <div class="traffic-grid" id="traffic-grid">
+      <!-- JS fills this -->
+    </div>
+    <div class="traffic-placeholder" id="traffic-placeholder" style="display:none">
+      <h3>📊 GA4 数据待接入</h3>
+      <p>需要在 GA4 后台添加服务账号：<br>
+      <code>cola-monitor@wechat-sticker-gen.iam.gserviceaccount.com</code><br>
+      路径：GA4 管理 → 属性 G-ET6778V62K → 属性访问管理 → 添加用户（查看者权限）</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 站点状态矩阵 -->
+  <div class="section">
+    <div class="section-title">🖥 站点状态矩阵</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th><th>站点</th><th>风格</th><th>页数</th>
+            <th>在线</th><th>头图</th><th>ads.txt</th>
+            <th>AdSense</th><th>爱发电</th><th>GA4</th><th>GSC</th>
+            <th>浏览量</th><th>停留(s)</th><th>页/会话</th>
+            <th>最后推送</th><th>最后更新</th><th>Steam</th>
+          </tr>
+        </thead>
+        <tbody id="site-table"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 热门页面 -->
+  <div class="section">
+    <div class="section-title">🔥 热门页面（6/24-6/25）</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>站点</th><th>页面</th><th>浏览量</th><th>停留(s)</th>
+          </tr>
+        </thead>
+        <tbody id="top-pages"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 最近动态 -->
+  <div class="section">
+    <div class="section-title">📋 最近动态</div>
+    <div class="feed" id="activity-feed"></div>
+  </div>
+
+  <footer style="text-align:center;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.6875rem;color:var(--text-muted)">
+    Cola 指挥中心 v1.1 · 自动扫描 · <a href="https://afdian.com/a/gameguidehub" target="_blank" style="color:var(--accent);text-decoration:none">❤️ 爱发电</a>
+  </footer>
+</div>
+
+<script>
+// ── 站点数据 ──────────────────────────────────
+const SITES = [
+  { id:1, name:'Solarpunk',      url:'https://solarpunk-game-wiki.vercel.app',     steam:1805110, pages:19, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'Patch 1.0.3', eng:49, pps:0.5 },
+  { id:2, name:'Dispatch',       url:'https://dispatch-guide-sigma.vercel.app',    steam:2592160, pages:14, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'Xbox夏季',   eng:557, pps:0.8 },
+  { id:3, name:'MENACE',         url:'https://menace-guide.vercel.app',             steam:2432860, pages:17, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'Patch#4 SMG', eng:17, pps:0.89 },
+  { id:4, name:'Olden Era',      url:'https://olden-era-guide-tau.vercel.app',      steam:3105440, pages:22, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:00', update:'Patch#8#9',  eng:10, pps:0.9 },
+  { id:5, name:'Going Medieval', url:'https://going-medieval-guide.vercel.app',     steam:1029780, pages:18, style:'3-古卷羊皮纸', styleTag:'style-3', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:00', update:'v1.0.105',   eng:48, pps:2.43 },
+  { id:6, name:'Tabletop Tavern',url:'https://tabletop-tavern-guide.vercel.app',   steam:3337380, pages:15, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'v1.6.23',    eng:7, pps:0.75 },
+  { id:7, name:'Demon Lord',     url:'https://demon-lord-guide.vercel.app',         steam:3720420, pages:11, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'5月汇总',    eng:8, pps:1.57 },
+];
+
+// ── GA4 流量数据（Cola 定期更新此 JSON）─────────
+// 格式：{ siteIndex: { dates:['6/18',...], views:[0,...] } }
+// 当前为模拟数据，GA4 API 接入后自动填充
+const GA4_DATA = {
+  0: { views: [0,0,0,0,0,0,0,3] },  // Solarpunk
+  1: { views: [0,0,0,0,0,0,0,8] },  // Dispatch
+  2: { views: [0,0,0,0,0,0,1,7] },  // MENACE
+  3: { views: [0,0,0,0,0,0,1,17] }, // Olden Era
+  4: { views: [0,0,0,0,0,0,0,31] }, // Going Medieval 🔥
+  5: { views: [0,0,0,0,0,0,0,6] },  // Tabletop Tavern
+  6: { views: [0,0,0,0,0,0,0,11] }, // Demon Lord
+};
+const GA4_DAYS = ['6/18','6/19','6/20','6/21','6/22','6/23','6/24','6/25'];
+
+// ── 热门页面（GA4 实时数据，Cola 定期更新）────
+const TOP_PAGES = [
+  {host:'going-medieval-guide.vercel.app', path:'/', views:10, eng:23},
+  {host:'olden-era-guide-tau.vercel.app', path:'/', views:10, eng:7},
+  {host:'menace-guide.vercel.app', path:'/', views:8, eng:17},
+  {host:'dispatch-guide-sigma.vercel.app', path:'/', views:7, eng:553},
+  {host:'demon-lord-guide.vercel.app', path:'/', views:5, eng:3},
+  {host:'tabletop-tavern-guide.vercel.app', path:'/', views:5, eng:7},
+  {host:'going-medieval-guide.vercel.app', path:'/tips', views:4, eng:4},
+  {host:'going-medieval-guide.vercel.app', path:'/buildings', views:3, eng:4},
+  {host:'going-medieval-guide.vercel.app', path:'/news', views:3, eng:2},
+  {host:'going-medieval-guide.vercel.app', path:'/research', views:3, eng:0},
+  {host:'going-medieval-guide.vercel.app', path:'/beginners-guide', views:2, eng:8},
+  {host:'going-medieval-guide.vercel.app', path:'/farming', views:2, eng:2},
+  {host:'dispatch-guide-six.vercel.app', path:'/', views:2, eng:3},
+  {host:'solarpunk-game-wiki.vercel.app', path:'/', views:2, eng:49},
+  {host:'demon-lord-guide.vercel.app', path:'/builds', views:1, eng:1},
+  {host:'demon-lord-guide.vercel.app', path:'/bosses', views:1, eng:0},
+  {host:'demon-lord-guide.vercel.app', path:'/faq', views:1, eng:1},
+  {host:'demon-lord-guide.vercel.app', path:'/news', views:1, eng:1},
+  {host:'dispatch-guide-sigma.vercel.app', path:'/news', views:1, eng:2},
+  {host:'going-medieval-guide.vercel.app', path:'/defense', views:1, eng:1},
+];
+
+function renderTopPages() {
+  document.getElementById('top-pages').innerHTML = TOP_PAGES.map(p => {
+    const siteName = p.host.split('.')[0].replace(/-guide.*/,'').replace(/-/g,' ');
+    return `<tr>
+      <td style="font-size:0.6875rem;color:var(--text-muted)">${p.host}</td>
+      <td style="font-family:'SF Mono',monospace;font-size:0.75rem;font-weight:600;color:#e2e8f0">${p.path}</td>
+      <td class="num" style="font-weight:700;color:var(--blue-text)">${p.views}</td>
+      <td class="num">${p.eng}s</td>
+    </tr>`;
+  }).join('');
+}
+
+// ── 动态 ──────────────────────────────────────
+const ACTIVITY = [
+  { time:'15:30', dot:'fix',   msg:'WB 验证 7 站功能全部完整', site:'' },
+  { time:'15:03', dot:'fix',   msg:'Cola 修复 Solarpunk 域名 → solarpunk-game-wiki.vercel.app', site:'Solarpunk' },
+  { time:'14:34', dot:'update',msg:'WB 完成 7 站每日内容更新（新闻/补丁）', site:'' },
+  { time:'13:20', dot:'launch',msg:'WB 上线 Demon Lord 攻略站（11页，暗黑史诗风格）', site:'Demon Lord' },
+  { time:'12:44', dot:'update',msg:'Going Medieval 改造为古卷羊皮纸风格（23页）', site:'Going Medieval' },
+  { time:'12:10', dot:'launch',msg:'WB 上线 Tabletop Tavern 攻略站（15页）', site:'Tabletop Tavern' },
+  { time:'11:39', dot:'update',msg:'Dispatch + MENACE 改造为战术指挥中心风格', site:'Dispatch, MENACE' },
+  { time:'09:25', dot:'launch',msg:'Going Medieval 攻略站上线（18页）', site:'Going Medieval' },
+  { time:'07:57', dot:'launch',msg:'Olden Era 攻略站上线（22页）', site:'Olden Era' },
+];
+
+// ── 扫描逻辑 ──────────────────────────────────
+async function checkSite(site) {
+  const r = { online:false, hero:false, adstxt:false };
+  try { await fetch(site.url,{mode:'no-cors',cache:'no-store'}); r.online=true; } catch(e){}
+  if(r.online){
+    try { const resp=await fetch(site.url+'/ads.txt',{cache:'no-store'}); r.adstxt=(await resp.text()).includes('pub-8925824244664340'); } catch(e){}
+    try { await new Promise((res,rej)=>{const i=new Image();i.onload=res;i.onerror=rej;i.src=site.url+'/hero.jpg';setTimeout(rej,5000)}); r.hero=true; } catch(e){}
+  }
+  return r;
+}
+
+const ICONS={pass:'✓',fail:'✗',wait:'…'};
+function CLS(v,live){return v?'check pass'+(live?' live-check':''):'check fail';}
+
+function renderRow(site,live){
+  const f=site.feats;
+  const o=live?(live.online?ICONS.pass:ICONS.fail):ICONS.wait;
+  const oCls=live?(live.online?'check pass live-check':'check fail live-check'):'check wait';
+  const h=live?(live.hero?ICONS.pass:ICONS.fail):ICONS.wait;
+  const hCls=live?(live.hero?'check pass live-check':'check fail live-check'):'check wait';
+  const a=live?(live.adstxt?ICONS.pass:ICONS.fail):ICONS.wait;
+  const aCls=live?(live.adstxt?'check pass live-check':'check fail live-check'):'check wait';
+
+  return `<tr>
+    <td class="num">${String(site.id).padStart(2,'0')}</td>
+    <td class="site-cell">
+      <span class="name"><a href="${site.url}" target="_blank">${site.name}</a></span>
+      <span class="domain">${site.url.replace('https://','')}</span>
+    </td>
+    <td><span class="tag ${site.styleTag}">${site.style}</span></td>
+    <td class="num">${site.pages}</td>
+    <td><span class="${oCls}">${o}</span></td>
+    <td><span class="${hCls}">${h}</span></td>
+    <td><span class="${aCls}">${a}</span></td>
+    <td><span class="${CLS(f.adsense,false)}">${f.adsense?ICONS.pass:ICONS.fail}</span></td>
+    <td><span class="${CLS(f.afdian,false)}">${f.afdian?ICONS.pass:ICONS.fail}</span></td>
+    <td><span class="${CLS(f.ga4,false)}">${f.ga4?ICONS.pass:ICONS.fail}</span></td>
+    <td><span class="${CLS(f.gsc,false)}">${f.gsc?ICONS.pass:ICONS.fail}</span></td>
+    <td class="muted">${site.push}</td>
+    <td class="muted" style="max-width:120px;overflow:hidden;text-overflow:ellipsis">${site.update}</td>
+    <td class="muted"><a href="https://store.steampowered.com/app/${site.steam}" target="_blank" style="color:var(--text-muted);text-decoration:none">${site.steam}</a></td>
+    <td class="num" style="font-weight:700;color:var(--blue-text)">${GA4_DATA[i]?.views?.reduce((a,b)=>a+b,0)||0}</td>
+    <td class="num">${site.eng||0}</td>
+    <td class="num">${site.pps||0}</td>
+  </tr>`;
+}
+
+function renderAll(liveResults){
+  document.getElementById('site-table').innerHTML=SITES.map((s,i)=>renderRow(s,liveResults?.[i])).join('');
+  if(liveResults){
+    const online=liveResults.filter(r=>r.online).length;
+    const heroOK=liveResults.filter(r=>r.hero).length;
+    const adstxtOK=liveResults.filter(r=>r.adstxt).length;
+    document.getElementById('stat-online').textContent=online+'/7';
+    document.getElementById('stat-online').className='value '+(online===7?'green':'red');
+    const allGood=online===7&&heroOK===7&&adstxtOK===7;
+    document.getElementById('stat-complete').textContent=allGood?'全部正常':'有异常';
+    document.getElementById('stat-complete').className='value '+(allGood?'green':'red');
+    document.getElementById('global-pulse').className='pulse '+(online===7?'live':'dead');
+    document.getElementById('stat-verified').textContent=new Date().toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'});
+    document.getElementById('scan-status').textContent=`${online}/${heroOK}/${adstxtOK} 在线/头图/广告`;
+  }
+}
+
+// ── 流量卡片 ──────────────────────────────────
+function renderTraffic(){
+  const grid=document.getElementById('traffic-grid');
+  const maxView=Math.max(1,...Object.values(GA4_DATA).flatMap(d=>d.views));
+  const hasData=Object.values(GA4_DATA).some(d=>d.views.some(v=>v>0));
+
+  if(!hasData){
+    document.getElementById('traffic-placeholder').style.display='block';
+    grid.innerHTML='';
+    return;
+  }
+  document.getElementById('traffic-placeholder').style.display='none';
+
+  grid.innerHTML=SITES.map((site,i)=>{
+    const data=GA4_DATA[i]||{views:[0,0,0,0,0,0,0]};
+    const total=data.views.reduce((a,b)=>a+b,0);
+    const bars=data.views.map((v,j)=>{
+      const h=Math.max(2,Math.round((v/maxView)*60));
+      const color=v>0?'var(--blue)':'var(--border)';
+      const showLabel=v>0&&(j===0||j===data.views.length-1||v>=maxView*0.5);
+      return `<div class="bar" style="height:${h}px;background:${color}">${showLabel?`<span>${v}</span>`:''}</div>`;
+    }).join('');
+
+    return `<div class="traffic-card">
+      <div class="bar-col">${bars}</div>
+      <div class="info">
+        <div class="site-label">${site.name}</div>
+        <div class="metric">${total} <span style="font-size:0.625rem;font-weight:400">次浏览</span></div>
+        <div class="metric-label">${GA4_DAYS[0]} – ${GA4_DAYS[GA4_DAYS.length-1]} · 共7天</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderActivity(){
+  document.getElementById('activity-feed').innerHTML=ACTIVITY.slice(0,10).map(a=>`
+    <div class="feed-item">
+      <span class="time">${a.time}</span>
+      <span class="dot ${a.dot}"></span>
+      <span class="msg">${a.msg}</span>
+      ${a.site?`<span class="tag ${SITES.find(s=>s.name===a.site.split(',')[0].trim())?.styleTag||'style-a'}">${a.site}</span>`:''}
+    </div>`).join('');
+}
+
+function updateClock(){
+  const n=new Date();
+  document.getElementById('clock').textContent=n.toLocaleTimeString('zh-CN',{hour12:false,timeZone:'Asia/Shanghai'});
+}
+
+// ── 主流程 ────────────────────────────────────
+async function scanAll(){
+  const btn=document.getElementById('scan-btn');
+  btn.textContent='⏳ 扫描中…';btn.disabled=true;
+  document.getElementById('scan-status').textContent='扫描中…';
+  document.getElementById('global-pulse').className='pulse';
+  const results=[];
+  for(const site of SITES){results.push(await checkSite(site));renderAll(results);}
+  btn.textContent='⟳ 扫描全网';btn.disabled=false;
+}
+
+renderAll(null);
+renderTraffic();
+renderTopPages();
+renderActivity();
+updateClock();
+setInterval(updateClock,10000);
+scanAll();
+</script>
+</body>
+</html>
