@@ -530,15 +530,16 @@ function renderTopPagesForHost(host) {
 
 // ── 动态 ──────────────────────────────────────
 const ACTIVITY = [
-  { time:'15:30', dot:'fix',   msg:'WB 验证 7 站功能全部完整', site:'' },
-  { time:'15:03', dot:'fix',   msg:'Cola 修复 Solarpunk 域名 → solarpunk-game-wiki.vercel.app', site:'Solarpunk' },
-  { time:'14:34', dot:'update',msg:'WB 完成 7 站每日内容更新（新闻/补丁）', site:'' },
-  { time:'13:20', dot:'launch',msg:'WB 上线 Demon Lord 攻略站（11页，暗黑史诗风格）', site:'Demon Lord' },
-  { time:'12:44', dot:'update',msg:'Going Medieval 改造为古卷羊皮纸风格（23页）', site:'Going Medieval' },
-  { time:'12:10', dot:'launch',msg:'WB 上线 Tabletop Tavern 攻略站（15页）', site:'Tabletop Tavern' },
-  { time:'11:39', dot:'update',msg:'Dispatch + MENACE 改造为战术指挥中心风格', site:'Dispatch, MENACE' },
-  { time:'09:25', dot:'launch',msg:'Going Medieval 攻略站上线（18页）', site:'Going Medieval' },
-  { time:'07:57', dot:'launch',msg:'Olden Era 攻略站上线（22页）', site:'Olden Era' },
+  { time:'20:30', dot:'update',msg:'Going Medieval 扩写至 124 页，内容简报 50 天 100% 覆盖', site:'Going Medieval' },
+  { time:'20:15', dot:'fix',   msg:'Dashboard 修复：站点总数/GA4/页面数 全部动态化', site:'' },
+  { time:'18:10', dot:'update',msg:'Going Medieval Batch 3：+29 页（战斗/居民/建造/农耕）', site:'Going Medieval' },
+  { time:'16:45', dot:'update',msg:'Going Medieval Batch 2：+15 页，修复 61 处 JSX 语法', site:'Going Medieval' },
+  { time:'14:20', dot:'update',msg:'9 站批量扩展 +19 页长尾词，提交 Sitemap 到 GSC', site:'' },
+  { time:'13:00', dot:'fix',   msg:'GSC API 打通，10 站 Sitemap 全部提交', site:'' },
+  { time:'11:30', dot:'update',msg:'Going Medieval Batch 1：+19 页（防御/农耕/建造）', site:'Going Medieval' },
+  { time:'10:00', dot:'update',msg:'10 站 metadata + E-E-A-T + JSON-LD Schema 统一补齐', site:'' },
+  { time:'08:20', dot:'fix',   msg:'10 站 WCAG AA 对比度通过，清除 Inter 字体痕迹', site:'' },
+  { time:'06-27', dot:'launch',msg:'10 站全部上线，进入聚焦模式（旗舰站扩写）', site:'' },
 ];
 
 // ── 扫描逻辑 ──────────────────────────────────
@@ -666,7 +667,24 @@ function renderTraffic(){
 }
 
 function renderActivity(){
-  document.getElementById('activity-feed').innerHTML=ACTIVITY.slice(0,10).map(a=>`
+  // Merge static ACTIVITY with auto-generated entries from SITES push timestamps
+  let entries = [...ACTIVITY];
+  // Auto-generate from SITES push info
+  SITES.forEach(s => {
+    if (s.push && s.update) {
+      entries.push({
+        time: s.push.split(' ')[1] || s.push,
+        dot: 'push',
+        msg: `${s.name} 部署更新：${s.update}（${s.pages}页）`,
+        site: s.name
+      });
+    }
+  });
+  // Deduplicate by msg, sort by time desc
+  const seen = new Set();
+  entries = entries.filter(e => { const k = e.msg; if (seen.has(k)) return false; seen.add(k); return true; });
+  entries.sort((a,b) => b.time.localeCompare(a.time));
+  document.getElementById('activity-feed').innerHTML=entries.slice(0,12).map(a=>`
     <div class="feed-item">
       <span class="time">${a.time}</span>
       <span class="dot ${a.dot}"></span>
