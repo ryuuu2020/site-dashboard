@@ -288,14 +288,16 @@
 <script>
 // ── 站点数据 ──────────────────────────────────
 const SITES = [
-  { id:1, name:'Solarpunk',      url:'https://solarpunk-game-wiki.vercel.app',     steam:1805110, pages:19, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'Patch 1.0.3', eng:49, pps:0.5,  launch:'6/23' },
-  { id:2, name:'Dispatch',       url:'https://dispatch-guide-sigma.vercel.app',    steam:2592160, pages:14, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'Xbox夏季',   eng:557,pps:0.8,  launch:'6/23' },
-  { id:3, name:'MENACE',         url:'https://menace-guide.vercel.app',             steam:2432860, pages:17, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'Patch#4 SMG', eng:17, pps:0.89, launch:'6/23' },
-  { id:4, name:'Olden Era',      url:'https://olden-era-guide-tau.vercel.app',      steam:3105440, pages:22, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:00', update:'Patch#8#9',  eng:10, pps:0.9,  launch:'6/25' },
-  { id:5, name:'Going Medieval', url:'https://going-medieval-guide.vercel.app',     steam:1029780, pages:18, style:'3-古卷羊皮纸', styleTag:'style-3', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:00', update:'v1.0.105',   eng:48, pps:2.43, launch:'6/25' },
-  { id:6, name:'Tabletop Tavern',url:'https://tabletop-tavern-guide.vercel.app',   steam:3337380, pages:15, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'v1.6.23',    eng:7,  pps:0.75, launch:'6/25' },
-  { id:7, name:'Demon Lord',     url:'https://demon-lord-guide.vercel.app',         steam:3720420, pages:11, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'5月汇总',    eng:8,  pps:1.57, launch:'6/25' },
-  { id:8, name:'Town to City',  url:'https://town-to-city-guide.vercel.app',       steam:3115220, pages:13, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-25 15:01', update:'v0.7.4e',    eng:5,  pps:0.6,  launch:'6/25' },
+  { id:1, name:'Solarpunk',      url:'https://solarpunk-game-wiki.vercel.app',     steam:1805110, pages:22, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 1.0.3', eng:82, pps:1.45, launch:'6/23' },
+  { id:2, name:'Dispatch',       url:'https://dispatch-guide-sigma.vercel.app',    steam:2592160, pages:16, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Xbox夏季',   eng:662,pps:1.94, launch:'6/23' },
+  { id:3, name:'MENACE',         url:'https://menace-guide.vercel.app',             steam:2432860, pages:19, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#4 SMG', eng:30, pps:0.88, launch:'6/23' },
+  { id:4, name:'Olden Era',      url:'https://olden-era-guide-tau.vercel.app',      steam:3105440, pages:24, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#8#9',  eng:14, pps:0.89, launch:'6/25' },
+  { id:5, name:'Going Medieval', url:'https://going-medieval-guide.vercel.app',     steam:1029780, pages:124,style:'3-古卷羊皮纸', styleTag:'style-3', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.105',   eng:80, pps:1.68, launch:'6/25' },
+  { id:6, name:'Tabletop Tavern',url:'https://tabletop-tavern-guide.vercel.app',   steam:3337380, pages:17, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.6.23',    eng:20, pps:0.88, launch:'6/25' },
+  { id:7, name:'Demon Lord',     url:'https://demon-lord-guide.vercel.app',         steam:3720420, pages:13, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'5月汇总',    eng:63, pps:1.20, launch:'6/25' },
+  { id:8, name:'Town to City',  url:'https://town-to-city-guide.vercel.app',       steam:3115220, pages:17, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v0.7.4e',    eng:5,  pps:0.86, launch:'6/25' },
+  { id:9, name:'Witchspire',    url:'https://witchspire-guide.vercel.app',         steam:2679100, pages:11, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 0.1.3', eng:0,  pps:0.50, launch:'6/26' },
+  { id:10,name:'Vampire Crawlers',url:'https://vampire-crawlers-guide.vercel.app',  steam:3265700, pages:14, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0',       eng:0,  pps:0.50, launch:'6/26' },
 ];
 
 // ── GA4 流量数据（Cola 定期更新此 JSON）─────────
@@ -308,9 +310,9 @@ const GA4_DATA = {
       0,
       0,
       0,
-      0,
-      0,
       1,
+      0,
+      0,
       0
     ]
   },
@@ -320,9 +322,9 @@ const GA4_DATA = {
       0,
       0,
       0,
+      9,
       0,
       0,
-      27,
       0
     ]
   },
@@ -331,11 +333,11 @@ const GA4_DATA = {
       0,
       0,
       0,
-      0,
-      0,
       1,
       10,
-      1
+      4,
+      0,
+      0
     ]
   },
   "3": {
@@ -343,10 +345,10 @@ const GA4_DATA = {
       0,
       0,
       0,
-      0,
-      0,
       1,
-      18,
+      21,
+      2,
+      0,
       0
     ]
   },
@@ -356,10 +358,10 @@ const GA4_DATA = {
       0,
       0,
       0,
-      0,
-      0,
-      36,
-      2
+      37,
+      4,
+      10,
+      1
     ]
   },
   "5": {
@@ -368,10 +370,10 @@ const GA4_DATA = {
       0,
       0,
       0,
+      13,
+      2,
       0,
-      0,
-      12,
-      1
+      0
     ]
   },
   "6": {
@@ -380,10 +382,10 @@ const GA4_DATA = {
       0,
       0,
       0,
+      19,
+      2,
       0,
-      0,
-      16,
-      0
+      3
     ]
   },
   "7": {
@@ -392,136 +394,118 @@ const GA4_DATA = {
       0,
       0,
       0,
+      2,
+      3,
+      1,
+      0
+    ]
+  },
+  "8": {
+    "views": [
+      0,
+      0,
+      0,
       0,
       0,
       1,
-      2
+      0,
+      0
+    ]
+  },
+  "9": {
+    "views": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
     ]
   }
 };
-const GA4_DAYS = ["6/19", "6/20", "6/21", "6/22", "6/23", "6/24", "6/25", "6/26"];
+const GA4_DAYS = ["6/21", "6/22", "6/23", "6/24", "6/25", "6/26", "6/27", "6/28"];
 
 // ── 热门页面（GA4 实时数据，Cola 定期更新）────
 const TOP_PAGES = [
   {
+    "host": "demon-lord-guide.vercel.app",
+    "path": "/",
+    "views": 2,
+    "eng": 3
+  },
+  {
     "host": "going-medieval-guide.vercel.app",
     "path": "/",
-    "views": 38,
-    "eng": 0
+    "views": 2,
+    "eng": 13
+  },
+  {
+    "host": "going-medieval-guide.vercel.app",
+    "path": "/best-crops-tier-list",
+    "views": 2,
+    "eng": 1
+  },
+  {
+    "host": "going-medieval-guide.vercel.app",
+    "path": "/best-defense-layout",
+    "views": 2,
+    "eng": 2
+  },
+  {
+    "host": "demon-lord-guide.vercel.app",
+    "path": "/weapons",
+    "views": 1,
+    "eng": 42
   },
   {
     "host": "dispatch-guide-sigma.vercel.app",
     "path": "/",
-    "views": 27,
+    "views": 1,
+    "eng": 1
+  },
+  {
+    "host": "going-medieval-guide.vercel.app",
+    "path": "/beginner-mistakes",
+    "views": 1,
     "eng": 0
   },
   {
-    "host": "olden-era-guide-tau.vercel.app",
-    "path": "/",
-    "views": 19,
+    "host": "going-medieval-guide.vercel.app",
+    "path": "/chokepoint-guide",
+    "views": 1,
     "eng": 0
   },
   {
-    "host": "demon-lord-guide.vercel.app",
-    "path": "/",
-    "views": 16,
+    "host": "going-medieval-guide.vercel.app",
+    "path": "/moat-design",
+    "views": 1,
+    "eng": 0
+  },
+  {
+    "host": "going-medieval-guide.vercel.app",
+    "path": "/settler-traits-tier-list",
+    "views": 1,
+    "eng": 0
+  },
+  {
+    "host": "going-medieval-guide.vercel.app",
+    "path": "/steel-production-guide",
+    "views": 1,
     "eng": 0
   },
   {
     "host": "solarpunk-game-wiki.vercel.app",
     "path": "/",
-    "views": 13,
-    "eng": 0
-  },
-  {
-    "host": "tabletop-tavern-guide.vercel.app",
-    "path": "/",
-    "views": 13,
-    "eng": 0
-  },
-  {
-    "host": "menace-guide.vercel.app",
-    "path": "/",
-    "views": 12,
-    "eng": 0
-  },
-  {
-    "host": "dispatch-guide-six.vercel.app",
-    "path": "/",
-    "views": 9,
-    "eng": 0
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/tips",
-    "views": 4,
-    "eng": 4
-  },
-  {
-    "host": "dispatch-guide-sigma.vercel.app",
-    "path": "/characters",
-    "views": 3,
-    "eng": 12
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/buildings",
-    "views": 3,
-    "eng": 4
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/news",
-    "views": 3,
-    "eng": 2
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/research",
-    "views": 3,
+    "views": 1,
     "eng": 0
   },
   {
     "host": "town-to-city-guide.vercel.app",
     "path": "/",
-    "views": 3,
+    "views": 1,
     "eng": 0
-  },
-  {
-    "host": "demon-lord-guide.vercel.app",
-    "path": "/bosses",
-    "views": 2,
-    "eng": 2
-  },
-  {
-    "host": "demon-lord-guide.vercel.app",
-    "path": "/builds",
-    "views": 2,
-    "eng": 2
-  },
-  {
-    "host": "dispatch-guide-sigma.vercel.app",
-    "path": "/builds",
-    "views": 2,
-    "eng": 11
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/beginners-guide",
-    "views": 2,
-    "eng": 8
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/farming",
-    "views": 2,
-    "eng": 2
-  },
-  {
-    "host": "tabletop-tavern-guide.vercel.app",
-    "path": "/tier-list",
-    "views": 2,
-    "eng": 9
   }
 ];
 
@@ -573,26 +557,12 @@ async function checkSite(site) {
   try { await fetchWithTimeout(site.url, {mode:'no-cors'}, 5000); r.online=true; } catch(e){}
   if(r.online){
     try { const resp=await fetchWithTimeout(site.url+'/ads.txt', {}, 5000); r.adstxt=(await resp.text()).includes('pub-8925824244664340'); } catch(e){}
-    try {
-      await new Promise((resolve, reject) => {
-        const timer = setTimeout(() => reject(new Error('timeout')), 3000);
-        const img = new Image();
-        img.onload = () => { clearTimeout(timer); resolve(true); };
-        img.onerror = () => { clearTimeout(timer); reject(new Error('404')); };
-        img.src = site.url+'/hero.jpg';
-      });
-      r.hero = true;
-    } catch(e){
+    // Hero: HEAD first, fall back to PNG. resp.ok covers 2xx, no body download.
+    for (const ext of ['.jpg', '.png']) {
       try {
-        await new Promise((resolve, reject) => {
-          const timer = setTimeout(() => reject(new Error('timeout')), 3000);
-          const img = new Image();
-          img.onload = () => { clearTimeout(timer); resolve(true); };
-          img.onerror = () => { clearTimeout(timer); reject(new Error('404')); };
-          img.src = site.url+'/hero.png';
-        });
-        r.hero = true;
-      } catch(e2){}
+        const resp = await fetchWithTimeout(site.url + '/hero' + ext, { method: 'HEAD' }, 4000);
+        if (resp.ok) { r.hero = true; break; }
+      } catch (e) {}
     }
   }
   return r;
