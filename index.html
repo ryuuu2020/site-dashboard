@@ -667,23 +667,24 @@ function renderTraffic(){
 }
 
 function renderActivity(){
-  // Merge static ACTIVITY with auto-generated entries from SITES push timestamps
   let entries = [...ACTIVITY];
-  // Auto-generate from SITES push info
+  // Auto: today's site deployments from SILES.push
+  const today = new Date().toLocaleDateString('zh-CN', {timeZone:'Asia/Shanghai'}).replace(/\//g,'-');
   SITES.forEach(s => {
-    if (s.push && s.update) {
+    if (s.push && s.push.startsWith(today)) {
       entries.push({
         time: s.push.split(' ')[1] || s.push,
         dot: 'push',
-        msg: `${s.name} 部署更新：${s.update}（${s.pages}页）`,
+        msg: `${s.name} 部署 v${s.pages}：${s.update || '内容更新'}`,
         site: s.name
       });
     }
   });
-  // Deduplicate by msg, sort by time desc
+  // Normalize time to HH:MM for sorting
+  const normTime = t => t.length > 5 ? t.split(' ').pop() : t;
   const seen = new Set();
   entries = entries.filter(e => { const k = e.msg; if (seen.has(k)) return false; seen.add(k); return true; });
-  entries.sort((a,b) => b.time.localeCompare(a.time));
+  entries.sort((a,b) => normTime(b.time).localeCompare(normTime(a.time)));
   document.getElementById('activity-feed').innerHTML=entries.slice(0,12).map(a=>`
     <div class="feed-item">
       <span class="time">${a.time}</span>
