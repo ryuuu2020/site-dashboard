@@ -217,14 +217,14 @@
   <!-- 概览统计 -->
   <div class="stats">
     <div class="stat good">
-      <div class="label">站点总数</div><div class="value">8</div>
+      <div class="label">站点总数</div><div class="value" id="stat-site-count">—</div>
     </div>
     <div class="stat good">
       <div class="label">在线</div><div class="value green" id="stat-online">—</div>
     </div>
     <div class="stat warn">
-      <div class="label">总页数</div><div class="value blue">116</div>
-      <div class="sub">平均 16.6 页/站</div>
+      <div class="label">总页数</div><div class="value blue" id="stat-total-pages">—</div>
+      <div class="sub" id="stat-avg-pages">—</div>
     </div>
     <div class="stat info">
       <div class="label">设计风格</div><div class="value blue">4 种</div>
@@ -609,6 +609,11 @@ function renderRow(site,live,i){
 
 function renderAll(liveResults){
   document.getElementById('site-table').innerHTML=SITES.map((s,i)=>renderRow(s,liveResults?.[i], i)).join('');
+  // 动态更新 stats 数据
+  document.getElementById('stat-site-count').textContent=SITES.length;
+  const totalPages=SITES.reduce((sum,s)=>sum+(s.pages||0),0);
+  document.getElementById('stat-total-pages').textContent=totalPages;
+  document.getElementById('stat-avg-pages').textContent='平均 '+(totalPages/SITES.length).toFixed(1)+' 页/站';
   if(liveResults){
     const online=liveResults.filter(r=>r.online).length;
     const heroOK=liveResults.filter(r=>r.hero).length;
