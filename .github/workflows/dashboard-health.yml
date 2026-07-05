@@ -1,0 +1,107 @@
+name: Dashboard Health
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 4,16 * * *'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run health audit
+        id: audit
+        run: |
+          set +e
+          node scripts/dashboard-health-check.mjs
+          exit_code=$?
+          echo "exit_code=$exit_code" >> "$GITHUB_OUTPUT"
+          exit 0
+        env:
+          DASHBOARD_BASE_URL: https://site-dashboard-theta.vercel.app
+          REPORT_DIR: reports/health
+
+      - name: Try auto repair
+        if: steps.audit.outputs.exit_code != '0'
+        run: node scripts/dashboard-auto-repair.mjs
+        env:
+          REPORT_JSON: reports/health/latest.json
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: dashboard-health-report
+          path: reports/health/
+
+      - name: Append job summary
+        run: cat reports/health/latest.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upsert failure issue
+        if: steps.audit.outputs.exit_code != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const title = '[dashboard-health] Automated report';
+            const body = fs.readFileSync('reports/health/latest.md', 'utf8');
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            const existing = issues.find((issue) => issue.title === title);
+            if (existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
+
+      - name: Close failure issue when healthy
+        if: steps.audit.outputs.exit_code == '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '[dashboard-health] Automated report';
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            const existing = issues.find((issue) => issue.title === title);
+            if (existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                state: 'closed',
+              });
+            }
+
+      - name: Fail job on unhealthy result
+        if: steps.audit.outputs.exit_code != '0'
+        run: exit 1

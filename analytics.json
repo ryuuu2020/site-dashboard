@@ -1,0 +1,438 @@
+{
+  "generatedAt": "2026-07-05T09:12:21.654194",
+  "source": "ga4-report-fallback",
+  "fallbackError": "Token request failed: <urlopen error timed out>",
+  "period": {
+    "start": "2026-06-28",
+    "end": "2026-07-04",
+    "label": "2026-06-28 ~ 2026-07-04"
+  },
+  "trafficDays": [
+    "06-28",
+    "06-29",
+    "06-30",
+    "07-01",
+    "07-02",
+    "07-03",
+    "07-04"
+  ],
+  "siteStats": [
+    {
+      "name": "Solarpunk",
+      "host": "solarpunk.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 17,
+      "sessions": 13,
+      "users": 9,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 1.31
+    },
+    {
+      "name": "Dispatch",
+      "host": "dispatch.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 40,
+      "sessions": 26,
+      "users": 22,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 1.54
+    },
+    {
+      "name": "MENACE",
+      "host": "menace.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 15,
+      "sessions": 17,
+      "users": 14,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0.88
+    },
+    {
+      "name": "Olden Era",
+      "host": "oldenera.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 24,
+      "sessions": 27,
+      "users": 23,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0.89
+    },
+    {
+      "name": "Going Medieval",
+      "host": "goingmedieval.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 52,
+      "sessions": 31,
+      "users": 28,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 1.68
+    },
+    {
+      "name": "Tabletop Tavern",
+      "host": "tabletoptavern.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 15,
+      "sessions": 17,
+      "users": 15,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0.88
+    },
+    {
+      "name": "Demon Lord",
+      "host": "demonlord.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 23,
+      "sessions": 19,
+      "users": 17,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 1.21
+    },
+    {
+      "name": "Town to City",
+      "host": "towntocity.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 6,
+      "sessions": 7,
+      "users": 6,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0.86
+    },
+    {
+      "name": "Witchspire",
+      "host": "witchspire.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 1,
+      "sessions": 2,
+      "users": 1,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0.5
+    },
+    {
+      "name": "Vampire Crawlers",
+      "host": "vampirecrawlers.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 1,
+      "sessions": 2,
+      "users": 1,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0.5
+    },
+    {
+      "name": "Cairn",
+      "host": "cairn.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    },
+    {
+      "name": "Mewgenics",
+      "host": "mewgenics.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    },
+    {
+      "name": "Die in the Dungeon",
+      "host": "dieinthedungeon.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    },
+    {
+      "name": "Nova Roma",
+      "host": "novaroma.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    },
+    {
+      "name": "Space Haven",
+      "host": "spacehaven.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    },
+    {
+      "name": "Realm of Ink",
+      "host": "realmofink.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    },
+    {
+      "name": "shapez 2",
+      "host": "shapez2.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    },
+    {
+      "name": "Alabaster Dawn",
+      "host": "alabasterdawn.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    },
+    {
+      "name": "Terra Invicta",
+      "host": "terrainvicta.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    },
+    {
+      "name": "HumanitZ",
+      "host": "humanitz.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    },
+    {
+      "name": "Adira Nusantara",
+      "host": "adiranusantara.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
+    }
+  ],
+  "topPagesByHost": {
+    "goingmedieval.gguidehub.com": [
+      {
+        "path": "/",
+        "views": 18,
+        "eng": 0
+      },
+      {
+        "path": "/buildings",
+        "views": 4,
+        "eng": 0
+      },
+      {
+        "path": "/tips",
+        "views": 4,
+        "eng": 0
+      },
+      {
+        "path": "/news",
+        "views": 3,
+        "eng": 0
+      },
+      {
+        "path": "/research",
+        "views": 3,
+        "eng": 0
+      },
+      {
+        "path": "/beginners-guide",
+        "views": 2,
+        "eng": 0
+      },
+      {
+        "path": "/best-crops-tier-list",
+        "views": 2,
+        "eng": 0
+      }
+    ]
+  }
+}

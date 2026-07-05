@@ -81,6 +81,12 @@
     color:var(--text-muted); margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem;
   }
   .section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+  .section-meta {
+    margin:-0.35rem 0 0.75rem;
+    font-size:0.6875rem;
+    color:var(--text-muted);
+    font-family:'SF Mono',monospace;
+  }
 
   /* Table */
   .table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:0.5rem; }
@@ -210,7 +216,7 @@
         <span>|</span>
         <span id="scan-status">就绪</span>
       </span>
-      <button class="btn primary" onclick="scanAll()" id="scan-btn">⟳ 扫描全网</button>
+      <button class="btn primary" id="scan-btn">⟳ 扫描全网</button>
     </div>
   </div>
 
@@ -242,14 +248,13 @@
   <!-- 流量概览（GA4 数据） -->
   <div class="section">
     <div class="section-title">📊 近7日流量（GA4）</div>
+    <div class="section-meta" id="traffic-meta">等待载入数据源…</div>
     <div class="traffic-grid" id="traffic-grid">
       <!-- JS fills this -->
     </div>
     <div class="traffic-placeholder" id="traffic-placeholder" style="display:none">
-      <h3>📊 GA4 数据待接入</h3>
-      <p>需要在 GA4 后台添加服务账号：<br>
-      <code>cola-monitor@wechat-sticker-gen.iam.gserviceaccount.com</code><br>
-      路径：GA4 管理 → 属性 G-ET6778V62K → 属性访问管理 → 添加用户（查看者权限）</p>
+      <h3>📊 暂无可用流量快照</h3>
+      <p>当前没有读到新的 GA4 快照。页面会优先显示最近一次导出的快照时间，不再用写死样例冒充实时数据。</p>
     </div>
   </div>
 
@@ -258,6 +263,7 @@
   <!-- 站点状态矩阵 -->
   <div class="section">
     <div class="section-title">🖥 站点状态矩阵</div>
+    <div class="section-meta" id="scan-meta">等待首次扫描…</div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -277,6 +283,7 @@
   <!-- 最近动态 -->
   <div class="section">
     <div class="section-title">📋 最近动态</div>
+    <div class="section-meta" id="activity-meta">等待载入动态源…</div>
     <div class="feed" id="activity-feed"></div>
   </div>
 
@@ -287,260 +294,207 @@
 
 <script>
 // ── 站点数据 ──────────────────────────────────
-const SITES = [
-  { id:1, name:'Solarpunk',      url:'https://solarpunk-game-wiki.vercel.app',     steam:1805110, pages:22, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 1.0.3', eng:82, pps:1.45, launch:'6/23' },
-  { id:2, name:'Dispatch',       url:'https://dispatch-guide-sigma.vercel.app',    steam:2592160, pages:16, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Xbox夏季',   eng:662,pps:1.94, launch:'6/23' },
-  { id:3, name:'MENACE',         url:'https://menace-guide.vercel.app',             steam:2432860, pages:19, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#4 SMG', eng:30, pps:0.88, launch:'6/23' },
-  { id:4, name:'Olden Era',      url:'https://olden-era-guide-tau.vercel.app',      steam:3105440, pages:24, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#8#9',  eng:14, pps:0.89, launch:'6/25' },
-  { id:5, name:'Going Medieval', url:'https://going-medieval-guide.vercel.app',     steam:1029780, pages:124,style:'3-古卷羊皮纸', styleTag:'style-3', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.105',   eng:80, pps:1.68, launch:'6/25' },
-  { id:6, name:'Tabletop Tavern',url:'https://tabletop-tavern-guide.vercel.app',   steam:3337380, pages:17, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.6.23',    eng:20, pps:0.88, launch:'6/25' },
-  { id:7, name:'Demon Lord',     url:'https://demon-lord-guide.vercel.app',         steam:3720420, pages:13, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'5月汇总',    eng:63, pps:1.20, launch:'6/25' },
-  { id:8, name:'Town to City',  url:'https://town-to-city-guide.vercel.app',       steam:3115220, pages:17, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v0.7.4e',    eng:5,  pps:0.86, launch:'6/25' },
-  { id:9, name:'Witchspire',    url:'https://witchspire-guide.vercel.app',         steam:2679100, pages:11, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 0.1.3', eng:0,  pps:0.50, launch:'6/26' },
-  { id:10,name:'Vampire Crawlers',url:'https://vampire-crawlers-guide.vercel.app',  steam:3265700, pages:14, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0',       eng:0,  pps:0.50, launch:'6/26' },
+const DEFAULT_SITES = [
+  { id:1, name:'Solarpunk',      url:'https://solarpunk.gguidehub.com',     steam:1805110, pages:22, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 1.0.3', eng:82, pps:1.45, launch:'6/23' },
+  { id:2, name:'Dispatch',       url:'https://dispatch.gguidehub.com',    steam:2592160, pages:16, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Xbox夏季',   eng:662,pps:1.94, launch:'6/23' },
+  { id:3, name:'MENACE',         url:'https://menace.gguidehub.com',             steam:2432860, pages:19, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#4 SMG', eng:30, pps:0.88, launch:'6/23' },
+  { id:4, name:'Olden Era',      url:'https://oldenera.gguidehub.com',      steam:3105440, pages:24, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#8#9',  eng:14, pps:0.89, launch:'6/25' },
+  { id:5, name:'Going Medieval', url:'https://goingmedieval.gguidehub.com',     steam:1029780, pages:124,style:'3-古卷羊皮纸', styleTag:'style-3', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.105',   eng:80, pps:1.68, launch:'6/25' },
+  { id:6, name:'Tabletop Tavern',url:'https://tabletoptavern.gguidehub.com',   steam:3337380, pages:17, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.6.23',    eng:20, pps:0.88, launch:'6/25' },
+  { id:7, name:'Demon Lord',     url:'https://demonlord.gguidehub.com',         steam:3720420, pages:13, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'5月汇总',    eng:63, pps:1.20, launch:'6/25' },
+  { id:8, name:'Town to City',  url:'https://towntocity.gguidehub.com',       steam:3115220, pages:17, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v0.7.4e',    eng:5,  pps:0.86, launch:'6/25' },
+  { id:9, name:'Witchspire',    url:'https://witchspire.gguidehub.com',         steam:2679100, pages:11, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 0.1.3', eng:0,  pps:0.50, launch:'6/26' },
+  { id:10,name:'Vampire Crawlers',url:'https://vampirecrawlers.gguidehub.com',  steam:3265700, pages:14, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0',       eng:0,  pps:0.50, launch:'6/26' },
+  { id:11,name:'Cairn',          url:'https://cairn.gguidehub.com',             steam:1588550, pages:18, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.5',     eng:11, pps:0.85, launch:'6/26' },
+  { id:12,name:'Mewgenics',      url:'https://mewgenics.gguidehub.com',        steam:686060,  pages:19, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0',       eng:15, pps:0.80, launch:'6/26' },
+  { id:13,name:'Nova Roma',      url:'https://novaroma.gguidehub.com',         steam:2426530, pages:21, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v0.4.1',     eng:52, pps:0.92, launch:'6/26' },
+  { id:14,name:'Die in the Dungeon',url:'https://dieinthedungeon.gguidehub.com',steam:2026820,pages:24, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.4',     eng:18, pps:0.88, launch:'6/26' },
+  { id:15,name:'Space Haven',     url:'https://spacehaven.gguidehub.com',      steam:979110,  pages:8,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.3',     eng:0,  pps:0,    launch:'7/2' },
+  { id:16,name:'Realm of Ink',    url:'https://realmofink.gguidehub.com',     steam:2597080, pages:8,  style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.2',     eng:0,  pps:0,    launch:'7/2' },
+  { id:17,name:'shapez 2',        url:'https://shapez2.gguidehub.com',       steam:2162800, pages:8,  style:'5-工业电路',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0',       eng:0,  pps:0,    launch:'7/2' },
+  { id:18,name:'Alabaster Dawn',  url:'https://alabasterdawn.gguidehub.com',   steam:3110760, pages:8,  style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'EA 0.3',     eng:0,  pps:0,    launch:'7/2' },
+  { id:19,name:'Terra Invicta',  url:'https://terrainvicta.gguidehub.com',    steam:1176470, pages:8,  style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.3',     eng:0,  pps:0,    launch:'7/2' },
+  { id:20,name:'HumanitZ',        url:'https://humanitz.gguidehub.com',       steam:1766060, pages:8,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.2',     eng:0,  pps:0,    launch:'7/2' },
+  { id:21,name:'Adira Nusantara', url:'https://adiranusantara.gguidehub.com', steam:3522550, pages:5,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'07-05 08:55', update:'feat: initial site', eng:0,  pps:0,    launch:'7/5' },
 ];
+let SITES = [];
 
-// ── GA4 流量数据（Cola 定期更新此 JSON）─────────
-// 格式：{ siteIndex: { dates:['6/18',...], views:[0,...] } }
-// 当前为模拟数据，GA4 API 接入后自动填充
-const GA4_DATA = {
-  "0": {
-    "views": [
-      0,
-      0,
-      0,
-      0,
-      1,
-      0,
-      0,
-      0
-    ]
-  },
-  "1": {
-    "views": [
-      0,
-      0,
-      0,
-      0,
-      9,
-      0,
-      0,
-      0
-    ]
-  },
-  "2": {
-    "views": [
-      0,
-      0,
-      0,
-      1,
-      10,
-      4,
-      0,
-      0
-    ]
-  },
-  "3": {
-    "views": [
-      0,
-      0,
-      0,
-      1,
-      21,
-      2,
-      0,
-      0
-    ]
-  },
-  "4": {
-    "views": [
-      0,
-      0,
-      0,
-      0,
-      37,
-      4,
-      10,
-      1
-    ]
-  },
-  "5": {
-    "views": [
-      0,
-      0,
-      0,
-      0,
-      13,
-      2,
-      0,
-      0
-    ]
-  },
-  "6": {
-    "views": [
-      0,
-      0,
-      0,
-      0,
-      19,
-      2,
-      0,
-      3
-    ]
-  },
-  "7": {
-    "views": [
-      0,
-      0,
-      0,
-      0,
-      2,
-      3,
-      1,
-      0
-    ]
-  },
-  "8": {
-    "views": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      1,
-      0,
-      0
-    ]
-  },
-  "9": {
-    "views": [
-      0,
-      0,
-      0,
-      0,
-      0,
-      1,
-      0,
-      0
-    ]
-  }
+const SITE_API_ENDPOINTS = [
+  './sites.json',
+  './api/sites',
+];
+const ANALYTICS_API_ENDPOINTS = [
+  './analytics.json',
+  './api/analytics',
+];
+const ACTIVITY_API_ENDPOINTS = [
+  './activity.json',
+  './api/activity',
+];
+const SCAN_API_ENDPOINT = './api/site-status';
+let ANALYTICS = {
+  generatedAt: null,
+  source: 'empty',
+  fallbackError: null,
+  period: null,
+  trafficDays: [],
+  siteStatsByHost: {},
+  topPagesByHost: {},
 };
-const GA4_DAYS = ["6/21", "6/22", "6/23", "6/24", "6/25", "6/26", "6/27", "6/28"];
+let ACTIVITY_FEED = [];
+let DATA_SOURCES = { sites: 'fallback', analytics: 'empty', activity: 'empty' };
+let LAST_SCAN_RESULTS = null;
+let LAST_SCAN_META = {
+  source: 'idle',
+  generated: null,
+  durationMs: null,
+  endpoint: SCAN_API_ENDPOINT,
+  error: null,
+};
 
-// ── 热门页面（GA4 实时数据，Cola 定期更新）────
-const TOP_PAGES = [
-  {
-    "host": "demon-lord-guide.vercel.app",
-    "path": "/",
-    "views": 2,
-    "eng": 3
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/",
-    "views": 2,
-    "eng": 13
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/best-crops-tier-list",
-    "views": 2,
-    "eng": 1
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/best-defense-layout",
-    "views": 2,
-    "eng": 2
-  },
-  {
-    "host": "demon-lord-guide.vercel.app",
-    "path": "/weapons",
-    "views": 1,
-    "eng": 42
-  },
-  {
-    "host": "dispatch-guide-sigma.vercel.app",
-    "path": "/",
-    "views": 1,
-    "eng": 1
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/beginner-mistakes",
-    "views": 1,
-    "eng": 0
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/chokepoint-guide",
-    "views": 1,
-    "eng": 0
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/moat-design",
-    "views": 1,
-    "eng": 0
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/settler-traits-tier-list",
-    "views": 1,
-    "eng": 0
-  },
-  {
-    "host": "going-medieval-guide.vercel.app",
-    "path": "/steel-production-guide",
-    "views": 1,
-    "eng": 0
-  },
-  {
-    "host": "solarpunk-game-wiki.vercel.app",
-    "path": "/",
-    "views": 1,
-    "eng": 0
-  },
-  {
-    "host": "town-to-city-guide.vercel.app",
-    "path": "/",
-    "views": 1,
-    "eng": 0
+function normalizeSite(site, index) {
+  return {
+    id: site.id ?? index + 1,
+    name: site.name ?? `Site ${index + 1}`,
+    dir: site.dir ?? '',
+    url: site.url ?? '',
+    steam: Number(site.steam) || 0,
+    pages: Number(site.pages) || 0,
+    style: site.style ?? '未知',
+    styleTag: site.styleTag ?? 'style-a',
+    feats: {
+      adsense: 1,
+      adstxt: 1,
+      afdian: 1,
+      ga4: 1,
+      gsc: 1,
+      ...(site.feats || {}),
+    },
+    push: site.push ?? '',
+    update: site.update ?? '',
+    eng: Number(site.eng) || 0,
+    pps: Number(site.pps) || 0,
+    launch: site.launch ?? '?',
+    draft: Boolean(site.draft),
+  };
+}
+
+function siteHost(site) {
+  return (site?.url || '').replace('https://', '').replace(/\/+$/, '');
+}
+
+function getSiteAnalytics(site) {
+  return ANALYTICS.siteStatsByHost?.[siteHost(site)] || null;
+}
+
+async function fetchJsonPayload(endpoint) {
+  try {
+    const resp = await fetchWithTimeout(`${endpoint}?ts=${Date.now()}`, { cache: 'no-store' }, 8000);
+    if (!resp.ok) {
+      throw new Error(`${endpoint} ${resp.status}`);
+    }
+    return await resp.json();
+  } catch (error) {
+    console.warn(`Failed to load ${endpoint}`, error);
+    return null;
   }
-];
+}
+
+async function loadSites() {
+  for (const endpoint of SITE_API_ENDPOINTS) {
+    const data = await fetchJsonPayload(endpoint);
+    if (Array.isArray(data?.sites) && data.sites.length > 0) {
+      SITES = data.sites.map(normalizeSite);
+      return {
+        source: endpoint.includes('/api/') ? 'api' : 'manifest',
+        count: SITES.length,
+      };
+    }
+  }
+
+  console.warn('Failed to load live site manifest, using embedded site list instead.');
+  SITES = DEFAULT_SITES.map(normalizeSite);
+  return { source: 'fallback', count: SITES.length };
+}
+
+function normalizeAnalyticsPayload(payload) {
+  const siteStatsByHost = {};
+  for (const stat of payload?.siteStats || []) {
+    if (!stat?.host) continue;
+    siteStatsByHost[stat.host] = {
+      name: stat.name || '',
+      host: stat.host,
+      viewsByDay: Array.isArray(stat.viewsByDay) ? stat.viewsByDay.map((value) => Number(value) || 0) : [],
+      totalViews: Number(stat.totalViews) || 0,
+      sessions: Number(stat.sessions) || 0,
+      users: Number(stat.users) || 0,
+      avgSessionDuration: Number(stat.avgSessionDuration) || 0,
+      pagesPerSession: Number(stat.pagesPerSession) || 0,
+    };
+  }
+  return {
+    generatedAt: payload?.generatedAt || null,
+    source: payload?.source || 'snapshot',
+    fallbackError: payload?.fallbackError || null,
+    period: payload?.period || null,
+    trafficDays: Array.isArray(payload?.trafficDays) ? payload.trafficDays : [],
+    siteStatsByHost,
+    topPagesByHost: payload?.topPagesByHost || {},
+  };
+}
+
+async function loadAnalytics() {
+  for (const endpoint of ANALYTICS_API_ENDPOINTS) {
+    const data = await fetchJsonPayload(endpoint);
+    if (Array.isArray(data?.siteStats)) {
+      ANALYTICS = normalizeAnalyticsPayload(data);
+      return { source: endpoint.includes('/api/') ? 'api' : 'snapshot' };
+    }
+  }
+  ANALYTICS = normalizeAnalyticsPayload(null);
+  return { source: 'empty' };
+}
+
+function normalizeActivityPayload(payload) {
+  return Array.isArray(payload?.entries) ? payload.entries.map((entry) => ({
+    time: entry.time || '',
+    timestamp: entry.timestamp || '',
+    dot: entry.dot || 'push',
+    msg: entry.msg || '内容更新',
+    site: entry.site || '',
+  })) : [];
+}
+
+async function loadActivity() {
+  for (const endpoint of ACTIVITY_API_ENDPOINTS) {
+    const data = await fetchJsonPayload(endpoint);
+    if (Array.isArray(data?.entries) && data.entries.length > 0) {
+      ACTIVITY_FEED = normalizeActivityPayload(data);
+      return { source: data?.source || (endpoint.includes('/api/') ? 'api' : 'snapshot') };
+    }
+  }
+  ACTIVITY_FEED = [];
+  return { source: 'empty' };
+}
 
 function renderTopPagesForHost(host) {
-  const pages = TOP_PAGES.filter(p => p.host === host);
+  const pages = ANALYTICS.topPagesByHost?.[host] || [];
   if (pages.length === 0) {
-    return `<div class="expand-inner"><div class="empty">近 1 日无页面浏览数据</div></div>`;
+    return `<div class="expand-inner"><div class="empty">当前快照中无该站点热门页面数据</div></div>`;
   }
-  const rows = pages.map(p => {
-    const url = `https://${p.host}${p.path === '/' ? '/' : p.path}`;
+  const rows = pages.map((page) => {
+    const url = `https://${host}${page.path === '/' ? '/' : page.path}`;
     return `<div class="pp-row">
-      <span class="pp-path"><a href="${url}" target="_blank">${p.path}</a></span>
-      <span class="pp-views">${p.views}</span>
-      <span class="pp-eng">${p.eng}s</span>
+      <span class="pp-path"><a href="${url}" target="_blank">${page.path}</a></span>
+      <span class="pp-views">${page.views}</span>
+      <span class="pp-eng">${page.eng}s</span>
     </div>`;
   }).join('');
   return `<div class="expand-inner">
-    <div class="pp-title">🔥 热门页面（近 1 日）</div>
+    <div class="pp-title">🔥 热门页面（GA4 快照）</div>
     <div class="pp-list">${rows}</div>
   </div>`;
 }
-
-// ── 动态 ──────────────────────────────────────
-const ACTIVITY = [
-  { time:'20:30', dot:'update',msg:'Going Medieval 扩写至 124 页，内容简报 50 天 100% 覆盖', site:'Going Medieval' },
-  { time:'20:15', dot:'fix',   msg:'Dashboard 修复：站点总数/GA4/页面数 全部动态化', site:'' },
-  { time:'18:10', dot:'update',msg:'Going Medieval Batch 3：+29 页（战斗/居民/建造/农耕）', site:'Going Medieval' },
-  { time:'16:45', dot:'update',msg:'Going Medieval Batch 2：+15 页，修复 61 处 JSX 语法', site:'Going Medieval' },
-  { time:'14:20', dot:'update',msg:'9 站批量扩展 +19 页长尾词，提交 Sitemap 到 GSC', site:'' },
-  { time:'13:00', dot:'fix',   msg:'GSC API 打通，10 站 Sitemap 全部提交', site:'' },
-  { time:'11:30', dot:'update',msg:'Going Medieval Batch 1：+19 页（防御/农耕/建造）', site:'Going Medieval' },
-  { time:'10:00', dot:'update',msg:'10 站 metadata + E-E-A-T + JSON-LD Schema 统一补齐', site:'' },
-  { time:'08:20', dot:'fix',   msg:'10 站 WCAG AA 对比度通过，清除 Inter 字体痕迹', site:'' },
-  { time:'06-27', dot:'launch',msg:'10 站全部上线，进入聚焦模式（旗舰站扩写）', site:'' },
-];
 
 // ── 扫描逻辑 ──────────────────────────────────
 async function fetchWithTimeout(url, opts={}, timeout=5000) {
@@ -553,20 +507,26 @@ async function fetchWithTimeout(url, opts={}, timeout=5000) {
   }
 }
 
-async function checkSite(site) {
-  const r = { online:false, hero:false, adstxt:false };
-  try { await fetchWithTimeout(site.url, {mode:'no-cors'}, 5000); r.online=true; } catch(e){}
-  if(r.online){
-    try { const resp=await fetchWithTimeout(site.url+'/ads.txt', {}, 5000); r.adstxt=(await resp.text()).includes('pub-8925824244664340'); } catch(e){}
-    // Hero: HEAD first, fall back to PNG. resp.ok covers 2xx, no body download.
-    for (const ext of ['.jpg', '.png']) {
-      try {
-        const resp = await fetchWithTimeout(site.url + '/hero' + ext, { method: 'HEAD' }, 4000);
-        if (resp.ok) { r.hero = true; break; }
-      } catch (e) {}
-    }
+async function scanSitesViaApi() {
+  const resp = await fetchWithTimeout(`${SCAN_API_ENDPOINT}?ts=${Date.now()}`, { cache: 'no-store' }, 15000);
+  if (!resp.ok) {
+    throw new Error(`HTTP ${resp.status}`);
   }
-  return r;
+  const data = await resp.json();
+  if (!Array.isArray(data?.results) || data.results.length !== SITES.length) {
+    throw new Error(`invalid result length: ${data?.results?.length ?? 'null'} vs ${SITES.length}`);
+  }
+  return {
+    source: data?.source || 'server-scan',
+    generated: data?.generated || null,
+    durationMs: Number(data?.durationMs) || 0,
+    endpoint: SCAN_API_ENDPOINT,
+    results: data.results.map((result) => ({
+      online: Boolean(result?.online),
+      hero: Boolean(result?.hero),
+      adstxt: Boolean(result?.adstxt),
+    })),
+  };
 }
 
 const ICONS={pass:'✓',fail:'✗',wait:'…'};
@@ -574,6 +534,7 @@ function CLS(v,live){return v?'check pass'+(live?' live-check':''):'check fail';
 
 function renderRow(site,live,i){
   const f=site.feats;
+  const stats = getSiteAnalytics(site);
   const o=live?(live.online?ICONS.pass:ICONS.fail):ICONS.wait;
   const oCls=live?(live.online?'check pass live-check':'check fail live-check'):'check wait';
   const h=live?(live.hero?ICONS.pass:ICONS.fail):ICONS.wait;
@@ -596,15 +557,15 @@ function renderRow(site,live,i){
     <td><span class="${CLS(f.afdian,false)}">${f.afdian?ICONS.pass:ICONS.fail}</span></td>
     <td><span class="${CLS(f.ga4,false)}">${f.ga4?ICONS.pass:ICONS.fail}</span></td>
     <td><span class="${CLS(f.gsc,false)}">${f.gsc?ICONS.pass:ICONS.fail}</span></td>
+    <td class="num" style="font-weight:700;color:var(--blue-text)">${stats?.totalViews||0}</td>
+    <td class="num">${stats?.avgSessionDuration||0}</td>
+    <td class="num">${stats?.pagesPerSession||0}</td>
     <td class="muted">${site.push}</td>
     <td class="muted" style="max-width:120px;overflow:hidden;text-overflow:ellipsis">${site.update}</td>
     <td class="muted"><a href="https://store.steampowered.com/app/${site.steam}" target="_blank" style="color:var(--text-muted);text-decoration:none">${site.steam}</a></td>
-    <td class="num" style="font-weight:700;color:var(--blue-text)">${GA4_DATA[i]?.views?.reduce((a,b)=>a+b,0)||0}</td>
-    <td class="num">${site.eng||0}</td>
-    <td class="num">${site.pps||0}</td>
   </tr>
-  <tr class="expand-row" data-expand-host="${site.url.replace('https://','')}">
-    <td colspan="16">${renderTopPagesForHost(site.url.replace('https://',''))}</td>
+  <tr class="expand-row" data-expand-host="${siteHost(site)}">
+    <td colspan="17">${renderTopPagesForHost(siteHost(site))}</td>
   </tr>`;
 }
 
@@ -614,7 +575,7 @@ function renderAll(liveResults){
   document.getElementById('stat-site-count').textContent=SITES.length;
   const totalPages=SITES.reduce((sum,s)=>sum+(s.pages||0),0);
   document.getElementById('stat-total-pages').textContent=totalPages;
-  document.getElementById('stat-avg-pages').textContent='平均 '+(totalPages/SITES.length).toFixed(1)+' 页/站';
+  document.getElementById('stat-avg-pages').textContent=SITES.length ? '平均 '+(totalPages/SITES.length).toFixed(1)+' 页/站' : '暂无站点';
   if(liveResults){
     const online=liveResults.filter(r=>r.online).length;
     const heroOK=liveResults.filter(r=>r.hero).length;
@@ -630,21 +591,41 @@ function renderAll(liveResults){
   }
 }
 
+function renderScanMeta() {
+  const el = document.getElementById('scan-meta');
+  if (!el) return;
+  if (LAST_SCAN_META.source === 'idle') {
+    el.textContent = '等待首次扫描…';
+    return;
+  }
+  if (LAST_SCAN_META.source === 'error') {
+    el.textContent = `扫描失败 · ${LAST_SCAN_META.error || '未知错误'} · 未使用浏览器回退`;
+    return;
+  }
+  const generated = LAST_SCAN_META.generated
+    ? new Date(LAST_SCAN_META.generated).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })
+    : '未知时间';
+  const duration = LAST_SCAN_META.durationMs ? `${LAST_SCAN_META.durationMs}ms` : '—';
+  el.textContent = `来源 ${LAST_SCAN_META.source} · ${generated} · ${duration} · ${SITES.length} 站`;
+}
+
 // ── 流量卡片 ──────────────────────────────────
 function renderTraffic(){
   const grid=document.getElementById('traffic-grid');
-  const hasData=Object.values(GA4_DATA).some(d=>d.views.some(v=>v>0));
+  const statsList = Object.values(ANALYTICS.siteStatsByHost || {});
+  const hasData = statsList.some((stat) => (stat.totalViews || 0) > 0);
+  const trafficMeta = document.getElementById('traffic-meta');
+  trafficMeta.textContent = ANALYTICS.generatedAt
+    ? `来源 ${ANALYTICS.source} · 快照 ${ANALYTICS.generatedAt.replace('T',' ').slice(0,16)} · 周期 ${ANALYTICS.period?.label || '未知'}${ANALYTICS.fallbackError ? ` · fallback: ${ANALYTICS.fallbackError}` : ''}`
+    : '当前没有可用的 GA4 快照';
   if(!hasData){ document.getElementById('traffic-placeholder').style.display='block'; grid.innerHTML=''; return; }
   document.getElementById('traffic-placeholder').style.display='none';
 
   grid.innerHTML=SITES.map((site,i)=>{
-    const data=GA4_DATA[i]||{views:[0,0,0,0,0,0,0,0]};
-    // Figure out how many days to show: from site launch to today
-    const launchIdx=GA4_DAYS.findIndex(d=>d===site.launch);
-    const startIdx=launchIdx>=0?launchIdx:0;
-    const relevantViews=data.views.slice(startIdx);
-    const relevantDays=GA4_DAYS.slice(startIdx);
-    const total=relevantViews.reduce((a,b)=>a+b,0);
+    const data=getSiteAnalytics(site)||{viewsByDay:[], totalViews:0};
+    const relevantViews=Array.isArray(data.viewsByDay) ? data.viewsByDay : [];
+    const relevantDays=Array.isArray(ANALYTICS.trafficDays) ? ANALYTICS.trafficDays : [];
+    const total=Number(data.totalViews)||0;
     const maxView=Math.max(1,...relevantViews);
 
     const bars=relevantViews.map((v,j)=>{
@@ -654,37 +635,40 @@ function renderTraffic(){
       return `<div class="bar" style="height:${h}px;background:${color}">${showLabel?`<span>${v}</span>`:''}</div>`;
     }).join('');
 
-    const dayLabel=relevantDays.length===1?'今日':'近'+relevantDays.length+'天';
+    const hasSeries=relevantViews.length>0&&relevantDays.length>0;
+    const dayLabel=hasSeries?(relevantDays.length===1?'近1天':'近'+relevantDays.length+'天'):'仅总览快照';
     return `<div class="traffic-card">
       <div class="bar-col">${bars}</div>
       <div class="info">
         <div class="site-label"><a href="${site.url}" target="_blank" style="color:#e2e8f0;text-decoration:none">${site.name}</a></div>
         <div class="metric">${total} <span style="font-size:0.625rem;font-weight:400">次浏览</span></div>
-        <div class="metric-label">${relevantDays[0]} – ${relevantDays[relevantDays.length-1]} · ${dayLabel}</div>
+        <div class="metric-label">${hasSeries ? `${relevantDays[0]} – ${relevantDays[relevantDays.length-1]} · ${dayLabel}` : dayLabel}</div>
       </div>
     </div>`;
   }).join('');
 }
 
 function renderActivity(){
-  let entries = [...ACTIVITY];
-  // Auto: today's site deployments from SILES.push
-  const today = new Date().toLocaleDateString('zh-CN', {timeZone:'Asia/Shanghai'}).replace(/\//g,'-');
-  SITES.forEach(s => {
-    if (s.push && s.push.startsWith(today)) {
-      entries.push({
-        time: s.push.split(' ')[1] || s.push,
-        dot: 'push',
-        msg: `${s.name} 部署 v${s.pages}：${s.update || '内容更新'}`,
-        site: s.name
-      });
-    }
-  });
-  // Normalize time to HH:MM for sorting
-  const normTime = t => t.length > 5 ? t.split(' ').pop() : t;
+  const activityMeta = document.getElementById('activity-meta');
+  activityMeta.textContent = DATA_SOURCES.activity === 'empty'
+    ? '当前没有可用动态源'
+    : `来源 ${DATA_SOURCES.activity} · 最近提交与部署事件`;
+  let entries = [...ACTIVITY_FEED];
+  if (entries.length === 0) {
+    entries = SITES.filter((site) => site.push || site.update).map((site) => ({
+      time: site.push || '—',
+      dot: 'push',
+      msg: site.update || '内容更新',
+      site: site.name,
+    }));
+  }
   const seen = new Set();
-  entries = entries.filter(e => { const k = e.msg; if (seen.has(k)) return false; seen.add(k); return true; });
-  entries.sort((a,b) => normTime(b.time).localeCompare(normTime(a.time)));
+  entries = entries.filter(e => {
+    const k = `${e.site}:${e.msg}:${e.time}`;
+    if (seen.has(k)) return false;
+    seen.add(k);
+    return true;
+  });
   document.getElementById('activity-feed').innerHTML=entries.slice(0,12).map(a=>`
     <div class="feed-item">
       <span class="time">${a.time}</span>
@@ -703,19 +687,42 @@ function updateClock(){
 async function scanAll(){
   const btn=document.getElementById('scan-btn');
   btn.textContent='⏳ 扫描中…';btn.disabled=true;
-  document.getElementById('scan-status').textContent='扫描中…';
+  document.getElementById('scan-status').textContent='服务端扫描中…';
   document.getElementById('global-pulse').className='pulse';
-  // Parallel scan — all 7 sites concurrently
-  const results=await Promise.all(SITES.map(s=>checkSite(s)));
-  renderAll(results);
-  btn.textContent='⟳ 扫描全网';btn.disabled=false;
+  if(!SITES.length){
+    renderAll([]);
+    document.getElementById('scan-status').textContent='无站点';
+    btn.textContent='⟳ 扫描全网';btn.disabled=false;
+    return;
+  }
+  try {
+    const payload = await scanSitesViaApi();
+    LAST_SCAN_RESULTS = payload.results;
+    LAST_SCAN_META = {
+      source: payload.source,
+      generated: payload.generated,
+      durationMs: payload.durationMs,
+      endpoint: payload.endpoint,
+      error: null,
+    };
+    renderAll(LAST_SCAN_RESULTS);
+    renderScanMeta();
+  } catch (error) {
+    LAST_SCAN_META = {
+      source: 'error',
+      generated: null,
+      durationMs: null,
+      endpoint: SCAN_API_ENDPOINT,
+      error: error?.message || String(error),
+    };
+    document.getElementById('scan-status').textContent='扫描失败';
+    document.getElementById('global-pulse').className='pulse dead';
+    renderAll(LAST_SCAN_RESULTS);
+    renderScanMeta();
+  } finally {
+    btn.textContent='⟳ 扫描全网';btn.disabled=false;
+  }
 }
-
-renderAll(null);
-renderTraffic();
-renderActivity();
-updateClock();
-setInterval(updateClock,10000);
 
 // 行点击展开/收起 热门页面
 function setupRowToggle() {
@@ -734,7 +741,41 @@ function setupRowToggle() {
 }
 setupRowToggle();
 
-scanAll();
+function setupActions() {
+  const scanBtn = document.getElementById('scan-btn');
+  scanBtn.addEventListener('click', () => {
+    scanAll();
+  });
+}
+setupActions();
+
+async function initDashboard() {
+  const [siteResult, analyticsResult, activityResult] = await Promise.all([
+    loadSites(),
+    loadAnalytics(),
+    loadActivity(),
+  ]);
+  DATA_SOURCES = {
+    sites: siteResult.source,
+    analytics: analyticsResult.source,
+    activity: activityResult.source,
+  };
+  renderAll(null);
+  renderScanMeta();
+  renderTraffic();
+  renderActivity();
+  updateClock();
+  setInterval(updateClock,10000);
+  document.getElementById('scan-status').textContent =
+    siteResult.source === 'api'
+      ? `API 发现 ${siteResult.count} 站`
+      : siteResult.source === 'manifest'
+        ? `已载入 ${siteResult.count} 站`
+        : `回退 ${siteResult.count} 站`;
+  await scanAll();
+}
+
+initDashboard();
 </script>
 </body>
 </html>

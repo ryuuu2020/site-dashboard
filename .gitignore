@@ -1,1 +1,4 @@
 .vercel
+reports/health/*.json
+reports/health/*.md
+!reports/health/.gitkeep
