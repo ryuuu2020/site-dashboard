@@ -61,9 +61,9 @@ module.exports = async (req, res) => {
 
   try {
     const repos = await fetchGithubRepos();
-    let repoUpdates = buildRepoUpdatesFromRepos(repos);
+    let repoUpdates = buildRepoUpdatesFromRepos(repos, sitesByDir);
     try {
-      const eventUpdates = buildRepoUpdatesFromEvents(await fetchGithubEvents());
+      const eventUpdates = buildRepoUpdatesFromEvents(await fetchGithubEvents(), sitesByDir);
       repoUpdates = new Map([...repoUpdates, ...eventUpdates]);
     } catch (error) {
       console.error('Failed to fetch GitHub events for site updates:', error);

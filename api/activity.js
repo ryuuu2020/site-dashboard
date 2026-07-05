@@ -7,6 +7,7 @@ const {
   getManualMetadata,
   isGuideRepo,
   readActivitySnapshot,
+  readManifest,
 } = require('./_shared');
 
 module.exports = async (req, res) => {
@@ -14,9 +15,11 @@ module.exports = async (req, res) => {
   res.setHeader('Cache-Control', 's-maxage=300, stale-while-revalidate=3600');
 
   const snapshot = readActivitySnapshot();
-  const repoMetadata = new Map(
-    Object.keys(MANUAL_SITE_METADATA).map((repoName) => [repoName, getManualMetadata(repoName)])
-  );
+  const manifest = readManifest();
+  const repoMetadata = new Map((manifest.sites || []).map((site) => [site.dir, { ...site }]));
+  for (const repoName of Object.keys(MANUAL_SITE_METADATA)) {
+    repoMetadata.set(repoName, { ...repoMetadata.get(repoName), ...getManualMetadata(repoName) });
+  }
 
   try {
     const events = await fetchGithubEvents();

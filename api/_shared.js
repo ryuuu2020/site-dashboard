@@ -121,19 +121,37 @@ function classifyActivity(subject) {
   return 'push';
 }
 
-function summarizeCommitMessage(message) {
-  if (!message) {
-    return '内容更新';
-  }
-  return message.split('\n')[0].trim().slice(0, 120) || '内容更新';
+function isGenericUpdateMessage(message) {
+  const normalized = (message || '')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ');
+  return !normalized || ['update', 'updates', 'content update', 'content updates', '内容更新'].includes(normalized);
 }
 
-function summarizeRepoUpdate(repo) {
+function fallbackUpdateMessage(metadata = {}, repoName = '') {
+  const existingUpdate = (metadata?.update || '').trim();
+  if (existingUpdate) {
+    return existingUpdate.slice(0, 120);
+  }
+  const siteName = (metadata?.name || humanizeRepoName(repoName || '')).trim();
+  return siteName ? `${siteName} 内容更新` : '内容更新';
+}
+
+function summarizeCommitMessage(message, metadata = {}, repoName = '') {
+  const summary = message ? message.split('\n')[0].trim().slice(0, 120) : '';
+  if (!isGenericUpdateMessage(summary)) {
+    return summary;
+  }
+  return fallbackUpdateMessage(metadata, repoName);
+}
+
+function summarizeRepoUpdate(repo, metadata = {}) {
   const description = (repo?.description || '').trim();
   if (description) {
     return description.slice(0, 120);
   }
-  return 'GitHub 仓库更新';
+  return fallbackUpdateMessage(metadata, repo?.name || '');
 }
 
 async function githubFetch(url) {
@@ -157,7 +175,7 @@ async function fetchGithubEvents() {
   return githubFetch(`${GITHUB_API_BASE}/users/${GITHUB_USER}/events/public?per_page=100`);
 }
 
-function buildRepoUpdatesFromEvents(events) {
+function buildRepoUpdatesFromEvents(events, repoMetadata = new Map()) {
   const updates = new Map();
   for (const event of events || []) {
     const repoFullName = event?.repo?.name || '';
@@ -169,10 +187,11 @@ function buildRepoUpdatesFromEvents(events) {
     if (event.type === 'PushEvent') {
       const commits = Array.isArray(event.payload?.commits) ? event.payload.commits : [];
       const firstCommit = commits[0];
+      const metadata = repoMetadata.get(repoName) || {};
       updates.set(repoName, {
         pushedAt: event.created_at,
         push: formatBeijingShort(event.created_at),
-        update: summarizeCommitMessage(firstCommit?.message),
+        update: summarizeCommitMessage(firstCommit?.message, metadata, repoName),
         dot: classifyActivity(firstCommit?.message),
       });
       continue;
@@ -206,7 +225,7 @@ function buildActivityEntries(events, repoMetadata) {
         continue;
       }
       for (const commit of commits.slice(0, 2)) {
-        const message = summarizeCommitMessage(commit?.message);
+        const message = summarizeCommitMessage(commit?.message, metadata, repoName);
         entries.push({
           time: formatBeijingShort(event.created_at),
           timestamp: event.created_at,
@@ -242,7 +261,7 @@ function buildActivityEntries(events, repoMetadata) {
     });
 }
 
-function buildRepoUpdatesFromRepos(repos) {
+function buildRepoUpdatesFromRepos(repos, repoMetadata = new Map()) {
   const updates = new Map();
   for (const repo of repos || []) {
     const repoName = repo?.name || '';
@@ -255,10 +274,11 @@ function buildRepoUpdatesFromRepos(repos) {
       continue;
     }
 
+    const metadata = repoMetadata.get(repoName) || {};
     updates.set(repoName, {
       pushedAt: timestamp,
       push: formatBeijingShort(timestamp),
-      update: summarizeRepoUpdate(repo),
+      update: summarizeRepoUpdate(repo, metadata),
       dot: 'update',
     });
   }
@@ -283,7 +303,7 @@ function buildActivityEntriesFromRepos(repos, repoMetadata) {
       time: formatBeijingShort(timestamp),
       timestamp,
       dot: 'update',
-      msg: summarizeRepoUpdate(repo),
+      msg: summarizeRepoUpdate(repo, metadata),
       site: metadata.name || humanizeRepoName(repoName),
     });
   }
