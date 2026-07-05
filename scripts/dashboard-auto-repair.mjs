@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 
 import fs from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
+
+const execFileAsync = promisify(execFile);
 
 const REPORT_JSON = process.env.REPORT_JSON || 'reports/health/latest.json';
-const DEPLOY_HOOK_URL = process.env.VERCEL_DEPLOY_HOOK_URL || '';
+const VERCEL_TOKEN = process.env.VERCEL_TOKEN || '';
+const VERCEL_SCOPE = process.env.VERCEL_SCOPE || 'sonic6640-6280';
+const VERCEL_REDEPLOY_TARGET = process.env.VERCEL_REDEPLOY_TARGET || 'site-dashboard-theta.vercel.app';
 
 function canAutoRepair(issue) {
   return issue.autoFix === 'redeploy-dashboard';
@@ -24,25 +30,34 @@ async function main() {
 
   if (repairableIssues.length === 0) {
     payload.skippedReason = 'no-repairable-issues';
-  } else if (!DEPLOY_HOOK_URL) {
-    payload.skippedReason = 'missing-vercel-deploy-hook';
+  } else if (!VERCEL_TOKEN) {
+    payload.skippedReason = 'missing-vercel-token';
   } else {
-    const response = await fetch(DEPLOY_HOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        source: 'dashboard-auto-repair',
-        issues: repairableIssues.map((issue) => issue.code),
-      }),
-    });
-    payload.triggered = response.ok;
+    const result = await execFileAsync(
+      'npx',
+      [
+        'vercel',
+        'redeploy',
+        VERCEL_REDEPLOY_TARGET,
+        '--scope',
+        VERCEL_SCOPE,
+        '--token',
+        VERCEL_TOKEN,
+        '--no-wait',
+      ],
+      { maxBuffer: 1024 * 1024 }
+    );
+    payload.triggered = true;
     payload.deployResponse = {
-      ok: response.ok,
-      status: response.status,
-      body: await response.text(),
+      ok: true,
+      status: 200,
+      body: `${result.stdout || ''}${result.stderr || ''}`.trim(),
     };
-    if (!response.ok) {
-      payload.skippedReason = `deploy-hook-http-${response.status}`;
+    if (!payload.deployResponse.body) {
+      payload.deployResponse.body = 'redeploy triggered';
+    }
+    if (!payload.triggered) {
+      payload.skippedReason = 'redeploy-failed';
       console.error(JSON.stringify(payload, null, 2));
       process.exit(1);
     }

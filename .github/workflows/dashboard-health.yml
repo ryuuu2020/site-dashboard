@@ -38,7 +38,9 @@ jobs:
         run: node scripts/dashboard-auto-repair.mjs
         env:
           REPORT_JSON: reports/health/latest.json
-          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_SCOPE: sonic6640-6280
+          VERCEL_REDEPLOY_TARGET: site-dashboard-theta.vercel.app
 
       - name: Upload reports
         uses: actions/upload-artifact@v4
