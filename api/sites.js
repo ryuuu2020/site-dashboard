@@ -2,6 +2,7 @@ const DEFAULT_FEATS = { adsense: 1, adstxt: 1, afdian: 1, ga4: 1, gsc: 1 };
 const {
   MANUAL_SITE_METADATA,
   buildRepoUpdatesFromEvents,
+  buildRepoUpdatesFromRepos,
   fetchGithubEvents,
   fetchGithubRepos,
   getManualMetadata,
@@ -60,9 +61,10 @@ module.exports = async (req, res) => {
 
   try {
     const repos = await fetchGithubRepos();
-    let repoUpdates = new Map();
+    let repoUpdates = buildRepoUpdatesFromRepos(repos);
     try {
-      repoUpdates = buildRepoUpdatesFromEvents(await fetchGithubEvents());
+      const eventUpdates = buildRepoUpdatesFromEvents(await fetchGithubEvents());
+      repoUpdates = new Map([...repoUpdates, ...eventUpdates]);
     } catch (error) {
       console.error('Failed to fetch GitHub events for site updates:', error);
     }

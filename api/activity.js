@@ -1,6 +1,8 @@
 const {
   MANUAL_SITE_METADATA,
   buildActivityEntries,
+  buildActivityEntriesFromRepos,
+  fetchGithubRepos,
   fetchGithubEvents,
   getManualMetadata,
   isGuideRepo,
@@ -40,6 +42,28 @@ module.exports = async (req, res) => {
     }
   } catch (error) {
     console.error('Failed to refresh activity from GitHub:', error);
+  }
+
+  try {
+    const repos = await fetchGithubRepos();
+    const entries = buildActivityEntriesFromRepos(repos, repoMetadata);
+    if (entries.length > 0) {
+      res.statusCode = 200;
+      res.end(
+        JSON.stringify(
+          {
+            generated: new Date().toISOString(),
+            source: 'github-repos',
+            entries,
+          },
+          null,
+          2
+        )
+      );
+      return;
+    }
+  } catch (error) {
+    console.error('Failed to refresh activity from GitHub repos:', error);
   }
 
   res.statusCode = 200;

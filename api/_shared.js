@@ -103,6 +103,10 @@ function formatBeijingShort(isoString) {
   return `${parts.month}-${parts.day} ${parts.hour}:${parts.minute}`;
 }
 
+function repoActivityTimestamp(repo) {
+  return repo?.pushed_at || repo?.updated_at || null;
+}
+
 function classifyActivity(subject) {
   const lowered = (subject || '').toLowerCase();
   if (/(fix|bug|repair|hotfix|lint)/.test(lowered)) {
@@ -122,6 +126,14 @@ function summarizeCommitMessage(message) {
     return '内容更新';
   }
   return message.split('\n')[0].trim().slice(0, 120) || '内容更新';
+}
+
+function summarizeRepoUpdate(repo) {
+  const description = (repo?.description || '').trim();
+  if (description) {
+    return description.slice(0, 120);
+  }
+  return 'GitHub 仓库更新';
 }
 
 async function githubFetch(url) {
@@ -230,10 +242,63 @@ function buildActivityEntries(events, repoMetadata) {
     });
 }
 
+function buildRepoUpdatesFromRepos(repos) {
+  const updates = new Map();
+  for (const repo of repos || []) {
+    const repoName = repo?.name || '';
+    if (!isGuideRepo(repoName) || repo?.private || updates.has(repoName)) {
+      continue;
+    }
+
+    const timestamp = repoActivityTimestamp(repo);
+    if (!timestamp) {
+      continue;
+    }
+
+    updates.set(repoName, {
+      pushedAt: timestamp,
+      push: formatBeijingShort(timestamp),
+      update: summarizeRepoUpdate(repo),
+      dot: 'update',
+    });
+  }
+  return updates;
+}
+
+function buildActivityEntriesFromRepos(repos, repoMetadata) {
+  const entries = [];
+  for (const repo of repos || []) {
+    const repoName = repo?.name || '';
+    if (!isGuideRepo(repoName) || repo?.private) {
+      continue;
+    }
+
+    const timestamp = repoActivityTimestamp(repo);
+    if (!timestamp) {
+      continue;
+    }
+
+    const metadata = repoMetadata.get(repoName) || {};
+    entries.push({
+      time: formatBeijingShort(timestamp),
+      timestamp,
+      dot: 'update',
+      msg: summarizeRepoUpdate(repo),
+      site: metadata.name || humanizeRepoName(repoName),
+    });
+  }
+
+  return entries
+    .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+    .slice(0, 20);
+}
+
 module.exports = {
   MANUAL_SITE_METADATA,
   buildActivityEntries,
+  buildActivityEntriesFromRepos,
   buildRepoUpdatesFromEvents,
+  buildRepoUpdatesFromRepos,
   fetchGithubEvents,
   fetchGithubRepos,
   formatBeijingShort,
