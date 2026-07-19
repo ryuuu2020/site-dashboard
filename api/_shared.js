@@ -4,20 +4,22 @@ const path = require('path');
 const GITHUB_API_BASE = 'https://api.github.com';
 const GITHUB_USER = 'ryuuu2020';
 const ROOT_DIR = path.resolve(__dirname, '..');
-function safeRequire(path) {
-  try {
-    return require(path);
-  } catch (_) {
-    return null;
-  }
-}
-
 const BUNDLED_JSON = {
   'sites.json': require('../sites.json'),
   'activity.json': require('../activity.json'),
   'analytics.json': require('../analytics.json'),
-  'analytics-history.json': safeRequire('../analytics-history.json'),
 };
+
+// IMPORTANT: literal require + literal fs path so Vercel's nft file tracer
+// bundles analytics-history.json into the serverless function. A dynamic
+// require/readFileSync with a computed path is NOT traced and the file
+// silently goes missing on Vercel (this was the empty-history bug).
+let BUNDLED_HISTORY = null;
+try {
+  BUNDLED_HISTORY = require('../analytics-history.json');
+} catch (_) {
+  BUNDLED_HISTORY = null;
+}
 
 const MANUAL_SITE_METADATA = {
   'solarpunk-guide': { rank: 1, name: 'Solarpunk', url: 'https://solarpunk.gguidehub.com', steam: 1805110, style: 'C-生存日志', styleTag: 'style-c' },
@@ -74,7 +76,18 @@ function readAnalyticsSnapshot() {
 }
 
 function readAnalyticsHistory() {
-  return readJson('analytics-history.json', { days: [] });
+  // Static literal path relative to this file — traced by @vercel/nft.
+  const filePath = path.join(__dirname, '..', 'analytics-history.json');
+  try {
+    if (fs.existsSync(filePath)) {
+      return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    }
+  } catch (_) {
+    // fall through to bundled copy
+  }
+  return BUNDLED_HISTORY
+    ? JSON.parse(JSON.stringify(BUNDLED_HISTORY))
+    : { days: [] };
 }
 
 function isGuideRepo(repoName) {
