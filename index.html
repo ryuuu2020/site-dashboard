@@ -238,7 +238,7 @@
     </div>
     <div class="stat good">
       <div class="label">功能完整度</div><div class="value green" id="stat-complete">—</div>
-      <div class="sub">6/6 项检查</div>
+      <div class="sub">5/5 项检查</div>
     </div>
     <div class="stat info">
       <div class="label">最后验证</div><div class="value" style="font-size:0.875rem" id="stat-verified">—</div>
@@ -270,7 +270,7 @@
           <tr>
             <th>#</th><th>站点</th><th>风格</th><th>页数</th>
             <th>在线</th><th>头图</th><th>ads.txt</th>
-            <th>AdSense</th><th>爱发电</th><th>GA4</th><th>GSC</th>
+            <th>AdSense</th><th>GA4</th><th>GSC</th>
             <th>浏览量</th><th>停留(s)</th><th>页/会话</th>
             <th>最后推送</th><th>最后更新</th><th>Steam</th>
           </tr>
@@ -288,34 +288,34 @@
   </div>
 
   <footer style="text-align:center;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.6875rem;color:var(--text-muted)">
-    Cola 指挥中心 v1.1 · 自动扫描 · <a href="https://afdian.com/a/gameguidehub" target="_blank" style="color:var(--accent);text-decoration:none">❤️ 爱发电</a>
+    Cola 指挥中心 v1.1 · 自动扫描
   </footer>
 </div>
 
 <script>
 // ── 站点数据 ──────────────────────────────────
 const DEFAULT_SITES = [
-  { id:1, name:'Solarpunk',      url:'https://solarpunk.gguidehub.com',     steam:1805110, pages:22, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 1.0.3', eng:82, pps:1.45, launch:'6/23' },
-  { id:2, name:'Dispatch',       url:'https://dispatch.gguidehub.com',    steam:2592160, pages:16, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Xbox夏季',   eng:662,pps:1.94, launch:'6/23' },
-  { id:3, name:'MENACE',         url:'https://menace.gguidehub.com',             steam:2432860, pages:19, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#4 SMG', eng:30, pps:0.88, launch:'6/23' },
-  { id:4, name:'Olden Era',      url:'https://oldenera.gguidehub.com',      steam:3105440, pages:24, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#8#9',  eng:14, pps:0.89, launch:'6/25' },
-  { id:5, name:'Going Medieval', url:'https://goingmedieval.gguidehub.com',     steam:1029780, pages:124,style:'3-古卷羊皮纸', styleTag:'style-3', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.105',   eng:80, pps:1.68, launch:'6/25' },
-  { id:6, name:'Tabletop Tavern',url:'https://tabletoptavern.gguidehub.com',   steam:3337380, pages:17, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.6.23',    eng:20, pps:0.88, launch:'6/25' },
-  { id:7, name:'Demon Lord',     url:'https://demonlord.gguidehub.com',         steam:3720420, pages:13, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'5月汇总',    eng:63, pps:1.20, launch:'6/25' },
-  { id:8, name:'Town to City',  url:'https://towntocity.gguidehub.com',       steam:3115220, pages:17, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v0.7.4e',    eng:5,  pps:0.86, launch:'6/25' },
-  { id:9, name:'Witchspire',    url:'https://witchspire.gguidehub.com',         steam:2679100, pages:11, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 0.1.3', eng:0,  pps:0.50, launch:'6/26' },
-  { id:10,name:'Vampire Crawlers',url:'https://vampirecrawlers.gguidehub.com',  steam:3265700, pages:14, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0',       eng:0,  pps:0.50, launch:'6/26' },
-  { id:11,name:'Cairn',          url:'https://cairn.gguidehub.com',             steam:1588550, pages:18, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.5',     eng:11, pps:0.85, launch:'6/26' },
-  { id:12,name:'Mewgenics',      url:'https://mewgenics.gguidehub.com',        steam:686060,  pages:19, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0',       eng:15, pps:0.80, launch:'6/26' },
-  { id:13,name:'Nova Roma',      url:'https://novaroma.gguidehub.com',         steam:2426530, pages:21, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v0.4.1',     eng:52, pps:0.92, launch:'6/26' },
-  { id:14,name:'Die in the Dungeon',url:'https://dieinthedungeon.gguidehub.com',steam:2026820,pages:24, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.4',     eng:18, pps:0.88, launch:'6/26' },
-  { id:15,name:'Space Haven',     url:'https://spacehaven.gguidehub.com',      steam:979110,  pages:8,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.3',     eng:0,  pps:0,    launch:'7/2' },
-  { id:16,name:'Realm of Ink',    url:'https://realmofink.gguidehub.com',     steam:2597080, pages:8,  style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.2',     eng:0,  pps:0,    launch:'7/2' },
-  { id:17,name:'shapez 2',        url:'https://shapez2.gguidehub.com',       steam:2162800, pages:8,  style:'5-工业电路',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0',       eng:0,  pps:0,    launch:'7/2' },
-  { id:18,name:'Alabaster Dawn',  url:'https://alabasterdawn.gguidehub.com',   steam:3110760, pages:8,  style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'EA 0.3',     eng:0,  pps:0,    launch:'7/2' },
-  { id:19,name:'Terra Invicta',  url:'https://terrainvicta.gguidehub.com',    steam:1176470, pages:8,  style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.3',     eng:0,  pps:0,    launch:'7/2' },
-  { id:20,name:'HumanitZ',        url:'https://humanitz.gguidehub.com',       steam:1766060, pages:8,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.2',     eng:0,  pps:0,    launch:'7/2' },
-  { id:21,name:'Adira Nusantara', url:'https://adiranusantara.gguidehub.com', steam:3522550, pages:5,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,afdian:1,ga4:1,gsc:1}, push:'07-05 08:55', update:'feat: initial site', eng:0,  pps:0,    launch:'7/5' },
+  { id:1, name:'Solarpunk',      url:'https://solarpunk.gguidehub.com',     steam:1805110, pages:22, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 1.0.3', eng:82, pps:1.45, launch:'6/23' },
+  { id:2, name:'Dispatch',       url:'https://dispatch.gguidehub.com',    steam:2592160, pages:16, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Xbox夏季',   eng:662,pps:1.94, launch:'6/23' },
+  { id:3, name:'MENACE',         url:'https://menace.gguidehub.com',             steam:2432860, pages:19, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#4 SMG', eng:30, pps:0.88, launch:'6/23' },
+  { id:4, name:'Olden Era',      url:'https://oldenera.gguidehub.com',      steam:3105440, pages:24, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#8#9',  eng:14, pps:0.89, launch:'6/25' },
+  { id:5, name:'Going Medieval', url:'https://goingmedieval.gguidehub.com',     steam:1029780, pages:124,style:'3-古卷羊皮纸', styleTag:'style-3', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.105',   eng:80, pps:1.68, launch:'6/25' },
+  { id:6, name:'Tabletop Tavern',url:'https://tabletoptavern.gguidehub.com',   steam:3337380, pages:17, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.6.23',    eng:20, pps:0.88, launch:'6/25' },
+  { id:7, name:'Demon Lord',     url:'https://demonlord.gguidehub.com',         steam:3720420, pages:13, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'5月汇总',    eng:63, pps:1.20, launch:'6/25' },
+  { id:8, name:'Town to City',  url:'https://towntocity.gguidehub.com',       steam:3115220, pages:17, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v0.7.4e',    eng:5,  pps:0.86, launch:'6/25' },
+  { id:9, name:'Witchspire',    url:'https://witchspire.gguidehub.com',         steam:2679100, pages:11, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 0.1.3', eng:0,  pps:0.50, launch:'6/26' },
+  { id:10,name:'Vampire Crawlers',url:'https://vampirecrawlers.gguidehub.com',  steam:3265700, pages:14, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0',       eng:0,  pps:0.50, launch:'6/26' },
+  { id:11,name:'Cairn',          url:'https://cairn.gguidehub.com',             steam:1588550, pages:18, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.5',     eng:11, pps:0.85, launch:'6/26' },
+  { id:12,name:'Mewgenics',      url:'https://mewgenics.gguidehub.com',        steam:686060,  pages:19, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0',       eng:15, pps:0.80, launch:'6/26' },
+  { id:13,name:'Nova Roma',      url:'https://novaroma.gguidehub.com',         steam:2426530, pages:21, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v0.4.1',     eng:52, pps:0.92, launch:'6/26' },
+  { id:14,name:'Die in the Dungeon',url:'https://dieinthedungeon.gguidehub.com',steam:2026820,pages:24, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.4',     eng:18, pps:0.88, launch:'6/26' },
+  { id:15,name:'Space Haven',     url:'https://spacehaven.gguidehub.com',      steam:979110,  pages:8,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.3',     eng:0,  pps:0,    launch:'7/2' },
+  { id:16,name:'Realm of Ink',    url:'https://realmofink.gguidehub.com',     steam:2597080, pages:8,  style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.2',     eng:0,  pps:0,    launch:'7/2' },
+  { id:17,name:'shapez 2',        url:'https://shapez2.gguidehub.com',       steam:2162800, pages:8,  style:'5-工业电路',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0',       eng:0,  pps:0,    launch:'7/2' },
+  { id:18,name:'Alabaster Dawn',  url:'https://alabasterdawn.gguidehub.com',   steam:3110760, pages:8,  style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'EA 0.3',     eng:0,  pps:0,    launch:'7/2' },
+  { id:19,name:'Terra Invicta',  url:'https://terrainvicta.gguidehub.com',    steam:1176470, pages:8,  style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.3',     eng:0,  pps:0,    launch:'7/2' },
+  { id:20,name:'HumanitZ',        url:'https://humanitz.gguidehub.com',       steam:1766060, pages:8,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.2',     eng:0,  pps:0,    launch:'7/2' },
+  { id:21,name:'Adira Nusantara', url:'https://adiranusantara.gguidehub.com', steam:3522550, pages:5,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'07-05 08:55', update:'feat: initial site', eng:0,  pps:0,    launch:'7/5' },
 ];
 let SITES = [];
 
@@ -365,7 +365,6 @@ function normalizeSite(site, index) {
     feats: {
       adsense: 1,
       adstxt: 1,
-      afdian: 1,
       ga4: 1,
       gsc: 1,
       ...(site.feats || {}),
@@ -554,7 +553,6 @@ function renderRow(site,live,i){
     <td><span class="${hCls}">${h}</span></td>
     <td><span class="${aCls}">${a}</span></td>
     <td><span class="${CLS(f.adsense,false)}">${f.adsense?ICONS.pass:ICONS.fail}</span></td>
-    <td><span class="${CLS(f.afdian,false)}">${f.afdian?ICONS.pass:ICONS.fail}</span></td>
     <td><span class="${CLS(f.ga4,false)}">${f.ga4?ICONS.pass:ICONS.fail}</span></td>
     <td><span class="${CLS(f.gsc,false)}">${f.gsc?ICONS.pass:ICONS.fail}</span></td>
     <td class="num" style="font-weight:700;color:var(--blue-text)">${stats?.totalViews||0}</td>
@@ -565,7 +563,7 @@ function renderRow(site,live,i){
     <td class="muted"><a href="https://store.steampowered.com/app/${site.steam}" target="_blank" style="color:var(--text-muted);text-decoration:none">${site.steam}</a></td>
   </tr>
   <tr class="expand-row" data-expand-host="${siteHost(site)}">
-    <td colspan="17">${renderTopPagesForHost(siteHost(site))}</td>
+    <td colspan="16">${renderTopPagesForHost(siteHost(site))}</td>
   </tr>`;
 }
 

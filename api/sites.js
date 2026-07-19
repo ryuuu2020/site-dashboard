@@ -1,4 +1,4 @@
-const DEFAULT_FEATS = { adsense: 1, adstxt: 1, afdian: 1, ga4: 1, gsc: 1 };
+const DEFAULT_FEATS = { adsense: 1, adstxt: 1, ga4: 1, gsc: 1 };
 const {
   MANUAL_SITE_METADATA,
   buildRepoUpdatesFromEvents,

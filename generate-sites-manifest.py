@@ -23,7 +23,7 @@ SKIP_DIRS = {
     "reports",
     "solarpunk-guide-old",
 }
-DEFAULT_FEATS = {"adsense": 1, "adstxt": 1, "afdian": 1, "ga4": 1, "gsc": 1}
+DEFAULT_FEATS = {"adsense": 1, "adstxt": 1, "ga4": 1, "gsc": 1}
 STYLE_MAP = {
     "A": ("A-战术指挥", "style-a"),
     "B": ("B-暗黑史诗", "style-b"),
@@ -204,6 +204,7 @@ def build_site_entry(site_dir: Path, existing: dict, site_id: int) -> dict:
     existing = {**existing, **MANUAL_SITE_METADATA.get(site_dir.name, {})}
     style, style_tag = infer_style(site_dir, existing)
     push, update = infer_latest_git_update(site_dir, existing)
+    existing_feats = {k: v for k, v in existing.get("feats", {}).items() if k != "afdian"}
     return {
         "id": site_id,
         "name": infer_name(site_dir, existing),
@@ -213,7 +214,7 @@ def build_site_entry(site_dir: Path, existing: dict, site_id: int) -> dict:
         "pages": infer_pages(site_dir, existing),
         "style": style,
         "styleTag": style_tag,
-        "feats": {**DEFAULT_FEATS, **existing.get("feats", {})},
+        "feats": {**DEFAULT_FEATS, **existing_feats},
         "push": push,
         "update": update,
         "eng": existing.get("eng", 0),
