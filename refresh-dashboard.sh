@@ -14,7 +14,7 @@
 set -uo pipefail
 
 cd "$(dirname "$0")"
-DATA_FILES=(sites.json sites.js activity.json analytics.json)
+DATA_FILES=(sites.json sites.js activity.json analytics.json analytics-history.json)
 
 log()  { printf '[refresh] %s\n' "$*"; }
 warn() { printf '[refresh][WARN] %s\n' "$*" >&2; }

@@ -1,5 +1,5 @@
 const crypto = require('node:crypto');
-const { readManifest, readAnalyticsSnapshot } = require('./_shared');
+const { readManifest, readAnalyticsSnapshot, readAnalyticsHistory } = require('./_shared');
 
 const DEFAULT_PROPERTY_ID = '542906144';
 const ANALYTICS_SCOPE = 'https://www.googleapis.com/auth/analytics.readonly';
@@ -273,6 +273,9 @@ module.exports = async (req, res) => {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   res.setHeader('Cache-Control', 's-maxage=1800, stale-while-revalidate=3600');
 
+  const history = readAnalyticsHistory();
+  const historyDays = Array.isArray(history?.days) ? history.days : [];
+
   let payload;
   try {
     payload = await buildLivePayload();
@@ -280,6 +283,7 @@ module.exports = async (req, res) => {
     console.error('GA4 live query failed, falling back to snapshot:', error);
     payload = snapshotPayload(error?.message || String(error));
   }
+  payload.history = { days: historyDays };
 
   res.statusCode = 200;
   res.end(JSON.stringify(payload, null, 2));

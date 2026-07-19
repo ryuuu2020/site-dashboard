@@ -6,23 +6,24 @@
 <title>游戏攻略站 · 指挥中心</title>
 <style>
   :root {
-    --bg: #080c12; --bg-card: #11161d; --bg-elevated: #181d26;
-    --border: #1e2530; --border-subtle: #161c24;
-    --text: #c8d6e5; --text-secondary: #8899aa; --text-muted: #4a5568;
-    --green: #10b981; --green-bg: rgba(16,185,129,0.12); --green-text: #34d399;
-    --red: #ef4444; --red-bg: rgba(239,68,68,0.12);
-    --yellow: #f59e0b; --yellow-bg: rgba(245,158,11,0.12);
-    --blue: #3b82f6; --blue-bg: rgba(59,130,246,0.12); --blue-text: #60a5fa;
+    --bg: #f5f6f8; --bg-card: #ffffff; --bg-elevated: #f0f2f5;
+    --border: #e2e6ec; --border-subtle: #eceff3;
+    --text: #1f2937; --text-secondary: #4b5563; --text-muted: #9aa5b1;
+    --green: #10b981; --green-bg: rgba(16,185,129,0.10); --green-text: #059669;
+    --red: #ef4444; --red-bg: rgba(239,68,68,0.10);
+    --yellow: #d97706; --yellow-bg: rgba(245,158,11,0.14);
+    --blue: #3b82f6; --blue-bg: rgba(59,130,246,0.10); --blue-text: #2563eb;
     --accent: #6366f1; --accent-dim: #4f46e5;
-    --purple: #a855f7; --purple-bg: rgba(168,85,247,0.12);
-    --orange: #f97316;
-    --style-a: #3b82f6; --style-b: #a855f7; --style-c: #10b981; --style-3: #f59e0b;
+    --purple: #9333ea; --purple-bg: rgba(168,85,247,0.12);
+    --orange: #ea580c;
+    --style-a: #2563eb; --style-b: #9333ea; --style-c: #059669; --style-3: #d97706;
+    --heading: #111827;
+    --shadow: 0 1px 2px rgba(16,24,40,0.06), 0 1px 3px rgba(16,24,40,0.05);
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
     background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.6;
-    background-image: radial-gradient(ellipse at top, rgba(99,102,241,0.06) 0%, transparent 70%);
   }
   .container { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
 
@@ -50,7 +51,7 @@
     background:var(--bg-card); color:var(--text-secondary);
     transition:all 0.15s; font-family:inherit; letter-spacing:0.02em;
   }
-  .btn:hover { border-color:var(--accent); color:#fff; background:var(--bg-elevated); }
+  .btn:hover { border-color:var(--accent); color:var(--heading); background:var(--bg-elevated); }
   .btn.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
   .btn.primary:hover { background:var(--accent-dim); }
   .btn:disabled { opacity:0.5; cursor:not-allowed; }
@@ -61,7 +62,7 @@
   .stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(155px,1fr)); gap:0.625rem; margin-bottom:1.5rem; }
   .stat {
     background:var(--bg-card); border:1px solid var(--border); border-radius:0.5rem; padding:0.875rem 1rem;
-    position:relative; overflow:hidden;
+    position:relative; overflow:hidden; box-shadow:var(--shadow);
   }
   .stat::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; }
   .stat.good::before { background:var(--green); }
@@ -95,7 +96,7 @@
   .src-badge.snapshot { background:var(--yellow-bg); color:var(--yellow); }
 
   /* Table */
-  .table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:0.5rem; }
+  .table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:0.5rem; background:var(--bg-card); box-shadow:var(--shadow); }
   table { width:100%; border-collapse:collapse; min-width:1000px; font-size:0.75rem; }
   thead { background:var(--bg-elevated); position:sticky; top:0; z-index:1; }
   th {
@@ -108,7 +109,7 @@
   tr:hover td { background:rgba(99,102,241,0.03); }
   tr:last-child td { border-bottom:none; }
 
-  .site-cell .name { font-weight:600; color:#e2e8f0; font-size:0.8125rem; display:inline-flex; align-items:center; gap:0.375rem; }
+  .site-cell .name { font-weight:600; color:var(--heading); font-size:0.8125rem; display:inline-flex; align-items:center; gap:0.375rem; }
   .site-cell .chev { color:var(--text-muted); font-size:0.625rem; transition:transform 0.15s; display:inline-block; width:0.75rem; }
   tr.site-row { cursor:pointer; }
   tr.site-row:hover td { background:rgba(99,102,241,0.05); }
@@ -127,7 +128,7 @@
     border:1px solid var(--border-subtle); border-radius:0.25rem;
     font-size:0.6875rem;
   }
-  .pp-row .pp-path { font-family:'SF Mono',monospace; color:#e2e8f0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .pp-row .pp-path { font-family:'SF Mono',monospace; color:var(--heading); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .pp-row .pp-path a { color:inherit; text-decoration:none; }
   .pp-row .pp-path a:hover { color:var(--accent); }
   .pp-row .pp-views { font-family:'SF Mono',monospace; color:var(--blue-text); font-weight:700; text-align:right; }
@@ -155,25 +156,46 @@
   .muted { font-size:0.625rem; color:var(--text-muted); font-family:'SF Mono',monospace; }
 
   /* Traffic Cards */
-  .traffic-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:0.75rem; }
+  .traffic-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); gap:0.75rem; }
   .traffic-card {
     background:var(--bg-card); border:1px solid var(--border); border-radius:0.5rem;
-    padding:1rem; display:flex; gap:1rem; align-items:stretch;
+    padding:0.875rem 1rem; display:flex; flex-direction:column; gap:0.625rem;
+    box-shadow:var(--shadow);
   }
-  .traffic-card .bar-col { display:flex; flex-direction:column; justify-content:flex-end; gap:0.25rem; min-width:28px; }
-  .traffic-card .bar {
-    width:100%; border-radius:2px; transition:height 0.3s;
-    min-height:2px; position:relative;
+  .traffic-card .tc-head { display:flex; align-items:baseline; justify-content:space-between; gap:0.5rem; }
+  .traffic-card .site-label { font-weight:600; font-size:0.8125rem; color:var(--heading); }
+  .traffic-card .metric { font-size:1.125rem; font-weight:700; font-family:'SF Mono',monospace; color:var(--blue-text); white-space:nowrap; }
+  .traffic-card .metric-label { font-size:0.625rem; color:var(--text-muted); font-weight:400; }
+  .traffic-card .tc-bars { display:flex; align-items:flex-end; gap:4px; height:52px; width:100%; }
+  .traffic-card .tc-bars .bar {
+    flex:1; border-radius:2px 2px 0 0; min-height:2px; position:relative; transition:height 0.3s;
   }
-  .traffic-card .bar span {
-    position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+  .traffic-card .tc-bars .bar span {
+    position:absolute; top:-13px; left:50%; transform:translateX(-50%);
     font-size:0.5rem; color:var(--text-muted); white-space:nowrap;
     font-family:'SF Mono',monospace;
   }
-  .traffic-card .info { flex:1; }
-  .traffic-card .site-label { font-weight:600; font-size:0.8125rem; color:#e2e8f0; margin-bottom:0.125rem; }
-  .traffic-card .metric { font-size:1.125rem; font-weight:700; font-family:'SF Mono',monospace; color:var(--blue-text); }
-  .traffic-card .metric-label { font-size:0.625rem; color:var(--text-muted); }
+  .traffic-card .tc-days { display:flex; gap:4px; margin-top:2px; }
+  .traffic-card .tc-days span {
+    flex:1; text-align:center; font-size:0.5rem; color:var(--text-muted);
+    font-family:'SF Mono',monospace; white-space:nowrap; overflow:hidden;
+  }
+
+  /* Trend section */
+  .trend-card {
+    background:var(--bg-card); border:1px solid var(--border); border-radius:0.5rem;
+    padding:1rem; box-shadow:var(--shadow);
+  }
+  .trend-chart { width:100%; display:block; }
+  .trend-empty { padding:1.5rem; text-align:center; color:var(--text-muted); font-size:0.75rem; }
+  .trend-sites { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:0.5rem; margin-top:0.875rem; }
+  .trend-site {
+    display:flex; align-items:center; gap:0.625rem; padding:0.5rem 0.625rem;
+    background:var(--bg-elevated); border:1px solid var(--border-subtle); border-radius:0.375rem;
+  }
+  .trend-site .ts-name { font-size:0.6875rem; font-weight:600; color:var(--heading); flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .trend-site .ts-total { font-size:0.6875rem; font-weight:700; font-family:'SF Mono',monospace; color:var(--blue-text); white-space:nowrap; }
+  .trend-site svg { flex-shrink:0; }
 
   /* Feed */
   .feed { display:flex; flex-direction:column; gap:0.375rem; }
@@ -263,6 +285,18 @@
     <div class="traffic-placeholder" id="traffic-placeholder" style="display:none">
       <h3>📊 暂无可用流量数据</h3>
       <p>当前既没有 GA4 实时数据，也没有可用快照。页面会优先显示实时查询结果，失败时回退到最近一次导出的快照并标明来源。</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 30日流量趋势 -->
+  <div class="section">
+    <div class="section-title">📈 30日流量趋势</div>
+    <div class="section-meta" id="trend-meta">等待载入历史数据…</div>
+    <div class="trend-card">
+      <div id="trend-chart"></div>
+      <div class="trend-sites" id="trend-sites"></div>
     </div>
   </div>
 
@@ -428,6 +462,7 @@ function normalizeAnalyticsPayload(payload) {
     trafficDays: Array.isArray(payload?.trafficDays) ? payload.trafficDays : [],
     siteStatsByHost,
     topPagesByHost: payload?.topPagesByHost || {},
+    historyDays: Array.isArray(payload?.history?.days) ? payload.history.days : [],
   };
 }
 
@@ -640,21 +675,96 @@ function renderTraffic(){
     const maxView=Math.max(1,...relevantViews);
 
     const bars=relevantViews.map((v,j)=>{
-      const h=Math.max(2,Math.round((v/maxView)*60));
+      const h=Math.max(2,Math.round((v/maxView)*48));
       const color=v>0?'var(--blue)':'var(--border)';
-      const showLabel=v>0&&(j===0||j===relevantViews.length-1||v>=maxView*0.5);
-      return `<div class="bar" style="height:${h}px;background:${color}">${showLabel?`<span>${v}</span>`:''}</div>`;
+      const showLabel=v>0&&v>=maxView*0.75;
+      return `<div class="bar" style="height:${h}px;background:${color}" title="${relevantDays[j]||''}: ${v} 次">${showLabel?`<span>${v}</span>`:''}</div>`;
     }).join('');
+    const dayTicks=relevantDays.map((d)=>`<span>${d.slice(3)}</span>`).join('');
 
-    const hasSeries=relevantViews.length>0&&relevantDays.length>0;
-    const dayLabel=hasSeries?(relevantDays.length===1?'近1天':'近'+relevantDays.length+'天'):'仅总览数据';
     return `<div class="traffic-card">
-      <div class="bar-col">${bars}</div>
-      <div class="info">
-        <div class="site-label"><a href="${site.url}" target="_blank" style="color:#e2e8f0;text-decoration:none">${site.name}</a></div>
-        <div class="metric">${total} <span style="font-size:0.625rem;font-weight:400">次浏览</span></div>
-        <div class="metric-label">${hasSeries ? `${relevantDays[0]} – ${relevantDays[relevantDays.length-1]} · ${dayLabel}` : dayLabel}</div>
+      <div class="tc-head">
+        <div class="site-label"><a href="${site.url}" target="_blank" style="color:inherit;text-decoration:none">${site.name}</a></div>
+        <div class="metric">${total} <span class="metric-label">次浏览 / 7天</span></div>
       </div>
+      <div class="tc-bars">${bars}</div>
+      <div class="tc-days">${dayTicks}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── 30日流量趋势 ──────────────────────────────
+function renderTrend(){
+  const meta=document.getElementById('trend-meta');
+  const chart=document.getElementById('trend-chart');
+  const sitesEl=document.getElementById('trend-sites');
+  if(!meta||!chart||!sitesEl) return;
+  const days=(Array.isArray(ANALYTICS.historyDays)?ANALYTICS.historyDays:[]).slice(-30);
+
+  if(days.length===0){
+    meta.textContent='历史数据尚未开始积累';
+    chart.innerHTML='<div class="trend-empty">数据积累中，已收集 0 天 · 每日刷新后自动累计</div>';
+    sitesEl.innerHTML='';
+    return;
+  }
+
+  const totals=days.map(d=>Object.values(d.sites||{}).reduce((a,b)=>a+(Number(b)||0),0));
+  const grandTotal=totals.reduce((a,b)=>a+b,0);
+  meta.textContent=(days.length<3
+    ? `数据积累中，已收集 ${days.length} 天 · ${days[0].date}${days.length>1?' ~ '+days[days.length-1].date:''}`
+    : `已收集 ${days.length} 天 · ${days[0].date} ~ ${days[days.length-1].date} · 全网合计 ${grandTotal} 次浏览`);
+
+  const W=720,H=160,PAD=28;
+  const maxV=Math.max(1,...totals);
+  const n=days.length;
+  const x=(i)=> n===1 ? W/2 : PAD+(i*(W-2*PAD))/(n-1);
+  const y=(v)=> H-PAD-(v/maxV)*(H-2*PAD);
+  const pts=totals.map((v,i)=>[x(i),y(v)]);
+  const line=pts.map(p=>p.map(n2=>n2.toFixed(1)).join(',')).join(' ');
+  const gridlines=[0.25,0.5,0.75,1].map(f=>{
+    const gy=(H-PAD-(f)*(H-2*PAD)).toFixed(1);
+    return `<line x1="${PAD}" y1="${gy}" x2="${W-PAD}" y2="${gy}" stroke="#e2e6ec" stroke-width="1"/>
+      <text x="${PAD-4}" y="${(Number(gy)+3).toFixed(1)}" font-size="8" fill="#9aa5b1" text-anchor="end" font-family="SF Mono,monospace">${Math.round(maxV*f)}</text>`;
+  }).join('');
+  const dots=pts.map((p,i)=>`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="2.5" fill="#6366f1"><title>${days[i].date}: ${totals[i]} 次</title></circle>`).join('');
+  const area=n>1
+    ? `<polygon points="${PAD},${H-PAD} ${line} ${(W-PAD).toFixed(1)},${H-PAD}" fill="rgba(99,102,241,0.10)"/>`
+    : '';
+  const xlabels=n>1
+    ? `<text x="${PAD}" y="${H-8}" font-size="8" fill="#9aa5b1" font-family="SF Mono,monospace">${days[0].date.slice(5)}</text>
+       <text x="${W-PAD}" y="${H-8}" font-size="8" fill="#9aa5b1" text-anchor="end" font-family="SF Mono,monospace">${days[n-1].date.slice(5)}</text>`
+    : `<text x="${W/2}" y="${H-8}" font-size="8" fill="#9aa5b1" text-anchor="middle" font-family="SF Mono,monospace">${days[0].date.slice(5)}</text>`;
+  chart.innerHTML=`<svg class="trend-chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="30日流量趋势">
+    ${gridlines}${area}
+    ${n>1?`<polyline points="${line}" fill="none" stroke="#6366f1" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`:''}
+    ${dots}${xlabels}
+  </svg>`;
+
+  // Top 站点 sparklines（按窗口内总浏览量排序，取前 5）
+  const perHost={};
+  days.forEach((d,i)=>{
+    for(const [host,v] of Object.entries(d.sites||{})){
+      if(!perHost[host]) perHost[host]={total:0,series:new Array(n).fill(0)};
+      perHost[host].total+=Number(v)||0;
+      perHost[host].series[i]+=Number(v)||0;
+    }
+  });
+  const top=Object.entries(perHost).sort((a,b)=>b[1].total-a[1].total).slice(0,5);
+  sitesEl.innerHTML=top.map(([host,info])=>{
+    const site=SITES.find(s=>siteHost(s)===host);
+    const name=site?.name||host;
+    const smax=Math.max(1,...info.series);
+    const SW=90,SH=24;
+    const sx=(i)=> n===1 ? SW/2 : 2+(i*(SW-4))/(n-1);
+    const sy=(v)=> SH-3-(v/smax)*(SH-6);
+    const sline=info.series.map((v,i)=>`${sx(i).toFixed(1)},${sy(v).toFixed(1)}`).join(' ');
+    const spark=n>1
+      ?`<polyline points="${sline}" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linejoin="round"/>`
+      :`<circle cx="${SW/2}" cy="${sy(info.series[0]).toFixed(1)}" r="2.5" fill="#3b82f6"/>`;
+    return `<div class="trend-site">
+      <svg width="${SW}" height="${SH}" viewBox="0 0 ${SW} ${SH}">${spark}</svg>
+      <span class="ts-name">${name}</span>
+      <span class="ts-total">${info.total}</span>
     </div>`;
   }).join('');
 }
@@ -774,6 +884,7 @@ async function initDashboard() {
   renderAll(null);
   renderScanMeta();
   renderTraffic();
+  renderTrend();
   renderActivity();
   updateClock();
   setInterval(updateClock,10000);

@@ -4,10 +4,19 @@ const path = require('path');
 const GITHUB_API_BASE = 'https://api.github.com';
 const GITHUB_USER = 'ryuuu2020';
 const ROOT_DIR = path.resolve(__dirname, '..');
+function safeRequire(path) {
+  try {
+    return require(path);
+  } catch (_) {
+    return null;
+  }
+}
+
 const BUNDLED_JSON = {
   'sites.json': require('../sites.json'),
   'activity.json': require('../activity.json'),
   'analytics.json': require('../analytics.json'),
+  'analytics-history.json': safeRequire('../analytics-history.json'),
 };
 
 const MANUAL_SITE_METADATA = {
@@ -62,6 +71,10 @@ function readAnalyticsSnapshot() {
     siteStats: [],
     topPagesByHost: {},
   });
+}
+
+function readAnalyticsHistory() {
+  return readJson('analytics-history.json', { days: [] });
 }
 
 function isGuideRepo(repoName) {
@@ -329,6 +342,7 @@ module.exports = {
   isGuideRepo,
   normalizeHomepage,
   readActivitySnapshot,
+  readAnalyticsHistory,
   readAnalyticsSnapshot,
   readManifest,
 };

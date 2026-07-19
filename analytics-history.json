@@ -1,0 +1,95 @@
+{
+  "days": [
+    {
+      "date": "2026-07-12",
+      "sites": {
+        "demonlord.gguidehub.com": 17,
+        "towntocity.gguidehub.com": 9,
+        "oldenera.gguidehub.com": 3,
+        "adiranusantara.gguidehub.com": 2,
+        "menace.gguidehub.com": 2,
+        "cairn.gguidehub.com": 1,
+        "dispatch.gguidehub.com": 1,
+        "goingmedieval.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-13",
+      "sites": {
+        "goingmedieval.gguidehub.com": 19,
+        "oldenera.gguidehub.com": 10,
+        "demonlord.gguidehub.com": 4,
+        "menace.gguidehub.com": 4,
+        "adiranusantara.gguidehub.com": 2,
+        "dieinthedungeon.gguidehub.com": 2,
+        "tabletoptavern.gguidehub.com": 2,
+        "terrainvicta.gguidehub.com": 2,
+        "dispatch.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1,
+        "spacehaven.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-14",
+      "sites": {
+        "demonlord.gguidehub.com": 8,
+        "oldenera.gguidehub.com": 5,
+        "menace.gguidehub.com": 4,
+        "goingmedieval.gguidehub.com": 3,
+        "humanitz.gguidehub.com": 2,
+        "solarpunk.gguidehub.com": 1,
+        "witchspire.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-15",
+      "sites": {
+        "humanitz.gguidehub.com": 11,
+        "demonlord.gguidehub.com": 8,
+        "realmofink.gguidehub.com": 4,
+        "terrainvicta.gguidehub.com": 4,
+        "goingmedieval.gguidehub.com": 3,
+        "novaroma.gguidehub.com": 3,
+        "oldenera.gguidehub.com": 3,
+        "adiranusantara.gguidehub.com": 2,
+        "alabasterdawn.gguidehub.com": 2,
+        "solarpunk.gguidehub.com": 1,
+        "vampirecrawlers.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-16",
+      "sites": {
+        "terrainvicta.gguidehub.com": 5,
+        "oldenera.gguidehub.com": 4,
+        "shapez2.gguidehub.com": 3,
+        "demonlord.gguidehub.com": 2,
+        "menace.gguidehub.com": 2,
+        "witchspire.gguidehub.com": 2,
+        "realmofink.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "sites": {
+        "oldenera.gguidehub.com": 3,
+        "dieinthedungeon.gguidehub.com": 1,
+        "goingmedieval.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-18",
+      "sites": {
+        "goingmedieval.gguidehub.com": 10,
+        "oldenera.gguidehub.com": 6,
+        "novaroma.gguidehub.com": 5,
+        "alabasterdawn.gguidehub.com": 1,
+        "demonlord.gguidehub.com": 1,
+        "shapez2.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
+      }
+    }
+  ]
+}

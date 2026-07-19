@@ -112,6 +112,8 @@ def build_live_snapshot(sites: list[dict]) -> dict:
 
     site_stats_by_name = build_empty_site_stats(sites, day_keys, name_to_host)
     top_pages_by_host: dict[str, dict[str, dict]] = defaultdict(dict)
+    # Per-date, per-canonical-host views for the rolling history file.
+    history_daily: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
 
     token = request_access_token(DEFAULT_SERVICE_ACCOUNT, timeout=5)
     summary_rows = run_report(
@@ -169,7 +171,12 @@ def build_live_snapshot(sites: list[dict]) -> dict:
         site_name = normalize_site_name(host, host_to_name)
         if not site_name or site_name not in site_stats_by_name or day_key not in day_index:
             continue
-        site_stats_by_name[site_name]["viewsByDay"][day_index[day_key]] += int(row["metricValues"][0]["value"])
+        views = int(row["metricValues"][0]["value"])
+        site_stats_by_name[site_name]["viewsByDay"][day_index[day_key]] += views
+        canonical_host = name_to_host.get(site_name)
+        if canonical_host:
+            day_iso = f"{day_key[:4]}-{day_key[4:6]}-{day_key[6:]}"
+            history_daily[day_iso][canonical_host] += views
 
     for row in page_rows:
         host = row["dimensionValues"][0]["value"]
@@ -194,7 +201,7 @@ def build_live_snapshot(sites: list[dict]) -> dict:
         for host, pages in top_pages_by_host.items()
     }
 
-    return {
+    payload = {
         "generatedAt": utc_now_iso(),
         "source": "ga4-live",
         "period": {"start": start_str, "end": end_str, "label": f"{start_str} ~ {end_str}"},
@@ -202,6 +209,47 @@ def build_live_snapshot(sites: list[dict]) -> dict:
         "siteStats": list(site_stats_by_name.values()),
         "topPagesByHost": top_pages_payload,
     }
+    return payload, history_daily
+
+
+HISTORY_JSON_PATH = DASHBOARD_DIR / "analytics-history.json"
+HISTORY_KEEP_DAYS = 90
+
+
+def update_history(daily: dict[str, dict[str, int]]) -> dict:
+    """Merge per-date per-host views into analytics-history.json.
+
+    Idempotent per date: rerunning for the same date overwrites that date's
+    per-host values. Keeps the most recent HISTORY_KEEP_DAYS entries.
+    """
+    existing_days: list[dict] = []
+    if HISTORY_JSON_PATH.exists():
+        try:
+            existing = json.loads(HISTORY_JSON_PATH.read_text(encoding="utf-8"))
+            if isinstance(existing.get("days"), list):
+                existing_days = existing["days"]
+        except (json.JSONDecodeError, OSError):
+            existing_days = []
+
+    by_date: dict[str, dict] = {}
+    for entry in existing_days:
+        if isinstance(entry, dict) and entry.get("date"):
+            by_date[entry["date"]] = {
+                "date": entry["date"],
+                "sites": dict(entry.get("sites") or {}),
+            }
+
+    for day_iso, sites_map in daily.items():
+        entry = by_date.setdefault(day_iso, {"date": day_iso, "sites": {}})
+        for host, views in sites_map.items():
+            entry["sites"][host] = int(views)
+
+    days = sorted(by_date.values(), key=lambda item: item["date"])[-HISTORY_KEEP_DAYS:]
+    payload = {"days": days}
+    HISTORY_JSON_PATH.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    return payload
 
 
 def slugify(value: str) -> str:
@@ -288,13 +336,16 @@ def build_fallback_snapshot(sites: list[dict], report: dict | None, error_messag
 
 def main() -> None:
     sites = load_sites()
+    history_note = ""
     try:
-        payload = build_live_snapshot(sites)
+        payload, history_daily = build_live_snapshot(sites)
+        history = update_history(history_daily)
+        history_note = f", history: {len(history['days'])} days"
     except Ga4ApiError as exc:
         payload = build_fallback_snapshot(sites, load_latest_report(), str(exc))
 
     ANALYTICS_JSON_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Generated {ANALYTICS_JSON_PATH} ({payload['source']})")
+    print(f"Generated {ANALYTICS_JSON_PATH} ({payload['source']}{history_note})")
 
 
 if __name__ == "__main__":
