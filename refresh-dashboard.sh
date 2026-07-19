@@ -20,7 +20,15 @@ log()  { printf '[refresh] %s\n' "$*"; }
 warn() { printf '[refresh][WARN] %s\n' "$*" >&2; }
 fail() { printf '[refresh][ERROR] %s\n' "$*" >&2; exit 1; }
 
-PY="$(command -v python3 || command -v python)" || fail "no python on PATH"
+# Prefer a python that has google-auth (needed by generate-analytics-snapshot.py).
+# The managed automation python comes first on PATH but lacks it; Homebrew's has it.
+PY=""
+for cand in /opt/homebrew/bin/python3 "$(command -v python3 || true)" "$(command -v python || true)"; do
+  [ -n "$cand" ] && [ -x "$cand" ] || continue
+  if "$cand" -c "import google.auth" 2>/dev/null; then PY="$cand"; break; fi
+  [ -z "$PY" ] && PY="$cand"
+done
+[ -n "$PY" ] || fail "no python found"
 log "using python: $PY"
 
 # ── 1. Regenerate data ─────────────────────────────────────────────
