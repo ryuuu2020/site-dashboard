@@ -2,9 +2,10 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from collections import defaultdict
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 
@@ -20,6 +21,13 @@ from ga4_api import DEFAULT_SERVICE_ACCOUNT, Ga4ApiError, request_access_token, 
 SITES_JSON_PATH = DASHBOARD_DIR / "sites.json"
 ANALYTICS_JSON_PATH = DASHBOARD_DIR / "analytics.json"
 PROPERTY_ID = "542906144"
+
+# Candidate keys for per-site average session duration in ga4-report-*.json files.
+DURATION_KEYS = ("avg_session_duration", "avgSessionDuration", "avg_duration", "duration")
+
+
+def utc_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
 LEGACY_HOST_MAP = {
     "solarpunk-game-wiki.vercel.app": "Solarpunk",
@@ -187,13 +195,28 @@ def build_live_snapshot(sites: list[dict]) -> dict:
     }
 
     return {
-        "generatedAt": datetime.now().isoformat(),
+        "generatedAt": utc_now_iso(),
         "source": "ga4-live",
         "period": {"start": start_str, "end": end_str, "label": f"{start_str} ~ {end_str}"},
         "trafficDays": day_labels,
         "siteStats": list(site_stats_by_name.values()),
         "topPagesByHost": top_pages_payload,
     }
+
+
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", (value or "").lower()).strip("_")
+
+
+def extract_report_duration(stats: dict) -> int:
+    for key in DURATION_KEYS:
+        value = stats.get(key)
+        if value is not None:
+            try:
+                return round(float(value))
+            except (TypeError, ValueError):
+                continue
+    return 0
 
 
 def build_fallback_snapshot(sites: list[dict], report: dict | None, error_message: str) -> dict:
@@ -205,37 +228,55 @@ def build_fallback_snapshot(sites: list[dict], report: dict | None, error_messag
     start_str = start_date.strftime("%Y-%m-%d")
     end_str = end_date.strftime("%Y-%m-%d")
     day_labels = [(start_date + timedelta(days=offset)).strftime("%m-%d") for offset in range(7)]
+    # NOTE: ga4-report-*.json only carries period totals (no per-day series),
+    # so viewsByDay stays all-zero rather than fabricating a daily distribution.
     site_stats_by_name = build_empty_site_stats(sites, ["0"] * 7, name_to_host)
 
+    # Fill real per-site totals for every site the report covers.
     report_sites = (report or {}).get("site_stats", {})
     for site_name, stats in report_sites.items():
         if site_name not in site_stats_by_name:
             continue
-        sessions = int(stats.get("sessions", 0))
-        total_views = int(stats.get("pv", 0))
+        sessions = int(stats.get("sessions", 0) or 0)
+        total_views = int(stats.get("pv", 0) or 0)
         site_stats_by_name[site_name].update(
             {
                 "totalViews": total_views,
                 "sessions": sessions,
-                "users": int(stats.get("users", 0)),
-                "avgSessionDuration": 0,
+                "users": int(stats.get("users", 0) or 0),
+                "avgSessionDuration": extract_report_duration(stats),
                 "pagesPerSession": round(total_views / sessions, 2) if sessions else 0,
             }
         )
 
+    # Generalize top pages: accept any "<slug>_top_pages" key in the report and
+    # map it to the matching site's canonical host (e.g. going_medieval_top_pages).
+    slug_to_name: dict[str, str] = {}
+    for site in sites:
+        name = site.get("name") or ""
+        if name:
+            slug_to_name[slugify(name)] = name
+        dir_name = site.get("dir") or ""
+        if dir_name:
+            slug_to_name[slugify(re.sub(r"-(guide|wiki)$", "", dir_name))] = name
     top_pages_by_host: dict[str, list[dict]] = {}
-    for host, site_name in host_to_name.items():
-        if site_name != "Going Medieval":
+    for key, pages in (report or {}).items():
+        if not key.endswith("_top_pages") or not isinstance(pages, list):
             continue
-        top_pages_by_host[name_to_host.get(site_name, host)] = [
+        site_name = slug_to_name.get(slugify(key[: -len("_top_pages")]))
+        if not site_name:
+            continue
+        canonical_host = name_to_host.get(site_name)
+        if not canonical_host:
+            continue
+        top_pages_by_host[canonical_host] = [
             {"path": path, "views": int(views), "eng": 0}
-            for path, views in (report or {}).get("going_medieval_top_pages", [])[:8]
+            for path, views in pages[:8]
             if path != "/ads.txt"
         ]
-        break
 
     return {
-        "generatedAt": datetime.now().isoformat(),
+        "generatedAt": utc_now_iso(),
         "source": "ga4-report-fallback",
         "fallbackError": error_message,
         "period": {"start": start_str, "end": end_str, "label": f"{start_str} ~ {end_str}"},

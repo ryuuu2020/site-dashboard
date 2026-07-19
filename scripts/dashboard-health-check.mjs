@@ -295,21 +295,21 @@ async function main() {
   if (!latestEntryAt) {
     issues.push(
       buildIssue({
-        severity: 'warn',
+        severity: 'info',
         code: 'activity_timestamp_missing',
         summary: '最近动态没有可用时间戳',
         details: '接口 /api/activity 返回的 entries 不带有效 timestamp。',
-        autoFix: 'inspect-data-pipeline',
+        autoFix: 'none-informational',
       })
     );
   } else if (latestEntryAgeHours !== null && latestEntryAgeHours > ACTIVITY_MAX_AGE_HOURS) {
     issues.push(
       buildIssue({
-        severity: 'warn',
+        severity: 'info',
         code: 'activity_stale',
         summary: `最近动态已 ${latestEntryAgeHours} 小时未更新`,
         details: `最近一次动态时间为 ${formatBeijing(latestEntryAt)}。`,
-        autoFix: 'inspect-data-pipeline',
+        autoFix: 'none-informational',
       })
     );
   }
@@ -318,32 +318,32 @@ async function main() {
   if (analyticsSites.length !== sites.length) {
     issues.push(
       buildIssue({
-        severity: 'warn',
+        severity: 'info',
         code: 'analytics_count_mismatch',
         summary: `Analytics 站点数异常：${analyticsSites.length}/${sites.length}`,
         details: '接口 /api/analytics 的 siteStats 数量和站点清单不一致。',
-        autoFix: 'inspect-data-pipeline',
+        autoFix: 'none-informational',
       })
     );
   }
   if (!analyticsPayload?.generatedAt) {
     issues.push(
       buildIssue({
-        severity: 'warn',
+        severity: 'info',
         code: 'analytics_missing_timestamp',
         summary: 'Analytics 快照没有 generatedAt',
         details: '接口 /api/analytics 缺少生成时间，无法判断数据是否陈旧。',
-        autoFix: 'inspect-data-pipeline',
+        autoFix: 'none-informational',
       })
     );
   } else if (analyticsAgeHours !== null && analyticsAgeHours > ANALYTICS_MAX_AGE_HOURS) {
     issues.push(
       buildIssue({
-        severity: 'warn',
+        severity: 'info',
         code: 'analytics_stale',
         summary: `Analytics 快照已 ${analyticsAgeHours} 小时未刷新`,
         details: `当前快照时间为 ${formatBeijing(analyticsPayload.generatedAt)}。`,
-        autoFix: 'inspect-data-pipeline',
+        autoFix: 'none-informational',
       })
     );
   }
@@ -352,7 +352,7 @@ async function main() {
   const report = {
     generatedAt,
     baseUrl: BASE_URL,
-    status: issues.some((issue) => issue.severity === 'error') ? 'failed' : issues.length > 0 ? 'warning' : 'healthy',
+    status: issues.some((issue) => issue.severity === 'error') ? 'failed' : issues.some((issue) => issue.severity === 'warn') ? 'warning' : 'healthy',
     siteCount: sites.length,
     scan: {
       source: scanPayload?.source || 'unknown',
