@@ -87,6 +87,12 @@
     color:var(--text-muted);
     font-family:'SF Mono',monospace;
   }
+  .src-badge {
+    display:inline-block; padding:0.0625rem 0.5rem; border-radius:1rem;
+    font-size:0.625rem; font-weight:700; letter-spacing:0.04em; margin-right:0.375rem;
+  }
+  .src-badge.live { background:var(--green-bg); color:var(--green-text); }
+  .src-badge.snapshot { background:var(--yellow-bg); color:var(--yellow); }
 
   /* Table */
   .table-wrap { overflow-x:auto; border:1px solid var(--border); border-radius:0.5rem; }
@@ -141,6 +147,7 @@
   .check.pass { background:var(--green-bg); color:var(--green); }
   .check.fail { background:var(--red-bg); color:var(--red); }
   .check.wait { color:var(--text-muted); }
+  .check.unknown { background:var(--bg-elevated); color:var(--text-muted); border:1px dashed var(--border); }
   .check.live-check { animation:fadeIn 0.5s; }
   @keyframes fadeIn { from{opacity:0;transform:scale(0.8)} to{opacity:1;transform:scale(1)} }
 
@@ -179,6 +186,7 @@
   .feed-item .dot.update { background:var(--blue); }
   .feed-item .dot.launch { background:var(--green); }
   .feed-item .dot.fix { background:var(--yellow); }
+  .feed-item .dot.push { background:var(--purple); }
   .feed-item .time { font-size:0.625rem; color:var(--text-muted); white-space:nowrap; min-width:4.5rem; font-family:'SF Mono',monospace; }
   .feed-item .msg { color:var(--text-secondary); flex:1; }
   .feed-item .site-tag { font-size:0.625rem; font-weight:600; }
@@ -238,7 +246,7 @@
     </div>
     <div class="stat good">
       <div class="label">功能完整度</div><div class="value green" id="stat-complete">—</div>
-      <div class="sub">5/5 项检查</div>
+      <div class="sub" id="stat-complete-sub">6 项检查 · 未知不计入</div>
     </div>
     <div class="stat info">
       <div class="label">最后验证</div><div class="value" style="font-size:0.875rem" id="stat-verified">—</div>
@@ -288,35 +296,15 @@
   </div>
 
   <footer style="text-align:center;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border);font-size:0.6875rem;color:var(--text-muted)">
-    Cola 指挥中心 v1.1 · 自动扫描
+    Cola 指挥中心 v1.2 · 自动扫描 · 实时检测
   </footer>
 </div>
 
 <script>
 // ── 站点数据 ──────────────────────────────────
-const DEFAULT_SITES = [
-  { id:1, name:'Solarpunk',      url:'https://solarpunk.gguidehub.com',     steam:1805110, pages:22, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 1.0.3', eng:82, pps:1.45, launch:'6/23' },
-  { id:2, name:'Dispatch',       url:'https://dispatch.gguidehub.com',    steam:2592160, pages:16, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Xbox夏季',   eng:662,pps:1.94, launch:'6/23' },
-  { id:3, name:'MENACE',         url:'https://menace.gguidehub.com',             steam:2432860, pages:19, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#4 SMG', eng:30, pps:0.88, launch:'6/23' },
-  { id:4, name:'Olden Era',      url:'https://oldenera.gguidehub.com',      steam:3105440, pages:24, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch#8#9',  eng:14, pps:0.89, launch:'6/25' },
-  { id:5, name:'Going Medieval', url:'https://goingmedieval.gguidehub.com',     steam:1029780, pages:124,style:'3-古卷羊皮纸', styleTag:'style-3', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.105',   eng:80, pps:1.68, launch:'6/25' },
-  { id:6, name:'Tabletop Tavern',url:'https://tabletoptavern.gguidehub.com',   steam:3337380, pages:17, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.6.23',    eng:20, pps:0.88, launch:'6/25' },
-  { id:7, name:'Demon Lord',     url:'https://demonlord.gguidehub.com',         steam:3720420, pages:13, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'5月汇总',    eng:63, pps:1.20, launch:'6/25' },
-  { id:8, name:'Town to City',  url:'https://towntocity.gguidehub.com',       steam:3115220, pages:17, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v0.7.4e',    eng:5,  pps:0.86, launch:'6/25' },
-  { id:9, name:'Witchspire',    url:'https://witchspire.gguidehub.com',         steam:2679100, pages:11, style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'Patch 0.1.3', eng:0,  pps:0.50, launch:'6/26' },
-  { id:10,name:'Vampire Crawlers',url:'https://vampirecrawlers.gguidehub.com',  steam:3265700, pages:14, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0',       eng:0,  pps:0.50, launch:'6/26' },
-  { id:11,name:'Cairn',          url:'https://cairn.gguidehub.com',             steam:1588550, pages:18, style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.5',     eng:11, pps:0.85, launch:'6/26' },
-  { id:12,name:'Mewgenics',      url:'https://mewgenics.gguidehub.com',        steam:686060,  pages:19, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0',       eng:15, pps:0.80, launch:'6/26' },
-  { id:13,name:'Nova Roma',      url:'https://novaroma.gguidehub.com',         steam:2426530, pages:21, style:'6-城市蓝图',   styleTag:'style-6', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v0.4.1',     eng:52, pps:0.92, launch:'6/26' },
-  { id:14,name:'Die in the Dungeon',url:'https://dieinthedungeon.gguidehub.com',steam:2026820,pages:24, style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'06-28 20:30', update:'v1.0.4',     eng:18, pps:0.88, launch:'6/26' },
-  { id:15,name:'Space Haven',     url:'https://spacehaven.gguidehub.com',      steam:979110,  pages:8,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.3',     eng:0,  pps:0,    launch:'7/2' },
-  { id:16,name:'Realm of Ink',    url:'https://realmofink.gguidehub.com',     steam:2597080, pages:8,  style:'B-暗黑史诗',   styleTag:'style-b', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.2',     eng:0,  pps:0,    launch:'7/2' },
-  { id:17,name:'shapez 2',        url:'https://shapez2.gguidehub.com',       steam:2162800, pages:8,  style:'5-工业电路',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0',       eng:0,  pps:0,    launch:'7/2' },
-  { id:18,name:'Alabaster Dawn',  url:'https://alabasterdawn.gguidehub.com',   steam:3110760, pages:8,  style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'EA 0.3',     eng:0,  pps:0,    launch:'7/2' },
-  { id:19,name:'Terra Invicta',  url:'https://terrainvicta.gguidehub.com',    steam:1176470, pages:8,  style:'A-战术指挥',   styleTag:'style-a', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.3',     eng:0,  pps:0,    launch:'7/2' },
-  { id:20,name:'HumanitZ',        url:'https://humanitz.gguidehub.com',       steam:1766060, pages:8,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:0}, push:'07-02 15:00', update:'v1.0.2',     eng:0,  pps:0,    launch:'7/2' },
-  { id:21,name:'Adira Nusantara', url:'https://adiranusantara.gguidehub.com', steam:3522550, pages:5,  style:'C-生存日志',   styleTag:'style-c', feats:{adsense:1,adstxt:1,ga4:1,gsc:1}, push:'07-05 08:55', update:'feat: initial site', eng:0,  pps:0,    launch:'7/5' },
-];
+// 不再内嵌站点清单副本（容易漂移）。数据源：api/sites → sites.json。
+// 两者都不可用时显示空状态，而不是用过期数据冒充真实状态。
+const DEFAULT_SITES = [];
 let SITES = [];
 
 const SITE_API_ENDPOINTS = [
@@ -363,10 +351,11 @@ function normalizeSite(site, index) {
     style: site.style ?? '未知',
     styleTag: site.styleTag ?? 'style-a',
     feats: {
-      adsense: 1,
-      adstxt: 1,
-      ga4: 1,
-      gsc: 1,
+      // null = 未知（未验证）；不再默认全部视为已接入
+      adsense: null,
+      adstxt: null,
+      ga4: null,
+      gsc: null,
       ...(site.feats || {}),
     },
     push: site.push ?? '',
@@ -490,7 +479,7 @@ function renderTopPagesForHost(host) {
     </div>`;
   }).join('');
   return `<div class="expand-inner">
-    <div class="pp-title">🔥 热门页面（GA4 快照）</div>
+    <div class="pp-title">🔥 热门页面（${ANALYTICS.source === 'ga4-live' ? 'GA4 实时' : 'GA4 快照'}）</div>
     <div class="pp-list">${rows}</div>
   </div>`;
 }
@@ -507,39 +496,51 @@ async function fetchWithTimeout(url, opts={}, timeout=5000) {
 }
 
 async function scanSitesViaApi() {
-  const resp = await fetchWithTimeout(`${SCAN_API_ENDPOINT}?ts=${Date.now()}`, { cache: 'no-store' }, 15000);
+  const resp = await fetchWithTimeout(`${SCAN_API_ENDPOINT}?ts=${Date.now()}`, { cache: 'no-store' }, 30000);
   if (!resp.ok) {
     throw new Error(`HTTP ${resp.status}`);
   }
   const data = await resp.json();
-  if (!Array.isArray(data?.results) || data.results.length !== SITES.length) {
-    throw new Error(`invalid result length: ${data?.results?.length ?? 'null'} vs ${SITES.length}`);
+  if (!Array.isArray(data?.results)) {
+    throw new Error(`invalid scan payload: results is ${typeof data?.results}`);
+  }
+  // 按稳定 key（host/dir）索引，前端按 key 合并，不依赖数组顺序或数量一致。
+  const byHost = {};
+  for (const result of data.results) {
+    const key = result?.host || result?.key || result?.dir;
+    if (!key) continue;
+    byHost[key] = {
+      online: Boolean(result?.online),
+      hero: Boolean(result?.hero),
+      adstxt: Boolean(result?.adstxt),
+      adsense: Boolean(result?.adsense),
+      ga4: Boolean(result?.ga4),
+      gsc: result?.gsc === true ? true : result?.gsc === false ? false : null,
+      error: result?.error || null,
+    };
   }
   return {
     source: data?.source || 'server-scan',
     generated: data?.generated || null,
     durationMs: Number(data?.durationMs) || 0,
     endpoint: SCAN_API_ENDPOINT,
-    results: data.results.map((result) => ({
-      online: Boolean(result?.online),
-      hero: Boolean(result?.hero),
-      adstxt: Boolean(result?.adstxt),
-    })),
+    byHost,
   };
 }
 
-const ICONS={pass:'✓',fail:'✗',wait:'…'};
-function CLS(v,live){return v?'check pass'+(live?' live-check':''):'check fail';}
+const ICONS={pass:'✓',fail:'✗',wait:'…',unknown:'?'};
+// value: true=通过, false=失败, null/undefined=未知（不计入通过或失败）
+function checkCell(value, isWait){
+  if (isWait) return `<span class="check wait">${ICONS.wait}</span>`;
+  if (value === true) return `<span class="check pass live-check">${ICONS.pass}</span>`;
+  if (value === false) return `<span class="check fail live-check">${ICONS.fail}</span>`;
+  return `<span class="check unknown" title="无法从页面验证，状态未知">${ICONS.unknown}</span>`;
+}
 
 function renderRow(site,live,i){
-  const f=site.feats;
   const stats = getSiteAnalytics(site);
-  const o=live?(live.online?ICONS.pass:ICONS.fail):ICONS.wait;
-  const oCls=live?(live.online?'check pass live-check':'check fail live-check'):'check wait';
-  const h=live?(live.hero?ICONS.pass:ICONS.fail):ICONS.wait;
-  const hCls=live?(live.hero?'check pass live-check':'check fail live-check'):'check wait';
-  const a=live?(live.adstxt?ICONS.pass:ICONS.fail):ICONS.wait;
-  const aCls=live?(live.adstxt?'check pass live-check':'check fail live-check'):'check wait';
+  const noScan = !live;
+  const liveOrNull = (key) => (live ? live[key] : null);
 
   return `<tr class="site-row" data-site-host="${site.url.replace('https://','')}">
     <td class="num">${String(site.id).padStart(2,'0')}</td>
@@ -549,12 +550,12 @@ function renderRow(site,live,i){
     </td>
     <td><span class="tag ${site.styleTag}">${site.style}</span></td>
     <td class="num">${site.pages}</td>
-    <td><span class="${oCls}">${o}</span></td>
-    <td><span class="${hCls}">${h}</span></td>
-    <td><span class="${aCls}">${a}</span></td>
-    <td><span class="${CLS(f.adsense,false)}">${f.adsense?ICONS.pass:ICONS.fail}</span></td>
-    <td><span class="${CLS(f.ga4,false)}">${f.ga4?ICONS.pass:ICONS.fail}</span></td>
-    <td><span class="${CLS(f.gsc,false)}">${f.gsc?ICONS.pass:ICONS.fail}</span></td>
+    <td>${checkCell(liveOrNull('online'), noScan)}</td>
+    <td>${checkCell(liveOrNull('hero'), noScan)}</td>
+    <td>${checkCell(liveOrNull('adstxt'), noScan)}</td>
+    <td>${checkCell(liveOrNull('adsense'), noScan)}</td>
+    <td>${checkCell(liveOrNull('ga4'), noScan)}</td>
+    <td>${checkCell(liveOrNull('gsc'), noScan)}</td>
     <td class="num" style="font-weight:700;color:var(--blue-text)">${stats?.totalViews||0}</td>
     <td class="num">${stats?.avgSessionDuration||0}</td>
     <td class="num">${stats?.pagesPerSession||0}</td>
@@ -567,22 +568,30 @@ function renderRow(site,live,i){
   </tr>`;
 }
 
-function renderAll(liveResults){
-  document.getElementById('site-table').innerHTML=SITES.map((s,i)=>renderRow(s,liveResults?.[i], i)).join('');
+const CHECK_KEYS = ['online','hero','adstxt','adsense','ga4','gsc'];
+
+function renderAll(liveByHost){
+  document.getElementById('site-table').innerHTML=SITES.length
+    ? SITES.map((s,i)=>renderRow(s,liveByHost?.[siteHost(s)], i)).join('')
+    : `<tr><td colspan="16" style="text-align:center;padding:2rem;color:var(--text-muted)">未能载入站点清单（api/sites 与 sites.json 均不可用）</td></tr>`;
   // 动态更新 stats 数据
   document.getElementById('stat-site-count').textContent=SITES.length;
   const totalPages=SITES.reduce((sum,s)=>sum+(s.pages||0),0);
   document.getElementById('stat-total-pages').textContent=totalPages;
   document.getElementById('stat-avg-pages').textContent=SITES.length ? '平均 '+(totalPages/SITES.length).toFixed(1)+' 页/站' : '暂无站点';
-  if(liveResults){
-    const online=liveResults.filter(r=>r.online).length;
-    const heroOK=liveResults.filter(r=>r.hero).length;
-    const adstxtOK=liveResults.filter(r=>r.adstxt).length;
+  if(liveByHost){
+    const rows=SITES.map(s=>liveByHost[siteHost(s)]).filter(Boolean);
+    const online=rows.filter(r=>r.online).length;
+    const heroOK=rows.filter(r=>r.hero).length;
+    const adstxtOK=rows.filter(r=>r.adstxt).length;
     document.getElementById('stat-online').textContent=online+'/'+SITES.length;
     document.getElementById('stat-online').className='value '+(online===SITES.length?'green':'red');
-    const allGood=online===SITES.length&&heroOK===SITES.length&&adstxtOK===SITES.length;
-    document.getElementById('stat-complete').textContent=allGood?'全部正常':'有异常';
-    document.getElementById('stat-complete').className='value '+(allGood?'green':'red');
+    // 功能完整度：已知检查全部通过的站点数；未知（null）既不算通过也不算失败
+    const fullyPassing=rows.filter(r=>CHECK_KEYS.every(k=>r[k]!==false)).length;
+    const anyFail=rows.some(r=>CHECK_KEYS.some(k=>r[k]===false));
+    document.getElementById('stat-complete').textContent=`${fullyPassing}/${SITES.length} 通过`;
+    document.getElementById('stat-complete').className='value '+(anyFail?'red':fullyPassing===SITES.length?'green':'blue');
+    document.getElementById('stat-complete-sub').textContent=`${CHECK_KEYS.length} 项检查 · 未知不计入`;
     document.getElementById('global-pulse').className='pulse '+(online===SITES.length?'live':'dead');
     document.getElementById('stat-verified').textContent=new Date().toLocaleString('zh-CN',{timeZone:'Asia/Shanghai'});
     document.getElementById('scan-status').textContent=`${online}/${heroOK}/${adstxtOK} 在线/头图/广告`;
@@ -613,9 +622,13 @@ function renderTraffic(){
   const statsList = Object.values(ANALYTICS.siteStatsByHost || {});
   const hasData = statsList.some((stat) => (stat.totalViews || 0) > 0);
   const trafficMeta = document.getElementById('traffic-meta');
-  trafficMeta.textContent = ANALYTICS.generatedAt
-    ? `来源 ${ANALYTICS.source} · 快照 ${ANALYTICS.generatedAt.replace('T',' ').slice(0,16)} · 周期 ${ANALYTICS.period?.label || '未知'}${ANALYTICS.fallbackError ? ` · fallback: ${ANALYTICS.fallbackError}` : ''}`
-    : '当前没有可用的 GA4 快照';
+  const isLive = ANALYTICS.source === 'ga4-live';
+  const badge = isLive
+    ? '<span class="src-badge live">实时数据</span>'
+    : `<span class="src-badge snapshot">快照数据${ANALYTICS.generatedAt ? ` · 更新于 ${ANALYTICS.generatedAt.replace('T',' ').slice(0,16)}` : ''}</span>`;
+  trafficMeta.innerHTML = ANALYTICS.generatedAt
+    ? `${badge}来源 ${ANALYTICS.source} · 周期 ${ANALYTICS.period?.label || '未知'}${ANALYTICS.fallbackError ? ` · fallback: ${ANALYTICS.fallbackError}` : ''}`
+    : '当前没有可用的 GA4 数据';
   if(!hasData){ document.getElementById('traffic-placeholder').style.display='block'; grid.innerHTML=''; return; }
   document.getElementById('traffic-placeholder').style.display='none';
 
@@ -695,7 +708,7 @@ async function scanAll(){
   }
   try {
     const payload = await scanSitesViaApi();
-    LAST_SCAN_RESULTS = payload.results;
+    LAST_SCAN_RESULTS = payload.byHost;
     LAST_SCAN_META = {
       source: payload.source,
       generated: payload.generated,

@@ -1,4 +1,3 @@
-const DEFAULT_FEATS = { adsense: 1, adstxt: 1, ga4: 1, gsc: 1 };
 const {
   MANUAL_SITE_METADATA,
   buildRepoUpdatesFromEvents,
@@ -41,7 +40,7 @@ function mergeRepoIntoSite(repo, existingSite) {
     pages: existingSite.pages || 0,
     style: existingSite.style || manual.style || '未知',
     styleTag: existingSite.styleTag || manual.styleTag || 'style-a',
-    feats: { ...DEFAULT_FEATS, ...(existingSite.feats || {}) },
+    feats: { ...(existingSite.feats || {}) },
     push: existingSite.push || '',
     update: existingSite.update || '',
     eng: existingSite.eng || 0,
@@ -108,8 +107,10 @@ module.exports = async (req, res) => {
     return a.dir.localeCompare(b.dir);
   });
 
+  // Stable ids: prefer curated rank, then the manifest id; never renumber per request.
   sites.forEach((site, index) => {
-    site.id = index + 1;
+    const ranked = MANUAL_SITE_METADATA[site.dir]?.rank;
+    site.id = ranked ?? (Number(site.id) > 0 ? Number(site.id) : 1000 + index);
   });
 
   res.statusCode = 200;

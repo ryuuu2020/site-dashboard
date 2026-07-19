@@ -155,12 +155,14 @@ function summarizeRepoUpdate(repo, metadata = {}) {
 }
 
 async function githubFetch(url) {
-  const resp = await fetch(url, {
-    headers: {
-      Accept: 'application/vnd.github+json',
-      'User-Agent': 'site-dashboard',
-    },
-  });
+  const headers = {
+    Accept: 'application/vnd.github+json',
+    'User-Agent': 'site-dashboard',
+  };
+  if (process.env.GITHUB_TOKEN) {
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+  }
+  const resp = await fetch(url, { headers });
   if (!resp.ok) {
     throw new Error(`GitHub API ${resp.status}: ${url}`);
   }
@@ -224,7 +226,7 @@ function buildActivityEntries(events, repoMetadata) {
       if (commits.length === 0) {
         continue;
       }
-      for (const commit of commits.slice(0, 2)) {
+      for (const commit of commits.slice(0, 5)) {
         const message = summarizeCommitMessage(commit?.message, metadata, repoName);
         entries.push({
           time: formatBeijingShort(event.created_at),
