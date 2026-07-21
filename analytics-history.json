@@ -94,14 +94,33 @@
     {
       "date": "2026-07-19",
       "sites": {
-        "oldenera.gguidehub.com": 10,
-        "goingmedieval.gguidehub.com": 6,
+        "oldenera.gguidehub.com": 11,
+        "goingmedieval.gguidehub.com": 7,
         "terrainvicta.gguidehub.com": 6,
         "alabasterdawn.gguidehub.com": 2,
         "humanitz.gguidehub.com": 2,
         "menace.gguidehub.com": 2,
         "towntocity.gguidehub.com": 2,
         "solarpunk.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-20",
+      "sites": {
+        "oldenera.gguidehub.com": 5,
+        "towntocity.gguidehub.com": 2,
+        "novaroma.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1,
+        "terrainvicta.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-21",
+      "sites": {
+        "oldenera.gguidehub.com": 4,
+        "demonlord.gguidehub.com": 2,
+        "solarpunk.gguidehub.com": 2,
+        "terrainvicta.gguidehub.com": 1
       }
     }
   ]

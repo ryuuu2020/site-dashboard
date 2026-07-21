@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-20T22:17:11Z",
+  "generated": "2026-07-21T22:17:18Z",
   "sites": [
     {
       "id": 1,
@@ -29,7 +29,7 @@
       "dir": "dispatch-guide",
       "url": "https://dispatch.gguidehub.com",
       "steam": 2592160,
-      "pages": 19,
+      "pages": 28,
       "style": "A-战术指挥",
       "styleTag": "style-a",
       "feats": {
@@ -51,7 +51,7 @@
       "dir": "menace-guide",
       "url": "https://menace.gguidehub.com",
       "steam": 2432860,
-      "pages": 26,
+      "pages": 29,
       "style": "A-战术指挥",
       "styleTag": "style-a",
       "feats": {
@@ -73,7 +73,7 @@
       "dir": "olden-era-guide",
       "url": "https://oldenera.gguidehub.com",
       "steam": 3105440,
-      "pages": 22,
+      "pages": 31,
       "style": "B-暗黑史诗",
       "styleTag": "style-b",
       "feats": {
@@ -95,7 +95,7 @@
       "dir": "going-medieval-guide",
       "url": "https://goingmedieval.gguidehub.com",
       "steam": 1029780,
-      "pages": 18,
+      "pages": 163,
       "style": "3-古卷羊皮纸",
       "styleTag": "style-3",
       "feats": {
@@ -161,7 +161,7 @@
       "dir": "town-to-city-guide",
       "url": "https://towntocity.gguidehub.com",
       "steam": 3115220,
-      "pages": 33,
+      "pages": 35,
       "style": "6-城市蓝图",
       "styleTag": "style-6",
       "feats": {
@@ -183,7 +183,7 @@
       "dir": "witchspire-guide",
       "url": "https://witchspire.gguidehub.com",
       "steam": 2679100,
-      "pages": 9,
+      "pages": 27,
       "style": "B-暗黑史诗",
       "styleTag": "style-b",
       "feats": {
@@ -205,7 +205,7 @@
       "dir": "vampire-crawlers-guide",
       "url": "https://vampirecrawlers.gguidehub.com",
       "steam": 3265700,
-      "pages": 12,
+      "pages": 28,
       "style": "A-战术指挥",
       "styleTag": "style-a",
       "feats": {
@@ -461,6 +461,28 @@
       "eng": 0,
       "pps": 0,
       "launch": "7/5",
+      "draft": false
+    },
+    {
+      "id": 22,
+      "name": "Fading Echo",
+      "dir": "fading-echo-guide",
+      "url": "https://fadingecho.gguidehub.com",
+      "steam": 0,
+      "pages": 4,
+      "style": "未知",
+      "styleTag": "style-a",
+      "feats": {
+        "adsense": 1,
+        "adstxt": 1,
+        "ga4": 1,
+        "gsc": 1
+      },
+      "push": "",
+      "update": "",
+      "eng": 0,
+      "pps": 0,
+      "launch": "?",
       "draft": false
     }
   ]
