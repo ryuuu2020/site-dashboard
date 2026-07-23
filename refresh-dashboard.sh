@@ -66,11 +66,17 @@ log "committed: $(git log -1 --format='%h %s')"
 
 if git remote get-url origin >/dev/null 2>&1; then
   log "pushing to origin (Vercel auto-deploys from this GitHub repo)"
-  if git push origin HEAD; then
+  pushed=0
+  for attempt in 1 2 3 4; do
+    if git push origin HEAD; then pushed=1; break; fi
+    warn "git push attempt $attempt failed; retrying in 20s"
+    sleep 20
+  done
+  if [ "$pushed" = "1" ]; then
     log "push succeeded; Vercel deploy triggered via git integration."
     exit 0
   fi
-  warn "git push failed"
+  warn "git push failed after 4 attempts"
 else
   warn "no git remote configured; Vercel git auto-deploy unavailable"
 fi
