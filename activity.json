@@ -1,7 +1,14 @@
 {
-  "generated": "2026-07-22T22:17:30Z",
+  "generated": "2026-07-23T22:17:09Z",
   "source": "local-git",
   "entries": [
+    {
+      "time": "07-23 09:56",
+      "timestamp": "2026-07-23T09:56:23+08:00",
+      "dot": "update",
+      "msg": "content: July 22 batch — update 4 guides (biomes, clothing-insulation, best-map-seeds, settler-job-assignment), remove b",
+      "site": "Going Medieval"
+    },
     {
       "time": "07-22 07:46",
       "timestamp": "2026-07-22T07:46:12+08:00",
@@ -204,13 +211,6 @@
       "dot": "fix",
       "msg": "fix: add Steam purchase links to SidebarLayout",
       "site": "Tabletop Tavern"
-    },
-    {
-      "time": "07-06 21:35",
-      "timestamp": "2026-07-06T21:35:06+08:00",
-      "dot": "fix",
-      "msg": "fix: add Steam purchase link with curator_clanid",
-      "site": "Cairn"
     }
   ]
 }

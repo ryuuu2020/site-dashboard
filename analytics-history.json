@@ -130,9 +130,21 @@
         "oldenera.gguidehub.com": 4,
         "menace.gguidehub.com": 3,
         "adiranusantara.gguidehub.com": 2,
-        "fadingecho.gguidehub.com": 2,
+        "fadingecho.gguidehub.com": 4,
         "towntocity.gguidehub.com": 2,
         "solarpunk.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-23",
+      "sites": {
+        "towntocity.gguidehub.com": 8,
+        "oldenera.gguidehub.com": 5,
+        "novaroma.gguidehub.com": 2,
+        "demonlord.gguidehub.com": 1,
+        "dispatch.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1,
+        "witchspire.gguidehub.com": 1
       }
     }
   ]
