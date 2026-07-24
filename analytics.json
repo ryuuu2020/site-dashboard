@@ -1,37 +1,37 @@
 {
-  "generatedAt": "2026-07-24T10:14:04Z",
+  "generatedAt": "2026-07-24T22:17:15Z",
   "source": "ga4-live",
   "period": {
-    "start": "2026-07-17",
-    "end": "2026-07-23",
-    "label": "2026-07-17 ~ 2026-07-23"
+    "start": "2026-07-18",
+    "end": "2026-07-24",
+    "label": "2026-07-18 ~ 2026-07-24"
   },
   "trafficDays": [
-    "07-17",
     "07-18",
     "07-19",
     "07-20",
     "07-21",
     "07-22",
-    "07-23"
+    "07-23",
+    "07-24"
   ],
   "siteStats": [
     {
       "name": "Solarpunk",
       "host": "solarpunk.gguidehub.com",
       "viewsByDay": [
-        0,
         1,
         1,
         1,
         2,
         1,
-        1
+        1,
+        2
       ],
-      "totalViews": 7,
-      "sessions": 7,
-      "users": 7,
-      "avgSessionDuration": 5,
+      "totalViews": 9,
+      "sessions": 9,
+      "users": 9,
+      "avgSessionDuration": 4,
       "pagesPerSession": 1.0
     },
     {
@@ -43,12 +43,12 @@
         0,
         0,
         0,
-        0,
+        1,
         1
       ],
-      "totalViews": 1,
-      "sessions": 1,
-      "users": 1,
+      "totalViews": 2,
+      "sessions": 2,
+      "users": 2,
       "avgSessionDuration": 0,
       "pagesPerSession": 1.0
     },
@@ -57,11 +57,11 @@
       "host": "menace.gguidehub.com",
       "viewsByDay": [
         0,
-        0,
         2,
         0,
         0,
         3,
+        0,
         0
       ],
       "totalViews": 5,
@@ -74,37 +74,37 @@
       "name": "Olden Era",
       "host": "oldenera.gguidehub.com",
       "viewsByDay": [
-        3,
         6,
         11,
         5,
         5,
         4,
-        7
+        7,
+        5
       ],
-      "totalViews": 41,
-      "sessions": 35,
-      "users": 25,
-      "avgSessionDuration": 194,
-      "pagesPerSession": 1.17
+      "totalViews": 43,
+      "sessions": 34,
+      "users": 26,
+      "avgSessionDuration": 202,
+      "pagesPerSession": 1.26
     },
     {
       "name": "Going Medieval",
       "host": "goingmedieval.gguidehub.com",
       "viewsByDay": [
-        1,
         10,
         7,
         0,
         0,
         0,
+        0,
         0
       ],
-      "totalViews": 18,
-      "sessions": 7,
-      "users": 6,
-      "avgSessionDuration": 19,
-      "pagesPerSession": 2.57
+      "totalViews": 17,
+      "sessions": 6,
+      "users": 5,
+      "avgSessionDuration": 23,
+      "pagesPerSession": 2.83
     },
     {
       "name": "Tabletop Tavern",
@@ -128,13 +128,13 @@
       "name": "Demon Lord",
       "host": "demonlord.gguidehub.com",
       "viewsByDay": [
-        0,
         1,
         0,
         0,
         2,
         0,
-        1
+        1,
+        0
       ],
       "totalViews": 4,
       "sessions": 3,
@@ -147,18 +147,18 @@
       "host": "towntocity.gguidehub.com",
       "viewsByDay": [
         0,
-        0,
         2,
         2,
         0,
         2,
-        9
+        9,
+        2
       ],
-      "totalViews": 15,
-      "sessions": 7,
-      "users": 7,
-      "avgSessionDuration": 231,
-      "pagesPerSession": 2.14
+      "totalViews": 17,
+      "sessions": 9,
+      "users": 9,
+      "avgSessionDuration": 180,
+      "pagesPerSession": 1.89
     },
     {
       "name": "Witchspire",
@@ -169,8 +169,8 @@
         0,
         0,
         0,
-        0,
-        1
+        1,
+        0
       ],
       "totalViews": 1,
       "sessions": 1,
@@ -236,7 +236,7 @@
       "name": "Die in the Dungeon",
       "host": "dieinthedungeon.gguidehub.com",
       "viewsByDay": [
-        1,
+        0,
         0,
         0,
         0,
@@ -244,23 +244,23 @@
         0,
         0
       ],
-      "totalViews": 1,
-      "sessions": 1,
-      "users": 1,
-      "avgSessionDuration": 158,
-      "pagesPerSession": 1.0
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
     },
     {
       "name": "Nova Roma",
       "host": "novaroma.gguidehub.com",
       "viewsByDay": [
-        0,
         5,
         0,
         1,
         0,
         0,
-        2
+        2,
+        0
       ],
       "totalViews": 8,
       "sessions": 5,
@@ -308,27 +308,27 @@
       "name": "shapez 2",
       "host": "shapez2.gguidehub.com",
       "viewsByDay": [
-        0,
         1,
         0,
         0,
         0,
         0,
-        0
+        0,
+        1
       ],
-      "totalViews": 1,
-      "sessions": 2,
-      "users": 1,
-      "avgSessionDuration": 2,
-      "pagesPerSession": 0.5
+      "totalViews": 2,
+      "sessions": 3,
+      "users": 2,
+      "avgSessionDuration": 1,
+      "pagesPerSession": 0.67
     },
     {
       "name": "Alabaster Dawn",
       "host": "alabasterdawn.gguidehub.com",
       "viewsByDay": [
-        0,
         1,
         2,
+        0,
         0,
         0,
         0,
@@ -345,10 +345,10 @@
       "host": "terrainvicta.gguidehub.com",
       "viewsByDay": [
         0,
-        0,
         6,
         1,
         1,
+        0,
         0,
         0
       ],
@@ -363,8 +363,8 @@
       "host": "humanitz.gguidehub.com",
       "viewsByDay": [
         0,
-        0,
         2,
+        0,
         0,
         0,
         0,
@@ -384,8 +384,8 @@
         0,
         0,
         0,
-        0,
         2,
+        0,
         0
       ],
       "totalViews": 2,
@@ -401,9 +401,9 @@
         0,
         0,
         0,
-        0,
         1,
         4,
+        0,
         0
       ],
       "totalViews": 5,
@@ -416,14 +416,14 @@
   "topPagesByHost": {
     "oldenera.gguidehub.com": [
       {
-        "path": "/tier-list",
-        "views": 14,
-        "eng": 75
+        "path": "/factions/grove",
+        "views": 12,
+        "eng": 258
       },
       {
-        "path": "/factions/grove",
-        "views": 10,
-        "eng": 251
+        "path": "/tier-list",
+        "views": 12,
+        "eng": 64
       },
       {
         "path": "/tips",
@@ -437,8 +437,13 @@
       },
       {
         "path": "/factions/hive",
+        "views": 3,
+        "eng": 64
+      },
+      {
+        "path": "/heroes",
         "views": 2,
-        "eng": 79
+        "eng": 5
       },
       {
         "path": "/",
@@ -449,18 +454,13 @@
         "path": "/beginners-guide",
         "views": 1,
         "eng": 20
-      },
-      {
-        "path": "/factions/necropolis",
-        "views": 1,
-        "eng": 92
       }
     ],
     "solarpunk.gguidehub.com": [
       {
         "path": "/",
-        "views": 6,
-        "eng": 4
+        "views": 8,
+        "eng": 3
       },
       {
         "path": "/building",
@@ -478,8 +478,8 @@
     "goingmedieval.gguidehub.com": [
       {
         "path": "/",
-        "views": 5,
-        "eng": 12
+        "views": 4,
+        "eng": 16
       },
       {
         "path": "/beginners",
@@ -546,14 +546,19 @@
         "eng": 27
       },
       {
+        "path": "/research",
+        "views": 3,
+        "eng": 5
+      },
+      {
         "path": "/beginners",
         "views": 2,
         "eng": 221
       },
       {
-        "path": "/research",
+        "path": "/resources",
         "views": 2,
-        "eng": 5
+        "eng": 505
       },
       {
         "path": "/buildings",
@@ -569,11 +574,6 @@
         "path": "/layouts",
         "views": 1,
         "eng": 29
-      },
-      {
-        "path": "/resources",
-        "views": 1,
-        "eng": 1011
       }
     ],
     "alabasterdawn.gguidehub.com": [
@@ -629,6 +629,13 @@
         "eng": 2
       }
     ],
+    "dispatch.gguidehub.com": [
+      {
+        "path": "/",
+        "views": 2,
+        "eng": 0
+      }
+    ],
     "humanitz.gguidehub.com": [
       {
         "path": "/",
@@ -658,21 +665,12 @@
         "eng": 46
       }
     ],
-    "dieinthedungeon.gguidehub.com": [
-      {
-        "path": "/beginners-guide",
-        "views": 1,
-        "eng": 158
-      }
-    ],
-    "dispatch.gguidehub.com": [
+    "shapez2.gguidehub.com": [
       {
         "path": "/",
         "views": 1,
         "eng": 0
-      }
-    ],
-    "shapez2.gguidehub.com": [
+      },
       {
         "path": "/train-logistics-guide",
         "views": 1,
