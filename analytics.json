@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T22:17:13Z",
+  "generatedAt": "2026-07-24T10:14:04Z",
   "source": "ga4-live",
   "period": {
     "start": "2026-07-17",
@@ -80,13 +80,13 @@
         5,
         5,
         4,
-        5
+        7
       ],
-      "totalViews": 39,
+      "totalViews": 41,
       "sessions": 35,
       "users": 25,
-      "avgSessionDuration": 190,
-      "pagesPerSession": 1.11
+      "avgSessionDuration": 194,
+      "pagesPerSession": 1.17
     },
     {
       "name": "Going Medieval",
@@ -152,13 +152,13 @@
         2,
         0,
         2,
-        8
+        9
       ],
-      "totalViews": 14,
+      "totalViews": 15,
       "sessions": 7,
       "users": 7,
-      "avgSessionDuration": 248,
-      "pagesPerSession": 2.0
+      "avgSessionDuration": 231,
+      "pagesPerSession": 2.14
     },
     {
       "name": "Witchspire",
@@ -418,12 +418,12 @@
       {
         "path": "/tier-list",
         "views": 14,
-        "eng": 74
+        "eng": 75
       },
       {
         "path": "/factions/grove",
-        "views": 8,
-        "eng": 249
+        "views": 10,
+        "eng": 251
       },
       {
         "path": "/tips",
@@ -448,12 +448,12 @@
       {
         "path": "/beginners-guide",
         "views": 1,
-        "eng": 0
+        "eng": 20
       },
       {
         "path": "/factions/necropolis",
         "views": 1,
-        "eng": 0
+        "eng": 92
       }
     ],
     "solarpunk.gguidehub.com": [
@@ -534,6 +534,48 @@
         "eng": 43
       }
     ],
+    "towntocity.gguidehub.com": [
+      {
+        "path": "/",
+        "views": 4,
+        "eng": 23
+      },
+      {
+        "path": "/faq",
+        "views": 3,
+        "eng": 27
+      },
+      {
+        "path": "/beginners",
+        "views": 2,
+        "eng": 221
+      },
+      {
+        "path": "/research",
+        "views": 2,
+        "eng": 5
+      },
+      {
+        "path": "/buildings",
+        "views": 1,
+        "eng": 30
+      },
+      {
+        "path": "/citizens",
+        "views": 1,
+        "eng": 17
+      },
+      {
+        "path": "/layouts",
+        "views": 1,
+        "eng": 29
+      },
+      {
+        "path": "/resources",
+        "views": 1,
+        "eng": 1011
+      }
+    ],
     "alabasterdawn.gguidehub.com": [
       {
         "path": "/",
@@ -561,48 +603,6 @@
         "path": "/space-combat",
         "views": 1,
         "eng": 106
-      }
-    ],
-    "towntocity.gguidehub.com": [
-      {
-        "path": "/",
-        "views": 3,
-        "eng": 54
-      },
-      {
-        "path": "/faq",
-        "views": 3,
-        "eng": 27
-      },
-      {
-        "path": "/beginners",
-        "views": 2,
-        "eng": 213
-      },
-      {
-        "path": "/research",
-        "views": 2,
-        "eng": 5
-      },
-      {
-        "path": "/buildings",
-        "views": 1,
-        "eng": 66
-      },
-      {
-        "path": "/citizens",
-        "views": 1,
-        "eng": 17
-      },
-      {
-        "path": "/layouts",
-        "views": 1,
-        "eng": 96
-      },
-      {
-        "path": "/resources",
-        "views": 1,
-        "eng": 1011
       }
     ],
     "adiranusantara.gguidehub.com": [
