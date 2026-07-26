@@ -150,11 +150,34 @@
     {
       "date": "2026-07-24",
       "sites": {
-        "oldenera.gguidehub.com": 5,
+        "oldenera.gguidehub.com": 6,
         "solarpunk.gguidehub.com": 2,
         "towntocity.gguidehub.com": 2,
         "dispatch.gguidehub.com": 1,
         "shapez2.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-25",
+      "sites": {
+        "shapez2.gguidehub.com": 7,
+        "oldenera.gguidehub.com": 3,
+        "tabletoptavern.gguidehub.com": 3,
+        "goingmedieval.gguidehub.com": 2,
+        "demonlord.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-26",
+      "sites": {
+        "oldenera.gguidehub.com": 7,
+        "adiranusantara.gguidehub.com": 1,
+        "fadingecho.gguidehub.com": 1,
+        "menace.gguidehub.com": 1,
+        "shapez2.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1,
+        "towntocity.gguidehub.com": 1
       }
     }
   ]
