@@ -171,13 +171,23 @@
     {
       "date": "2026-07-26",
       "sites": {
-        "oldenera.gguidehub.com": 7,
+        "oldenera.gguidehub.com": 6,
         "adiranusantara.gguidehub.com": 1,
         "fadingecho.gguidehub.com": 1,
-        "menace.gguidehub.com": 1,
+        "menace.gguidehub.com": 2,
         "shapez2.gguidehub.com": 1,
         "solarpunk.gguidehub.com": 1,
-        "towntocity.gguidehub.com": 1
+        "towntocity.gguidehub.com": 2
+      }
+    },
+    {
+      "date": "2026-07-27",
+      "sites": {
+        "terrainvicta.gguidehub.com": 4,
+        "oldenera.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1,
+        "towntocity.gguidehub.com": 1,
+        "vampirecrawlers.gguidehub.com": 1
       }
     }
   ]
