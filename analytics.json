@@ -1,36 +1,36 @@
 {
-  "generatedAt": "2026-07-27T22:17:32Z",
+  "generatedAt": "2026-07-28T22:17:09Z",
   "source": "ga4-live",
   "period": {
-    "start": "2026-07-21",
-    "end": "2026-07-27",
-    "label": "2026-07-21 ~ 2026-07-27"
+    "start": "2026-07-22",
+    "end": "2026-07-28",
+    "label": "2026-07-22 ~ 2026-07-28"
   },
   "trafficDays": [
-    "07-21",
     "07-22",
     "07-23",
     "07-24",
     "07-25",
     "07-26",
-    "07-27"
+    "07-27",
+    "07-28"
   ],
   "siteStats": [
     {
       "name": "Solarpunk",
       "host": "solarpunk.gguidehub.com",
       "viewsByDay": [
-        2,
         1,
         1,
         2,
+        1,
         1,
         1,
         1
       ],
-      "totalViews": 9,
-      "sessions": 9,
-      "users": 9,
+      "totalViews": 8,
+      "sessions": 8,
+      "users": 8,
       "avgSessionDuration": 4,
       "pagesPerSession": 1.0
     },
@@ -39,16 +39,16 @@
       "host": "dispatch.gguidehub.com",
       "viewsByDay": [
         0,
-        0,
         1,
         1,
         0,
         0,
-        0
+        0,
+        1
       ],
-      "totalViews": 2,
-      "sessions": 2,
-      "users": 2,
+      "totalViews": 3,
+      "sessions": 3,
+      "users": 3,
       "avgSessionDuration": 0,
       "pagesPerSession": 1.0
     },
@@ -56,37 +56,37 @@
       "name": "MENACE",
       "host": "menace.gguidehub.com",
       "viewsByDay": [
-        0,
         3,
         0,
         0,
         0,
         2,
+        1,
         0
       ],
-      "totalViews": 5,
+      "totalViews": 6,
       "sessions": 5,
       "users": 5,
-      "avgSessionDuration": 57,
-      "pagesPerSession": 1.0
+      "avgSessionDuration": 58,
+      "pagesPerSession": 1.2
     },
     {
       "name": "Olden Era",
       "host": "oldenera.gguidehub.com",
       "viewsByDay": [
-        5,
         4,
         7,
         6,
         3,
         6,
-        1
+        1,
+        3
       ],
-      "totalViews": 32,
+      "totalViews": 30,
       "sessions": 24,
-      "users": 20,
-      "avgSessionDuration": 139,
-      "pagesPerSession": 1.33
+      "users": 21,
+      "avgSessionDuration": 109,
+      "pagesPerSession": 1.25
     },
     {
       "name": "Going Medieval",
@@ -95,8 +95,8 @@
         0,
         0,
         0,
-        0,
         2,
+        0,
         0,
         0
       ],
@@ -113,8 +113,8 @@
         0,
         0,
         0,
-        0,
         3,
+        0,
         0,
         0
       ],
@@ -128,31 +128,31 @@
       "name": "Demon Lord",
       "host": "demonlord.gguidehub.com",
       "viewsByDay": [
-        2,
         0,
         1,
         0,
         1,
         0,
-        0
+        0,
+        1
       ],
-      "totalViews": 4,
+      "totalViews": 3,
       "sessions": 3,
       "users": 3,
-      "avgSessionDuration": 3,
-      "pagesPerSession": 1.33
+      "avgSessionDuration": 0,
+      "pagesPerSession": 1.0
     },
     {
       "name": "Town to City",
       "host": "towntocity.gguidehub.com",
       "viewsByDay": [
-        0,
         2,
         9,
         2,
         0,
         2,
-        1
+        1,
+        0
       ],
       "totalViews": 16,
       "sessions": 8,
@@ -165,8 +165,8 @@
       "host": "witchspire.gguidehub.com",
       "viewsByDay": [
         0,
-        0,
         1,
+        0,
         0,
         0,
         0,
@@ -187,8 +187,8 @@
         0,
         0,
         0,
-        0,
-        1
+        1,
+        0
       ],
       "totalViews": 1,
       "sessions": 1,
@@ -255,8 +255,8 @@
       "host": "novaroma.gguidehub.com",
       "viewsByDay": [
         0,
-        0,
         2,
+        0,
         0,
         0,
         0,
@@ -310,10 +310,10 @@
       "viewsByDay": [
         0,
         0,
-        0,
         1,
         7,
         1,
+        0,
         0
       ],
       "totalViews": 9,
@@ -344,19 +344,19 @@
       "name": "Terra Invicta",
       "host": "terrainvicta.gguidehub.com",
       "viewsByDay": [
-        1,
         0,
         0,
         0,
         0,
         0,
-        4
+        4,
+        0
       ],
-      "totalViews": 5,
-      "sessions": 3,
+      "totalViews": 4,
+      "sessions": 2,
       "users": 1,
-      "avgSessionDuration": 92,
-      "pagesPerSession": 1.67
+      "avgSessionDuration": 142,
+      "pagesPerSession": 2.0
     },
     {
       "name": "HumanitZ",
@@ -380,12 +380,12 @@
       "name": "Adira Nusantara",
       "host": "adiranusantara.gguidehub.com",
       "viewsByDay": [
-        0,
         2,
         0,
         0,
         0,
         1,
+        0,
         0
       ],
       "totalViews": 3,
@@ -398,17 +398,17 @@
       "name": "Fading Echo",
       "host": "fadingecho.gguidehub.com",
       "viewsByDay": [
-        1,
         4,
         0,
         0,
         0,
         1,
+        0,
         0
       ],
-      "totalViews": 6,
-      "sessions": 6,
-      "users": 6,
+      "totalViews": 5,
+      "sessions": 5,
+      "users": 5,
       "avgSessionDuration": 3,
       "pagesPerSession": 1.0
     }
@@ -422,23 +422,18 @@
       },
       {
         "path": "/factions/hive",
-        "views": 5,
-        "eng": 158
+        "views": 4,
+        "eng": 175
       },
       {
-        "path": "/tips",
-        "views": 4,
-        "eng": 2
+        "path": "/",
+        "views": 3,
+        "eng": 0
       },
       {
         "path": "/factions/necropolis",
         "views": 3,
         "eng": 93
-      },
-      {
-        "path": "/tier-list",
-        "views": 3,
-        "eng": 209
       },
       {
         "path": "/factions/schism",
@@ -451,21 +446,21 @@
         "eng": 9
       },
       {
-        "path": "/",
+        "path": "/tier-list",
+        "views": 2,
+        "eng": 12
+      },
+      {
+        "path": "/beginners-guide",
         "views": 1,
-        "eng": 0
+        "eng": 20
       }
     ],
     "solarpunk.gguidehub.com": [
       {
         "path": "/",
         "views": 8,
-        "eng": 3
-      },
-      {
-        "path": "/building",
-        "views": 1,
-        "eng": 11
+        "eng": 4
       }
     ],
     "shapez2.gguidehub.com": [
@@ -483,7 +478,7 @@
     "fadingecho.gguidehub.com": [
       {
         "path": "/",
-        "views": 6,
+        "views": 5,
         "eng": 3
       }
     ],
@@ -496,7 +491,7 @@
       {
         "path": "/research",
         "views": 4,
-        "eng": 6
+        "eng": 7
       },
       {
         "path": "/beginners",
@@ -531,15 +526,17 @@
         "eng": 0
       }
     ],
-    "demonlord.gguidehub.com": [
-      {
-        "path": "/guides",
-        "views": 2,
-        "eng": 9
-      },
+    "dispatch.gguidehub.com": [
       {
         "path": "/",
-        "views": 1,
+        "views": 3,
+        "eng": 0
+      }
+    ],
+    "demonlord.gguidehub.com": [
+      {
+        "path": "/",
+        "views": 2,
         "eng": 0
       },
       {
@@ -548,10 +545,30 @@
         "eng": 0
       }
     ],
-    "dispatch.gguidehub.com": [
+    "menace.gguidehub.com": [
       {
         "path": "/",
         "views": 2,
+        "eng": 1
+      },
+      {
+        "path": "/squad-leaders/jacques-vamplew",
+        "views": 1,
+        "eng": 233
+      },
+      {
+        "path": "/squad-leaders/kody-greifinger",
+        "views": 1,
+        "eng": 46
+      },
+      {
+        "path": "/terms",
+        "views": 1,
+        "eng": 7
+      },
+      {
+        "path": "/weapons",
+        "views": 1,
         "eng": 0
       }
     ],
@@ -576,14 +593,14 @@
     ],
     "terrainvicta.gguidehub.com": [
       {
-        "path": "/",
-        "views": 2,
-        "eng": 18
-      },
-      {
         "path": "/faction-guide",
         "views": 2,
         "eng": 121
+      },
+      {
+        "path": "/",
+        "views": 1,
+        "eng": 43
       },
       {
         "path": "/tech-tree",
@@ -599,33 +616,6 @@
       },
       {
         "path": "/terms",
-        "views": 1,
-        "eng": 0
-      }
-    ],
-    "menace.gguidehub.com": [
-      {
-        "path": "/",
-        "views": 1,
-        "eng": 0
-      },
-      {
-        "path": "/squad-leaders/jacques-vamplew",
-        "views": 1,
-        "eng": 233
-      },
-      {
-        "path": "/squad-leaders/kody-greifinger",
-        "views": 1,
-        "eng": 46
-      },
-      {
-        "path": "/terms",
-        "views": 1,
-        "eng": 7
-      },
-      {
-        "path": "/weapons",
         "views": 1,
         "eng": 0
       }

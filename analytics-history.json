@@ -187,7 +187,17 @@
         "oldenera.gguidehub.com": 1,
         "solarpunk.gguidehub.com": 1,
         "towntocity.gguidehub.com": 1,
-        "vampirecrawlers.gguidehub.com": 1
+        "vampirecrawlers.gguidehub.com": 1,
+        "menace.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-28",
+      "sites": {
+        "oldenera.gguidehub.com": 3,
+        "demonlord.gguidehub.com": 1,
+        "dispatch.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
       }
     }
   ]
