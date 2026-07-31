@@ -194,10 +194,37 @@
     {
       "date": "2026-07-28",
       "sites": {
-        "oldenera.gguidehub.com": 3,
+        "oldenera.gguidehub.com": 5,
         "demonlord.gguidehub.com": 1,
         "dispatch.gguidehub.com": 1,
-        "solarpunk.gguidehub.com": 1
+        "solarpunk.gguidehub.com": 1,
+        "novaroma.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-29",
+      "sites": {
+        "oldenera.gguidehub.com": 3,
+        "demonlord.gguidehub.com": 2,
+        "menace.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1,
+        "towntocity.gguidehub.com": 1,
+        "witchspire.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-30",
+      "sites": {
+        "oldenera.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-07-31",
+      "sites": {
+        "menace.gguidehub.com": 3,
+        "demonlord.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1,
+        "towntocity.gguidehub.com": 1
       }
     }
   ]
