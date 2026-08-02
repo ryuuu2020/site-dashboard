@@ -1,7 +1,28 @@
 {
-  "generated": "2026-07-31T22:17:16Z",
+  "generated": "2026-08-02T22:17:22Z",
   "source": "local-git",
   "entries": [
+    {
+      "time": "08-02 23:39",
+      "timestamp": "2026-08-02T23:39:16+08:00",
+      "dot": "update",
+      "msg": "Add editorial coverage boundaries",
+      "site": "Olden Era"
+    },
+    {
+      "time": "08-02 23:39",
+      "timestamp": "2026-08-02T23:39:06+08:00",
+      "dot": "update",
+      "msg": "Add editorial coverage boundaries",
+      "site": "Dispatch"
+    },
+    {
+      "time": "08-02 23:38",
+      "timestamp": "2026-08-02T23:38:48+08:00",
+      "dot": "update",
+      "msg": "Add editorial coverage boundaries",
+      "site": "Going Medieval"
+    },
     {
       "time": "07-23 09:56",
       "timestamp": "2026-07-23T09:56:23+08:00",
@@ -190,27 +211,6 @@
       "dot": "update",
       "msg": "feat: add weapons tier list page (KD 26.2)",
       "site": "HumanitZ"
-    },
-    {
-      "time": "07-06 22:08",
-      "timestamp": "2026-07-06T22:08:08+08:00",
-      "dot": "fix",
-      "msg": "fix: remove duplicate curator_clanid param",
-      "site": "Die in the Dungeon"
-    },
-    {
-      "time": "07-06 21:46",
-      "timestamp": "2026-07-06T21:46:01+08:00",
-      "dot": "fix",
-      "msg": "fix: add Steam purchase links to SidebarLayout",
-      "site": "Vampire Crawlers"
-    },
-    {
-      "time": "07-06 21:45",
-      "timestamp": "2026-07-06T21:45:58+08:00",
-      "dot": "fix",
-      "msg": "fix: add Steam purchase links to SidebarLayout",
-      "site": "Tabletop Tavern"
     }
   ]
 }

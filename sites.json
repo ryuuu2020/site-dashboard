@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-31T22:17:15Z",
+  "generated": "2026-08-02T22:17:22Z",
   "sites": [
     {
       "id": 1,
@@ -38,8 +38,8 @@
         "ga4": 1,
         "gsc": 1
       },
-      "push": "07-22 07:39",
-      "update": "fix: remove stale afdian links and placeholder ads, rebuild static exports",
+      "push": "08-02 23:39",
+      "update": "Add editorial coverage boundaries",
       "eng": 0,
       "pps": 0,
       "launch": "6/23",
@@ -82,8 +82,8 @@
         "ga4": 1,
         "gsc": 1
       },
-      "push": "07-22 07:43",
-      "update": "fix: remove stale afdian links and placeholder ads, rebuild static exports",
+      "push": "08-02 23:39",
+      "update": "Add editorial coverage boundaries",
       "eng": 0,
       "pps": 0,
       "launch": "6/25",
@@ -104,8 +104,8 @@
         "ga4": 1,
         "gsc": 1
       },
-      "push": "07-23 09:56",
-      "update": "content: July 22 batch — update 4 guides (biomes, clothing-insulation, best-map-seeds, settler-job-assignment), remove b",
+      "push": "08-02 23:38",
+      "update": "Add editorial coverage boundaries",
       "eng": 0,
       "pps": 0,
       "launch": "6/25",
