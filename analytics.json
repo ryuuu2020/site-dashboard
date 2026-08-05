@@ -1,92 +1,92 @@
 {
-  "generatedAt": "2026-08-03T22:17:34Z",
+  "generatedAt": "2026-08-05T22:17:20Z",
   "source": "ga4-live",
   "period": {
-    "start": "2026-07-28",
-    "end": "2026-08-03",
-    "label": "2026-07-28 ~ 2026-08-03"
+    "start": "2026-07-30",
+    "end": "2026-08-05",
+    "label": "2026-07-30 ~ 2026-08-05"
   },
   "trafficDays": [
-    "07-28",
-    "07-29",
     "07-30",
     "07-31",
     "08-01",
     "08-02",
-    "08-03"
+    "08-03",
+    "08-04",
+    "08-05"
   ],
   "siteStats": [
     {
       "name": "Solarpunk",
       "host": "solarpunk.gguidehub.com",
       "viewsByDay": [
-        1,
-        1,
         0,
         1,
         1,
         3,
-        2
+        2,
+        1,
+        1
       ],
       "totalViews": 9,
       "sessions": 9,
       "users": 9,
-      "avgSessionDuration": 3,
+      "avgSessionDuration": 2,
       "pagesPerSession": 1.0
     },
     {
       "name": "Dispatch",
       "host": "dispatch.gguidehub.com",
       "viewsByDay": [
-        1,
-        0,
         0,
         0,
         0,
         2,
-        0
+        0,
+        1,
+        2
       ],
-      "totalViews": 3,
-      "sessions": 3,
-      "users": 3,
-      "avgSessionDuration": 5,
-      "pagesPerSession": 1.0
+      "totalViews": 5,
+      "sessions": 4,
+      "users": 4,
+      "avgSessionDuration": 6,
+      "pagesPerSession": 1.25
     },
     {
       "name": "MENACE",
       "host": "menace.gguidehub.com",
       "viewsByDay": [
         0,
-        1,
-        0,
         3,
         0,
         1,
+        0,
+        0,
         0
       ],
-      "totalViews": 5,
-      "sessions": 5,
-      "users": 5,
-      "avgSessionDuration": 6,
+      "totalViews": 4,
+      "sessions": 4,
+      "users": 4,
+      "avgSessionDuration": 0,
       "pagesPerSession": 1.0
     },
     {
       "name": "Olden Era",
       "host": "oldenera.gguidehub.com",
       "viewsByDay": [
-        5,
-        3,
         1,
         0,
         1,
         8,
+        2,
+        1,
         2
       ],
-      "totalViews": 20,
-      "sessions": 18,
-      "users": 13,
-      "avgSessionDuration": 179,
-      "pagesPerSession": 1.11
+      "totalViews": 15,
+      "sessions": 13,
+      "users": 6,
+      "avgSessionDuration": 142,
+      "pagesPerSession": 1.15
     },
     {
       "name": "Going Medieval",
@@ -95,16 +95,16 @@
         0,
         0,
         0,
-        0,
-        0,
         1,
+        1,
+        20,
         1
       ],
-      "totalViews": 2,
-      "sessions": 2,
-      "users": 2,
-      "avgSessionDuration": 18,
-      "pagesPerSession": 1.0
+      "totalViews": 23,
+      "sessions": 15,
+      "users": 11,
+      "avgSessionDuration": 161,
+      "pagesPerSession": 1.53
     },
     {
       "name": "Tabletop Tavern",
@@ -115,31 +115,31 @@
         0,
         0,
         0,
-        0,
+        1,
         0
       ],
-      "totalViews": 0,
-      "sessions": 0,
-      "users": 0,
-      "avgSessionDuration": 0,
-      "pagesPerSession": 0
+      "totalViews": 1,
+      "sessions": 1,
+      "users": 1,
+      "avgSessionDuration": 14,
+      "pagesPerSession": 1.0
     },
     {
       "name": "Demon Lord",
       "host": "demonlord.gguidehub.com",
       "viewsByDay": [
-        1,
-        2,
         0,
         1,
         1,
         1,
-        1
+        1,
+        0,
+        0
       ],
-      "totalViews": 7,
-      "sessions": 7,
-      "users": 7,
-      "avgSessionDuration": 187,
+      "totalViews": 4,
+      "sessions": 4,
+      "users": 4,
+      "avgSessionDuration": 300,
       "pagesPerSession": 1.0
     },
     {
@@ -151,13 +151,13 @@
         0,
         1,
         0,
-        1,
+        0,
         0
       ],
-      "totalViews": 3,
-      "sessions": 3,
-      "users": 3,
-      "avgSessionDuration": 26,
+      "totalViews": 2,
+      "sessions": 2,
+      "users": 2,
+      "avgSessionDuration": 32,
       "pagesPerSession": 1.0
     },
     {
@@ -165,18 +165,18 @@
       "host": "witchspire.gguidehub.com",
       "viewsByDay": [
         0,
-        1,
         0,
         0,
         0,
         0,
-        0
+        0,
+        2
       ],
-      "totalViews": 1,
+      "totalViews": 2,
       "sessions": 1,
       "users": 1,
-      "avgSessionDuration": 3,
-      "pagesPerSession": 1.0
+      "avgSessionDuration": 23,
+      "pagesPerSession": 2.0
     },
     {
       "name": "Vampire Crawlers",
@@ -219,10 +219,10 @@
       "host": "mewgenics.gguidehub.com",
       "viewsByDay": [
         0,
-        0,
-        0,
         2,
         1,
+        0,
+        0,
         0,
         0
       ],
@@ -254,18 +254,18 @@
       "name": "Nova Roma",
       "host": "novaroma.gguidehub.com",
       "viewsByDay": [
+        0,
+        0,
+        0,
         1,
         0,
         0,
-        0,
-        0,
-        1,
         0
       ],
-      "totalViews": 2,
-      "sessions": 2,
+      "totalViews": 1,
+      "sessions": 1,
       "users": 1,
-      "avgSessionDuration": 1,
+      "avgSessionDuration": 2,
       "pagesPerSession": 1.0
     },
     {
@@ -294,9 +294,9 @@
         0,
         0,
         0,
+        1,
         0,
-        0,
-        1
+        0
       ],
       "totalViews": 1,
       "sessions": 1,
@@ -347,9 +347,9 @@
         0,
         0,
         0,
-        0,
-        0,
         1,
+        0,
+        0,
         0
       ],
       "totalViews": 1,
@@ -383,9 +383,9 @@
         0,
         0,
         0,
-        0,
-        0,
         2,
+        0,
+        0,
         0
       ],
       "totalViews": 2,
@@ -414,38 +414,55 @@
     }
   ],
   "topPagesByHost": {
+    "goingmedieval.gguidehub.com": [
+      {
+        "path": "/",
+        "views": 16,
+        "eng": 294
+      },
+      {
+        "path": "/beginners",
+        "views": 4,
+        "eng": 5
+      },
+      {
+        "path": "/armor-weapons",
+        "views": 1,
+        "eng": 27
+      },
+      {
+        "path": "/best-crops-tier-list",
+        "views": 1,
+        "eng": 4
+      },
+      {
+        "path": "/buildings",
+        "views": 1,
+        "eng": 4
+      }
+    ],
     "solarpunk.gguidehub.com": [
       {
         "path": "/",
         "views": 9,
-        "eng": 3
+        "eng": 2
       }
     ],
     "oldenera.gguidehub.com": [
       {
         "path": "/tips",
         "views": 7,
-        "eng": 336
+        "eng": 334
       },
       {
         "path": "/factions/grove",
-        "views": 5,
-        "eng": 105
-      },
-      {
-        "path": "/",
-        "views": 3,
-        "eng": 4
+        "views": 6,
+        "eng": 18
       },
       {
         "path": "/combat",
-        "views": 2,
-        "eng": 12
-      },
-      {
-        "path": "/factions/schism",
-        "views": 2,
-        "eng": 472
+        "views": 1,
+        "eng": 24
       },
       {
         "path": "/factions/hive",
@@ -458,35 +475,18 @@
         "path": "/",
         "views": 4,
         "eng": 0
-      },
-      {
-        "path": "/squad-leaders/charles-lim",
-        "views": 1,
-        "eng": 30
-      }
-    ],
-    "demonlord.gguidehub.com": [
-      {
-        "path": "/bosses",
-        "views": 3,
-        "eng": 38
-      },
-      {
-        "path": "/",
-        "views": 2,
-        "eng": 3
-      },
-      {
-        "path": "/beginners-guide",
-        "views": 2,
-        "eng": 594
       }
     ],
     "dispatch.gguidehub.com": [
       {
-        "path": "/",
+        "path": "/endings",
         "views": 3,
-        "eng": 5
+        "eng": 6
+      },
+      {
+        "path": "/",
+        "views": 2,
+        "eng": 6
       }
     ],
     "mewgenics.gguidehub.com": [
@@ -503,23 +503,28 @@
         "eng": 1
       }
     ],
+    "demonlord.gguidehub.com": [
+      {
+        "path": "/beginners-guide",
+        "views": 2,
+        "eng": 596
+      },
+      {
+        "path": "/",
+        "views": 1,
+        "eng": 3
+      },
+      {
+        "path": "/bosses",
+        "views": 1,
+        "eng": 3
+      }
+    ],
     "novaroma.gguidehub.com": [
       {
         "path": "/",
-        "views": 2,
-        "eng": 1
-      }
-    ],
-    "goingmedieval.gguidehub.com": [
-      {
-        "path": "/",
         "views": 1,
-        "eng": 9
-      },
-      {
-        "path": "/armor-weapons",
-        "views": 1,
-        "eng": 27
+        "eng": 2
       }
     ],
     "realmofink.gguidehub.com": [
@@ -527,6 +532,13 @@
         "path": "/",
         "views": 1,
         "eng": 5
+      }
+    ],
+    "tabletoptavern.gguidehub.com": [
+      {
+        "path": "/",
+        "views": 1,
+        "eng": 14
       }
     ],
     "terrainvicta.gguidehub.com": [
@@ -546,18 +558,18 @@
         "path": "/citizens",
         "views": 1,
         "eng": 60
-      },
-      {
-        "path": "/research",
-        "views": 1,
-        "eng": 14
       }
     ],
     "witchspire.gguidehub.com": [
       {
         "path": "/",
         "views": 1,
-        "eng": 3
+        "eng": 0
+      },
+      {
+        "path": "/crafting",
+        "views": 1,
+        "eng": 23
       }
     ]
   }

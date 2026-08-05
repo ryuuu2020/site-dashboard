@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-03T22:17:27Z",
+  "generated": "2026-08-05T22:17:13Z",
   "sites": [
     {
       "id": 1,
@@ -104,8 +104,8 @@
         "ga4": 1,
         "gsc": 1
       },
-      "push": "08-02 23:38",
-      "update": "Add editorial coverage boundaries",
+      "push": "08-04 23:37",
+      "update": "Exclude local artifacts from Vercel upload",
       "eng": 0,
       "pps": 0,
       "launch": "6/25",

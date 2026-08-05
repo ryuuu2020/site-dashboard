@@ -261,6 +261,26 @@
         "goingmedieval.gguidehub.com": 1,
         "realmofink.gguidehub.com": 1
       }
+    },
+    {
+      "date": "2026-08-04",
+      "sites": {
+        "goingmedieval.gguidehub.com": 20,
+        "dispatch.gguidehub.com": 1,
+        "oldenera.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1,
+        "tabletoptavern.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-08-05",
+      "sites": {
+        "dispatch.gguidehub.com": 2,
+        "oldenera.gguidehub.com": 2,
+        "witchspire.gguidehub.com": 2,
+        "goingmedieval.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
+      }
     }
   ]
 }
