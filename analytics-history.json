@@ -281,6 +281,63 @@
         "goingmedieval.gguidehub.com": 1,
         "solarpunk.gguidehub.com": 1
       }
+    },
+    {
+      "date": "2026-08-06",
+      "sites": {
+        "menace.gguidehub.com": 8,
+        "oldenera.gguidehub.com": 4,
+        "solarpunk.gguidehub.com": 1,
+        "tabletoptavern.gguidehub.com": 1,
+        "towntocity.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-08-07",
+      "sites": {
+        "oldenera.gguidehub.com": 2,
+        "vampirecrawlers.gguidehub.com": 2,
+        "mewgenics.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-08-08",
+      "sites": {
+        "tabletoptavern.gguidehub.com": 8,
+        "oldenera.gguidehub.com": 4,
+        "menace.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-08-09",
+      "sites": {
+        "oldenera.gguidehub.com": 24,
+        "goingmedieval.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "sites": {
+        "oldenera.gguidehub.com": 16,
+        "tabletoptavern.gguidehub.com": 5,
+        "menace.gguidehub.com": 3,
+        "witchspire.gguidehub.com": 3,
+        "goingmedieval.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-08-11",
+      "sites": {
+        "oldenera.gguidehub.com": 5,
+        "menace.gguidehub.com": 1,
+        "mewgenics.gguidehub.com": 1,
+        "scrapmechanic-hub.vercel.app": 1,
+        "towntocity.gguidehub.com": 1
+      }
     }
   ]
 }

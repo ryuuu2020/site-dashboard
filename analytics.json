@@ -1,186 +1,132 @@
 {
-  "generatedAt": "2026-08-05T22:17:20Z",
+  "generatedAt": "2026-08-11T22:17:15Z",
   "source": "ga4-live",
   "period": {
-    "start": "2026-07-30",
-    "end": "2026-08-05",
-    "label": "2026-07-30 ~ 2026-08-05"
+    "start": "2026-08-05",
+    "end": "2026-08-11",
+    "label": "2026-08-05 ~ 2026-08-11"
   },
   "trafficDays": [
-    "07-30",
-    "07-31",
-    "08-01",
-    "08-02",
-    "08-03",
-    "08-04",
-    "08-05"
+    "08-05",
+    "08-06",
+    "08-07",
+    "08-08",
+    "08-09",
+    "08-10",
+    "08-11"
   ],
   "siteStats": [
     {
       "name": "Solarpunk",
       "host": "solarpunk.gguidehub.com",
       "viewsByDay": [
-        0,
         1,
         1,
-        3,
-        2,
         1,
-        1
+        1,
+        1,
+        1,
+        0
       ],
-      "totalViews": 9,
-      "sessions": 9,
-      "users": 9,
-      "avgSessionDuration": 2,
-      "pagesPerSession": 1.0
+      "totalViews": 6,
+      "sessions": 7,
+      "users": 7,
+      "avgSessionDuration": 3,
+      "pagesPerSession": 0.86
     },
     {
       "name": "Dispatch",
       "host": "dispatch.gguidehub.com",
       "viewsByDay": [
-        0,
-        0,
-        0,
         2,
         0,
-        1,
-        2
+        0,
+        0,
+        0,
+        0,
+        0
       ],
-      "totalViews": 5,
-      "sessions": 4,
-      "users": 4,
-      "avgSessionDuration": 6,
-      "pagesPerSession": 1.25
+      "totalViews": 2,
+      "sessions": 1,
+      "users": 1,
+      "avgSessionDuration": 658,
+      "pagesPerSession": 2.0
     },
     {
       "name": "MENACE",
       "host": "menace.gguidehub.com",
       "viewsByDay": [
         0,
-        3,
+        8,
         0,
         1,
         0,
-        0,
-        0
+        3,
+        1
       ],
-      "totalViews": 4,
-      "sessions": 4,
-      "users": 4,
-      "avgSessionDuration": 0,
-      "pagesPerSession": 1.0
+      "totalViews": 13,
+      "sessions": 6,
+      "users": 6,
+      "avgSessionDuration": 69,
+      "pagesPerSession": 2.17
     },
     {
       "name": "Olden Era",
       "host": "oldenera.gguidehub.com",
       "viewsByDay": [
-        1,
-        0,
-        1,
-        8,
         2,
-        1,
-        2
+        4,
+        2,
+        4,
+        24,
+        16,
+        5
       ],
-      "totalViews": 15,
-      "sessions": 13,
-      "users": 6,
-      "avgSessionDuration": 142,
-      "pagesPerSession": 1.15
+      "totalViews": 57,
+      "sessions": 52,
+      "users": 39,
+      "avgSessionDuration": 80,
+      "pagesPerSession": 1.1
     },
     {
       "name": "Going Medieval",
       "host": "goingmedieval.gguidehub.com",
       "viewsByDay": [
+        1,
         0,
         0,
         0,
         1,
         1,
-        20,
-        1
+        0
       ],
-      "totalViews": 23,
-      "sessions": 15,
-      "users": 11,
-      "avgSessionDuration": 161,
-      "pagesPerSession": 1.53
+      "totalViews": 3,
+      "sessions": 4,
+      "users": 3,
+      "avgSessionDuration": 36,
+      "pagesPerSession": 0.75
     },
     {
       "name": "Tabletop Tavern",
       "host": "tabletoptavern.gguidehub.com",
       "viewsByDay": [
         0,
-        0,
-        0,
-        0,
-        0,
         1,
+        0,
+        8,
+        0,
+        5,
         0
       ],
-      "totalViews": 1,
-      "sessions": 1,
-      "users": 1,
-      "avgSessionDuration": 14,
-      "pagesPerSession": 1.0
+      "totalViews": 14,
+      "sessions": 5,
+      "users": 3,
+      "avgSessionDuration": 76,
+      "pagesPerSession": 2.8
     },
     {
       "name": "Demon Lord",
       "host": "demonlord.gguidehub.com",
-      "viewsByDay": [
-        0,
-        1,
-        1,
-        1,
-        1,
-        0,
-        0
-      ],
-      "totalViews": 4,
-      "sessions": 4,
-      "users": 4,
-      "avgSessionDuration": 300,
-      "pagesPerSession": 1.0
-    },
-    {
-      "name": "Town to City",
-      "host": "towntocity.gguidehub.com",
-      "viewsByDay": [
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0
-      ],
-      "totalViews": 2,
-      "sessions": 2,
-      "users": 2,
-      "avgSessionDuration": 32,
-      "pagesPerSession": 1.0
-    },
-    {
-      "name": "Witchspire",
-      "host": "witchspire.gguidehub.com",
-      "viewsByDay": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        2
-      ],
-      "totalViews": 2,
-      "sessions": 1,
-      "users": 1,
-      "avgSessionDuration": 23,
-      "pagesPerSession": 2.0
-    },
-    {
-      "name": "Vampire Crawlers",
-      "host": "vampirecrawlers.gguidehub.com",
       "viewsByDay": [
         0,
         0,
@@ -195,6 +141,60 @@
       "users": 0,
       "avgSessionDuration": 0,
       "pagesPerSession": 0
+    },
+    {
+      "name": "Town to City",
+      "host": "towntocity.gguidehub.com",
+      "viewsByDay": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "totalViews": 2,
+      "sessions": 2,
+      "users": 2,
+      "avgSessionDuration": 75,
+      "pagesPerSession": 1.0
+    },
+    {
+      "name": "Witchspire",
+      "host": "witchspire.gguidehub.com",
+      "viewsByDay": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      "totalViews": 5,
+      "sessions": 3,
+      "users": 3,
+      "avgSessionDuration": 96,
+      "pagesPerSession": 1.67
+    },
+    {
+      "name": "Vampire Crawlers",
+      "host": "vampirecrawlers.gguidehub.com",
+      "viewsByDay": [
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "totalViews": 2,
+      "sessions": 1,
+      "users": 1,
+      "avgSessionDuration": 29,
+      "pagesPerSession": 2.0
     },
     {
       "name": "Cairn",
@@ -219,18 +219,18 @@
       "host": "mewgenics.gguidehub.com",
       "viewsByDay": [
         0,
-        2,
+        0,
         1,
         0,
         0,
         0,
-        0
+        1
       ],
-      "totalViews": 3,
+      "totalViews": 2,
       "sessions": 2,
       "users": 2,
-      "avgSessionDuration": 7,
-      "pagesPerSession": 1.5
+      "avgSessionDuration": 0,
+      "pagesPerSession": 1.0
     },
     {
       "name": "Die in the Dungeon",
@@ -257,16 +257,16 @@
         0,
         0,
         0,
-        1,
+        0,
         0,
         0,
         0
       ],
-      "totalViews": 1,
-      "sessions": 1,
-      "users": 1,
-      "avgSessionDuration": 2,
-      "pagesPerSession": 1.0
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
     },
     {
       "name": "Space Haven",
@@ -294,15 +294,15 @@
         0,
         0,
         0,
-        1,
+        0,
         0,
         0
       ],
-      "totalViews": 1,
-      "sessions": 1,
-      "users": 1,
-      "avgSessionDuration": 5,
-      "pagesPerSession": 1.0
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
     },
     {
       "name": "shapez 2",
@@ -347,16 +347,16 @@
         0,
         0,
         0,
-        1,
+        0,
         0,
         0,
         0
       ],
-      "totalViews": 1,
-      "sessions": 1,
+      "totalViews": 0,
+      "sessions": 0,
       "users": 0,
       "avgSessionDuration": 0,
-      "pagesPerSession": 1.0
+      "pagesPerSession": 0
     },
     {
       "name": "HumanitZ",
@@ -383,16 +383,16 @@
         0,
         0,
         0,
-        2,
+        0,
         0,
         0,
         0
       ],
-      "totalViews": 2,
-      "sessions": 2,
-      "users": 2,
-      "avgSessionDuration": 1,
-      "pagesPerSession": 1.0
+      "totalViews": 0,
+      "sessions": 0,
+      "users": 0,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 0
     },
     {
       "name": "Fading Echo",
@@ -411,165 +411,227 @@
       "users": 0,
       "avgSessionDuration": 0,
       "pagesPerSession": 0
+    },
+    {
+      "name": "Scrap Mechanic Hub",
+      "host": "scrapmechanic-hub.vercel.app",
+      "viewsByDay": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "totalViews": 1,
+      "sessions": 1,
+      "users": 1,
+      "avgSessionDuration": 0,
+      "pagesPerSession": 1.0
     }
   ],
   "topPagesByHost": {
-    "goingmedieval.gguidehub.com": [
+    "oldenera.gguidehub.com": [
+      {
+        "path": "/tier-list",
+        "views": 18,
+        "eng": 69
+      },
+      {
+        "path": "/factions/grove",
+        "views": 12,
+        "eng": 154
+      },
       {
         "path": "/",
-        "views": 16,
-        "eng": 294
+        "views": 6,
+        "eng": 1
       },
       {
-        "path": "/beginners",
+        "path": "/tips",
+        "views": 5,
+        "eng": 3
+      },
+      {
+        "path": "/factions/hive",
         "views": 4,
-        "eng": 5
+        "eng": 38
       },
       {
-        "path": "/armor-weapons",
-        "views": 1,
-        "eng": 27
+        "path": "/factions/necropolis",
+        "views": 4,
+        "eng": 34
       },
       {
-        "path": "/best-crops-tier-list",
-        "views": 1,
-        "eng": 4
+        "path": "/combat",
+        "views": 2,
+        "eng": 321
       },
       {
-        "path": "/buildings",
-        "views": 1,
-        "eng": 4
+        "path": "/factions",
+        "views": 2,
+        "eng": 3
       }
     ],
     "solarpunk.gguidehub.com": [
       {
         "path": "/",
-        "views": 9,
-        "eng": 2
-      }
-    ],
-    "oldenera.gguidehub.com": [
-      {
-        "path": "/tips",
-        "views": 7,
-        "eng": 334
-      },
-      {
-        "path": "/factions/grove",
         "views": 6,
-        "eng": 18
-      },
-      {
-        "path": "/combat",
-        "views": 1,
-        "eng": 24
-      },
-      {
-        "path": "/factions/hive",
-        "views": 1,
-        "eng": 42
-      }
-    ],
-    "menace.gguidehub.com": [
-      {
-        "path": "/",
-        "views": 4,
-        "eng": 0
-      }
-    ],
-    "dispatch.gguidehub.com": [
-      {
-        "path": "/endings",
-        "views": 3,
-        "eng": 6
-      },
-      {
-        "path": "/",
-        "views": 2,
-        "eng": 6
-      }
-    ],
-    "mewgenics.gguidehub.com": [
-      {
-        "path": "/",
-        "views": 3,
-        "eng": 7
-      }
-    ],
-    "adiranusantara.gguidehub.com": [
-      {
-        "path": "/",
-        "views": 2,
-        "eng": 1
-      }
-    ],
-    "demonlord.gguidehub.com": [
-      {
-        "path": "/beginners-guide",
-        "views": 2,
-        "eng": 596
-      },
-      {
-        "path": "/",
-        "views": 1,
         "eng": 3
-      },
-      {
-        "path": "/bosses",
-        "views": 1,
-        "eng": 3
-      }
-    ],
-    "novaroma.gguidehub.com": [
-      {
-        "path": "/",
-        "views": 1,
-        "eng": 2
-      }
-    ],
-    "realmofink.gguidehub.com": [
-      {
-        "path": "/",
-        "views": 1,
-        "eng": 5
       }
     ],
     "tabletoptavern.gguidehub.com": [
       {
         "path": "/",
+        "views": 4,
+        "eng": 0
+      },
+      {
+        "path": "/tier-list",
+        "views": 4,
+        "eng": 117
+      },
+      {
+        "path": "/builds",
+        "views": 2,
+        "eng": 6
+      },
+      {
+        "path": "/beginners-guide",
         "views": 1,
-        "eng": 14
+        "eng": 5
+      },
+      {
+        "path": "/campaign",
+        "views": 1,
+        "eng": 6
+      },
+      {
+        "path": "/database",
+        "views": 1,
+        "eng": 0
+      },
+      {
+        "path": "/guides",
+        "views": 1,
+        "eng": 0
       }
     ],
-    "terrainvicta.gguidehub.com": [
+    "menace.gguidehub.com": [
       {
-        "path": "/faction-guide",
+        "path": "/squad-leaders/tekko-beo-phosa",
+        "views": 3,
+        "eng": 34
+      },
+      {
+        "path": "/",
+        "views": 2,
+        "eng": 0
+      },
+      {
+        "path": "/best-team-comps",
+        "views": 2,
+        "eng": 94
+      },
+      {
+        "path": "/squad-leaders",
+        "views": 2,
+        "eng": 92
+      },
+      {
+        "path": "/mission-difficulty-guide",
+        "views": 1,
+        "eng": 29
+      },
+      {
+        "path": "/squad-composition-guide",
+        "views": 1,
+        "eng": 47
+      },
+      {
+        "path": "/squad-leaders/charles-lim",
+        "views": 1,
+        "eng": 0
+      },
+      {
+        "path": "/squad-leaders/marta-carda",
+        "views": 1,
+        "eng": 53
+      }
+    ],
+    "witchspire.gguidehub.com": [
+      {
+        "path": "/",
+        "views": 3,
+        "eng": 18
+      },
+      {
+        "path": "/beginners-guide",
+        "views": 1,
+        "eng": 214
+      },
+      {
+        "path": "/crafting",
+        "views": 1,
+        "eng": 20
+      }
+    ],
+    "dispatch.gguidehub.com": [
+      {
+        "path": "/endings",
+        "views": 2,
+        "eng": 658
+      }
+    ],
+    "goingmedieval.gguidehub.com": [
+      {
+        "path": "/",
+        "views": 2,
+        "eng": 68
+      },
+      {
+        "path": "/faq",
+        "views": 1,
+        "eng": 5
+      },
+      {
+        "path": "/buildings",
+        "views": 0,
+        "eng": 3
+      }
+    ],
+    "mewgenics.gguidehub.com": [
+      {
+        "path": "/",
+        "views": 2,
+        "eng": 0
+      }
+    ],
+    "vampirecrawlers.gguidehub.com": [
+      {
+        "path": "/builds",
+        "views": 2,
+        "eng": 29
+      }
+    ],
+    "scrapmechanic-hub.vercel.app": [
+      {
+        "path": "/",
         "views": 1,
         "eng": 0
       }
     ],
     "towntocity.gguidehub.com": [
       {
-        "path": "/",
+        "path": "/research",
         "views": 1,
-        "eng": 4
+        "eng": 109
       },
       {
-        "path": "/citizens",
+        "path": "/resources",
         "views": 1,
-        "eng": 60
-      }
-    ],
-    "witchspire.gguidehub.com": [
-      {
-        "path": "/",
-        "views": 1,
-        "eng": 0
-      },
-      {
-        "path": "/crafting",
-        "views": 1,
-        "eng": 23
+        "eng": 41
       }
     ]
   }
