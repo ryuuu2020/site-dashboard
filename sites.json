@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-11T22:17:08Z",
+  "generated": "2026-08-12T22:17:04Z",
   "sites": [
     {
       "id": 1,
@@ -29,7 +29,7 @@
       "dir": "dispatch-guide",
       "url": "https://dispatch.gguidehub.com",
       "steam": 2592160,
-      "pages": 28,
+      "pages": 31,
       "style": "A-战术指挥",
       "styleTag": "style-a",
       "feats": {
@@ -73,7 +73,7 @@
       "dir": "olden-era-guide",
       "url": "https://oldenera.gguidehub.com",
       "steam": 3105440,
-      "pages": 31,
+      "pages": 34,
       "style": "B-暗黑史诗",
       "styleTag": "style-b",
       "feats": {
@@ -95,7 +95,7 @@
       "dir": "going-medieval-guide",
       "url": "https://goingmedieval.gguidehub.com",
       "steam": 1029780,
-      "pages": 162,
+      "pages": 164,
       "style": "3-古卷羊皮纸",
       "styleTag": "style-3",
       "feats": {
@@ -139,7 +139,7 @@
       "dir": "demon-lord-guide",
       "url": "https://demonlord.gguidehub.com",
       "steam": 3720420,
-      "pages": 27,
+      "pages": 30,
       "style": "B-暗黑史诗",
       "styleTag": "style-b",
       "feats": {
@@ -491,7 +491,7 @@
       "dir": "scrapmechanic-hub",
       "url": "https://scrapmechanic-hub.vercel.app",
       "steam": 387990,
-      "pages": 12,
+      "pages": 15,
       "style": "未知",
       "styleTag": "style-a",
       "feats": {

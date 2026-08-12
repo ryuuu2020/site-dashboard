@@ -332,11 +332,21 @@
     {
       "date": "2026-08-11",
       "sites": {
-        "oldenera.gguidehub.com": 5,
+        "oldenera.gguidehub.com": 7,
         "menace.gguidehub.com": 1,
         "mewgenics.gguidehub.com": 1,
         "scrapmechanic-hub.vercel.app": 1,
-        "towntocity.gguidehub.com": 1
+        "towntocity.gguidehub.com": 1,
+        "solarpunk.gguidehub.com": 1
+      }
+    },
+    {
+      "date": "2026-08-12",
+      "sites": {
+        "menace.gguidehub.com": 5,
+        "tabletoptavern.gguidehub.com": 3,
+        "adiranusantara.gguidehub.com": 2,
+        "scrapmechanic-hub.vercel.app": 1
       }
     }
   ]
