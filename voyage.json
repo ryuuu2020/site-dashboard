@@ -419,9 +419,10 @@
           "doneAt": "2026-08-16",
           "summary": "挖出 12 个细分关键词（通用 + 个性），规划 11 个页面（首页 + 8 内容页 + 3 基础页）",
           "report": {
-            "keywordTotal": 12,
-            "generalCount": 5,
-            "specificCount": 7,
+            "keywordTotal": 16,
+            "generalCount": 8,
+            "specificCount": 8,
+            "verifiedCount": 7,
             "categories": [
               "新手入门",
               "全流程攻略",
@@ -432,9 +433,40 @@
               "结局达成",
               "FAQ"
             ],
+            "keywords": [
+              { "term": "twisted tower walkthrough", "type": "通用", "verified": true },
+              { "term": "twisted tower guide", "type": "通用", "verified": false },
+              { "term": "twisted tower tips and tricks", "type": "通用", "verified": false },
+              { "term": "twisted tower how long to beat", "type": "通用", "verified": false },
+              { "term": "twisted tower release date", "type": "通用", "verified": true },
+              { "term": "twisted tower system requirements", "type": "通用", "verified": true },
+              { "term": "twisted tower review", "type": "通用", "verified": true },
+              { "term": "twisted tower demo", "type": "通用", "verified": true },
+              { "term": "twisted tower bosses", "type": "个性", "verified": false },
+              { "term": "twisted tower clock puzzle", "type": "个性", "verified": true },
+              { "term": "twisted tower collectibles", "type": "个性", "verified": false },
+              { "term": "twisted tower endings", "type": "个性", "verified": false },
+              { "term": "twisted tower weapons", "type": "个性", "verified": true },
+              { "term": "twisted tower mascots", "type": "个性", "verified": false },
+              { "term": "twisted tower traps", "type": "个性", "verified": false },
+              { "term": "twisted tower secrets", "type": "个性", "verified": false }
+            ],
+            "pages": [
+              { "path": "/", "keyword": "twisted tower", "userIntent": "品牌 / 导航入口", "pageType": "首页" },
+              { "path": "/beginners-guide", "keyword": "twisted tower tips and tricks", "userIntent": "新手怎么入门", "pageType": "指南页" },
+              { "path": "/walkthrough", "keyword": "twisted tower walkthrough", "userIntent": "卡关求全流程攻略", "pageType": "攻略页" },
+              { "path": "/bosses", "keyword": "twisted tower bosses", "userIntent": "某个 mascot boss 打不过", "pageType": "Boss 攻略页" },
+              { "path": "/puzzles", "keyword": "twisted tower clock puzzle", "userIntent": "谜题解不开", "pageType": "谜题解法页" },
+              { "path": "/collectibles", "keyword": "twisted tower collectibles", "userIntent": "收集品找不到", "pageType": "收集品位置页" },
+              { "path": "/weapons", "keyword": "twisted tower weapons", "userIntent": "哪个武器更强", "pageType": "武器图鉴页" },
+              { "path": "/endings", "keyword": "twisted tower endings", "userIntent": "怎么达成全部结局", "pageType": "结局攻略页" },
+              { "path": "/faq", "keyword": "release date / how long to beat / system requirements", "userIntent": "值不值得买 / 能不能跑 / 多久通关", "pageType": "FAQ 页" },
+              { "path": "/about", "keyword": "—", "userIntent": "站点介绍", "pageType": "基础页" },
+              { "path": "/privacy", "keyword": "—", "userIntent": "隐私政策", "pageType": "基础页" }
+            ],
             "matrixLive": 11,
             "matrixPending": 0,
-            "harvest": "关键词清单覆盖通用词（walkthrough/guide/tips/review/how long to beat）与个性词（boss/puzzle/collectibles/endings/weapons/mascots）。游戏未上线，攻略细分词尚未爆发，先铺好页面骨架等词进来。"
+            "harvest": "挖词实况：游戏 8-18 才上线，Google 实时联想里大部分攻略词尚未形成——只有 release date / demo / walkthrough / review / weapons / clock puzzle / system requirements 7 个已有联想（release date、demo 为高热）。这本身印证先发窗口：需求未爆发、攻略站空白。用 BioShock-like 玩法模型（解谜 + boss + 收集 + 多结局）补全 16 个细分词（8 通用 + 8 个性），11 页矩阵逐一覆盖。"
           },
           "reportUrl": "reports/level-2.html?site=twisted-tower-guide"
         },

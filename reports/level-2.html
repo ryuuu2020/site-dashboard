@@ -24,12 +24,45 @@ function renderReport(site, level) {
   const kwTotal = Report.hasValue(r.keywordTotal) ? `<span class="v ok">${Report.esc(r.keywordTotal)} 个</span>` : `<span class="v pending">待补</span>`;
   const gen = Report.hasValue(r.generalCount) ? `<span class="v">${Report.esc(r.generalCount)} 个</span>` : `<span class="v pending">待补</span>`;
   const spec = Report.hasValue(r.specificCount) ? `<span class="v">${Report.esc(r.specificCount)} 个</span>` : `<span class="v pending">待补</span>`;
+  const verified = Report.hasValue(r.verifiedCount) ? `<span class="v ok">${Report.esc(r.verifiedCount)} 个</span>` : `<span class="v pending">待补</span>`;
   const live = Report.hasValue(r.matrixLive) ? `<span class="v ok">${Report.esc(r.matrixLive)} 页</span>` : `<span class="v pending">待补</span>`;
   const pending = Report.hasValue(r.matrixPending) ? `<span class="v">${Report.esc(r.matrixPending)} 页</span>` : `<span class="v">0 页</span>`;
 
-  const cats = Array.isArray(r.categories) && r.categories.length
-    ? r.categories.map((c) => `<span class="kv" style="padding:0.3rem 0.6rem"><span class="v" style="font-size:0.75rem">${Report.esc(c)}</span></span>`).join('')
-    : '<span class="check-text unknown">待补（关键词分类未记录）</span>';
+  // 关键词清单表
+  const kws = Array.isArray(r.keywords) ? r.keywords : [];
+  let kwTable = '';
+  if (kws.length) {
+    const rows = kws.map((k) => {
+      const badge = k.verified
+        ? '<span class="heat hot">🔥 实测有联想</span>'
+        : '<span class="heat cold">预判（未上线，联想待爆发）</span>';
+      const typeTag = k.type === '个性'
+        ? '<span class="type-tag warm">个性</span>'
+        : '<span class="type-tag">通用</span>';
+      return `<tr><td class="mono">${Report.esc(k.term)}</td><td>${typeTag}</td><td>${badge}</td></tr>`;
+    }).join('');
+    kwTable = `<div class="table-wrap" style="margin-top:0.875rem"><table>
+      <thead><tr><th>细分关键词</th><th>类型</th><th>实测状态</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>`;
+  } else {
+    kwTable = '<div class="todo-hint"><strong>关键词清单待补</strong>：手册要求 ≥10 个细分关键词，分通用/个性需求，逐条记录。</div>';
+  }
+
+  // 页面矩阵表
+  const pages = Array.isArray(r.pages) ? r.pages : [];
+  let pageTable = '';
+  if (pages.length) {
+    const rows = pages.map((p) => {
+      return `<tr><td class="mono">${Report.esc(p.path)}</td><td class="mono">${Report.esc(p.keyword)}</td><td>${Report.esc(p.userIntent)}</td><td>${Report.esc(p.pageType)}</td></tr>`;
+    }).join('');
+    pageTable = `<div class="table-wrap" style="margin-top:0.875rem"><table>
+      <thead><tr><th>页面路径</th><th>对应关键词</th><th>用户问题</th><th>页面类型</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>`;
+  } else {
+    pageTable = '<div class="todo-hint"><strong>页面矩阵待补</strong>：手册要求每页对应关键词、用户问题、页面类型，逐页记录。</div>';
+  }
 
   const harvest = Report.hasValue(r.harvest) ? Report.esc(r.harvest) : '<span class="check-text unknown">待补（本关最大收获 / 卡点 / 怎么解决的）</span>';
 
@@ -46,10 +79,9 @@ function renderReport(site, level) {
           <div class="kv"><div class="k">细分关键词总数</div>${kwTotal}</div>
           <div class="kv"><div class="k">通用需求</div>${gen}</div>
           <div class="kv"><div class="k">个性需求</div>${spec}</div>
+          <div class="kv"><div class="k">实测有联想</div>${verified}</div>
         </div>
-        <div style="margin-top:0.875rem"><div style="font-size:0.625rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.375rem">关键词分类</div>
-          <div style="display:flex;flex-wrap:wrap;gap:0.375rem">${cats}</div>
-        </div>
+        ${kwTable}
       </div>
     </div>
 
@@ -60,6 +92,7 @@ function renderReport(site, level) {
           <div class="kv"><div class="k">已上线页面</div>${live}</div>
           <div class="kv"><div class="k">待建页面</div>${pending}</div>
         </div>
+        ${pageTable}
       </div>
     </div>
 
