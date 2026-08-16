@@ -43,6 +43,61 @@ function renderReport(site, level) {
 
   const harvest = Report.hasValue(r.harvest) ? Report.esc(r.harvest) : '<span class="check-text unknown">待补（本关最大收获 / 卡点 / 怎么解决的）</span>';
 
+  // FPS 攻略需求分析（深度验证）
+  const fa = r.fpsAnalysis || null;
+  const ltk = Array.isArray(r.longTailKeywords) ? r.longTailKeywords : [];
+  const risks = Array.isArray(r.risks) ? r.risks : [];
+
+  let demandHtml = '';
+  if (fa && (fa.genre || fa.conclusion || (fa.evidence && fa.evidence.length))) {
+    const ev = (Array.isArray(fa.evidence) ? fa.evidence : []).map((e) => `<li>${Report.esc(e)}</li>`).join('');
+    const verdict = fa.isPureFps === true
+      ? `<span class="badge warn">纯 FPS（攻略需求弱）</span>`
+      : `<span class="badge done">非纯 FPS · BioShock-like（攻略需求强）</span>`;
+    demandHtml = `
+    <div class="card">
+      <div class="card-head">FPS 攻略需求分析（深度验证）</div>
+      <div class="card-body">
+        ${fa.question ? `<div class="summary-line">${Report.esc(fa.question)}</div>` : ''}
+        <div class="kv-grid">
+          <div class="kv"><div class="k">游戏类型定性</div><div class="v">${Report.esc(fa.genre || '待补')}</div></div>
+        </div>
+        <div style="margin:0.75rem 0 0.5rem">${verdict}</div>
+        <ul class="ev-list">${ev}</ul>
+        ${fa.conclusion ? `<div class="summary-line" style="margin:0.75rem 0 0"><strong>结论：</strong>${Report.esc(fa.conclusion)}</div>` : ''}
+      </div>
+    </div>`;
+  }
+
+  let ltkHtml = '';
+  if (ltk.length) {
+    const heatTxt = { high: '🔥 高', medium: '🟡 中', low: '低' };
+    const rows = ltk.map((k) => {
+      const heatCls = k.heat === 'high' ? 'hot' : (k.heat === 'medium' ? 'warm' : 'cold');
+      return `<tr><td class="mono">${Report.esc(k.keyword)}</td><td class="heat ${heatCls}">${Report.esc(heatTxt[k.heat] || k.heat)}</td><td>${Report.esc(k.note || '')}</td></tr>`;
+    }).join('');
+    ltkHtml = `
+    <div class="card">
+      <div class="card-head">长尾词热度实测（Google 实时联想 · 2026-08-16）</div>
+      <div class="card-body">
+        <div class="table-wrap"><table>
+          <thead><tr><th>联想词</th><th>热度</th><th>说明</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table></div>
+      </div>
+    </div>`;
+  }
+
+  let riskHtml = '';
+  if (risks.length) {
+    const items = risks.map((x) => `<li>${Report.esc(x)}</li>`).join('');
+    riskHtml = `
+    <div class="card">
+      <div class="card-head">已识别风险（诚实标注）</div>
+      <div class="card-body"><ul class="ev-list risk">${items}</ul></div>
+    </div>`;
+  }
+
   el.innerHTML = `
     <div class="card">
       <div class="card-head">任务目标</div>
@@ -62,6 +117,10 @@ function renderReport(site, level) {
       <div class="card-head">3 个候选游戏词判断表（必交）</div>
       <div class="card-body">${tableHtml}</div>
     </div>
+
+    ${demandHtml}
+    ${ltkHtml}
+    ${riskHtml}
 
     <div class="card">
       <div class="card-head">收获 / 卡点（必交）</div>

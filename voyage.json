@@ -385,7 +385,31 @@
                 "decision": "不做（红利彻底过去）"
               }
             ],
-            "harvest": "选词要抢「上线前 2-3 天」窗口。同行已抢注 twistedtower.wiki（8-09）印证 Twisted Tower 是市场共识强信号，必须尽快上线抢占 SERP 空白。"
+            "harvest": "选词要抢「上线前 2-3 天」窗口。同行已抢注 twistedtower.wiki（8-09）印证 Twisted Tower 是市场共识强信号，必须尽快上线抢占 SERP 空白。",
+            "fpsAnalysis": {
+              "question": "FPS 游戏有很强的攻略需求吗？",
+              "isPureFps": false,
+              "genre": "BioShock 式恐怖解谜 FPS（动作冒险 + 解谜 + 多结局），非纯射击",
+              "evidence": [
+                "Steam 官方描述：twisted puzzles / fairy-tale mascots / deadly traps / uncover dark secrets",
+                "开发者 Thomas Brush（Pinstripe、Neversong 作者），专做叙事恐怖解谜，非枪战竞技",
+                "Ken Levine（BioShock 之父）在 Twitter 亲自推荐 demo；r/BioShock 社区讨论",
+                "demo 期间 YouTube 已出现「Twisted Tower DEMO - Full Game Walkthrough (All Bosses)」视频"
+              ],
+              "conclusion": "纯 FPS 攻略需求弱；但 Twisted Tower 是 BioShock-like，攻略需求强（walkthrough / puzzle / boss / collectible / ending 五大需求点）"
+            },
+            "longTailKeywords": [
+              { "keyword": "twisted tower release date", "heat": "high", "note": "上线前高热度，都在搜几号上线" },
+              { "keyword": "twisted tower demo", "heat": "high", "note": "demo 有热度" },
+              { "keyword": "twisted tower demo walkthrough", "heat": "high", "note": "已有人搜 demo 攻略（攻略需求实锤）" },
+              { "keyword": "twisted tower clock puzzle", "heat": "medium", "note": "已有人搜具体谜题（时钟谜题）" },
+              { "keyword": "twisted tower thomas brush", "heat": "medium", "note": "因开发者名字搜过来" }
+            ],
+            "risks": [
+              "twisted tower dubai / building = 迪拜 Cayan Tower 建筑歧义（旅游意图，会分走部分泛词流量）",
+              "twisted tower dire = 重金属乐队 Twisted Tower Dire（音乐意图，污染联想）",
+              "上线前搜索量绝对值仍低，流量要等 8-18 上线爆发"
+            ]
           },
           "reportUrl": "reports/level-1.html?site=twisted-tower-guide"
         },
