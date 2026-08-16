@@ -478,13 +478,26 @@
           "report": {
             "pageCount": 11,
             "sourceLevels": [
-              "Steam 商店页",
-              "Steam 官方截图",
-              "IGN 预告报道",
-              "Reddit/ResetEra 讨论",
-              "开发者 Thomas Brush 视频"
+              "Steam 商店页 app/1575990",
+              "3D Realms 官方页",
+              "Steam 官方截图（16 张）",
+              "Steam 官方预告片（4 部）",
+              "媒体评测摘录（VICE / GamesRadar+）"
             ],
-            "harvest": "素材全部来自官方渠道（Steam appdetails 数据 + 官方截图）+ 权威媒体预告，避免大模型瞎编。Twisted Tower 未上线，具体数值（boss 血量/收集品数量）暂用框架性描述，上线后回填。"
+            "pages": [
+              { "path": "/", "sources": ["Steam 商店页 app/1575990"], "usage": "站点定位、Hero 文案、游戏简介" },
+              { "path": "/beginners-guide", "sources": ["Steam 官方特性列表"], "usage": "5 关卡结构、玩具收集跳跃机制、多路径系统" },
+              { "path": "/walkthrough", "sources": ["Steam 官方 5 关卡列表", "3D Realms 截图"], "usage": "5 关流程骨架（hotel / waterpark / clown casino / carnival forest / space station）" },
+              { "path": "/bosses", "sources": ["Steam 官方 mascots 描述", "3D Realms 角色截图"], "usage": "boss / 吉祥物角色清单、打法框架" },
+              { "path": "/puzzles", "sources": ["Steam 官方 twisted puzzles", "3D Realms 机关截图"], "usage": "谜题 / 机关场景清单（旋转大厅 / 电梯 / 螺旋楼梯 / 电话）" },
+              { "path": "/collectibles", "sources": ["Steam 官方 toy 收集描述", "3D Realms Audio-Log 截图"], "usage": "玩具收集品 + 录音带位置框架" },
+              { "path": "/weapons", "sources": ["Steam 官方 8 武器清单"], "usage": "8 种武器图鉴 + 升级（whack-a-mole mallet → skull-poppin' ray gun）" },
+              { "path": "/endings", "sources": ["Steam 官方多路径描述", "剧情描述"], "usage": "多路径 / 多结局框架" },
+              { "path": "/faq", "sources": ["Steam 官方 System Requirements", "Features"], "usage": "配置、通关时长、平台、语言 FAQ" },
+              { "path": "/about", "sources": ["3D Realms 官方页", "Steam 官方"], "usage": "站点介绍、免责声明" },
+              { "path": "/privacy", "sources": ["合规模板"], "usage": "隐私政策" }
+            ],
+            "harvest": "实测素材远比框架丰富：Steam 官方明确给出 5 个关卡名（hotel/waterpark/clown casino/carnival forest/space station）、8 种玩具武器全名（whack-a-mole mallet→skull-poppin' ray gun）、收集玩具用于跳跃/冲刺/抓钩（grapple）机制、多路径系统、Audio-Log 录音带——都是可直接写进页面的硬素材，不是瞎编。未上线，具体数值（boss 血量/收集品总数/结局数）仍待上线后回填。"
           },
           "reportUrl": "reports/level-3.html?site=twisted-tower-guide"
         },
