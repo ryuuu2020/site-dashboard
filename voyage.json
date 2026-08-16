@@ -1,0 +1,224 @@
+{
+  "generated": "2026-08-16T15:30:00+08:00",
+  "schemaVersion": 2,
+  "source": "voyage.json",
+  "note": "每个独立站的 6 关卡完工报表。status: pending=未开始 / in-progress=进行中 / done=已打通 / skipped=跳过。每关 report 字段严格对应手册任务卡的表格列。值为 null 或空串表示「待补/待确认」，报表页会醒目标出。",
+  "levelsMeta": [
+    { "id": 1, "name": "选主词", "goal": "从 3 个候选游戏词中选出 1 个值得做的主词，完成判断练习" },
+    { "id": 2, "name": "挖需求", "goal": "挖细分关键词（≥10 个），规划第一批页面矩阵" },
+    { "id": 3, "name": "收素材", "goal": "给每页找 1-2 个可靠信息源，整理成 AI 可用的素材" },
+    { "id": 4, "name": "搭网站", "goal": "生成内容，本地跑通首页/导航页/内页" },
+    { "id": 5, "name": "上线", "goal": "部署公网，接入 GSC 与 GA" },
+    { "id": 6, "name": "复盘", "goal": "看 GSC 数据，补 2-3 页并定下一步" }
+  ],
+  "sites": [
+    {
+      "dir": "scrapmechanic-hub",
+      "name": "Scrap Mechanic Hub",
+      "domain": "https://scrapmechanichub.com",
+      "steam": 387990,
+      "independent": true,
+      "levels": [
+        {
+          "id": 1,
+          "status": "done",
+          "doneAt": "2026-08-15",
+          "summary": "主词选定 Scrap Mechanic（老牌沙盒建造游戏，长尾关键词充足）",
+          "report": {
+            "mainKeyword": "Scrap Mechanic",
+            "candidates": [
+              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null },
+              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null },
+              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null }
+            ],
+            "harvest": null
+          },
+          "reportUrl": "reports/level-1.html?site=scrapmechanic-hub"
+        },
+        {
+          "id": 2,
+          "status": "done",
+          "doneAt": "2026-08-15",
+          "summary": "挖出 25 个细分关键词，规划 19 个内容页（14 已上线 + 5 待建）",
+          "report": {
+            "keywordTotal": 25,
+            "generalCount": 7,
+            "specificCount": 18,
+            "categories": ["新手入门", "剧情攻略", "建造系统", "载具建造", "资源与种植", "战斗防御", "模组工坊", "联机服务器", "技巧秘密", "排名榜单", "设置修复", "其他杂项"],
+            "matrixLive": 14,
+            "matrixPending": 5,
+            "harvest": null
+          },
+          "reportUrl": "reports/level-2.html?site=scrapmechanic-hub"
+        },
+        {
+          "id": 3,
+          "status": "done",
+          "doneAt": "2026-08-15",
+          "summary": "14 个已上线页面逐一记录 1-2 个可靠信息源，标注来源可提供的具体信息",
+          "report": {
+            "pageCount": 14,
+            "sourceLevels": ["游戏官网", "Wiki", "YouTube", "玩家社区", "攻略文章"],
+            "harvest": null
+          },
+          "reportUrl": "reports/level-3.html?site=scrapmechanic-hub"
+        },
+        {
+          "id": 4,
+          "status": "done",
+          "doneAt": "2026-08-15",
+          "summary": "Next.js 站已搭，首页/导航页/内页本地与线上均可访问，GitHub 私有仓库已建",
+          "report": {
+            "github": "https://github.com/ryuuu2020/scrapmechanic-hub",
+            "repoCreated": true,
+            "siteAccessible": true,
+            "pages": [
+              { "type": "首页", "path": "/", "accessible": true },
+              { "type": "导航页", "path": "/beginners-guide", "accessible": true },
+              { "type": "内页", "path": "/chapter-2-guide", "accessible": true }
+            ],
+            "seo": { "title": true, "description": true, "h1h2": null },
+            "harvest": null
+          },
+          "reportUrl": "reports/level-4.html?site=scrapmechanic-hub"
+        },
+        {
+          "id": 5,
+          "status": "done",
+          "doneAt": "2026-08-15",
+          "summary": "Vercel 部署到独立域名，GSC 验证 + sitemap 提交，GA 接入并接收流量",
+          "report": {
+            "liveUrl": "https://scrapmechanichub.com",
+            "online": true,
+            "gsc": { "verified": true, "property": "https://scrapmechanichub.com/", "sitemap": "20 URLs" },
+            "ga": "G-VXTYX7QCHV",
+            "harvest": null
+          },
+          "reportUrl": "reports/level-5.html?site=scrapmechanic-hub"
+        },
+        {
+          "id": 6,
+          "status": "pending",
+          "doneAt": null,
+          "summary": "等待 GSC 数据产生后做第一次复盘",
+          "report": {
+            "site": "https://scrapmechanichub.com",
+            "gscImpressions": null,
+            "gscClicks": null,
+            "newKeywords": [],
+            "nextAction": null,
+            "reason": null,
+            "actions": null,
+            "newPages": [],
+            "harvest": null
+          },
+          "reportUrl": "reports/level-6.html?site=scrapmechanic-hub"
+        }
+      ]
+    },
+    {
+      "dir": "cairn-guide",
+      "name": "Cairn Guide",
+      "domain": "https://cairnguide.wiki",
+      "steam": 1588550,
+      "independent": true,
+      "levels": [
+        {
+          "id": 1,
+          "status": "done",
+          "doneAt": "2026-08-15",
+          "summary": "主词 Cairn，独立域名 cairnguide.wiki 已迁移（老站迁移，判断表未按新流程补录）",
+          "report": {
+            "mainKeyword": "Cairn",
+            "candidates": [
+              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null },
+              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null },
+              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null }
+            ],
+            "harvest": null
+          },
+          "reportUrl": "reports/level-1.html?site=cairn-guide"
+        },
+        {
+          "id": 2,
+          "status": "done",
+          "doneAt": "2026-08-15",
+          "summary": "沿用原站 26 页规划（老站迁移，关键词清单未按新流程单独补录）",
+          "report": {
+            "keywordTotal": null,
+            "generalCount": null,
+            "specificCount": null,
+            "categories": [],
+            "matrixLive": 26,
+            "matrixPending": 0,
+            "harvest": null
+          },
+          "reportUrl": "reports/level-2.html?site=cairn-guide"
+        },
+        {
+          "id": 3,
+          "status": "done",
+          "doneAt": "2026-08-15",
+          "summary": "信息源沿用原站素材（老站迁移，来源记录未按新流程单独补录）",
+          "report": {
+            "pageCount": 26,
+            "sourceLevels": [],
+            "harvest": null
+          },
+          "reportUrl": "reports/level-3.html?site=cairn-guide"
+        },
+        {
+          "id": 4,
+          "status": "done",
+          "doneAt": "2026-08-15",
+          "summary": "站已搭，GitHub 私有仓库已建，首页/导航/内页可访问",
+          "report": {
+            "github": "https://github.com/ryuuu2020/cairn-guide",
+            "repoCreated": true,
+            "siteAccessible": true,
+            "pages": [
+              { "type": "首页", "path": "/", "accessible": true },
+              { "type": "导航页", "path": "/about", "accessible": true },
+              { "type": "内页", "path": "/stamina-guide", "accessible": true }
+            ],
+            "seo": { "title": true, "description": true, "h1h2": null },
+            "harvest": null
+          },
+          "reportUrl": "reports/level-4.html?site=cairn-guide"
+        },
+        {
+          "id": 5,
+          "status": "done",
+          "doneAt": "2026-08-15",
+          "summary": "Vercel 部署到独立域名，GSC（域名属性 DNS 验证）+ GA 接入",
+          "report": {
+            "liveUrl": "https://cairnguide.wiki",
+            "online": true,
+            "gsc": { "verified": true, "property": "sc-domain:cairnguide.wiki", "sitemap": "26 URLs" },
+            "ga": "G-E579JJDZ11",
+            "harvest": null
+          },
+          "reportUrl": "reports/level-5.html?site=cairn-guide"
+        },
+        {
+          "id": 6,
+          "status": "pending",
+          "doneAt": null,
+          "summary": "等待 GSC 数据产生后做第一次复盘",
+          "report": {
+            "site": "https://cairnguide.wiki",
+            "gscImpressions": null,
+            "gscClicks": null,
+            "newKeywords": [],
+            "nextAction": null,
+            "reason": null,
+            "actions": null,
+            "newPages": [],
+            "harvest": null
+          },
+          "reportUrl": "reports/level-6.html?site=cairn-guide"
+        }
+      ]
+    }
+  ]
+}

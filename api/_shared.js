@@ -8,6 +8,7 @@ const BUNDLED_JSON = {
   'sites.json': require('../sites.json'),
   'activity.json': require('../activity.json'),
   'analytics.json': require('../analytics.json'),
+  'keyword-radar.json': require('../keyword-radar.json'),
 };
 
 // IMPORTANT: literal require + literal fs path so Vercel's nft file tracer
@@ -57,6 +58,20 @@ function readJson(fileName, fallback) {
 
 function readManifest() {
   return readJson('sites.json', { generated: null, sites: [] });
+}
+
+function readKeywordRadar() {
+  return readJson('keyword-radar.json', {
+    schema_version: 'keyword-radar/v0.1',
+    run_id: null,
+    observed_at: null,
+    candidate_count: 0,
+    decision_counts: { DO: 0, HOLD: 0, SKIP: 0 },
+    integrity: 'INSUFFICIENT_CANDIDATES',
+    candidates: [],
+    data_sources: {},
+    run_manifest: null,
+  });
 }
 
 function readActivitySnapshot() {
@@ -355,6 +370,7 @@ module.exports = {
   isGuideRepo,
   normalizeHomepage,
   readActivitySnapshot,
+  readKeywordRadar,
   readAnalyticsHistory,
   readAnalyticsSnapshot,
   readManifest,

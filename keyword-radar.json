@@ -1,0 +1,2334 @@
+{
+  "schema_version": "keyword-radar/v0.1",
+  "project": "game-guide-hub",
+  "topic": "game-guide keywords",
+  "run_id": "20260810-095927-14230",
+  "observed_at": "2026-08-10T09:59:57+08:00",
+  "timezone": "Asia/Shanghai",
+  "candidate_count": 5,
+  "candidate_sources_required": [
+    "steam",
+    "steamdb",
+    "igdb",
+    "youtube",
+    "community",
+    "existing-matrix"
+  ],
+  "tool_availability": {
+    "google_trends": {
+      "available": false,
+      "mode": "unavailable",
+      "note": "Worldwide / past 30 days, compare=GPTs is required; automated reader not connected."
+    },
+    "similarweb": {
+      "available": false,
+      "mode": "unavailable",
+      "note": "Similarweb KD and subkeyword reader are not connected."
+    },
+    "serp": {
+      "available": false,
+      "mode": "unavailable",
+      "note": "SERP collector is not connected."
+    },
+    "bing_serp_fallback": {
+      "available": true,
+      "mode": "fallback_lead_only",
+      "note": "Bing SERP is captured as a reviewer lead only and never substitutes Google SERP gating."
+    },
+    "local_evidence": {
+      "available": true,
+      "mode": "json_dir",
+      "note": "Per-keyword JSON evidence files can populate Trends/KD/SERP fields without editing code."
+    },
+    "google_suggest": {
+      "available": true,
+      "mode": "public_read",
+      "note": "Google Suggest is a clue source only; it is not used as search volume."
+    },
+    "youtube": {
+      "available": true,
+      "mode": "public_search",
+      "note": "Public YouTube search is used only as a candidate corroboration source."
+    },
+    "steamdb": {
+      "available": false,
+      "mode": "blocked_or_unavailable",
+      "note": "SteamDB is probed directly; current runtime is expected to hit Cloudflare challenge pages."
+    },
+    "igdb": {
+      "available": false,
+      "mode": "blocked_or_unavailable",
+      "note": "IGDB search is probed directly; current runtime is expected to hit Cloudflare challenge pages."
+    },
+    "community_topics": {
+      "available": true,
+      "mode": "local_report",
+      "note": "Local reddit-topics reports are used as community source hints when present."
+    },
+    "existing_matrix": {
+      "available": true,
+      "mode": "local_json",
+      "note": "site-dashboard/sites.json is used to detect overlap with the current site matrix."
+    }
+  },
+  "decision_counts": {
+    "DO": 1,
+    "HOLD": 1,
+    "SKIP": 3
+  },
+  "integrity": "OK",
+  "source_attempts": [
+    {
+      "source": "steam",
+      "status": "ok",
+      "observed_at": "2026-08-10T09:59:57+08:00",
+      "detail": "Steam search/featured discovery is connected via public endpoints."
+    },
+    {
+      "source": "steamdb",
+      "status": "available",
+      "observed_at": "2026-08-10T09:59:57+08:00",
+      "detail": "upcoming=blocked; app probes attempted=5, available=2, browser_evidence=2, blocked=5, failed=0"
+    },
+    {
+      "source": "igdb",
+      "status": "available",
+      "observed_at": "2026-08-10T09:59:57+08:00",
+      "detail": "search probes attempted=5, available=2, browser_evidence=2, blocked=5, failed=0"
+    },
+    {
+      "source": "youtube",
+      "status": "available",
+      "observed_at": "2026-08-10T09:59:57+08:00",
+      "detail": "queried 5 candidates; matched 3 candidate(s)"
+    },
+    {
+      "source": "community",
+      "status": "available",
+      "observed_at": "2026-08-10T09:59:57+08:00",
+      "detail": "loaded local community topics report /Users/wangxiaolong/program/游戏站/reports/reddit-topics-2026-07-10.md; matched 0 candidate(s)"
+    },
+    {
+      "source": "existing-matrix",
+      "status": "available",
+      "observed_at": "2026-08-10T09:59:57+08:00",
+      "detail": "loaded 22 local matrix entries; matched 0 candidate(s)"
+    }
+  ],
+  "candidates": [
+    {
+      "rank": 1,
+      "keyword": "Words Of Power",
+      "standardized_name": "Words Of Power",
+      "aliases": [
+        "Words Of Power"
+      ],
+      "slug": "words-of-power",
+      "candidate_sources": [
+        {
+          "type": "steam_coming_soon",
+          "pool": "search",
+          "url": "https://store.steampowered.com/search/?filter=comingsoon",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        },
+        {
+          "type": "youtube_search",
+          "url": "https://www.youtube.com/watch?v=pWQU4LnqDnA",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        },
+        {
+          "type": "youtube_search",
+          "url": "https://www.youtube.com/watch?v=9hk7nNXzc6Y",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        }
+      ],
+      "discovery": {
+        "source_pool": "search",
+        "discovery_date": "2026-08-10",
+        "why_guide_demand_may_exist": "Steam coming-soon listing plus public Google Suggest evidence"
+      },
+      "steam": {
+        "status": "available",
+        "app_id": 4986860,
+        "store_url": "https://store.steampowered.com/app/4986860",
+        "name": "Words Of Power",
+        "release_date": "2026-08-11",
+        "release_window": "未定档",
+        "release_status": "coming_soon",
+        "ea_status": "UNKNOWN",
+        "coming_soon": true,
+        "genres": [
+          "indie",
+          "strategy"
+        ],
+        "publishers": [
+          "tsuperion games"
+        ],
+        "developers": [
+          "tsuperion"
+        ]
+      },
+      "google": {
+        "status": "available",
+        "queries": [
+          "Words Of Power",
+          "Words Of Power guide",
+          "Words Of Power wiki"
+        ],
+        "suggestions": [
+          "words of power",
+          "words of power skyrim",
+          "words of power phasmophobia locations",
+          "words of power phasmophobia",
+          "words of power midnight suns",
+          "words of power alan wake 2",
+          "words of power locations skyrim",
+          "words of power alan wake phasmophobia",
+          "words of power book",
+          "words of power locations",
+          "words of power guide",
+          "pathfinder words of power guide",
+          "midnight suns words of power guide",
+          "alan wake words of power guide",
+          "alan wake 2 words of power guide",
+          "phasmophobia alan wake words of power guide",
+          "how many words of power are there",
+          "what are words of power",
+          "words of power wiki",
+          "words superpower wiki",
+          "alan wake 2 words of power wiki",
+          "skyrim wiki words of power",
+          "words to do with power"
+        ],
+        "suggestions_by_query": {
+          "Words Of Power": [
+            "words of power",
+            "words of power skyrim",
+            "words of power phasmophobia locations",
+            "words of power phasmophobia",
+            "words of power midnight suns",
+            "words of power alan wake 2",
+            "words of power locations skyrim",
+            "words of power alan wake phasmophobia",
+            "words of power book",
+            "words of power locations"
+          ],
+          "Words Of Power guide": [
+            "words of power guide",
+            "pathfinder words of power guide",
+            "midnight suns words of power guide",
+            "alan wake words of power guide",
+            "alan wake 2 words of power guide",
+            "phasmophobia alan wake words of power guide",
+            "how many words of power are there",
+            "what are words of power"
+          ],
+          "Words Of Power wiki": [
+            "words of power wiki",
+            "words superpower wiki",
+            "alan wake 2 words of power wiki",
+            "skyrim wiki words of power",
+            "what are words of power",
+            "how many words of power are there",
+            "words to do with power"
+          ]
+        },
+        "guide_demand": {
+          "status": "available",
+          "matched_queries": [
+            "Words Of Power guide",
+            "Words Of Power wiki"
+          ],
+          "evidence": "Google Suggest returned at least one term for guide/wiki query"
+        }
+      },
+      "cross_source": {
+        "steamdb": {
+          "status": "partial",
+          "url": "https://steamdb.info/app/4986860/",
+          "detail": "Browser page reachable; SteamDB exposes title, release context and tags but reports partial information because its access token is missing."
+        },
+        "igdb": {
+          "status": "available",
+          "url": "https://www.igdb.com/search?type=1&q=Words+Of+Power",
+          "detail": "Browser search page reachable, but no exact upcoming Words Of Power record was found in the captured search results."
+        },
+        "youtube": {
+          "status": "available",
+          "matches": [
+            {
+              "type": "youtube_search",
+              "url": "https://www.youtube.com/watch?v=pWQU4LnqDnA",
+              "observed_at": "2026-08-10T09:59:57+08:00"
+            },
+            {
+              "type": "youtube_search",
+              "url": "https://www.youtube.com/watch?v=9hk7nNXzc6Y",
+              "observed_at": "2026-08-10T09:59:57+08:00"
+            }
+          ]
+        },
+        "community": {
+          "status": "unavailable",
+          "path": "UNKNOWN"
+        },
+        "existing_matrix": {
+          "status": "unavailable",
+          "match": "UNKNOWN"
+        }
+      },
+      "evidence_input": {
+        "status": "available",
+        "file_path": "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/words-of-power.json",
+        "loaded_sections": [
+          "trends",
+          "kd",
+          "subkeywords",
+          "serp",
+          "cross_source"
+        ]
+      },
+      "trends": {
+        "status": "available",
+        "value": 27.0,
+        "window": "Worldwide / past 30 days",
+        "comparison_term": "GPTs",
+        "trend_shape": "falling",
+        "relative_signal": "lower",
+        "observed_at": "2026-08-09T19:04:09+08:00",
+        "source_url": "https://trends.google.com/explore?date=today%201-m&q=Words%20Of%20Power,GPTs&hl=en-US",
+        "note": "Collected from logged-in Google Trends new Explore page. Worldwide / past month comparison against GPTs showed sustained interest for Words Of Power, but the curve trends down from mid-window highs into the high-20s by the end of the period."
+      },
+      "kd": {
+        "status": "available",
+        "value": 7,
+        "tool": "Similarweb Keyword Overview",
+        "read_at": "2026-08-10T09:30:00+08:00",
+        "source_url": "https://pro.similarweb.com/#/digitalsuite/acquisition/keyword/organic/search/999/2026.07-2026.07/overview_2?keyword=words%20of%20power",
+        "note": "July 2026 / Worldwide / All Traffic: volume 1.5K, clicks 205, zero-click searches 85%; Organic Difficulty 7 - Easy. Similarweb visible keyword ideas: words of power, word of power, words of power roblox, roblox words of power, alan wake 2 hotel words of power."
+      },
+      "subkeywords": {
+        "status": "partial",
+        "count": "UNKNOWN",
+        "topics": [
+          "word of power",
+          "words of power roblox",
+          "roblox words of power",
+          "alan wake 2 hotel words of power"
+        ],
+        "source": "Similarweb Keyword Overview visible keyword ideas",
+        "note": "Five visible keyword ideas were captured; Similarweb did not expose a full related-keyword total on this screen."
+      },
+      "serp": {
+        "status": "available",
+        "queries": [
+          {
+            "query": "\"Words Of Power\" guide",
+            "intent": "high_intent",
+            "top10": [
+              {
+                "rank": 1,
+                "type": "guide_site",
+                "url": "https://www.ign.com/wikis/alan-wake-2/Words_of_Power",
+                "title": "Words of Power - Alan Wake 2 Guide"
+              },
+              {
+                "rank": 2,
+                "type": "media",
+                "url": "https://www.gamespot.com/articles/alan-wake-2-words-of-power-locations-guide/1100-6518645/",
+                "title": "Alan Wake 2 - Words Of Power Locations Guide"
+              },
+              {
+                "rank": 3,
+                "type": "community",
+                "url": "https://www.reddit.com/r/Pathfinder_RPG/comments/g3w5rk/max_the_min_monday_words_of_power/",
+                "title": "Max the Min Monday: Words of Power"
+              },
+              {
+                "rank": 4,
+                "type": "video",
+                "url": "https://www.youtube.com/watch?v=5ISdCMb0t4s",
+                "title": "All Words of Power Alan Wake 2"
+              },
+              {
+                "rank": 5,
+                "type": "video",
+                "url": "https://www.youtube.com/watch?v=7Fv2ttv1NrY",
+                "title": "Alan Wake 2 - All Words of Power Locations - Casey Initiation 2"
+              },
+              {
+                "rank": 6,
+                "type": "video",
+                "url": "https://www.youtube.com/watch?v=yEircmxUSvE",
+                "title": "Phasmophobia by Alan Wake Event Where To Find All 10 ..."
+              },
+              {
+                "rank": 7,
+                "type": "guide_site",
+                "url": "https://www.powerpyx.com/alan-wake-2-all-words-of-power-locations/",
+                "title": "Alan Wake 2 All Words of Power Locations"
+              },
+              {
+                "rank": 8,
+                "type": "official",
+                "url": "https://store.epicgames.com/en-US/news/alan-wake-2-guide-to-the-best-weapons-and-words-of-power-upgrades",
+                "title": "Alan Wake 2 guide to the best weapons and Words of Power upgrades"
+              },
+              {
+                "rank": 9,
+                "type": "guide_site",
+                "url": "https://www.thegamer.com/alan-wake-2-all-words-of-power-locations-guide/",
+                "title": "Where To Find Every Word Of Power In Alan Wake 2"
+              },
+              {
+                "rank": 10,
+                "type": "guide_site",
+                "url": "https://godisageek.com/2023/10/alan-wake-2-words-of-power-locations-how-to-upgrade-alan/",
+                "title": "Alan Wake 2 words of power locations | How to upgrade ..."
+              }
+            ]
+          }
+        ],
+        "top10": [
+          {
+            "rank": 1,
+            "type": "guide_site",
+            "url": "https://www.ign.com/wikis/alan-wake-2/Words_of_Power",
+            "title": "Words of Power - Alan Wake 2 Guide"
+          },
+          {
+            "rank": 2,
+            "type": "media",
+            "url": "https://www.gamespot.com/articles/alan-wake-2-words-of-power-locations-guide/1100-6518645/",
+            "title": "Alan Wake 2 - Words Of Power Locations Guide"
+          },
+          {
+            "rank": 3,
+            "type": "community",
+            "url": "https://www.reddit.com/r/Pathfinder_RPG/comments/g3w5rk/max_the_min_monday_words_of_power/",
+            "title": "Max the Min Monday: Words of Power"
+          },
+          {
+            "rank": 4,
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=5ISdCMb0t4s",
+            "title": "All Words of Power Alan Wake 2"
+          },
+          {
+            "rank": 5,
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=7Fv2ttv1NrY",
+            "title": "Alan Wake 2 - All Words of Power Locations - Casey Initiation 2"
+          },
+          {
+            "rank": 6,
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=yEircmxUSvE",
+            "title": "Phasmophobia by Alan Wake Event Where To Find All 10 ..."
+          },
+          {
+            "rank": 7,
+            "type": "guide_site",
+            "url": "https://www.powerpyx.com/alan-wake-2-all-words-of-power-locations/",
+            "title": "Alan Wake 2 All Words of Power Locations"
+          },
+          {
+            "rank": 8,
+            "type": "official",
+            "url": "https://store.epicgames.com/en-US/news/alan-wake-2-guide-to-the-best-weapons-and-words-of-power-upgrades",
+            "title": "Alan Wake 2 guide to the best weapons and Words of Power upgrades"
+          },
+          {
+            "rank": 9,
+            "type": "guide_site",
+            "url": "https://www.thegamer.com/alan-wake-2-all-words-of-power-locations-guide/",
+            "title": "Where To Find Every Word Of Power In Alan Wake 2"
+          },
+          {
+            "rank": 10,
+            "type": "guide_site",
+            "url": "https://godisageek.com/2023/10/alan-wake-2-words-of-power-locations-how-to-upgrade-alan/",
+            "title": "Alan Wake 2 words of power locations | How to upgrade ..."
+          }
+        ],
+        "competition": "mixed",
+        "content_gap": "SERP is mixed; opportunity depends on sharper page intent and freshness.",
+        "source_url": "https://www.google.com.hk/search?hl=en&gl=us&num=10&pws=0&q=%22Words+Of+Power%22+guide",
+        "fallback": {
+          "status": "unavailable",
+          "engine": "Bing",
+          "queries": [
+            {
+              "query": "\"Words Of Power\" guide",
+              "intent": "high_intent",
+              "top10": "UNKNOWN",
+              "source_url": "https://www.bing.com/search?q=%22Words+Of+Power%22+guide&count=10&setlang=en-US"
+            }
+          ],
+          "top10": "UNKNOWN",
+          "content_gap_hint": "UNKNOWN",
+          "type_counts": {},
+          "note": "Fallback-only lead layer; Bing returned no parseable lead results."
+        },
+        "types_allowed": [
+          "official",
+          "fandom",
+          "media",
+          "guide_site",
+          "steam",
+          "community",
+          "video",
+          "tool",
+          "forum",
+          "storefront",
+          "other"
+        ],
+        "note": "Captured from a browser-visible Google SERP page. The query is dominated by Alan Wake 2 guide intent and not a distinct new Steam game title, which is strong negative evidence for standalone guide-site demand."
+      },
+      "evidence": {
+        "level": "OFFICIAL",
+        "basis": [
+          "Steam public listing metadata",
+          "Google Suggest public endpoint",
+          "Local trends evidence file",
+          "Local Similarweb evidence file",
+          "Local subkeyword evidence file",
+          "Local SERP evidence file",
+          "Browser-assisted cross-source evidence file",
+          "YouTube public search results"
+        ],
+        "write_boundary": [
+          "Can cite the public Steam listing metadata and observed suggestions.",
+          "Cannot state search volume, trend direction, KD, SERP difficulty or current in-game facts."
+        ]
+      },
+      "decision": "DO",
+      "decision_ceiling": "DO",
+      "manual_review_required": false,
+      "blockers": [],
+      "data_source_status": {
+        "steam": "available",
+        "google_suggest": "available",
+        "trends": "available",
+        "kd": "available",
+        "serp": "available"
+      },
+      "observed_at": "2026-08-10T09:59:57+08:00"
+    },
+    {
+      "rank": 2,
+      "keyword": "Warhounds",
+      "standardized_name": "Warhounds",
+      "aliases": [
+        "Warhounds"
+      ],
+      "slug": "warhounds",
+      "candidate_sources": [
+        {
+          "type": "steam_coming_soon",
+          "pool": "search",
+          "url": "https://store.steampowered.com/search/?filter=comingsoon",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        },
+        {
+          "type": "youtube_search",
+          "url": "https://www.youtube.com/watch?v=MWvtXmgRtXw",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        },
+        {
+          "type": "youtube_search",
+          "url": "https://www.youtube.com/watch?v=Vf9n_eSr8Y8",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        }
+      ],
+      "discovery": {
+        "source_pool": "search",
+        "discovery_date": "2026-08-10",
+        "why_guide_demand_may_exist": "Steam coming-soon listing plus public Google Suggest evidence"
+      },
+      "steam": {
+        "status": "available",
+        "app_id": 3929470,
+        "store_url": "https://store.steampowered.com/app/3929470",
+        "name": "Warhounds",
+        "release_date": "2026-08-11",
+        "release_window": "未定档",
+        "release_status": "coming_soon",
+        "ea_status": "UNKNOWN",
+        "coming_soon": true,
+        "genres": [
+          "action",
+          "rpg",
+          "strategy"
+        ],
+        "publishers": [
+          "brightika, inc."
+        ],
+        "developers": [
+          "everplay dmcc"
+        ]
+      },
+      "google": {
+        "status": "available",
+        "queries": [
+          "Warhounds",
+          "Warhounds guide",
+          "Warhounds wiki"
+        ],
+        "suggestions": [
+          "warhounds",
+          "warhounds 40k",
+          "warhounds game",
+          "warhounds 30k",
+          "warhounds legion",
+          "warhounds release date",
+          "warhounds steam",
+          "warhounds division 2",
+          "warhounds book",
+          "warhounds ps5",
+          "warhounds wiki",
+          "warhound wikipedia"
+        ],
+        "suggestions_by_query": {
+          "Warhounds": [
+            "warhounds",
+            "warhounds 40k",
+            "warhounds game",
+            "warhounds 30k",
+            "warhounds legion",
+            "warhounds release date",
+            "warhounds steam",
+            "warhounds division 2",
+            "warhounds book",
+            "warhounds ps5"
+          ],
+          "Warhounds guide": [],
+          "Warhounds wiki": [
+            "warhounds wiki",
+            "warhound wikipedia"
+          ]
+        },
+        "guide_demand": {
+          "status": "available",
+          "matched_queries": [
+            "Warhounds wiki"
+          ],
+          "evidence": "Google Suggest returned at least one term for guide/wiki query"
+        }
+      },
+      "cross_source": {
+        "steamdb": {
+          "status": "partial",
+          "url": "https://steamdb.info/app/3929470/",
+          "detail": "Browser page reachable; SteamDB exposes title, release context and tags but reports partial information because its access token is missing."
+        },
+        "igdb": {
+          "status": "available",
+          "url": "https://www.igdb.com/games/warhounds",
+          "detail": "Browser page reachable; exact Warhounds record found with 2026-08-11 release timeline, PC platform, RPG/Strategy/Turn-based Strategy genres and tactical themes."
+        },
+        "youtube": {
+          "status": "available",
+          "matches": [
+            {
+              "type": "youtube_search",
+              "url": "https://www.youtube.com/watch?v=MWvtXmgRtXw",
+              "observed_at": "2026-08-10T09:59:57+08:00"
+            },
+            {
+              "type": "youtube_search",
+              "url": "https://www.youtube.com/watch?v=Vf9n_eSr8Y8",
+              "observed_at": "2026-08-10T09:59:57+08:00"
+            }
+          ]
+        },
+        "community": {
+          "status": "unavailable",
+          "path": "UNKNOWN"
+        },
+        "existing_matrix": {
+          "status": "unavailable",
+          "match": "UNKNOWN"
+        }
+      },
+      "evidence_input": {
+        "status": "available",
+        "file_path": "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/warhounds.json",
+        "loaded_sections": [
+          "trends",
+          "kd",
+          "subkeywords",
+          "serp",
+          "cross_source"
+        ]
+      },
+      "trends": {
+        "status": "available",
+        "value": 0,
+        "window": "Worldwide / past 30 days",
+        "comparison_term": "GPTs",
+        "trend_shape": "flat",
+        "relative_signal": "lower",
+        "observed_at": "2026-08-09T22:06:00+08:00",
+        "source_url": "https://trends.google.com/explore?date=today%201-m&geo=WW&q=Warhounds,GPTs&hl=en-US",
+        "note": "Browser-visible Google Trends Explore page was reachable and rendered a 0/0 baseline for Worldwide / past month versus GPTs. This is recorded as zero measurable relative interest, not converted into search volume; the zero signal is a negative demand finding."
+      },
+      "kd": {
+        "status": "available",
+        "value": 8,
+        "tool": "Similarweb Keyword Overview",
+        "read_at": "2026-08-10T09:30:00+08:00",
+        "source_url": "https://pro.similarweb.com/#/digitalsuite/acquisition/keyword/organic/search/999/2026.07-2026.07/overview_2?keyword=warhounds",
+        "note": "July 2026 / Worldwide / All Traffic: volume 7.7K, clicks 3.1K, zero-click searches 66%; Organic Difficulty 8 - Easy. Similarweb visible keyword ideas: warhounds, warhaunds, warhounds mk4, war hounds, warhounds game release."
+      },
+      "subkeywords": {
+        "status": "partial",
+        "count": "UNKNOWN",
+        "topics": [
+          "warhaunds",
+          "warhounds mk4",
+          "war hounds",
+          "warhounds game release"
+        ],
+        "source": "Similarweb Keyword Overview visible keyword ideas",
+        "note": "Five visible keyword ideas were captured; Similarweb did not expose a full related-keyword total on this screen."
+      },
+      "serp": {
+        "status": "available",
+        "queries": [
+          {
+            "query": "Warhounds game Steam",
+            "intent": "primary",
+            "top10": [
+              {
+                "rank": 1,
+                "type": "steam",
+                "url": "https://store.steampowered.com/app/3929470/Warhounds/",
+                "title": "Warhounds on Steam"
+              },
+              {
+                "rank": 2,
+                "type": "community",
+                "url": "https://www.reddit.com/r/XCOM2/comments/1r4c42d/has_anyone_played_warhounds/",
+                "title": "Has anyone played warhounds?"
+              },
+              {
+                "rank": 3,
+                "type": "community",
+                "url": "https://www.reddit.com/r/TurnBasedTactical/comments/1qgjlj2/coming_to_steam_warhounds_is_a_turnbased_tactics/",
+                "title": "Coming to Steam: Warhounds is a turn-based tactics game"
+              },
+              {
+                "rank": 4,
+                "type": "community",
+                "url": "https://www.reddit.com/r/videogames/comments/1qlp2vh/warhounds_gameplay_blends_xcom_and_jagged_alliance/",
+                "title": "Warhounds Gameplay Blends XCOM and Jagged Alliance"
+              },
+              {
+                "rank": 5,
+                "type": "community",
+                "url": "https://steamcommunity.com/app/3929470",
+                "title": "Warhounds Steam Community"
+              },
+              {
+                "rank": 6,
+                "type": "other",
+                "url": "https://store.steampowered.com/app/3895140/Warhound/",
+                "title": "Warhound on Steam"
+              },
+              {
+                "rank": 7,
+                "type": "video",
+                "url": "https://www.youtube.com/watch?v=2LPMJCSgmGs",
+                "title": "EARLY THOUGHTS from the Warhounds Closed Playtest"
+              },
+              {
+                "rank": 8,
+                "type": "other",
+                "url": "https://www.instagram.com/reel/DZ4Z5wFIJ-J/",
+                "title": "Warhounds Best Steam Review"
+              },
+              {
+                "rank": 9,
+                "type": "other",
+                "url": "https://www.instagram.com/reel/DZAOk8aIXwu/",
+                "title": "Unstable Mercenary or Safe Pick? Warhounds Preview"
+              },
+              {
+                "rank": 10,
+                "type": "other",
+                "url": "https://www.instagram.com/reel/DY_ykPRsQs9/",
+                "title": "This Tactical Game Simulates Every Single Bullet Individually - WARHOUNDS"
+              }
+            ]
+          },
+          {
+            "query": "Warhounds guide",
+            "intent": "high_intent",
+            "top10": [
+              {
+                "rank": 1,
+                "type": "community",
+                "url": "https://www.reddit.com/r/thedivision/comments/n9l7xs/how_to_destroy_warhounds_in_a_easy_way_a_hidden/",
+                "title": "How to destroy Warhounds in an easy way"
+              },
+              {
+                "rank": 2,
+                "type": "community",
+                "url": "https://www.reddit.com/r/thedivision/comments/1ocf9yq/minihound_farming_route/",
+                "title": "Mini-hound Farming Route"
+              },
+              {
+                "rank": 3,
+                "type": "community",
+                "url": "https://www.reddit.com/r/thedivision/comments/u7wu9q/how_to_clear_fast_the_warhounds_section_in_legendary/",
+                "title": "How to clear fast the Warhounds section"
+              },
+              {
+                "rank": 4,
+                "type": "other",
+                "url": "https://battle-legion.fandom.com/wiki/War_Hounds",
+                "title": "War Hounds | Battle Legion Wiki"
+              },
+              {
+                "rank": 5,
+                "type": "other",
+                "url": "https://www.worldanvil.com/w/the-sagas-jester25/a/war-hounds-formation",
+                "title": "War Hounds Military Formation"
+              },
+              {
+                "rank": 6,
+                "type": "community",
+                "url": "https://www.facebook.com/groups/1689439701333511/posts/4434518380158949/",
+                "title": "Advice for handling mini war hounds"
+              },
+              {
+                "rank": 7,
+                "type": "video",
+                "url": "https://www.tiktok.com/@ellisdee789/video/7606385800296566038",
+                "title": "Best Locations for Mini Warhounds in Division 2"
+              },
+              {
+                "rank": 8,
+                "type": "video",
+                "url": "https://www.tiktok.com/@i6.x.p/video/7563784699177405710",
+                "title": "Farming Mini War Hounds in Division 2 Guide"
+              },
+              {
+                "rank": 9,
+                "type": "other",
+                "url": "https://www.reddit.com/r/thedivision/",
+                "title": "The Division community results"
+              },
+              {
+                "rank": 10,
+                "type": "other",
+                "url": "https://www.google.com.hk/search?hl=en&gl=us&num=10&pws=0&q=Warhounds+guide",
+                "title": "Google Search results for Warhounds guide"
+              }
+            ]
+          }
+        ],
+        "top10": [
+          {
+            "rank": 1,
+            "type": "steam",
+            "url": "https://store.steampowered.com/app/3929470/Warhounds/",
+            "title": "Warhounds on Steam"
+          },
+          {
+            "rank": 2,
+            "type": "community",
+            "url": "https://www.reddit.com/r/XCOM2/comments/1r4c42d/has_anyone_played_warhounds/",
+            "title": "Has anyone played warhounds?"
+          },
+          {
+            "rank": 3,
+            "type": "community",
+            "url": "https://www.reddit.com/r/TurnBasedTactical/comments/1qgjlj2/coming_to_steam_warhounds_is_a_turnbased_tactics/",
+            "title": "Coming to Steam: Warhounds is a turn-based tactics game"
+          },
+          {
+            "rank": 4,
+            "type": "community",
+            "url": "https://www.reddit.com/r/videogames/comments/1qlp2vh/warhounds_gameplay_blends_xcom_and_jagged_alliance/",
+            "title": "Warhounds Gameplay Blends XCOM and Jagged Alliance"
+          },
+          {
+            "rank": 5,
+            "type": "community",
+            "url": "https://steamcommunity.com/app/3929470",
+            "title": "Warhounds Steam Community"
+          },
+          {
+            "rank": 6,
+            "type": "other",
+            "url": "https://store.steampowered.com/app/3895140/Warhound/",
+            "title": "Warhound on Steam"
+          },
+          {
+            "rank": 7,
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=2LPMJCSgmGs",
+            "title": "EARLY THOUGHTS from the Warhounds Closed Playtest"
+          },
+          {
+            "rank": 8,
+            "type": "other",
+            "url": "https://www.instagram.com/reel/DZ4Z5wFIJ-J/",
+            "title": "Warhounds Best Steam Review"
+          },
+          {
+            "rank": 9,
+            "type": "other",
+            "url": "https://www.instagram.com/reel/DZAOk8aIXwu/",
+            "title": "Unstable Mercenary or Safe Pick? Warhounds Preview"
+          },
+          {
+            "rank": 10,
+            "type": "other",
+            "url": "https://www.instagram.com/reel/DY_ykPRsQs9/",
+            "title": "This Tactical Game Simulates Every Single Bullet Individually - WARHOUNDS"
+          }
+        ],
+        "competition": "mixed",
+        "content_gap": "The exact new-game query has Steam and community discovery results but no dedicated guide site in the captured top results; the generic guide query is dominated by unrelated Warhounds/War Hounds meanings, so a standalone site would need the exact game modifier and must not treat the generic query as clean demand evidence.",
+        "source_url": "https://www.google.com.hk/search?hl=en&gl=us&num=10&pws=0&q=Warhounds+game+Steam",
+        "fallback": {
+          "status": "unavailable",
+          "engine": "Bing",
+          "queries": [
+            {
+              "query": "Warhounds game Steam",
+              "intent": "primary",
+              "top10": "UNKNOWN",
+              "source_url": "https://www.bing.com/search?q=Warhounds+game+Steam&count=10&setlang=en-US"
+            },
+            {
+              "query": "Warhounds guide",
+              "intent": "high_intent",
+              "top10": "UNKNOWN",
+              "source_url": "https://www.bing.com/search?q=Warhounds+guide&count=10&setlang=en-US"
+            }
+          ],
+          "top10": "UNKNOWN",
+          "content_gap_hint": "UNKNOWN",
+          "type_counts": {},
+          "note": "Fallback-only lead layer; Bing returned no parseable lead results."
+        },
+        "types_allowed": [
+          "official",
+          "fandom",
+          "media",
+          "guide_site",
+          "steam",
+          "community",
+          "video",
+          "tool",
+          "forum",
+          "storefront",
+          "other"
+        ],
+        "note": "Captured from browser-visible Google SERP pages after manual challenge handling on 2026-08-09."
+      },
+      "evidence": {
+        "level": "OFFICIAL",
+        "basis": [
+          "Steam public listing metadata",
+          "Google Suggest public endpoint",
+          "Local trends evidence file",
+          "Local Similarweb evidence file",
+          "Local subkeyword evidence file",
+          "Local SERP evidence file",
+          "Browser-assisted cross-source evidence file",
+          "YouTube public search results"
+        ],
+        "write_boundary": [
+          "Can cite the public Steam listing metadata and observed suggestions.",
+          "Cannot state search volume, trend direction, KD, SERP difficulty or current in-game facts."
+        ]
+      },
+      "decision": "HOLD",
+      "decision_ceiling": "HOLD",
+      "manual_review_required": false,
+      "blockers": [
+        "ONLY_ONE_DO_PER_RUN"
+      ],
+      "data_source_status": {
+        "steam": "available",
+        "google_suggest": "available",
+        "trends": "available",
+        "kd": "available",
+        "serp": "available"
+      },
+      "observed_at": "2026-08-10T09:59:57+08:00"
+    },
+    {
+      "rank": 3,
+      "keyword": "Twenty One Points",
+      "standardized_name": "Twenty One Points",
+      "aliases": [
+        "Twenty One Points"
+      ],
+      "slug": "twenty-one-points",
+      "candidate_sources": [
+        {
+          "type": "steam_coming_soon",
+          "pool": "search",
+          "url": "https://store.steampowered.com/search/?filter=comingsoon",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        },
+        {
+          "type": "steam_coming_soon",
+          "pool": "featured",
+          "url": "https://store.steampowered.com/api/featuredcategories?cc=us&l=en",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        },
+        {
+          "type": "youtube_search",
+          "url": "https://www.youtube.com/watch?v=7gydpB03TCY",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        }
+      ],
+      "discovery": {
+        "source_pool": "both",
+        "discovery_date": "2026-08-10",
+        "why_guide_demand_may_exist": "Steam coming-soon listing plus public Google Suggest evidence"
+      },
+      "steam": {
+        "status": "available",
+        "app_id": 5019060,
+        "store_url": "https://store.steampowered.com/app/5019060",
+        "name": "Twenty One Points",
+        "release_date": "2026-08-09",
+        "release_window": "未定档",
+        "release_status": "coming_soon",
+        "ea_status": "UNKNOWN",
+        "coming_soon": true,
+        "genres": [
+          "adventure",
+          "casual",
+          "indie",
+          "strategy"
+        ],
+        "publishers": [
+          "浮生若琉璃"
+        ],
+        "developers": [
+          "浮生若琉璃"
+        ]
+      },
+      "google": {
+        "status": "available",
+        "queries": [
+          "Twenty One Points",
+          "Twenty One Points guide",
+          "Twenty One Points wiki"
+        ],
+        "suggestions": [
+          "twenty one pilots guide",
+          "twenty one pilots size guide",
+          "twenty one pilots lore guide",
+          "twenty one pilots tape guide",
+          "twenty twelve where to watch",
+          "what is 20 of 23",
+          "twenty one pilots wiki",
+          "twenty one pilots wikipedia",
+          "twenty one pilots wiki fandom",
+          "twenty one pilots wiki discography",
+          "twenty one pilots wiki clancy",
+          "twenty one pilots wiki lore",
+          "twenty one pilots wiki bishops",
+          "twenty one pilots wiki breach",
+          "twenty one pilots wiki dema",
+          "twenty one pilots wiki blurryface"
+        ],
+        "suggestions_by_query": {
+          "Twenty One Points": [],
+          "Twenty One Points guide": [
+            "twenty one pilots guide",
+            "twenty one pilots size guide",
+            "twenty one pilots lore guide",
+            "twenty one pilots tape guide",
+            "twenty twelve where to watch",
+            "what is 20 of 23"
+          ],
+          "Twenty One Points wiki": [
+            "twenty one pilots wiki",
+            "twenty one pilots wikipedia",
+            "twenty one pilots wiki fandom",
+            "twenty one pilots wiki discography",
+            "twenty one pilots wiki clancy",
+            "twenty one pilots wiki lore",
+            "twenty one pilots wiki bishops",
+            "twenty one pilots wiki breach",
+            "twenty one pilots wiki dema",
+            "twenty one pilots wiki blurryface"
+          ]
+        },
+        "guide_demand": {
+          "status": "available",
+          "matched_queries": [
+            "Twenty One Points guide",
+            "Twenty One Points wiki"
+          ],
+          "evidence": "Google Suggest returned at least one term for guide/wiki query"
+        }
+      },
+      "cross_source": {
+        "steamdb": {
+          "status": "blocked",
+          "url": "https://steamdb.info/app/5019060/",
+          "detail": "HTTP 403; Cloudflare managed challenge detected"
+        },
+        "igdb": {
+          "status": "blocked",
+          "url": "https://www.igdb.com/search?type=1&q=Twenty+One+Points",
+          "detail": "HTTP 403; Cloudflare managed challenge detected"
+        },
+        "youtube": {
+          "status": "available",
+          "matches": [
+            {
+              "type": "youtube_search",
+              "url": "https://www.youtube.com/watch?v=7gydpB03TCY",
+              "observed_at": "2026-08-10T09:59:57+08:00"
+            }
+          ]
+        },
+        "community": {
+          "status": "unavailable",
+          "path": "UNKNOWN"
+        },
+        "existing_matrix": {
+          "status": "unavailable",
+          "match": "UNKNOWN"
+        }
+      },
+      "evidence_input": {
+        "status": "available",
+        "file_path": "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/twenty-one-points.json",
+        "loaded_sections": [
+          "trends",
+          "serp"
+        ]
+      },
+      "trends": {
+        "status": "available",
+        "value": 0.0,
+        "window": "Worldwide / past 30 days",
+        "comparison_term": "GPTs",
+        "trend_shape": "flat",
+        "relative_signal": "lower",
+        "observed_at": "2026-08-09T19:36:00+08:00",
+        "source_url": "https://trends.google.com/explore?date=today%201-m&q=%22Twenty%20One%20Points%22,GPTs&hl=en-US",
+        "note": "Collected from the logged-in Google Trends Explore page. Across the visible 30-day window, every daily point for the exact title Twenty One Points stayed at 0 while GPTs retained baseline demand, so there is no observable search lift in the required window."
+      },
+      "kd": {
+        "status": "unavailable",
+        "value": "UNKNOWN",
+        "tool": "Similarweb",
+        "read_at": "UNKNOWN",
+        "source_url": "UNKNOWN",
+        "note": "No Similarweb account, token or API is used by this read-only MVP."
+      },
+      "subkeywords": {
+        "status": "partial",
+        "count": "UNKNOWN",
+        "topics": [
+          "twenty one pilots guide",
+          "twenty one pilots size guide",
+          "twenty one pilots lore guide",
+          "twenty one pilots tape guide",
+          "twenty one pilots wiki",
+          "twenty one pilots wiki fandom",
+          "twenty one pilots wiki discography",
+          "twenty one pilots wiki clancy",
+          "twenty one pilots wiki lore",
+          "twenty one pilots wiki bishops",
+          "twenty one pilots wiki breach",
+          "twenty one pilots wiki dema",
+          "twenty one pilots wiki blurryface"
+        ],
+        "source": "Google Suggest",
+        "note": "Observed suggestions are leads, not a Similarweb keyword count."
+      },
+      "serp": {
+        "status": "available",
+        "queries": [
+          {
+            "query": "\"Twenty One Points\" guide",
+            "intent": "high_intent",
+            "top10": [
+              {
+                "rank": 1,
+                "type": "other",
+                "url": "https://en.wikipedia.org/wiki/Twenty-one_(card_game)",
+                "title": "Twenty-one (card game)"
+              },
+              {
+                "rank": 2,
+                "type": "forum",
+                "url": "https://boardgamegeek.com/thread/3433796/strategy-guide",
+                "title": "Strategy guide! | Rebirth"
+              },
+              {
+                "rank": 3,
+                "type": "other",
+                "url": "https://www.skipsgarage.com/blogs/cornhole/mastering-the-game-of-cornhole-a-beginners-guide",
+                "title": "Mastering Cornhole: The Ultimate Beginners Guide for You"
+              },
+              {
+                "rank": 4,
+                "type": "community",
+                "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1801831246",
+                "title": "Kitty Powers Love Life: Minigame Guide"
+              },
+              {
+                "rank": 5,
+                "type": "other",
+                "url": "https://www.cambridge.org/core/product/BD6026F28FB87F696DC4595A7EFAA147",
+                "title": "Twenty-one points on the nine-point circle"
+              },
+              {
+                "rank": 6,
+                "type": "other",
+                "url": "https://turbimaqeurope.com/2026/07/30/how-to-pick-a-blackjack-casino-guide/",
+                "title": "How to Pick a Blackjack Casino - Guide"
+              },
+              {
+                "rank": 7,
+                "type": "community",
+                "url": "https://www.facebook.com/groups/63753676534/posts/10165529261766535/",
+                "title": "Crokinote score-keeping tool for Crokinole players"
+              },
+              {
+                "rank": 8,
+                "type": "other",
+                "url": "https://magazine.columbia.edu/article/3-cool-card-games-created-columbia-alumni",
+                "title": "3 Cool Card Games Created by Columbia Alumni"
+              },
+              {
+                "rank": 9,
+                "type": "community",
+                "url": "https://www.instagram.com/reel/DWnYhXYEU2X/",
+                "title": "Rules: Corner = 1 point Wing = 2 points Top = 3 points Wing"
+              },
+              {
+                "rank": 10,
+                "type": "other",
+                "url": "https://gamefound.com/en/projects/h2i-studios/stadium-a-sport-odyssey",
+                "title": "Stadium: A Sport Odyssey by H2i Studios"
+              }
+            ]
+          }
+        ],
+        "top10": [
+          {
+            "rank": 1,
+            "type": "other",
+            "url": "https://en.wikipedia.org/wiki/Twenty-one_(card_game)",
+            "title": "Twenty-one (card game)"
+          },
+          {
+            "rank": 2,
+            "type": "forum",
+            "url": "https://boardgamegeek.com/thread/3433796/strategy-guide",
+            "title": "Strategy guide! | Rebirth"
+          },
+          {
+            "rank": 3,
+            "type": "other",
+            "url": "https://www.skipsgarage.com/blogs/cornhole/mastering-the-game-of-cornhole-a-beginners-guide",
+            "title": "Mastering Cornhole: The Ultimate Beginners Guide for You"
+          },
+          {
+            "rank": 4,
+            "type": "community",
+            "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=1801831246",
+            "title": "Kitty Powers Love Life: Minigame Guide"
+          },
+          {
+            "rank": 5,
+            "type": "other",
+            "url": "https://www.cambridge.org/core/product/BD6026F28FB87F696DC4595A7EFAA147",
+            "title": "Twenty-one points on the nine-point circle"
+          },
+          {
+            "rank": 6,
+            "type": "other",
+            "url": "https://turbimaqeurope.com/2026/07/30/how-to-pick-a-blackjack-casino-guide/",
+            "title": "How to Pick a Blackjack Casino - Guide"
+          },
+          {
+            "rank": 7,
+            "type": "community",
+            "url": "https://www.facebook.com/groups/63753676534/posts/10165529261766535/",
+            "title": "Crokinote score-keeping tool for Crokinole players"
+          },
+          {
+            "rank": 8,
+            "type": "other",
+            "url": "https://magazine.columbia.edu/article/3-cool-card-games-created-columbia-alumni",
+            "title": "3 Cool Card Games Created by Columbia Alumni"
+          },
+          {
+            "rank": 9,
+            "type": "community",
+            "url": "https://www.instagram.com/reel/DWnYhXYEU2X/",
+            "title": "Rules: Corner = 1 point Wing = 2 points Top = 3 points Wing"
+          },
+          {
+            "rank": 10,
+            "type": "other",
+            "url": "https://gamefound.com/en/projects/h2i-studios/stadium-a-sport-odyssey",
+            "title": "Stadium: A Sport Odyssey by H2i Studios"
+          }
+        ],
+        "competition": "ambiguous",
+        "content_gap": "SERP is split across multiple meanings or off-intent results; query ambiguity is the main blocker.",
+        "source_url": "https://www.google.com.hk/search?hl=en&gl=us&num=10&pws=0&q=%22Twenty+One+Points%22+guide",
+        "fallback": {
+          "status": "unavailable",
+          "engine": "Bing",
+          "queries": [
+            {
+              "query": "\"Twenty One Points\" guide",
+              "intent": "high_intent",
+              "top10": "UNKNOWN",
+              "source_url": "https://www.bing.com/search?q=%22Twenty+One+Points%22+guide&count=10&setlang=en-US"
+            }
+          ],
+          "top10": "UNKNOWN",
+          "content_gap_hint": "UNKNOWN",
+          "type_counts": {},
+          "note": "Fallback-only lead layer; Bing returned no parseable lead results."
+        },
+        "types_allowed": [
+          "official",
+          "fandom",
+          "media",
+          "guide_site",
+          "steam",
+          "community",
+          "video",
+          "tool",
+          "forum",
+          "storefront",
+          "other"
+        ],
+        "note": "Captured from a browser-visible Google SERP page. The exact-title guide query is dominated by off-intent results about blackjack, unrelated board-game guides, academic pages, social posts and generic score references rather than a distinct game guide layer for the Steam title."
+      },
+      "evidence": {
+        "level": "OFFICIAL",
+        "basis": [
+          "Steam public listing metadata",
+          "Google Suggest public endpoint",
+          "Local trends evidence file",
+          "Local SERP evidence file",
+          "YouTube public search results"
+        ],
+        "write_boundary": [
+          "Can cite the public Steam listing metadata and observed suggestions.",
+          "Cannot state search volume, trend direction, KD, SERP difficulty or current in-game facts."
+        ]
+      },
+      "decision": "SKIP",
+      "decision_ceiling": "SKIP",
+      "manual_review_required": false,
+      "blockers": [
+        "MISSING_SIMILARWEB_KD",
+        "SERP_OFF_INTENT_OR_AMBIGUOUS",
+        "NO_CLEAR_SEARCH_DEMAND"
+      ],
+      "data_source_status": {
+        "steam": "available",
+        "google_suggest": "available",
+        "trends": "available",
+        "kd": "unavailable",
+        "serp": "available"
+      },
+      "observed_at": "2026-08-10T09:59:57+08:00"
+    },
+    {
+      "rank": 4,
+      "keyword": "The Wraith Train: Illusory Domain",
+      "standardized_name": "The Wraith Train: Illusory Domain",
+      "aliases": [
+        "The Wraith Train: Illusory Domain"
+      ],
+      "slug": "the-wraith-train-illusory-domain",
+      "candidate_sources": [
+        {
+          "type": "steam_coming_soon",
+          "pool": "featured",
+          "url": "https://store.steampowered.com/api/featuredcategories?cc=us&l=en",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        }
+      ],
+      "discovery": {
+        "source_pool": "featured",
+        "discovery_date": "2026-08-10",
+        "why_guide_demand_may_exist": "Steam coming-soon listing only"
+      },
+      "steam": {
+        "status": "available",
+        "app_id": 4920100,
+        "store_url": "https://store.steampowered.com/app/4920100",
+        "name": "The Wraith Train: Illusory Domain",
+        "release_date": "2026-08-09",
+        "release_window": "未定档",
+        "release_status": "coming_soon",
+        "ea_status": "UNKNOWN",
+        "coming_soon": true,
+        "genres": [
+          "adventure",
+          "casual",
+          "indie",
+          "rpg",
+          "simulation",
+          "strategy"
+        ],
+        "publishers": [
+          "司命工作室"
+        ],
+        "developers": [
+          "司命工作室"
+        ]
+      },
+      "google": {
+        "status": "unavailable",
+        "queries": [
+          "The Wraith Train: Illusory Domain",
+          "The Wraith Train: Illusory Domain guide",
+          "The Wraith Train: Illusory Domain wiki"
+        ],
+        "suggestions": [],
+        "suggestions_by_query": {
+          "The Wraith Train: Illusory Domain": [],
+          "The Wraith Train: Illusory Domain guide": [],
+          "The Wraith Train: Illusory Domain wiki": []
+        },
+        "guide_demand": {
+          "status": "UNKNOWN",
+          "matched_queries": [],
+          "evidence": "UNKNOWN"
+        }
+      },
+      "cross_source": {
+        "steamdb": {
+          "status": "blocked",
+          "url": "https://steamdb.info/app/4920100/",
+          "detail": "HTTP 403; Cloudflare managed challenge detected"
+        },
+        "igdb": {
+          "status": "blocked",
+          "url": "https://www.igdb.com/search?type=1&q=The+Wraith+Train%3A+Illusory+Domain",
+          "detail": "HTTP 403; Cloudflare managed challenge detected"
+        },
+        "youtube": {
+          "status": "unavailable",
+          "matches": "UNKNOWN"
+        },
+        "community": {
+          "status": "unavailable",
+          "path": "UNKNOWN"
+        },
+        "existing_matrix": {
+          "status": "unavailable",
+          "match": "UNKNOWN"
+        }
+      },
+      "evidence_input": {
+        "status": "available",
+        "file_path": "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/the-wraith-train-illusory-domain.json",
+        "loaded_sections": [
+          "trends",
+          "serp"
+        ]
+      },
+      "trends": {
+        "status": "available",
+        "value": 0.0,
+        "window": "Worldwide / past 30 days",
+        "comparison_term": "GPTs",
+        "trend_shape": "flat",
+        "relative_signal": "lower",
+        "observed_at": "2026-08-09T12:57:25+08:00",
+        "source_url": "https://trends.google.com/explore?date=today%201-m&q=The%20Wraith%20Train%3A%20Illusory%20Domain,GPTs&hl=en-US",
+        "note": "Collected from logged-in Google Trends new Explore page. The page showed no usable interest-over-time chart points for The Wraith Train: Illusory Domain in Worldwide / past month, which is treated as effectively zero demand in the current window."
+      },
+      "kd": {
+        "status": "unavailable",
+        "value": "UNKNOWN",
+        "tool": "Similarweb",
+        "read_at": "UNKNOWN",
+        "source_url": "UNKNOWN",
+        "note": "No Similarweb account, token or API is used by this read-only MVP."
+      },
+      "subkeywords": {
+        "status": "unavailable",
+        "count": "UNKNOWN",
+        "topics": "UNKNOWN",
+        "source": "UNKNOWN",
+        "note": "Observed suggestions are leads, not a Similarweb keyword count."
+      },
+      "serp": {
+        "status": "available",
+        "queries": [
+          {
+            "query": "\"The Wraith Train\" guide",
+            "intent": "high_intent",
+            "top10": [
+              {
+                "rank": 1,
+                "type": "community",
+                "url": "https://steamcommunity.com/app/4920100/guides/",
+                "title": "Guides - The Wraith Train: Illusory Domain"
+              },
+              {
+                "rank": 2,
+                "type": "other",
+                "url": "https://www.tiktok.com/@clutchupfps/video/7186769939976451371",
+                "title": "brawlhalla > broken moon #fyp #apexlegends #streamer"
+              },
+              {
+                "rank": 3,
+                "type": "other",
+                "url": "https://www.tiktok.com/@clutchupfps/video/7175138036253326635",
+                "title": "Fortnite Spam Hammer Glitch Tutorial"
+              },
+              {
+                "rank": 4,
+                "type": "other",
+                "url": "https://www.broadwayworld.com/bwwtv/article/Travel-Channels-HAUNTED-LIVE-Featuring-The-Tennessee-Wraith-Chasers-Premieres-September-14-20180906",
+                "title": "Travel Channel's HAUNTED LIVE Featuring The Tennessee ..."
+              },
+              {
+                "rank": 5,
+                "type": "other",
+                "url": "https://horreurnews.com/calendrier-des-sorties-de-jeux-video-dhorreur-les-titres-a-ne-pas-rater-entre-fin-juillet-et-aout-2026/",
+                "title": "Calendrier des sorties de jeux vidéo d'horreur : Les ..."
+              },
+              {
+                "rank": 6,
+                "type": "other",
+                "url": "https://steam250.com/previews",
+                "title": "Steam Game Previews for Next Week"
+              },
+              {
+                "rank": 7,
+                "type": "guide_site",
+                "url": "https://games-manuals.com/achievements-in-lie-che-guai-tan-xu-xiang-zhi-jingthe-wraith-train-illusory-domain/",
+                "title": "Achievements in 列车怪谈：虚像之境 The Wraith Train: Illusory Domain"
+              },
+              {
+                "rank": 8,
+                "type": "other",
+                "url": "https://download.com.vn/mutated-mobs-mod-188087",
+                "title": "Mutated Mobs Mod - Mod cung cấp các loại mob đột biến"
+              },
+              {
+                "rank": 9,
+                "type": "other",
+                "url": "https://tuxdb.com/section/calendar",
+                "title": "Linux Gaming Calendar - tuxDB.com"
+              },
+              {
+                "rank": 10,
+                "type": "other",
+                "url": "https://download.com.vn/tai-download-game-sweet-princess-prom-night-187397",
+                "title": "Tải download game sweet princess prom night"
+              }
+            ]
+          }
+        ],
+        "top10": [
+          {
+            "rank": 1,
+            "type": "community",
+            "url": "https://steamcommunity.com/app/4920100/guides/",
+            "title": "Guides - The Wraith Train: Illusory Domain"
+          },
+          {
+            "rank": 2,
+            "type": "other",
+            "url": "https://www.tiktok.com/@clutchupfps/video/7186769939976451371",
+            "title": "brawlhalla > broken moon #fyp #apexlegends #streamer"
+          },
+          {
+            "rank": 3,
+            "type": "other",
+            "url": "https://www.tiktok.com/@clutchupfps/video/7175138036253326635",
+            "title": "Fortnite Spam Hammer Glitch Tutorial"
+          },
+          {
+            "rank": 4,
+            "type": "other",
+            "url": "https://www.broadwayworld.com/bwwtv/article/Travel-Channels-HAUNTED-LIVE-Featuring-The-Tennessee-Wraith-Chasers-Premieres-September-14-20180906",
+            "title": "Travel Channel's HAUNTED LIVE Featuring The Tennessee ..."
+          },
+          {
+            "rank": 5,
+            "type": "other",
+            "url": "https://horreurnews.com/calendrier-des-sorties-de-jeux-video-dhorreur-les-titres-a-ne-pas-rater-entre-fin-juillet-et-aout-2026/",
+            "title": "Calendrier des sorties de jeux vidéo d'horreur : Les ..."
+          },
+          {
+            "rank": 6,
+            "type": "other",
+            "url": "https://steam250.com/previews",
+            "title": "Steam Game Previews for Next Week"
+          },
+          {
+            "rank": 7,
+            "type": "guide_site",
+            "url": "https://games-manuals.com/achievements-in-lie-che-guai-tan-xu-xiang-zhi-jingthe-wraith-train-illusory-domain/",
+            "title": "Achievements in 列车怪谈：虚像之境 The Wraith Train: Illusory Domain"
+          },
+          {
+            "rank": 8,
+            "type": "other",
+            "url": "https://download.com.vn/mutated-mobs-mod-188087",
+            "title": "Mutated Mobs Mod - Mod cung cấp các loại mob đột biến"
+          },
+          {
+            "rank": 9,
+            "type": "other",
+            "url": "https://tuxdb.com/section/calendar",
+            "title": "Linux Gaming Calendar - tuxDB.com"
+          },
+          {
+            "rank": 10,
+            "type": "other",
+            "url": "https://download.com.vn/tai-download-game-sweet-princess-prom-night-187397",
+            "title": "Tải download game sweet princess prom night"
+          }
+        ],
+        "competition": "ambiguous",
+        "content_gap": "SERP is split across multiple meanings or off-intent results; query ambiguity is the main blocker.",
+        "source_url": "https://www.google.com.hk/search?hl=en&gl=us&num=10&pws=0&q=%22The+Wraith+Train%22+guide",
+        "fallback": {
+          "status": "unavailable",
+          "engine": "Bing",
+          "queries": [
+            {
+              "query": "\"The Wraith Train\" guide",
+              "intent": "high_intent",
+              "top10": "UNKNOWN",
+              "source_url": "https://www.bing.com/search?q=%22The+Wraith+Train%22+guide&count=10&setlang=en-US"
+            }
+          ],
+          "top10": "UNKNOWN",
+          "content_gap_hint": "UNKNOWN",
+          "type_counts": {},
+          "note": "Fallback-only lead layer; Bing returned no parseable lead results."
+        },
+        "types_allowed": [
+          "official",
+          "fandom",
+          "media",
+          "guide_site",
+          "steam",
+          "community",
+          "video",
+          "tool",
+          "forum",
+          "storefront",
+          "other"
+        ],
+        "note": "Captured from a browser-visible Google SERP page using a quoted title query. The page surfaces the Steam Community guides index and an achievements/manuals page for the exact game, but most remaining results are noisy off-title items, indicating very weak and unstable guide demand."
+      },
+      "evidence": {
+        "level": "OFFICIAL",
+        "basis": [
+          "Steam public listing metadata",
+          "UNKNOWN",
+          "Local trends evidence file",
+          "Local SERP evidence file"
+        ],
+        "write_boundary": [
+          "Can cite the public Steam listing metadata and observed suggestions.",
+          "Cannot state search volume, trend direction, KD, SERP difficulty or current in-game facts."
+        ]
+      },
+      "decision": "SKIP",
+      "decision_ceiling": "SKIP",
+      "manual_review_required": false,
+      "blockers": [
+        "MISSING_SIMILARWEB_KD",
+        "MISSING_SUBKEYWORD_PLAN",
+        "SERP_OFF_INTENT_OR_AMBIGUOUS",
+        "NO_CLEAR_SEARCH_DEMAND",
+        "NO_GUIDE_SUGGEST_EVIDENCE"
+      ],
+      "data_source_status": {
+        "steam": "available",
+        "google_suggest": "unavailable",
+        "trends": "available",
+        "kd": "unavailable",
+        "serp": "available"
+      },
+      "observed_at": "2026-08-10T09:59:57+08:00"
+    },
+    {
+      "rank": 5,
+      "keyword": "Kungfu Card",
+      "standardized_name": "Kungfu Card",
+      "aliases": [
+        "Kungfu Card"
+      ],
+      "slug": "kungfu-card",
+      "candidate_sources": [
+        {
+          "type": "steam_coming_soon",
+          "pool": "search",
+          "url": "https://store.steampowered.com/search/?filter=comingsoon",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        },
+        {
+          "type": "steam_coming_soon",
+          "pool": "featured",
+          "url": "https://store.steampowered.com/api/featuredcategories?cc=us&l=en",
+          "observed_at": "2026-08-10T09:59:57+08:00"
+        }
+      ],
+      "discovery": {
+        "source_pool": "both",
+        "discovery_date": "2026-08-10",
+        "why_guide_demand_may_exist": "Steam coming-soon listing only"
+      },
+      "steam": {
+        "status": "available",
+        "app_id": 3340780,
+        "store_url": "https://store.steampowered.com/app/3340780",
+        "name": "Kungfu Card",
+        "release_date": "UNKNOWN",
+        "release_window": "未定档",
+        "release_status": "coming_soon",
+        "ea_status": "UNKNOWN",
+        "coming_soon": true,
+        "genres": "UNKNOWN",
+        "publishers": "UNKNOWN",
+        "developers": "UNKNOWN"
+      },
+      "google": {
+        "status": "skipped",
+        "queries": [],
+        "suggestions": [],
+        "guide_demand": {
+          "status": "UNKNOWN",
+          "matched_queries": [],
+          "evidence": "UNKNOWN"
+        }
+      },
+      "cross_source": {
+        "steamdb": {
+          "status": "unavailable",
+          "url": "UNKNOWN",
+          "detail": "UNKNOWN"
+        },
+        "igdb": {
+          "status": "unavailable",
+          "url": "UNKNOWN",
+          "detail": "UNKNOWN"
+        },
+        "youtube": {
+          "status": "unavailable",
+          "matches": "UNKNOWN"
+        },
+        "community": {
+          "status": "unavailable",
+          "path": "UNKNOWN"
+        },
+        "existing_matrix": {
+          "status": "unavailable",
+          "match": "UNKNOWN"
+        }
+      },
+      "evidence_input": {
+        "status": "available",
+        "file_path": "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/kungfu-card.json",
+        "loaded_sections": [
+          "trends",
+          "serp"
+        ]
+      },
+      "trends": {
+        "status": "available",
+        "value": 0.0,
+        "window": "Worldwide / past 30 days",
+        "comparison_term": "GPTs",
+        "trend_shape": "flat",
+        "relative_signal": "lower",
+        "observed_at": "2026-08-09T12:46:23+08:00",
+        "source_url": "https://trends.google.com/explore?date=today%201-m&q=Kungfu%20Card,GPTs&hl=en-US",
+        "note": "Collected from logged-in Google Trends new Explore page. Worldwide / past month comparison against GPTs showed daily points across the window; Kungfu Card stayed at 0 throughout."
+      },
+      "kd": {
+        "status": "unavailable",
+        "value": "UNKNOWN",
+        "tool": "Similarweb",
+        "read_at": "UNKNOWN",
+        "source_url": "UNKNOWN",
+        "note": "No Similarweb account, token or API is used by this read-only MVP."
+      },
+      "subkeywords": {
+        "status": "unavailable",
+        "count": "UNKNOWN",
+        "topics": "UNKNOWN",
+        "source": "UNKNOWN",
+        "note": "Observed suggestions are leads, not a Similarweb keyword count."
+      },
+      "serp": {
+        "status": "available",
+        "queries": [
+          {
+            "query": "Kungfu Card guide",
+            "intent": "high_intent",
+            "top10": [
+              {
+                "rank": 1,
+                "type": "video",
+                "url": "https://www.youtube.com/watch?v=FYh7GZ3SPn0",
+                "title": "Overview of Kung Fu"
+              },
+              {
+                "rank": 2,
+                "type": "video",
+                "url": "https://www.youtube.com/watch?v=QsOLm2xDhMo",
+                "title": "\"Kungfu Card\" Delivers High-Stakes Combat Demo for Steam"
+              },
+              {
+                "rank": 3,
+                "type": "video",
+                "url": "https://www.youtube.com/watch?v=iWFr35i2IZg",
+                "title": "Kung Fu Combo How to Play"
+              },
+              {
+                "rank": 4,
+                "type": "video",
+                "url": "https://www.youtube.com/watch?v=fmINxmNQ0ws",
+                "title": "The Cardboard Dungeon: Two-Minute Overview - Kung Fu"
+              },
+              {
+                "rank": 5,
+                "type": "steam",
+                "url": "https://store.steampowered.com/app/3340780/Kungfu_Card/",
+                "title": "Kungfu Card on Steam"
+              },
+              {
+                "rank": 6,
+                "type": "community",
+                "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3161065541",
+                "title": "Guide :: Bigfootmech's Deep Dive on Verbal Duels"
+              },
+              {
+                "rank": 7,
+                "type": "other",
+                "url": "https://uncaged-cards.com/decklist_kungfu/",
+                "title": "Kung Fu"
+              },
+              {
+                "rank": 8,
+                "type": "other",
+                "url": "https://www.igdb.com/games/kungfu-card",
+                "title": "Kungfu Card"
+              },
+              {
+                "rank": 9,
+                "type": "guide_site",
+                "url": "https://thematchlesskungfu.wiki.gg/wiki/Guide:Combat",
+                "title": "Guide:Combat - Official The Matchless Kungfu Wiki"
+              },
+              {
+                "rank": 10,
+                "type": "other",
+                "url": "https://slugfestgames.com/kff/",
+                "title": "Kung Fu Fighting"
+              }
+            ]
+          }
+        ],
+        "top10": [
+          {
+            "rank": 1,
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=FYh7GZ3SPn0",
+            "title": "Overview of Kung Fu"
+          },
+          {
+            "rank": 2,
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=QsOLm2xDhMo",
+            "title": "\"Kungfu Card\" Delivers High-Stakes Combat Demo for Steam"
+          },
+          {
+            "rank": 3,
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=iWFr35i2IZg",
+            "title": "Kung Fu Combo How to Play"
+          },
+          {
+            "rank": 4,
+            "type": "video",
+            "url": "https://www.youtube.com/watch?v=fmINxmNQ0ws",
+            "title": "The Cardboard Dungeon: Two-Minute Overview - Kung Fu"
+          },
+          {
+            "rank": 5,
+            "type": "steam",
+            "url": "https://store.steampowered.com/app/3340780/Kungfu_Card/",
+            "title": "Kungfu Card on Steam"
+          },
+          {
+            "rank": 6,
+            "type": "community",
+            "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3161065541",
+            "title": "Guide :: Bigfootmech's Deep Dive on Verbal Duels"
+          },
+          {
+            "rank": 7,
+            "type": "other",
+            "url": "https://uncaged-cards.com/decklist_kungfu/",
+            "title": "Kung Fu"
+          },
+          {
+            "rank": 8,
+            "type": "other",
+            "url": "https://www.igdb.com/games/kungfu-card",
+            "title": "Kungfu Card"
+          },
+          {
+            "rank": 9,
+            "type": "guide_site",
+            "url": "https://thematchlesskungfu.wiki.gg/wiki/Guide:Combat",
+            "title": "Guide:Combat - Official The Matchless Kungfu Wiki"
+          },
+          {
+            "rank": 10,
+            "type": "other",
+            "url": "https://slugfestgames.com/kff/",
+            "title": "Kung Fu Fighting"
+          }
+        ],
+        "competition": "mixed",
+        "content_gap": "SERP still has many community/video/storefront results; a dedicated guide layer may fill the gap.",
+        "source_url": "https://www.google.com.hk/search?hl=en&gl=us&num=10&pws=0&q=Kungfu+Card+guide",
+        "fallback": {
+          "status": "unavailable",
+          "engine": "Bing",
+          "queries": [],
+          "top10": "UNKNOWN",
+          "content_gap_hint": "UNKNOWN",
+          "note": "Fallback-only lead layer; does not replace Google SERP gating evidence."
+        },
+        "types_allowed": [
+          "official",
+          "fandom",
+          "media",
+          "guide_site",
+          "steam",
+          "community",
+          "video",
+          "tool",
+          "forum",
+          "storefront",
+          "other"
+        ],
+        "note": "Captured from a browser-visible Google SERP page. The query has some on-title game hits such as the Steam page and a Steam Community guide, but the overall SERP is still mixed with generic kung fu card and martial-arts results, suggesting weak and noisy demand."
+      },
+      "evidence": {
+        "level": "OFFICIAL",
+        "basis": [
+          "Steam public listing metadata",
+          "UNKNOWN",
+          "Local trends evidence file",
+          "Local SERP evidence file"
+        ],
+        "write_boundary": [
+          "Can cite the public Steam listing metadata and observed suggestions.",
+          "Cannot state search volume, trend direction, KD, SERP difficulty or current in-game facts."
+        ]
+      },
+      "decision": "SKIP",
+      "decision_ceiling": "SKIP",
+      "manual_review_required": false,
+      "blockers": [
+        "MISSING_SIMILARWEB_KD",
+        "MISSING_SUBKEYWORD_PLAN",
+        "NO_GUIDE_SUGGEST_EVIDENCE",
+        "NO_CLEAR_SEARCH_DEMAND",
+        "PRODUCT_DISCOVERY_ONLY_SERP"
+      ],
+      "data_source_status": {
+        "steam": "available",
+        "google_suggest": "skipped",
+        "trends": "available",
+        "kd": "unavailable",
+        "serp": "available"
+      },
+      "observed_at": "2026-08-10T09:59:57+08:00"
+    }
+  ],
+  "data_sources": {
+    "steam_search": {
+      "status": "ok",
+      "detail": "public Steam search endpoint"
+    },
+    "steam_featured": {
+      "status": "ok",
+      "detail": "public Steam featured endpoint"
+    },
+    "candidate_pool": {
+      "status": "ok",
+      "detail": "shortlisted 25 candidates"
+    },
+    "local_evidence_dir": {
+      "status": "available",
+      "detail": "loaded 22 evidence file(s), failed 0, path=/Users/wangxiaolong/program/游戏站/reports/keywords/evidence"
+    },
+    "steam_appdetails": {
+      "status": "ok",
+      "detail": "public Steam AppDetails endpoint"
+    },
+    "google_suggest": {
+      "status": "available",
+      "detail": "public Google Suggest collected for the focused shortlist"
+    },
+    "google_trends_30d": {
+      "status": "available",
+      "detail": "loaded from local evidence files"
+    },
+    "similarweb_kd": {
+      "status": "available",
+      "detail": "loaded from local evidence files"
+    },
+    "google_serp": {
+      "status": "available",
+      "detail": "loaded from local evidence files"
+    },
+    "steamdb_upcoming": {
+      "status": "blocked",
+      "detail": "HTTP 403; Cloudflare managed challenge detected"
+    },
+    "steamdb_app": {
+      "status": "blocked",
+      "detail": "attempted 5 app page probe(s); available=0, blocked=5, failed=0"
+    },
+    "igdb_search": {
+      "status": "blocked",
+      "detail": "attempted 5 search probe(s); available=0, blocked=5, failed=0"
+    },
+    "existing_matrix": {
+      "status": "available",
+      "detail": "loaded 22 existing sites from site-dashboard/sites.json"
+    },
+    "community_topics": {
+      "status": "available",
+      "detail": "loaded reddit-topics-2026-07-10.md"
+    },
+    "youtube_search": {
+      "status": "available",
+      "detail": "matched 3 result(s) for query"
+    },
+    "bing_serp_fallback": {
+      "status": "unavailable",
+      "detail": "public Bing SERP returned no parseable results"
+    },
+    "candidate_pool_final": {
+      "status": "ok",
+      "detail": "finalized 5 candidates after cross-source rerank"
+    }
+  },
+  "run_manifest": {
+    "run_id": "20260810-095927-14230",
+    "schema_version": "keyword-radar/v0.1",
+    "agent": "keyword_radar.py",
+    "gate": "B/C",
+    "mode": "public-read",
+    "project": "game-guide-hub",
+    "topic": "game-guide keywords",
+    "started_at": "2026-08-10T09:59:27+08:00",
+    "finished_at": "2026-08-10T10:02:36+08:00",
+    "timezone": "Asia/Shanghai",
+    "candidate_count": 5,
+    "candidate_contract": "3-10 candidates; fewer than 3 is explicitly marked INSUFFICIENT_CANDIDATES",
+    "source_attempt_contract": [
+      "steam",
+      "steamdb",
+      "igdb",
+      "youtube",
+      "community",
+      "existing-matrix"
+    ],
+    "integrity": "OK",
+    "integrity_reason": "all declared contracts passed",
+    "read_only": true,
+    "credentials_used": false,
+    "external_writes": false,
+    "deployment_performed": false,
+    "tools": {
+      "google_trends": {
+        "available": false,
+        "mode": "unavailable",
+        "note": "Worldwide / past 30 days, compare=GPTs is required; automated reader not connected."
+      },
+      "similarweb": {
+        "available": false,
+        "mode": "unavailable",
+        "note": "Similarweb KD and subkeyword reader are not connected."
+      },
+      "serp": {
+        "available": false,
+        "mode": "unavailable",
+        "note": "SERP collector is not connected."
+      },
+      "bing_serp_fallback": {
+        "available": true,
+        "mode": "fallback_lead_only",
+        "note": "Bing SERP is captured as a reviewer lead only and never substitutes Google SERP gating."
+      },
+      "local_evidence": {
+        "available": true,
+        "mode": "json_dir",
+        "note": "Per-keyword JSON evidence files can populate Trends/KD/SERP fields without editing code."
+      },
+      "google_suggest": {
+        "available": true,
+        "mode": "public_read",
+        "note": "Google Suggest is a clue source only; it is not used as search volume."
+      },
+      "youtube": {
+        "available": true,
+        "mode": "public_search",
+        "note": "Public YouTube search is used only as a candidate corroboration source."
+      },
+      "steamdb": {
+        "available": false,
+        "mode": "blocked_or_unavailable",
+        "note": "SteamDB is probed directly; current runtime is expected to hit Cloudflare challenge pages."
+      },
+      "igdb": {
+        "available": false,
+        "mode": "blocked_or_unavailable",
+        "note": "IGDB search is probed directly; current runtime is expected to hit Cloudflare challenge pages."
+      },
+      "community_topics": {
+        "available": true,
+        "mode": "local_report",
+        "note": "Local reddit-topics reports are used as community source hints when present."
+      },
+      "existing_matrix": {
+        "available": true,
+        "mode": "local_json",
+        "note": "site-dashboard/sites.json is used to detect overlap with the current site matrix."
+      }
+    },
+    "local_evidence": {
+      "path": "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence",
+      "loaded": 22,
+      "failed": 0,
+      "files": [
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/alice-and-the-devils-prison.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/ascend-exe.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/chicken-run.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/hide-and-seek.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/kungfu-card.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/lord-of-kensai-soundtrack.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/paper2galgame.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/playworlds.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/samurai-beat-demons.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/the-money-pit.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/the-three-kingdoms-of-shadows-xuzhou.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/the-wraith-train-illusory-domain.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/twenty-one-points.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/vanguard-idle-auto-battler.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/vaulted-valor.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/verde.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/victorys-grave-airborne.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/warhounds.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/words-of-power.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/wrestling-classics-olde-timey-pro-wrestling.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/yolodataset-creator.json",
+        "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/最上邸r.json"
+      ]
+    },
+    "source_status": {
+      "steam_search": {
+        "status": "ok",
+        "detail": "public Steam search endpoint"
+      },
+      "steam_featured": {
+        "status": "ok",
+        "detail": "public Steam featured endpoint"
+      },
+      "candidate_pool": {
+        "status": "ok",
+        "detail": "shortlisted 25 candidates"
+      },
+      "local_evidence_dir": {
+        "status": "available",
+        "detail": "loaded 22 evidence file(s), failed 0, path=/Users/wangxiaolong/program/游戏站/reports/keywords/evidence"
+      },
+      "steam_appdetails": {
+        "status": "ok",
+        "detail": "public Steam AppDetails endpoint"
+      },
+      "google_suggest": {
+        "status": "available",
+        "detail": "public Google Suggest collected for the focused shortlist"
+      },
+      "google_trends_30d": {
+        "status": "available",
+        "detail": "loaded from local evidence files"
+      },
+      "similarweb_kd": {
+        "status": "available",
+        "detail": "loaded from local evidence files"
+      },
+      "google_serp": {
+        "status": "available",
+        "detail": "loaded from local evidence files"
+      },
+      "steamdb_upcoming": {
+        "status": "blocked",
+        "detail": "HTTP 403; Cloudflare managed challenge detected"
+      },
+      "steamdb_app": {
+        "status": "blocked",
+        "detail": "attempted 5 app page probe(s); available=0, blocked=5, failed=0"
+      },
+      "igdb_search": {
+        "status": "blocked",
+        "detail": "attempted 5 search probe(s); available=0, blocked=5, failed=0"
+      },
+      "existing_matrix": {
+        "status": "available",
+        "detail": "loaded 22 existing sites from site-dashboard/sites.json"
+      },
+      "community_topics": {
+        "status": "available",
+        "detail": "loaded reddit-topics-2026-07-10.md"
+      },
+      "youtube_search": {
+        "status": "available",
+        "detail": "matched 3 result(s) for query"
+      },
+      "bing_serp_fallback": {
+        "status": "unavailable",
+        "detail": "public Bing SERP returned no parseable results"
+      },
+      "candidate_pool_final": {
+        "status": "ok",
+        "detail": "finalized 5 candidates after cross-source rerank"
+      }
+    },
+    "source_attempts": [
+      {
+        "source": "steam",
+        "status": "ok",
+        "observed_at": "2026-08-10T09:59:57+08:00",
+        "detail": "Steam search/featured discovery is connected via public endpoints."
+      },
+      {
+        "source": "steamdb",
+        "status": "available",
+        "observed_at": "2026-08-10T09:59:57+08:00",
+        "detail": "upcoming=blocked; app probes attempted=5, available=2, browser_evidence=2, blocked=5, failed=0"
+      },
+      {
+        "source": "igdb",
+        "status": "available",
+        "observed_at": "2026-08-10T09:59:57+08:00",
+        "detail": "search probes attempted=5, available=2, browser_evidence=2, blocked=5, failed=0"
+      },
+      {
+        "source": "youtube",
+        "status": "available",
+        "observed_at": "2026-08-10T09:59:57+08:00",
+        "detail": "queried 5 candidates; matched 3 candidate(s)"
+      },
+      {
+        "source": "community",
+        "status": "available",
+        "observed_at": "2026-08-10T09:59:57+08:00",
+        "detail": "loaded local community topics report /Users/wangxiaolong/program/游戏站/reports/reddit-topics-2026-07-10.md; matched 0 candidate(s)"
+      },
+      {
+        "source": "existing-matrix",
+        "status": "available",
+        "observed_at": "2026-08-10T09:59:57+08:00",
+        "detail": "loaded 22 local matrix entries; matched 0 candidate(s)"
+      }
+    ],
+    "artifacts": {
+      "json": "/Users/wangxiaolong/program/游戏站/reports/keywords/2026-08-10-100236-14230.json",
+      "markdown": "/Users/wangxiaolong/program/游戏站/reports/keywords/2026-08-10-100236-14230.md",
+      "manifest": "/Users/wangxiaolong/program/游戏站/reports/keywords/2026-08-10-100236-14230-manifest.json",
+      "run_dir": "/Users/wangxiaolong/program/游戏站/reports/keywords/runs/2026-08-10-100236-14230",
+      "candidates_json": "/Users/wangxiaolong/program/游戏站/reports/keywords/runs/2026-08-10-100236-14230/candidates.json",
+      "candidate_table": "/Users/wangxiaolong/program/游戏站/reports/keywords/runs/2026-08-10-100236-14230/candidate-table.md",
+      "trends_evidence": "/Users/wangxiaolong/program/游戏站/reports/keywords/runs/2026-08-10-100236-14230/trends-evidence.md",
+      "keyword_evidence": "/Users/wangxiaolong/program/游戏站/reports/keywords/runs/2026-08-10-100236-14230/keyword-evidence.md",
+      "serp_notes": "/Users/wangxiaolong/program/游戏站/reports/keywords/runs/2026-08-10-100236-14230/serp-notes.md",
+      "evidence_boundary": "/Users/wangxiaolong/program/游戏站/reports/keywords/runs/2026-08-10-100236-14230/evidence-boundary.md",
+      "decision": "/Users/wangxiaolong/program/游戏站/reports/keywords/runs/2026-08-10-100236-14230/decision.md",
+      "run_manifest": "/Users/wangxiaolong/program/游戏站/reports/keywords/runs/2026-08-10-100236-14230/run-manifest.json",
+      "dashboard_json": "/Users/wangxiaolong/program/游戏站/site-dashboard/keyword-radar.json",
+      "latest_json": "/Users/wangxiaolong/program/游戏站/reports/keywords/latest.json",
+      "latest_md": "/Users/wangxiaolong/program/游戏站/reports/keywords/latest.md"
+    },
+    "failures": [
+      {
+        "source": "steamdb_upcoming",
+        "status": "blocked",
+        "detail": "HTTP 403; Cloudflare managed challenge detected"
+      },
+      {
+        "source": "steamdb_app",
+        "status": "blocked",
+        "detail": "attempted 5 app page probe(s); available=0, blocked=5, failed=0"
+      },
+      {
+        "source": "igdb_search",
+        "status": "blocked",
+        "detail": "attempted 5 search probe(s); available=0, blocked=5, failed=0"
+      },
+      {
+        "source": "bing_serp_fallback",
+        "status": "unavailable",
+        "detail": "public Bing SERP returned no parseable results"
+      }
+    ]
+  },
+  "evidence_dir": {
+    "path": "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence",
+    "loaded": 22,
+    "failed": 0,
+    "files": [
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/alice-and-the-devils-prison.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/ascend-exe.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/chicken-run.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/hide-and-seek.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/kungfu-card.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/lord-of-kensai-soundtrack.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/paper2galgame.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/playworlds.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/samurai-beat-demons.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/the-money-pit.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/the-three-kingdoms-of-shadows-xuzhou.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/the-wraith-train-illusory-domain.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/twenty-one-points.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/vanguard-idle-auto-battler.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/vaulted-valor.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/verde.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/victorys-grave-airborne.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/warhounds.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/words-of-power.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/wrestling-classics-olde-timey-pro-wrestling.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/yolodataset-creator.json",
+      "/Users/wangxiaolong/program/游戏站/reports/keywords/evidence/最上邸r.json"
+    ]
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关卡 6 · 复盘 · 完工报表</title>
+<link rel="stylesheet" href="./report.css">
+</head>
+<body>
+<div class="container">
+  <div id="topbar"></div>
+  <div id="sitehead"></div>
+  <div id="report"></div>
+  <footer>Cola 航海作业 · 关卡 6 复盘 · 完工报表</footer>
+</div>
+<script src="./report-common.js"></script>
+<script>
+const LEVEL_ID = 6;
+
+function renderReport(site, level) {
+  const r = level.report || {};
+  const el = document.getElementById('report');
+
+  const siteV = Report.hasValue(r.site)
+    ? `<span class="v"><a href="${Report.esc(r.site)}" target="_blank" rel="noreferrer">${Report.esc(r.site)} ↗</a></span>`
+    : `<span class="v pending">待补</span>`;
+
+  const impressions = Report.hasValue(r.gscImpressions) ? `<span class="v">${Report.esc(r.gscImpressions)}</span>` : `<span class="v pending">未产生</span>`;
+  const clicks = Report.hasValue(r.gscClicks) ? `<span class="v">${Report.esc(r.gscClicks)}</span>` : `<span class="v pending">未产生</span>`;
+
+  const kws = Array.isArray(r.newKeywords) && r.newKeywords.length
+    ? r.newKeywords.map((k) => `<span class="kv" style="padding:0.3rem 0.6rem"><span class="v" style="font-size:0.75rem">${Report.esc(k)}</span></span>`).join('')
+    : '<span class="check-text unknown">暂无（21 天内未产生新搜索词，可不提交）</span>';
+
+  const nextAction = Report.hasValue(r.nextAction) ? `<span class="v">${Report.esc(r.nextAction)}</span>` : `<span class="v pending">待定</span>`;
+  const reason = Report.hasValue(r.reason) ? Report.esc(r.reason) : '<span class="check-text unknown">待补</span>';
+  const actions = Report.hasValue(r.actions) ? Report.esc(r.actions) : '<span class="check-text unknown">待补</span>';
+
+  const pages = Array.isArray(r.newPages) && r.newPages.length
+    ? r.newPages.map((p) => {
+        const kw = Report.hasValue(p.keyword) ? Report.esc(p.keyword) : '待补';
+        const q = Report.hasValue(p.question) ? Report.esc(p.question) : '待补';
+        return `<tr><td class="mono">${Report.esc(p.path || '')}</td><td>${kw}</td><td>${q}</td></tr>`;
+      }).join('')
+    : `<tr><td colspan="3"><span class="empty">暂无补页计划（选填）</span></td></tr>`;
+
+  const harvest = Report.hasValue(r.harvest) ? Report.esc(r.harvest) : '<span class="check-text unknown">待补（本关最大收获 / 卡点 / 怎么解决的）</span>';
+
+  el.innerHTML = `
+    <div class="card">
+      <div class="card-head">任务目标</div>
+      <div class="card-body"><div class="summary-line">根据 GSC 数据做第一次复盘，补 2-3 个页面，决定这个站是继续、换词、还是升级。</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">数据复盘表（必交 · 站 + GSC 数据 + 下一步判断）</div>
+      <div class="card-body">
+        <div class="kv-grid">
+          <div class="kv"><div class="k">我的站</div>${siteV}</div>
+          <div class="kv"><div class="k">GSC 总展示</div>${impressions}</div>
+          <div class="kv"><div class="k">GSC 总点击</div>${clicks}</div>
+        </div>
+        <div style="margin-top:0.875rem"><div style="font-size:0.625rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.375rem">出现了哪些新搜索词</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.375rem">${kws}</div>
+        </div>
+        <div style="margin-top:0.875rem"><div style="font-size:0.625rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.375rem">下一步判断（继续补 / 换词 / 考虑升级工具站）</div>${nextAction}</div>
+        <div style="margin-top:0.875rem"><div style="font-size:0.625rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.375rem">理由</div><div class="summary-line">${reason}</div></div>
+        <div style="margin-top:0.875rem"><div style="font-size:0.625rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.375rem">具体动作</div><div class="summary-line">${actions}</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">2-3 个补页计划（选填）</div>
+      <div class="card-body">
+        <div class="table-wrap"><table>
+          <thead><tr><th>页面</th><th>对应搜索词</th><th>用户问题</th></tr></thead>
+          <tbody>${pages}</tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">收获 / 卡点（必交）</div>
+      <div class="card-body"><div class="summary-line">${harvest}</div></div>
+    </div>`;
+}
+
+(async function () {
+  const voyage = await Report.loadVoyage();
+  const el = document.getElementById('report');
+  if (!voyage) {
+    el.innerHTML = '<div class="card"><div class="card-body">数据载入失败（../voyage.json 不可用）</div></div>';
+    return;
+  }
+  Report.setLevelsMeta(voyage);
+  const dir = Report.param('site') || voyage.sites[0].dir;
+  const site = Report.findSite(voyage, dir);
+  const level = Report.findLevel(site, LEVEL_ID);
+  Report.renderTopBar(voyage, site, LEVEL_ID);
+  Report.renderSiteHead(site, level);
+  renderReport(site, level);
+})();
+</script>
+</body>
+</html>

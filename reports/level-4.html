@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关卡 4 · 搭网站 · 完工报表</title>
+<link rel="stylesheet" href="./report.css">
+</head>
+<body>
+<div class="container">
+  <div id="topbar"></div>
+  <div id="sitehead"></div>
+  <div id="report"></div>
+  <footer>Cola 航海作业 · 关卡 4 搭网站 · 完工报表</footer>
+</div>
+<script src="./report-common.js"></script>
+<script>
+const LEVEL_ID = 4;
+
+function renderReport(site, level) {
+  const r = level.report || {};
+  const el = document.getElementById('report');
+
+  const github = Report.hasValue(r.github)
+    ? `<span class="v"><a href="${Report.esc(r.github)}" target="_blank" rel="noreferrer">${Report.esc(r.github)} ↗</a></span>`
+    : `<span class="v pending">待补</span>`;
+  const repoOk = r.repoCreated === true
+    ? `<span class="check-text ok"><span class="dot ok"></span>已建私有仓库</span>`
+    : `<span class="check-text unknown"><span class="dot unknown"></span>待确认</span>`;
+
+  const pages = (Array.isArray(r.pages) ? r.pages : []).map((p) => {
+    const st = p.accessible === true
+      ? `<span class="check-text ok"><span class="dot ok"></span>可访问</span>`
+      : `<span class="check-text unknown"><span class="dot unknown"></span>待确认</span>`;
+    return `<tr><td>${Report.esc(p.type)}</td><td class="mono">${Report.esc(p.path)}</td><td>${st}</td></tr>`;
+  }).join('') || `<tr><td colspan="3"><span class="empty">待补</span></td></tr>`;
+
+  const seo = r.seo || {};
+  const seoCell = (v) => v === true
+    ? `<span class="check-text ok"><span class="dot ok"></span>通过</span>`
+    : `<span class="check-text unknown"><span class="dot unknown"></span>待确认</span>`;
+  const seoRows = `
+    <tr><td>title</td><td>${seoCell(seo.title)}</td></tr>
+    <tr><td>description</td><td>${seoCell(seo.description)}</td></tr>
+    <tr><td>H1 / H2 层级</td><td>${seoCell(seo.h1h2)}</td></tr>`;
+
+  const harvest = Report.hasValue(r.harvest) ? Report.esc(r.harvest) : '<span class="check-text unknown">待补（本关最大收获 / 卡点 / 怎么解决的）</span>';
+
+  el.innerHTML = `
+    <div class="card">
+      <div class="card-head">任务目标</div>
+      <div class="card-body"><div class="summary-line">用调研到的素材生成页面内容，搭出一个本地可访问的网站版本（首页 - 导航页 - 内页）。</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">GitHub 仓库代码（必交）</div>
+      <div class="card-body">
+        <div class="kv-grid">
+          <div class="kv"><div class="k">仓库地址</div>${github}</div>
+          <div class="kv"><div class="k">仓库状态</div>${repoOk}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">本地 / 线上可访问的网站（必交 · 首页、导航页、内页）</div>
+      <div class="card-body">
+        <div class="table-wrap"><table>
+          <thead><tr><th>页面</th><th>路径</th><th>访问状态</th></tr></thead>
+          <tbody>${pages}</tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">SEO 基础检查（AITDK / overview）</div>
+      <div class="card-body">
+        <div class="table-wrap"><table>
+          <thead><tr><th>检查项</th><th>结果</th></tr></thead>
+          <tbody>${seoRows}</tbody>
+        </table></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">收获 / 卡点（必交）</div>
+      <div class="card-body"><div class="summary-line">${harvest}</div></div>
+    </div>`;
+}
+
+(async function () {
+  const voyage = await Report.loadVoyage();
+  const el = document.getElementById('report');
+  if (!voyage) {
+    el.innerHTML = '<div class="card"><div class="card-body">数据载入失败（../voyage.json 不可用）</div></div>';
+    return;
+  }
+  Report.setLevelsMeta(voyage);
+  const dir = Report.param('site') || voyage.sites[0].dir;
+  const site = Report.findSite(voyage, dir);
+  const level = Report.findLevel(site, LEVEL_ID);
+  Report.renderTopBar(voyage, site, LEVEL_ID);
+  Report.renderSiteHead(site, level);
+  renderReport(site, level);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关卡 1 · 选主词 · 完工报表</title>
+<link rel="stylesheet" href="./report.css">
+</head>
+<body>
+<div class="container">
+  <div id="topbar"></div>
+  <div id="sitehead"></div>
+  <div id="report"></div>
+  <footer>Cola 航海作业 · 关卡 1 选主词 · 完工报表</footer>
+</div>
+<script src="./report-common.js"></script>
+<script>
+const LEVEL_ID = 1;
+
+function renderReport(site, level) {
+  const r = level.report || {};
+  const el = document.getElementById('report');
+  const main = Report.hasValue(r.mainKeyword)
+    ? `<span class="v ok">${Report.esc(r.mainKeyword)}</span>`
+    : `<span class="v pending">待补</span>`;
+
+  // 判断表：3 候选词 × 6 字段
+  const cands = Array.isArray(r.candidates) ? r.candidates : [];
+  const hasAny = cands.some((c) => Object.values(c || {}).some((v) => Report.hasValue(v)));
+  let tableHtml = '';
+  if (!hasAny) {
+    tableHtml = `<div class="todo-hint"><strong>判断表待补</strong>：手册要求「3 个候选游戏词判断表」截图（游戏名 / Trends 趋势 / KD 难度 / 细分关键词数量 / 首页竞争难度 / 做不做）。本站未按此格式补录，需回填。</div>`;
+  } else {
+    const rows = cands.map((c, i) => {
+      const cell = (v) => Report.hasValue(v) ? `<td class="mono">${Report.esc(v)}</td>` : `<td><span class="empty">待补</span></td>`;
+      return `<tr><td class="mono">候选词 ${i + 1}</td>${cell(c.game)}${cell(c.trends)}${cell(c.kd)}${cell(c.subKeywords)}${cell(c.serpDifficulty)}${cell(c.decision)}</tr>`;
+    }).join('');
+    tableHtml = `<div class="table-wrap"><table>
+      <thead><tr><th>候选词</th><th>游戏名</th><th>Trends 趋势</th><th>KD 难度</th><th>细分关键词数量</th><th>首页竞争难度</th><th>做 / 不做</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>`;
+  }
+
+  const harvest = Report.hasValue(r.harvest) ? Report.esc(r.harvest) : '<span class="check-text unknown">待补（本关最大收获 / 卡点 / 怎么解决的）</span>';
+
+  el.innerHTML = `
+    <div class="card">
+      <div class="card-head">任务目标</div>
+      <div class="card-body"><div class="summary-line">从 3 个候选游戏词中，选出 1 个值得继续做的主词，并完成一次游戏词判断练习。</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">主词结论</div>
+      <div class="card-body">
+        <div class="kv-grid">
+          <div class="kv"><div class="k">选定主词</div>${main}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">3 个候选游戏词判断表（必交）</div>
+      <div class="card-body">${tableHtml}</div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">收获 / 卡点（必交）</div>
+      <div class="card-body"><div class="summary-line">${harvest}</div></div>
+    </div>`;
+}
+
+(async function () {
+  const voyage = await Report.loadVoyage();
+  const el = document.getElementById('report');
+  if (!voyage) {
+    el.innerHTML = '<div class="card"><div class="card-body">数据载入失败（../voyage.json 不可用）</div></div>';
+    return;
+  }
+  Report.setLevelsMeta(voyage);
+  const dir = Report.param('site') || voyage.sites[0].dir;
+  const site = Report.findSite(voyage, dir);
+  const level = Report.findLevel(site, LEVEL_ID);
+  Report.renderTopBar(voyage, site, LEVEL_ID);
+  Report.renderSiteHead(site, level);
+  renderReport(site, level);
+})();
+</script>
+</body>
+</html>

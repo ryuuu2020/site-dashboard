@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="游戏热词雷达只读监控台">
+<title>游戏热词雷达 · 指挥中心</title>
+<style>
+  :root {
+    --bg: #f3f5f4;
+    --surface: #ffffff;
+    --surface-soft: #e9eeeb;
+    --line: #d7dfdb;
+    --line-soft: #e7ece9;
+    --text: #17201d;
+    --muted: #63716b;
+    --quiet: #87948e;
+    --accent: #0f766e;
+    --accent-soft: #d8efeb;
+    --warn: #a16207;
+    --warn-soft: #fff4cf;
+    --danger: #b42318;
+    --danger-soft: #fde6e3;
+    --good: #16734d;
+    --good-soft: #dcf4e6;
+    --unknown: #59645f;
+    --unknown-soft: #edf0ee;
+    --shadow: 0 8px 24px rgba(33, 52, 44, .06);
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--text);
+    background: var(--bg);
+    font-family: var(--sans);
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+  button, select { font: inherit; }
+  button:focus-visible, select:focus-visible, a:focus-visible { outline: 3px solid #80cbc4; outline-offset: 2px; }
+  .shell { max-width: 1480px; margin: 0 auto; padding: 24px 28px 48px; }
+  .topbar {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 20px;
+    padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 20px;
+  }
+  .eyebrow { color: var(--accent); font: 700 11px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+  h1 { margin: 7px 0 5px; font-size: clamp(24px, 3vw, 36px); line-height: 1.12; letter-spacing: -.02em; }
+  .subtitle { margin: 0; color: var(--muted); font-size: 13px; }
+  .top-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .button, .select {
+    min-height: 36px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface);
+    color: var(--text); padding: 7px 11px; font-size: 12px; cursor: pointer; transition: background .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .button:hover, .select:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .button:active { transform: translateY(1px); }
+  .button.primary { color: #fff; background: var(--accent); border-color: var(--accent); }
+  .button.primary:hover { background: #0b5f59; }
+  .button .icon { margin-right: 5px; font-size: 15px; vertical-align: -1px; }
+  .meta-line { margin-top: 12px; color: var(--quiet); font: 11px/1.5 var(--mono); }
+  .summary-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-bottom: 20px; }
+  .summary-item { padding: 13px 14px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow); }
+  .summary-label { color: var(--muted); font-size: 11px; }
+  .summary-value { margin-top: 2px; font: 700 25px/1.15 var(--mono); }
+  .summary-value.accent { color: var(--accent); }
+  .summary-value.warn { color: var(--warn); }
+  .summary-value.danger { color: var(--danger); }
+  .summary-note { margin-top: 4px; color: var(--quiet); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .section { margin-top: 22px; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 9px; }
+  h2 { margin: 0; font-size: 14px; letter-spacing: .01em; }
+  .section-count { color: var(--quiet); font: 11px var(--mono); }
+  .panel { border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+  .health-grid { display: grid; grid-template-columns: repeat(7, minmax(110px, 1fr)); }
+  .health-item { min-width: 0; padding: 12px; border-right: 1px solid var(--line-soft); }
+  .health-item:last-child { border-right: 0; }
+  .health-name { color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .health-state { display: flex; align-items: center; gap: 6px; margin-top: 7px; font: 700 11px var(--mono); }
+  .health-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--quiet); flex: 0 0 auto; }
+  .health-state.available .health-dot { background: var(--good); }
+  .health-state.ok .health-dot { background: var(--good); }
+  .health-state.partial .health-dot { background: var(--warn); }
+  .health-state.unavailable .health-dot, .health-state.failed .health-dot { background: var(--danger); }
+  .health-state.skipped .health-dot { background: var(--quiet); }
+  .health-detail { margin-top: 5px; color: var(--quiet); font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .table-panel { overflow-x: auto; }
+  table { width: 100%; min-width: 1160px; border-collapse: collapse; font-size: 12px; }
+  th { padding: 10px 11px; text-align: left; background: var(--surface-soft); color: var(--muted); font: 700 10px var(--mono); letter-spacing: .04em; white-space: nowrap; border-bottom: 1px solid var(--line); }
+  td { padding: 12px 11px; vertical-align: top; border-bottom: 1px solid var(--line-soft); }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover td { background: #f8fbfa; }
+  .rank { width: 34px; color: var(--quiet); font: 700 11px var(--mono); }
+  .candidate-name { font-weight: 700; }
+  .candidate-name a { text-decoration: none; }
+  .candidate-name a:hover { color: var(--accent); text-decoration: underline; }
+  .candidate-slug, .small-mono { display: block; margin-top: 3px; color: var(--quiet); font: 10px var(--mono); }
+  .metric { font-family: var(--mono); font-size: 11px; white-space: nowrap; }
+  .metric.unknown { color: var(--unknown); }
+  .metric.available { color: var(--good); }
+  .status {
+    display: inline-flex; align-items: center; min-height: 22px; padding: 2px 7px;
+    border-radius: 4px; font: 700 10px var(--mono); letter-spacing: .03em; white-space: nowrap;
+  }
+  .status.do { color: var(--good); background: var(--good-soft); }
+  .status.hold { color: var(--warn); background: var(--warn-soft); }
+  .status.skip { color: var(--danger); background: var(--danger-soft); }
+  .status.unknown { color: var(--unknown); background: var(--unknown-soft); }
+  .evidence { color: var(--accent); font: 700 10px var(--mono); }
+  .blockers { max-width: 260px; color: var(--danger); font: 10px/1.5 var(--mono); white-space: normal; }
+  .empty { padding: 28px; text-align: center; color: var(--muted); font-size: 13px; }
+  .filters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .filter-label { color: var(--muted); font-size: 11px; }
+  .mobile-list { display: none; }
+  .candidate-card { padding: 14px; border-bottom: 1px solid var(--line-soft); }
+  .candidate-card:last-child { border-bottom: 0; }
+  .card-head { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; }
+  .card-title { font-weight: 700; }
+  .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 14px; margin-top: 14px; }
+  .card-field dt { color: var(--muted); font-size: 10px; }
+  .card-field dd { margin: 2px 0 0; font: 11px/1.4 var(--mono); word-break: break-word; }
+  .card-field.wide { grid-column: 1 / -1; }
+  .card-blockers { color: var(--danger); }
+  .footer { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-top: 28px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--quiet); font-size: 11px; }
+  .footer a { color: var(--accent); }
+  .error-line { margin-top: 12px; padding: 9px 11px; border-left: 3px solid var(--danger); background: var(--danger-soft); color: var(--danger); font-size: 12px; }
+  @media (max-width: 1080px) {
+    .summary-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .health-grid { grid-template-columns: repeat(4, minmax(110px, 1fr)); }
+    .health-item:nth-child(4) { border-right: 0; }
+    .health-item:nth-child(-n+4) { border-bottom: 1px solid var(--line-soft); }
+  }
+  @media (max-width: 720px) {
+    .shell { padding: 16px 12px 34px; }
+    .topbar { display: block; }
+    .top-actions { margin-top: 14px; justify-content: flex-start; }
+    .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .summary-item { padding: 11px; }
+    .summary-value { font-size: 21px; }
+    .health-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .health-item, .health-item:nth-child(4) { border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+    .health-item:nth-child(even) { border-right: 0; }
+    .health-item:nth-last-child(-n+2) { border-bottom: 0; }
+    .section-head { align-items: flex-start; flex-direction: column; }
+    .table-panel { overflow: visible; }
+    .desktop-table { display: none; }
+    .mobile-list { display: block; }
+    .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .footer { display: block; }
+    .footer span { display: block; margin-bottom: 7px; }
+  }
+</style>
+</head>
+<body>
+<main class="shell">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">GameGuideHub / research gate B</div>
+      <h1>游戏热词雷达</h1>
+      <p class="subtitle">公开数据扫描 · 只读证据 · 没数据就 HOLD</p>
+      <div class="meta-line" id="run-meta">正在读取最新扫描…</div>
+    </div>
+    <div class="top-actions">
+      <a class="button" href="./index.html">← 指挥中心</a>
+      <a class="button" href="./voyage.html">✎ 航海作业</a>
+      <select class="select" id="status-filter" aria-label="按决策筛选">
+        <option value="ALL">全部状态</option>
+        <option value="DO">DO</option>
+        <option value="HOLD">HOLD</option>
+        <option value="SKIP">SKIP</option>
+      </select>
+      <button class="button primary" id="refresh-button" type="button"><span class="icon">↻</span>刷新快照</button>
+    </div>
+  </header>
+
+  <section class="summary-grid" aria-label="扫描概览">
+    <div class="summary-item"><div class="summary-label">最后扫描</div><div class="summary-value" id="last-scan">—</div><div class="summary-note" id="run-id">—</div></div>
+    <div class="summary-item"><div class="summary-label">候选数</div><div class="summary-value accent" id="candidate-count">—</div><div class="summary-note" id="integrity">—</div></div>
+    <div class="summary-item"><div class="summary-label">DO</div><div class="summary-value accent" id="do-count">—</div><div class="summary-note">可进入下一 Gate</div></div>
+    <div class="summary-item"><div class="summary-label">HOLD</div><div class="summary-value warn" id="hold-count">—</div><div class="summary-note">关键证据缺失</div></div>
+    <div class="summary-item"><div class="summary-label">SKIP</div><div class="summary-value danger" id="skip-count">—</div><div class="summary-note">不建议继续</div></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>数据源健康</h2><span class="section-count" id="source-count">—</span></div>
+    <div class="panel health-grid" id="health-grid"></div>
+    <div class="error-line" id="error-line" hidden></div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>候选判断表</h2>
+      <span class="section-count" id="visible-count">—</span>
+    </div>
+    <div class="panel table-panel">
+      <div class="desktop-table" id="desktop-table"></div>
+      <div class="mobile-list" id="mobile-list"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>雷达 MVP v0.1 · Beijing time · read-only</span>
+    <span>报告：<a href="../reports/keywords/latest.md">latest.md</a> · <a href="../reports/keywords/latest.json">latest.json</a></span>
+  </footer>
+</main>
+<script>
+  const ENDPOINTS = ['./api/keywords', './keyword-radar.json'];
+  const SOURCE_LABELS = {
+    steam_search: 'Steam Search',
+    steam_featured: 'Steam Featured',
+    steam_appdetails: 'Steam AppDetails',
+    google_suggest: 'Google Suggest',
+    google_trends_30d: 'Trends 30d',
+    similarweb_kd: 'Similarweb KD',
+    google_serp: 'Google SERP',
+  };
+  let RADAR = null;
+  let sourceUsed = '';
+
+  function escapeHTML(value) {
+    return String(value ?? 'UNKNOWN').replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]);
+  }
+  function unknown(value) { return value === undefined || value === null || value === '' ? 'UNKNOWN' : value; }
+  function listValue(value) { return Array.isArray(value) ? value.join(', ') : unknown(value); }
+  function decisionClass(value) { return String(value || 'UNKNOWN').toLowerCase(); }
+  function statusClass(value) { return String(value || 'unknown').toLowerCase().replace(/[^a-z]/g, ''); }
+  function formatBeijing(value) {
+    if (!value) return 'UNKNOWN';
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return escapeHTML(value);
+    return date.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false, month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+  }
+  async function fetchPayload(endpoint) {
+    const response = await fetch(`${endpoint}?ts=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`${endpoint} HTTP ${response.status}`);
+    const data = await response.json();
+    if (data?.schema_version !== 'keyword-radar/v0.1' || !Array.isArray(data?.candidates)) throw new Error(`${endpoint} invalid radar payload`);
+    return data;
+  }
+  async function loadRadar() {
+    let lastError = null;
+    for (const endpoint of ENDPOINTS) {
+      try {
+        const data = await fetchPayload(endpoint);
+        sourceUsed = endpoint.includes('/api/') ? 'API' : 'static snapshot';
+        return { data, error: null };
+      } catch (error) { lastError = error; }
+    }
+    return { data: null, error: lastError || new Error('no radar endpoint') };
+  }
+  function renderSummary(data) {
+    const counts = data.decision_counts || {};
+    document.getElementById('last-scan').textContent = formatBeijing(data.observed_at);
+    document.getElementById('run-id').textContent = `run ${unknown(data.run_id)}`;
+    document.getElementById('candidate-count').textContent = unknown(data.candidate_count);
+    document.getElementById('integrity').textContent = unknown(data.integrity);
+    document.getElementById('do-count').textContent = Number(counts.DO || 0);
+    document.getElementById('hold-count').textContent = Number(counts.HOLD || 0);
+    document.getElementById('skip-count').textContent = Number(counts.SKIP || 0);
+    document.getElementById('run-meta').textContent = `${sourceUsed} · ${unknown(data.timezone)} · ${unknown(data.run_manifest?.mode)} · ${unknown(data.run_manifest?.read_only ? 'read-only' : 'UNKNOWN')}`;
+  }
+  function renderHealth(data) {
+    const sources = data.data_sources || {};
+    const keys = Object.keys(SOURCE_LABELS);
+    document.getElementById('source-count').textContent = `${keys.length} sources · ${sourceUsed}`;
+    document.getElementById('health-grid').innerHTML = keys.map((key) => {
+      const entry = sources[key] || { status: 'UNKNOWN', detail: 'no status' };
+      const state = statusClass(entry.status);
+      return `<div class="health-item"><div class="health-name" title="${escapeHTML(SOURCE_LABELS[key])}">${escapeHTML(SOURCE_LABELS[key])}</div><div class="health-state ${state}"><span class="health-dot"></span>${escapeHTML(unknown(entry.status))}</div><div class="health-detail" title="${escapeHTML(unknown(entry.detail))}">${escapeHTML(unknown(entry.detail))}</div></div>`;
+    }).join('');
+    const failures = (data.run_manifest?.failures || []).map((item) => `${item.source}: ${item.detail || item.status}`);
+    const errorLine = document.getElementById('error-line');
+    errorLine.hidden = failures.length === 0;
+    errorLine.textContent = failures.length ? `数据源异常：${failures.join(' · ')}` : '';
+  }
+  function candidateRow(candidate) {
+    const trends = candidate.trends || {};
+    const kd = candidate.kd || {};
+    const sub = candidate.subkeywords || {};
+    const serp = candidate.serp || {};
+    const guide = candidate.google?.guide_demand?.matched_queries || [];
+    return `<tr>
+      <td class="rank">${escapeHTML(candidate.rank)}</td>
+      <td><div class="candidate-name"><a href="${escapeHTML(candidate.steam?.store_url || '#')}" target="_blank" rel="noreferrer">${escapeHTML(candidate.keyword)}</a></div><span class="candidate-slug">${escapeHTML(candidate.slug)}</span></td>
+      <td><span class="metric available">${escapeHTML(unknown(candidate.steam?.status))}</span><span class="small-mono">${escapeHTML(unknown(candidate.steam?.release_date))}</span></td>
+      <td><span class="metric ${guide.length ? 'available' : 'unknown'}">${escapeHTML(guide.length ? guide.join(', ') : 'UNKNOWN')}</span></td>
+      <td><span class="metric unknown">${escapeHTML(unknown(trends.value))}</span><span class="small-mono">${escapeHTML(unknown(trends.trend_shape))}</span></td>
+      <td><span class="metric unknown">${escapeHTML(unknown(kd.value))}</span></td>
+      <td><span class="metric ${sub.status === 'partial' ? 'available' : 'unknown'}">${escapeHTML(unknown(sub.count))}</span><span class="small-mono">${escapeHTML(listValue(sub.topics))}</span></td>
+      <td><span class="metric unknown">${escapeHTML(unknown(serp.competition))}</span><span class="small-mono">${escapeHTML(unknown(serp.top10))}</span></td>
+      <td><span class="evidence">${escapeHTML(unknown(candidate.evidence?.level))}</span></td>
+      <td><span class="status ${decisionClass(candidate.decision)}">${escapeHTML(unknown(candidate.decision))}</span></td>
+      <td><div class="blockers">${escapeHTML(listValue(candidate.blockers))}</div></td>
+    </tr>`;
+  }
+  function candidateCard(candidate) {
+    const guide = candidate.google?.guide_demand?.matched_queries || [];
+    const fields = [
+      ['Steam', `${unknown(candidate.steam?.status)} · ${unknown(candidate.steam?.release_date)}`],
+      ['Google guide', guide.length ? guide.join(', ') : 'UNKNOWN'],
+      ['Trends 30d', `${unknown(candidate.trends?.value)} · ${unknown(candidate.trends?.trend_shape)}`],
+      ['KD', unknown(candidate.kd?.value)],
+      ['细分关键词', `${unknown(candidate.subkeywords?.count)} · ${listValue(candidate.subkeywords?.topics)}`],
+      ['SERP', `${unknown(candidate.serp?.competition)} · top10 ${unknown(candidate.serp?.top10)}`],
+      ['证据', unknown(candidate.evidence?.level)],
+      ['阻断项', listValue(candidate.blockers)],
+    ];
+    return `<article class="candidate-card"><div class="card-head"><div><div class="card-title">${escapeHTML(candidate.rank)} · ${escapeHTML(candidate.keyword)}</div><span class="candidate-slug">${escapeHTML(candidate.slug)}</span></div><span class="status ${decisionClass(candidate.decision)}">${escapeHTML(unknown(candidate.decision))}</span></div><dl class="card-grid">${fields.map(([label, value], index) => `<div class="card-field ${index === fields.length - 1 ? 'wide card-blockers' : ''}"><dt>${escapeHTML(label)}</dt><dd>${escapeHTML(value)}</dd></div>`).join('')}</dl></article>`;
+  }
+  function renderCandidates(data) {
+    const filter = document.getElementById('status-filter').value;
+    const candidates = (data.candidates || []).filter((candidate) => filter === 'ALL' || candidate.decision === filter);
+    document.getElementById('visible-count').textContent = `${candidates.length} / ${data.candidates?.length || 0} visible`;
+    document.getElementById('desktop-table').innerHTML = candidates.length ? `<table><thead><tr><th>#</th><th>候选</th><th>Steam</th><th>Google guide</th><th>Trends</th><th>KD</th><th>细分词</th><th>SERP</th><th>证据</th><th>决策</th><th>阻断项</th></tr></thead><tbody>${candidates.map(candidateRow).join('')}</tbody></table>` : '<div class="empty">当前筛选没有候选</div>';
+    document.getElementById('mobile-list').innerHTML = candidates.length ? candidates.map(candidateCard).join('') : '<div class="empty">当前筛选没有候选</div>';
+  }
+  function renderError(error) {
+    document.getElementById('run-meta').textContent = '读取失败';
+    document.getElementById('desktop-table').innerHTML = `<div class="empty">无法载入雷达快照：${escapeHTML(error?.message || error)}</div>`;
+    document.getElementById('mobile-list').innerHTML = '';
+    document.getElementById('health-grid').innerHTML = '<div class="empty">数据源状态不可用</div>';
+  }
+  async function refresh() {
+    const button = document.getElementById('refresh-button');
+    button.disabled = true;
+    button.innerHTML = '<span class="icon">…</span>读取中';
+    const result = await loadRadar();
+    if (result.data) {
+      RADAR = result.data;
+      renderSummary(RADAR);
+      renderHealth(RADAR);
+      renderCandidates(RADAR);
+    } else { renderError(result.error); }
+    button.disabled = false;
+    button.innerHTML = '<span class="icon">↻</span>刷新快照';
+  }
+  document.getElementById('status-filter').addEventListener('change', () => { if (RADAR) renderCandidates(RADAR); });
+  document.getElementById('refresh-button').addEventListener('click', refresh);
+  refresh();
+</script>
+</body>
+</html>

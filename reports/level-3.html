@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关卡 3 · 收素材 · 完工报表</title>
+<link rel="stylesheet" href="./report.css">
+</head>
+<body>
+<div class="container">
+  <div id="topbar"></div>
+  <div id="sitehead"></div>
+  <div id="report"></div>
+  <footer>Cola 航海作业 · 关卡 3 收素材 · 完工报表</footer>
+</div>
+<script src="./report-common.js"></script>
+<script>
+const LEVEL_ID = 3;
+
+function renderReport(site, level) {
+  const r = level.report || {};
+  const el = document.getElementById('report');
+
+  const pages = Report.hasValue(r.pageCount) ? `<span class="v ok">${Report.esc(r.pageCount)} 页</span>` : `<span class="v pending">待补</span>`;
+  const levels = Array.isArray(r.sourceLevels) && r.sourceLevels.length
+    ? r.sourceLevels.map((c) => `<span class="kv" style="padding:0.3rem 0.6rem"><span class="v" style="font-size:0.75rem">${Report.esc(c)}</span></span>`).join('')
+    : '<span class="check-text unknown">待补（来源层级未记录）</span>';
+
+  const harvest = Report.hasValue(r.harvest) ? Report.esc(r.harvest) : '<span class="check-text unknown">待补（本关最大收获 / 卡点 / 怎么解决的）</span>';
+
+  el.innerHTML = `
+    <div class="card">
+      <div class="card-head">任务目标</div>
+      <div class="card-body"><div class="summary-line">为关卡 2 规划的页面找到可靠信息来源，整理成后续可交给 AI 使用的素材。</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">页面素材来源记录（必交 · 每页 1-2 个信息源 + 用途说明）</div>
+      <div class="card-body">
+        <div class="kv-grid">
+          <div class="kv"><div class="k">已记录来源的页面数</div>${pages}</div>
+        </div>
+        <div style="margin-top:0.875rem"><div style="font-size:0.625rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.375rem">信息源层级</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.375rem">${levels}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">收获 / 卡点（必交）</div>
+      <div class="card-body"><div class="summary-line">${harvest}</div></div>
+    </div>`;
+}
+
+(async function () {
+  const voyage = await Report.loadVoyage();
+  const el = document.getElementById('report');
+  if (!voyage) {
+    el.innerHTML = '<div class="card"><div class="card-body">数据载入失败（../voyage.json 不可用）</div></div>';
+    return;
+  }
+  Report.setLevelsMeta(voyage);
+  const dir = Report.param('site') || voyage.sites[0].dir;
+  const site = Report.findSite(voyage, dir);
+  const level = Report.findLevel(site, LEVEL_ID);
+  Report.renderTopBar(voyage, site, LEVEL_ID);
+  Report.renderSiteHead(site, level);
+  renderReport(site, level);
+})();
+</script>
+</body>
+</html>

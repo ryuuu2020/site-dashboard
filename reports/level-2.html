@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关卡 2 · 挖需求 · 完工报表</title>
+<link rel="stylesheet" href="./report.css">
+</head>
+<body>
+<div class="container">
+  <div id="topbar"></div>
+  <div id="sitehead"></div>
+  <div id="report"></div>
+  <footer>Cola 航海作业 · 关卡 2 挖需求 · 完工报表</footer>
+</div>
+<script src="./report-common.js"></script>
+<script>
+const LEVEL_ID = 2;
+
+function renderReport(site, level) {
+  const r = level.report || {};
+  const el = document.getElementById('report');
+
+  const kwTotal = Report.hasValue(r.keywordTotal) ? `<span class="v ok">${Report.esc(r.keywordTotal)} 个</span>` : `<span class="v pending">待补</span>`;
+  const gen = Report.hasValue(r.generalCount) ? `<span class="v">${Report.esc(r.generalCount)} 个</span>` : `<span class="v pending">待补</span>`;
+  const spec = Report.hasValue(r.specificCount) ? `<span class="v">${Report.esc(r.specificCount)} 个</span>` : `<span class="v pending">待补</span>`;
+  const live = Report.hasValue(r.matrixLive) ? `<span class="v ok">${Report.esc(r.matrixLive)} 页</span>` : `<span class="v pending">待补</span>`;
+  const pending = Report.hasValue(r.matrixPending) ? `<span class="v">${Report.esc(r.matrixPending)} 页</span>` : `<span class="v">0 页</span>`;
+
+  const cats = Array.isArray(r.categories) && r.categories.length
+    ? r.categories.map((c) => `<span class="kv" style="padding:0.3rem 0.6rem"><span class="v" style="font-size:0.75rem">${Report.esc(c)}</span></span>`).join('')
+    : '<span class="check-text unknown">待补（关键词分类未记录）</span>';
+
+  const harvest = Report.hasValue(r.harvest) ? Report.esc(r.harvest) : '<span class="check-text unknown">待补（本关最大收获 / 卡点 / 怎么解决的）</span>';
+
+  el.innerHTML = `
+    <div class="card">
+      <div class="card-head">任务目标</div>
+      <div class="card-body"><div class="summary-line">围绕选定的游戏词，挖出用户真正在搜的问题，规划第一批页面矩阵。</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">关键词清单（必交 · ≥10 个细分关键词，区分通用/个性需求）</div>
+      <div class="card-body">
+        <div class="kv-grid">
+          <div class="kv"><div class="k">细分关键词总数</div>${kwTotal}</div>
+          <div class="kv"><div class="k">通用需求</div>${gen}</div>
+          <div class="kv"><div class="k">个性需求</div>${spec}</div>
+        </div>
+        <div style="margin-top:0.875rem"><div style="font-size:0.625rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.375rem">关键词分类</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.375rem">${cats}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">页面矩阵规划表（必交 · 每页对应关键词、用户问题、页面类型）</div>
+      <div class="card-body">
+        <div class="kv-grid">
+          <div class="kv"><div class="k">已上线页面</div>${live}</div>
+          <div class="kv"><div class="k">待建页面</div>${pending}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">收获 / 卡点（必交）</div>
+      <div class="card-body"><div class="summary-line">${harvest}</div></div>
+    </div>`;
+}
+
+(async function () {
+  const voyage = await Report.loadVoyage();
+  const el = document.getElementById('report');
+  if (!voyage) {
+    el.innerHTML = '<div class="card"><div class="card-body">数据载入失败（../voyage.json 不可用）</div></div>';
+    return;
+  }
+  Report.setLevelsMeta(voyage);
+  const dir = Report.param('site') || voyage.sites[0].dir;
+  const site = Report.findSite(voyage, dir);
+  const level = Report.findLevel(site, LEVEL_ID);
+  Report.renderTopBar(voyage, site, LEVEL_ID);
+  Report.renderSiteHead(site, level);
+  renderReport(site, level);
+})();
+</script>
+</body>
+</html>

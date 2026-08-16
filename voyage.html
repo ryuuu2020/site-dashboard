@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>航海作业台 · 完工报表</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --bg-card: #ffffff; --bg-elevated: #f0f2f5;
+    --border: #e2e6ec; --border-subtle: #eceff3;
+    --text: #1f2937; --text-secondary: #4b5563; --text-muted: #9aa5b1;
+    --green: #10b981; --green-bg: rgba(16,185,129,0.10); --green-text: #059669;
+    --red: #ef4444; --red-bg: rgba(239,68,68,0.10);
+    --yellow: #d97706; --yellow-bg: rgba(245,158,11,0.14);
+    --blue: #3b82f6; --blue-bg: rgba(59,130,246,0.10); --blue-text: #2563eb;
+    --accent: #6366f1; --accent-dim: #4f46e5;
+    --purple: #9333ea; --purple-bg: rgba(168,85,247,0.12);
+    --heading: #111827;
+    --shadow: 0 1px 2px rgba(16,24,40,0.06), 0 1px 3px rgba(16,24,40,0.05);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.6;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+
+  .top-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+    padding-bottom: 1rem; border-bottom: 1px solid var(--border);
+  }
+  .top-bar h1 {
+    font-size: 1.125rem; font-weight: 700; letter-spacing: 0.02em;
+    display: flex; align-items: center; gap: 0.5rem;
+    font-family: 'SF Mono', 'Menlo', 'PingFang SC', monospace;
+  }
+  .top-bar h1 span { color: var(--accent); }
+  .top-actions { display:flex; gap:0.5rem; align-items:center; }
+  .btn {
+    padding:0.4rem 0.875rem; border-radius:0.375rem; font-size:0.75rem;
+    font-weight:600; cursor:pointer; border:1px solid var(--border);
+    background:var(--bg-card); color:var(--text-secondary);
+    transition:all 0.15s; font-family:inherit; letter-spacing:0.02em;
+    text-decoration:none; display:inline-block;
+  }
+  .btn:hover { border-color:var(--accent); color:var(--heading); background:var(--bg-elevated); }
+  .btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+
+  .status-bar { display:flex; gap:0.75rem; align-items:center; font-size:0.6875rem; color:var(--text-muted); font-family:'SF Mono',monospace; }
+
+  /* Stats */
+  .stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(155px,1fr)); gap:0.625rem; margin-bottom:1.5rem; }
+  .stat {
+    background:var(--bg-card); border:1px solid var(--border); border-radius:0.5rem; padding:0.875rem 1rem;
+    position:relative; overflow:hidden; box-shadow:var(--shadow);
+  }
+  .stat::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--accent); }
+  .stat .label { font-size:0.625rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:0.25rem; }
+  .stat .value { font-size:1.5rem; font-weight:700; font-family:'SF Mono',monospace; }
+  .stat .sub { font-size:0.6875rem; color:var(--text-muted); margin-top:0.125rem; }
+
+  .section { margin-bottom:1.5rem; }
+  .section-title {
+    font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--text-muted); margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem;
+  }
+  .section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+  .section-meta { margin:-0.35rem 0 0.75rem; font-size:0.6875rem; color:var(--text-muted); font-family:'SF Mono',monospace; }
+
+  /* Site card */
+  .site-card {
+    background:var(--bg-card); border:1px solid var(--border); border-radius:0.5rem;
+    box-shadow:var(--shadow); margin-bottom:1.25rem; overflow:hidden;
+  }
+  .site-head {
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:0.875rem 1rem; border-bottom:1px solid var(--border);
+    background:var(--bg-elevated);
+  }
+  .site-head .site-title { display:flex; align-items:center; gap:0.625rem; flex-wrap:wrap; }
+  .site-head .site-name { font-weight:700; font-size:0.9375rem; color:var(--heading); }
+  .site-head .site-domain { font-size:0.6875rem; color:var(--text-muted); font-family:'SF Mono',monospace; }
+  .site-head a { color:inherit; text-decoration:none; }
+  .site-head a:hover { color:var(--accent); }
+  .progress-badge {
+    font-size:0.6875rem; font-weight:600; font-family:'SF Mono',monospace;
+    padding:0.25rem 0.625rem; border-radius:1rem; white-space:nowrap;
+  }
+  .progress-badge.full { background:var(--green-bg); color:var(--green-text); }
+  .progress-badge.partial { background:var(--yellow-bg); color:var(--yellow); }
+  .progress-badge.none { background:var(--bg-elevated); color:var(--text-muted); }
+
+  /* Level list */
+  .levels { padding:0.25rem 0; }
+  .level {
+    display:grid; grid-template-columns: 160px 1fr auto; gap:1rem; align-items:start;
+    padding:0.875rem 1rem; border-bottom:1px solid var(--border-subtle);
+  }
+  .level:last-child { border-bottom:none; }
+  .level:hover { background:rgba(99,102,241,0.02); }
+
+  .level-id { display:flex; flex-direction:column; gap:0.25rem; }
+  .level-id .num {
+    font-family:'SF Mono',monospace; font-size:0.625rem; color:var(--text-muted);
+    letter-spacing:0.05em; text-transform:uppercase;
+  }
+  .level-id .name { font-weight:600; font-size:0.8125rem; color:var(--heading); }
+  .level-id .goal { font-size:0.625rem; color:var(--text-muted); line-height:1.4; margin-top:0.125rem; }
+
+  .level-body { display:flex; flex-direction:column; gap:0.375rem; }
+  .level-body .summary { font-size:0.75rem; color:var(--text-secondary); }
+  .level-items { display:flex; flex-wrap:wrap; gap:0.375rem; }
+  .kv {
+    display:inline-flex; align-items:center; gap:0.375rem;
+    background:var(--bg-elevated); border:1px solid var(--border-subtle); border-radius:0.25rem;
+    padding:0.2rem 0.5rem; font-size:0.6875rem;
+  }
+  .kv .k { color:var(--text-muted); }
+  .kv .v { color:var(--heading); font-weight:600; font-family:'SF Mono',monospace; }
+  .kv a { color:var(--blue-text); text-decoration:none; }
+  .kv a:hover { text-decoration:underline; }
+
+  .level-status { display:flex; align-items:center; gap:0.5rem; justify-content:flex-end; }
+  .badge {
+    display:inline-flex; align-items:center; gap:0.3rem;
+    padding:0.2rem 0.625rem; border-radius:1rem; font-size:0.625rem; font-weight:700;
+    letter-spacing:0.03em; white-space:nowrap;
+  }
+  .badge.done { background:var(--green-bg); color:var(--green-text); }
+  .badge.in-progress { background:var(--yellow-bg); color:var(--yellow); }
+  .badge.pending { background:var(--bg-elevated); color:var(--text-muted); }
+  .badge.skipped { background:var(--bg-elevated); color:var(--text-muted); }
+  .report-link {
+    font-size:0.6875rem; color:var(--blue-text); text-decoration:none; white-space:nowrap;
+  }
+  .report-link:hover { text-decoration:underline; }
+
+  .empty {
+    background:var(--bg-card); border:1px dashed var(--border); border-radius:0.5rem;
+    padding:2.5rem; text-align:center; color:var(--text-muted); font-size:0.8125rem;
+  }
+
+  footer { text-align:center; margin-top:2rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.6875rem; color:var(--text-muted); }
+
+  @media (max-width:768px) {
+    .container { padding:0.75rem; }
+    .stats { grid-template-columns:repeat(2,1fr); }
+    .level { grid-template-columns:1fr; gap:0.5rem; }
+    .level-status { justify-content:flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="top-bar">
+    <h1><span>◈</span> 航海作业台 · 完工报表</h1>
+    <div class="top-actions">
+      <a class="btn" href="./index.html">← 指挥中心</a>
+      <a class="btn" href="./keyword-radar.html">⌁ 热词雷达</a>
+      <span class="status-bar">
+        <span id="clock">--:--:--</span>
+        <span>|</span>
+        <span id="data-status">载入中…</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="section">
+    <div class="section-title">🗺 独立站完工进度</div>
+    <div class="section-meta" id="voyage-meta">等待载入数据源…</div>
+    <div id="sites-container"></div>
+  </div>
+
+  <footer>Cola 航海作业台 · 每关打通后由 Agent 提交完工报表</footer>
+</div>
+
+<script>
+const VOYAGE_API_ENDPOINTS = ['./voyage.json', './api/voyage'];
+let VOYAGE = null;
+
+const STATUS_TEXT = { done:'已打通', 'in-progress':'进行中', pending:'未开始', skipped:'跳过' };
+const STATUS_CLASS = { done:'done', 'in-progress':'in-progress', pending:'pending', skipped:'skipped' };
+
+async function fetchJsonPayload(endpoint) {
+  try {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    const resp = await fetch(`${endpoint}?ts=${Date.now()}`, { cache:'no-store', signal:ctrl.signal });
+    clearTimeout(timer);
+    if (!resp.ok) throw new Error(`${endpoint} ${resp.status}`);
+    return await resp.json();
+  } catch (e) {
+    console.warn(`Failed to load ${endpoint}`, e);
+    return null;
+  }
+}
+
+async function loadVoyage() {
+  for (const endpoint of VOYAGE_API_ENDPOINTS) {
+    const data = await fetchJsonPayload(endpoint);
+    if (Array.isArray(data?.sites) && data.sites.length > 0) {
+      return data;
+    }
+  }
+  return null;
+}
+
+function renderStats() {
+  const sites = VOYAGE.sites;
+  const totalLevels = sites.reduce((a, s) => a + (s.levels?.length || 0), 0);
+  const done = sites.reduce((a, s) => a + (s.levels || []).filter(l => l.status === 'done').length, 0);
+  const inProg = sites.reduce((a, s) => a + (s.levels || []).filter(l => l.status === 'in-progress').length, 0);
+  const el = document.getElementById('stats');
+  el.innerHTML = `
+    <div class="stat"><div class="label">独立站</div><div class="value">${sites.length}</div><div class="sub">每个站一套 6 关报表</div></div>
+    <div class="stat"><div class="label">总关卡</div><div class="value">${totalLevels}</div><div class="sub">${sites.length} 站 × 6 关</div></div>
+    <div class="stat"><div class="label">已打通</div><div class="value" style="color:var(--green-text)">${done}</div><div class="sub">通关占比 ${totalLevels ? Math.round(done/totalLevels*100) : 0}%</div></div>
+    <div class="stat"><div class="label">进行中</div><div class="value" style="color:var(--yellow)">${inProg}</div><div class="sub">正在推进的关卡</div></div>
+  `;
+}
+
+function levelProgress(levels) {
+  const done = levels.filter(l => l.status === 'done').length;
+  if (done === levels.length) return 'full';
+  if (done > 0) return 'partial';
+  return 'none';
+}
+
+const KEY_LABELS = {
+  mainKeyword: '主词', keywordTotal: '关键词', generalCount: '通用', specificCount: '个性',
+  matrixLive: '已上线', matrixPending: '待建', pageCount: '页面', github: '仓库',
+  liveUrl: '线上', online: '上线', sitemap: 'Sitemap', ga: 'GA4', site: '站',
+  gscImpressions: '展示', gscClicks: '点击', nextAction: '下一步',
+  categories: '分类', sourceLevels: '来源层级', repoCreated: '仓库已建',
+  siteAccessible: '可访问', verified: 'GSC 验证', property: '资源'
+};
+
+function extractItems(report) {
+  const items = [];
+  const seen = new Set();
+  function hasRealValue(arr) {
+    return arr.some((item) => item !== null && item !== undefined &&
+      (typeof item !== 'object' || Object.values(item || {}).some((x) => x !== null && x !== undefined && x !== '')));
+  }
+  function walk(obj) {
+    for (const [k, v] of Object.entries(obj || {})) {
+      if (v === null || v === undefined || v === '') continue;
+      if (typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean') {
+        if (k === 'harvest' || seen.has(k)) continue;
+        seen.add(k);
+        const label = KEY_LABELS[k] || k;
+        const value = typeof v === 'boolean' ? (v ? '是' : '否') : v;
+        items.push({ label, value, isUrl: typeof v === 'string' && (v.startsWith('http://') || v.startsWith('https://')) });
+      } else if (typeof v === 'object' && !Array.isArray(v)) {
+        walk(v);
+      } else if (Array.isArray(v) && v.length && hasRealValue(v) && !seen.has(k)) {
+        seen.add(k);
+        items.push({ label: KEY_LABELS[k] || k, value: v.length + ' 项', isUrl: false });
+      }
+    }
+  }
+  walk(report);
+  return items.slice(0, 4);
+}
+
+function renderLevel(level) {
+  const items = extractItems(level.report).map(it => {
+    const v = it.isUrl ? `<a href="${esc(it.value)}" target="_blank" rel="noreferrer">${esc(it.value)}</a>` : esc(it.value);
+    return `<span class="kv"><span class="k">${esc(it.label)}</span><span class="v">${v}</span></span>`;
+  }).join('');
+
+  const report = level.reportUrl
+    ? `<a class="report-link" href="${esc(level.reportUrl)}" target="_blank" rel="noreferrer">作业页 ↗</a>`
+    : '';
+
+  return `
+    <div class="level">
+      <div class="level-id">
+        <div class="num">关卡 ${level.id}</div>
+        <div class="name">${esc(VOYAGE.levelsMeta?.find(m => m.id === level.id)?.name || ('关卡 ' + level.id))}</div>
+        <div class="goal">${esc(VOYAGE.levelsMeta?.find(m => m.id === level.id)?.goal || '')}</div>
+      </div>
+      <div class="level-body">
+        <div class="summary">${esc(level.summary || '')}</div>
+        ${items ? `<div class="level-items">${items}</div>` : ''}
+      </div>
+      <div class="level-status">
+        <span class="badge ${STATUS_CLASS[level.status] || 'pending'}">${STATUS_TEXT[level.status] || level.status}</span>
+        ${report}
+      </div>
+    </div>`;
+}
+
+function renderSite(site) {
+  const levels = (site.levels || []).map(renderLevel).join('');
+  const prog = levelProgress(site.levels || []);
+  const done = (site.levels || []).filter(l => l.status === 'done').length;
+  const total = (site.levels || []).length;
+  const badge = prog === 'full'
+    ? '<span class="progress-badge full">全部打通</span>'
+    : prog === 'partial'
+      ? `<span class="progress-badge partial">${done}/${total} 已打通</span>`
+      : '<span class="progress-badge none">未开始</span>';
+
+  return `
+    <div class="site-card">
+      <div class="site-head">
+        <div class="site-title">
+          <span class="site-name"><a href="${esc(site.domain)}" target="_blank" rel="noreferrer">${esc(site.name)}</a></span>
+          <span class="site-domain">${esc(site.domain)}</span>
+        </div>
+        ${badge}
+      </div>
+      <div class="levels">${levels}</div>
+    </div>`;
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderAll() {
+  const container = document.getElementById('sites-container');
+  if (!VOYAGE || !VOYAGE.sites.length) {
+    container.innerHTML = '<div class="empty">未能载入航海作业数据（voyage.json 不可用）</div>';
+    return;
+  }
+  container.innerHTML = VOYAGE.sites.map(renderSite).join('');
+  const meta = document.getElementById('voyage-meta');
+  meta.textContent = `来源 ${VOYAGE.source || 'voyage.json'} · 更新于 ${VOYAGE.generated || '未知'} · ${VOYAGE.sites.length} 个独立站`;
+}
+
+function updateClock() {
+  const n = new Date();
+  document.getElementById('clock').textContent = n.toLocaleTimeString('zh-CN', { hour12:false, timeZone:'Asia/Shanghai' });
+}
+
+async function init() {
+  VOYAGE = await loadVoyage();
+  const status = document.getElementById('data-status');
+  if (VOYAGE) {
+    status.textContent = `就绪 · ${VOYAGE.sites.length} 站`;
+  } else {
+    status.textContent = '数据载入失败';
+  }
+  renderStats();
+  renderAll();
+  updateClock();
+  setInterval(updateClock, 10000);
+}
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关卡 5 · 上线 · 完工报表</title>
+<link rel="stylesheet" href="./report.css">
+</head>
+<body>
+<div class="container">
+  <div id="topbar"></div>
+  <div id="sitehead"></div>
+  <div id="report"></div>
+  <footer>Cola 航海作业 · 关卡 5 上线 · 完工报表</footer>
+</div>
+<script src="./report-common.js"></script>
+<script>
+const LEVEL_ID = 5;
+
+function renderReport(site, level) {
+  const r = level.report || {};
+  const el = document.getElementById('report');
+
+  const live = Report.hasValue(r.liveUrl)
+    ? `<span class="v"><a href="${Report.esc(r.liveUrl)}" target="_blank" rel="noreferrer">${Report.esc(r.liveUrl)} ↗</a></span>`
+    : `<span class="v pending">待补</span>`;
+  const online = r.online === true
+    ? `<span class="check-text ok"><span class="dot ok"></span>已上线</span>`
+    : `<span class="check-text unknown"><span class="dot unknown"></span>待确认</span>`;
+
+  const gsc = r.gsc || {};
+  const gscVerified = gsc.verified === true
+    ? `<span class="check-text ok"><span class="dot ok"></span>已验证</span>`
+    : `<span class="check-text unknown"><span class="dot unknown"></span>待确认</span>`;
+  const gscProp = Report.hasValue(gsc.property) ? Report.esc(gsc.property) : '待补';
+  const gscSite = Report.hasValue(gsc.sitemap) ? Report.esc(gsc.sitemap) : '待补';
+
+  const ga = Report.hasValue(r.ga) ? `<span class="v ok">${Report.esc(r.ga)}</span>` : `<span class="v pending">待补</span>`;
+
+  const harvest = Report.hasValue(r.harvest) ? Report.esc(r.harvest) : '<span class="check-text unknown">待补（本关最大收获 / 卡点 / 怎么解决的）</span>';
+
+  el.innerHTML = `
+    <div class="card">
+      <div class="card-head">任务目标</div>
+      <div class="card-body"><div class="summary-line">把写好的网站部署到公网，接入 GSC 和 GA，开始收集真实搜索数据。</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">网站线上链接（必交）</div>
+      <div class="card-body">
+        <div class="kv-grid">
+          <div class="kv"><div class="k">线上链接</div>${live}</div>
+          <div class="kv"><div class="k">上线状态</div>${online}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">GSC 验证成功（必交）</div>
+      <div class="card-body">
+        <div class="kv-grid">
+          <div class="kv"><div class="k">验证状态</div>${gscVerified}</div>
+          <div class="kv"><div class="k">资源（property）</div><div class="v">${Report.esc(gscProp)}</div></div>
+          <div class="kv"><div class="k">Sitemap</div><div class="v">${Report.esc(gscSite)}</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">GA 接入（必交）</div>
+      <div class="card-body">
+        <div class="kv-grid">
+          <div class="kv"><div class="k">GA4 测量 ID</div>${ga}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">收获 / 卡点（必交）</div>
+      <div class="card-body"><div class="summary-line">${harvest}</div></div>
+    </div>`;
+}
+
+(async function () {
+  const voyage = await Report.loadVoyage();
+  const el = document.getElementById('report');
+  if (!voyage) {
+    el.innerHTML = '<div class="card"><div class="card-body">数据载入失败（../voyage.json 不可用）</div></div>';
+    return;
+  }
+  Report.setLevelsMeta(voyage);
+  const dir = Report.param('site') || voyage.sites[0].dir;
+  const site = Report.findSite(voyage, dir);
+  const level = Report.findLevel(site, LEVEL_ID);
+  Report.renderTopBar(voyage, site, LEVEL_ID);
+  Report.renderSiteHead(site, level);
+  renderReport(site, level);
+})();
+</script>
+</body>
+</html>

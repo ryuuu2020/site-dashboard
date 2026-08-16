@@ -72,11 +72,20 @@ if git remote get-url origin >/dev/null 2>&1; then
     warn "git push attempt $attempt failed; retrying in 20s"
     sleep 20
   done
+  if [ "$pushed" != "1" ]; then
+    # Push can succeed server-side while the client misses the response
+    # (flaky network/proxy). Verify against the remote before declaring failure.
+    head_sha="$(git rev-parse HEAD)"
+    if git ls-remote origin 2>/dev/null | grep -q "$head_sha"; then
+      log "push reported failure but remote already has $head_sha; treating as success"
+      pushed=1
+    fi
+  fi
   if [ "$pushed" = "1" ]; then
     log "push succeeded; Vercel deploy triggered via git integration."
     exit 0
   fi
-  warn "git push failed after 4 attempts"
+  warn "git push failed after 4 attempts (verified remote does not have HEAD)"
 else
   warn "no git remote configured; Vercel git auto-deploy unavailable"
 fi
