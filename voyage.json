@@ -505,7 +505,7 @@
           "id": 4,
           "status": "done",
           "doneAt": "2026-08-16",
-          "summary": "Next.js 站已搭（11 页），本地 build 通过，GitHub 私有仓库 ryuuu2020/twisted-tower-guide 已建",
+          "summary": "Next.js 站已搭（11 页），用关卡3官方素材重写8个内容页清除编造，本地 build 通过，GitHub 私有仓库已建",
           "report": {
             "github": "https://github.com/ryuuu2020/twisted-tower-guide",
             "repoCreated": true,
@@ -532,7 +532,7 @@
               "description": true,
               "h1h2": true
             },
-            "harvest": "复用 scrapmechanic-hub 模板（Next.js 14 静态导出 + Tailwind），配色换成 1950s 恐怖嘉年华风（霓虹品红 + retro 金）。SEO 四件套 title/description/H1/H2 全站 11 页齐全。"
+            "harvest": "用关卡3的 Steam/3D Realms 官方素材重写 8 个内容页，清除上一版大模型编造的内容：关卡名（The Midway/The Tower Top → 官方 Carnival Forest/Space Station）、武器（泛泛'原型' → 官方 8 种玩具武器全名）、boss（编造 Bellhop Captain 等 → 官方 'fairy-tale mascots'）、收集品（编造 Park Notes/Souvenirs → 官方'收集玩具解锁跳跃/冲刺/抓钩' + Audio-Log 录音带）、谜题/结局（编造具体解法/结局 → 诚实框架）。原则：官方确认的写实，未确认的一律标'待 8-18 上线实测'，绝不编造。SEO 四件套 title/description/H1/H2 全站 11 页齐全。"
           },
           "reportUrl": "reports/level-4.html?site=twisted-tower-guide"
         },
