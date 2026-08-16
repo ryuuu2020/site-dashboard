@@ -1,15 +1,39 @@
 {
-  "generated": "2026-08-16T15:30:00+08:00",
+  "generated": "2026-08-16T20:40:00+08:00",
   "schemaVersion": 2,
   "source": "voyage.json",
   "note": "每个独立站的 6 关卡完工报表。status: pending=未开始 / in-progress=进行中 / done=已打通 / skipped=跳过。每关 report 字段严格对应手册任务卡的表格列。值为 null 或空串表示「待补/待确认」，报表页会醒目标出。",
   "levelsMeta": [
-    { "id": 1, "name": "选主词", "goal": "从 3 个候选游戏词中选出 1 个值得做的主词，完成判断练习" },
-    { "id": 2, "name": "挖需求", "goal": "挖细分关键词（≥10 个），规划第一批页面矩阵" },
-    { "id": 3, "name": "收素材", "goal": "给每页找 1-2 个可靠信息源，整理成 AI 可用的素材" },
-    { "id": 4, "name": "搭网站", "goal": "生成内容，本地跑通首页/导航页/内页" },
-    { "id": 5, "name": "上线", "goal": "部署公网，接入 GSC 与 GA" },
-    { "id": 6, "name": "复盘", "goal": "看 GSC 数据，补 2-3 页并定下一步" }
+    {
+      "id": 1,
+      "name": "选主词",
+      "goal": "从 3 个候选游戏词中选出 1 个值得做的主词，完成判断练习"
+    },
+    {
+      "id": 2,
+      "name": "挖需求",
+      "goal": "挖细分关键词（≥10 个），规划第一批页面矩阵"
+    },
+    {
+      "id": 3,
+      "name": "收素材",
+      "goal": "给每页找 1-2 个可靠信息源，整理成 AI 可用的素材"
+    },
+    {
+      "id": 4,
+      "name": "搭网站",
+      "goal": "生成内容，本地跑通首页/导航页/内页"
+    },
+    {
+      "id": 5,
+      "name": "上线",
+      "goal": "部署公网，接入 GSC 与 GA"
+    },
+    {
+      "id": 6,
+      "name": "复盘",
+      "goal": "看 GSC 数据，补 2-3 页并定下一步"
+    }
   ],
   "sites": [
     {
@@ -27,9 +51,30 @@
           "report": {
             "mainKeyword": "Scrap Mechanic",
             "candidates": [
-              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null },
-              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null },
-              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null }
+              {
+                "game": null,
+                "trends": null,
+                "kd": null,
+                "subKeywords": null,
+                "serpDifficulty": null,
+                "decision": null
+              },
+              {
+                "game": null,
+                "trends": null,
+                "kd": null,
+                "subKeywords": null,
+                "serpDifficulty": null,
+                "decision": null
+              },
+              {
+                "game": null,
+                "trends": null,
+                "kd": null,
+                "subKeywords": null,
+                "serpDifficulty": null,
+                "decision": null
+              }
             ],
             "harvest": null
           },
@@ -44,7 +89,20 @@
             "keywordTotal": 25,
             "generalCount": 7,
             "specificCount": 18,
-            "categories": ["新手入门", "剧情攻略", "建造系统", "载具建造", "资源与种植", "战斗防御", "模组工坊", "联机服务器", "技巧秘密", "排名榜单", "设置修复", "其他杂项"],
+            "categories": [
+              "新手入门",
+              "剧情攻略",
+              "建造系统",
+              "载具建造",
+              "资源与种植",
+              "战斗防御",
+              "模组工坊",
+              "联机服务器",
+              "技巧秘密",
+              "排名榜单",
+              "设置修复",
+              "其他杂项"
+            ],
             "matrixLive": 14,
             "matrixPending": 5,
             "harvest": null
@@ -58,7 +116,13 @@
           "summary": "14 个已上线页面逐一记录 1-2 个可靠信息源，标注来源可提供的具体信息",
           "report": {
             "pageCount": 14,
-            "sourceLevels": ["游戏官网", "Wiki", "YouTube", "玩家社区", "攻略文章"],
+            "sourceLevels": [
+              "游戏官网",
+              "Wiki",
+              "YouTube",
+              "玩家社区",
+              "攻略文章"
+            ],
             "harvest": null
           },
           "reportUrl": "reports/level-3.html?site=scrapmechanic-hub"
@@ -73,11 +137,27 @@
             "repoCreated": true,
             "siteAccessible": true,
             "pages": [
-              { "type": "首页", "path": "/", "accessible": true },
-              { "type": "导航页", "path": "/beginners-guide", "accessible": true },
-              { "type": "内页", "path": "/chapter-2-guide", "accessible": true }
+              {
+                "type": "首页",
+                "path": "/",
+                "accessible": true
+              },
+              {
+                "type": "导航页",
+                "path": "/beginners-guide",
+                "accessible": true
+              },
+              {
+                "type": "内页",
+                "path": "/chapter-2-guide",
+                "accessible": true
+              }
             ],
-            "seo": { "title": true, "description": true, "h1h2": null },
+            "seo": {
+              "title": true,
+              "description": true,
+              "h1h2": null
+            },
             "harvest": null
           },
           "reportUrl": "reports/level-4.html?site=scrapmechanic-hub"
@@ -90,7 +170,11 @@
           "report": {
             "liveUrl": "https://scrapmechanichub.com",
             "online": true,
-            "gsc": { "verified": true, "property": "https://scrapmechanichub.com/", "sitemap": "20 URLs" },
+            "gsc": {
+              "verified": true,
+              "property": "https://scrapmechanichub.com/",
+              "sitemap": "20 URLs"
+            },
             "ga": "G-VXTYX7QCHV",
             "harvest": null
           },
@@ -131,9 +215,30 @@
           "report": {
             "mainKeyword": "Cairn",
             "candidates": [
-              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null },
-              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null },
-              { "game": null, "trends": null, "kd": null, "subKeywords": null, "serpDifficulty": null, "decision": null }
+              {
+                "game": null,
+                "trends": null,
+                "kd": null,
+                "subKeywords": null,
+                "serpDifficulty": null,
+                "decision": null
+              },
+              {
+                "game": null,
+                "trends": null,
+                "kd": null,
+                "subKeywords": null,
+                "serpDifficulty": null,
+                "decision": null
+              },
+              {
+                "game": null,
+                "trends": null,
+                "kd": null,
+                "subKeywords": null,
+                "serpDifficulty": null,
+                "decision": null
+              }
             ],
             "harvest": null
           },
@@ -177,11 +282,27 @@
             "repoCreated": true,
             "siteAccessible": true,
             "pages": [
-              { "type": "首页", "path": "/", "accessible": true },
-              { "type": "导航页", "path": "/about", "accessible": true },
-              { "type": "内页", "path": "/stamina-guide", "accessible": true }
+              {
+                "type": "首页",
+                "path": "/",
+                "accessible": true
+              },
+              {
+                "type": "导航页",
+                "path": "/about",
+                "accessible": true
+              },
+              {
+                "type": "内页",
+                "path": "/stamina-guide",
+                "accessible": true
+              }
             ],
-            "seo": { "title": true, "description": true, "h1h2": null },
+            "seo": {
+              "title": true,
+              "description": true,
+              "h1h2": null
+            },
             "harvest": null
           },
           "reportUrl": "reports/level-4.html?site=cairn-guide"
@@ -194,7 +315,11 @@
           "report": {
             "liveUrl": "https://cairnguide.wiki",
             "online": true,
-            "gsc": { "verified": true, "property": "sc-domain:cairnguide.wiki", "sitemap": "26 URLs" },
+            "gsc": {
+              "verified": true,
+              "property": "sc-domain:cairnguide.wiki",
+              "sitemap": "26 URLs"
+            },
             "ga": "G-E579JJDZ11",
             "harvest": null
           },
@@ -217,6 +342,166 @@
             "harvest": null
           },
           "reportUrl": "reports/level-6.html?site=cairn-guide"
+        }
+      ]
+    },
+    {
+      "dir": "twisted-tower-guide",
+      "name": "Twisted Tower Guide",
+      "domain": "https://twistedtowerguide.com",
+      "steam": 1575990,
+      "independent": true,
+      "levels": [
+        {
+          "id": 1,
+          "status": "done",
+          "doneAt": "2026-08-16",
+          "summary": "主词选定 Twisted Tower（8-18 上线、Atmos Games 开发 + 3D Realms 发行，先发优势窗口）",
+          "report": {
+            "mainKeyword": "Twisted Tower",
+            "candidates": [
+              {
+                "game": "Twisted Tower",
+                "trends": "涨（即将 8-18 上线，IGN/ResetEra 报道，3D Realms 发行）",
+                "kd": "不可用（未上线，太新）",
+                "subKeywords": "攻略细分词待爆发，genre 需求明确（FPS 恐怖 = walkthrough/boss/puzzle/collectibles/endings）",
+                "serpDifficulty": "空白（无攻略站，仅新闻/预告/demo）",
+                "decision": "做（先发优势窗口）"
+              },
+              {
+                "game": "Mistfall Hunter",
+                "trends": "平/跌（7-29 已上线 3 周，首周红利已过）",
+                "kd": "27",
+                "subKeywords": "3129",
+                "serpDifficulty": "中高（fextralife/games.gg/strategywiki 已起）",
+                "decision": "不做（红利已过，评分 Mixed 61%）"
+              },
+              {
+                "game": "Meccha Chameleon",
+                "trends": "跌（已爆火一个月，1500 万份）",
+                "kd": "高（竞争极大）",
+                "subKeywords": "多但已被占",
+                "serpDifficulty": "高（饱和）",
+                "decision": "不做（红利彻底过去）"
+              }
+            ],
+            "harvest": "选词要抢「上线前 2-3 天」窗口。同行已抢注 twistedtower.wiki（8-09）印证 Twisted Tower 是市场共识强信号，必须尽快上线抢占 SERP 空白。"
+          },
+          "reportUrl": "reports/level-1.html?site=twisted-tower-guide"
+        },
+        {
+          "id": 2,
+          "status": "done",
+          "doneAt": "2026-08-16",
+          "summary": "挖出 12 个细分关键词（通用 + 个性），规划 11 个页面（首页 + 8 内容页 + 3 基础页）",
+          "report": {
+            "keywordTotal": 12,
+            "generalCount": 5,
+            "specificCount": 7,
+            "categories": [
+              "新手入门",
+              "全流程攻略",
+              "Boss攻略",
+              "谜题解法",
+              "收集品位置",
+              "武器指南",
+              "结局达成",
+              "FAQ"
+            ],
+            "matrixLive": 11,
+            "matrixPending": 0,
+            "harvest": "关键词清单覆盖通用词（walkthrough/guide/tips/review/how long to beat）与个性词（boss/puzzle/collectibles/endings/weapons/mascots）。游戏未上线，攻略细分词尚未爆发，先铺好页面骨架等词进来。"
+          },
+          "reportUrl": "reports/level-2.html?site=twisted-tower-guide"
+        },
+        {
+          "id": 3,
+          "status": "done",
+          "doneAt": "2026-08-16",
+          "summary": "11 页逐一记录信息源：Steam 商店页 + Steam 官方截图 + IGN 预告报道 + Thomas Brush 开发日志",
+          "report": {
+            "pageCount": 11,
+            "sourceLevels": [
+              "Steam 商店页",
+              "Steam 官方截图",
+              "IGN 预告报道",
+              "Reddit/ResetEra 讨论",
+              "开发者 Thomas Brush 视频"
+            ],
+            "harvest": "素材全部来自官方渠道（Steam appdetails 数据 + 官方截图）+ 权威媒体预告，避免大模型瞎编。Twisted Tower 未上线，具体数值（boss 血量/收集品数量）暂用框架性描述，上线后回填。"
+          },
+          "reportUrl": "reports/level-3.html?site=twisted-tower-guide"
+        },
+        {
+          "id": 4,
+          "status": "done",
+          "doneAt": "2026-08-16",
+          "summary": "Next.js 站已搭（11 页），本地 build 通过，GitHub 私有仓库 ryuuu2020/twisted-tower-guide 已建",
+          "report": {
+            "github": "https://github.com/ryuuu2020/twisted-tower-guide",
+            "repoCreated": true,
+            "siteAccessible": true,
+            "pages": [
+              {
+                "type": "首页",
+                "path": "/",
+                "accessible": true
+              },
+              {
+                "type": "导航页",
+                "path": "/beginners-guide",
+                "accessible": true
+              },
+              {
+                "type": "内页",
+                "path": "/walkthrough",
+                "accessible": true
+              }
+            ],
+            "seo": {
+              "title": true,
+              "description": true,
+              "h1h2": true
+            },
+            "harvest": "复用 scrapmechanic-hub 模板（Next.js 14 静态导出 + Tailwind），配色换成 1950s 恐怖嘉年华风（霓虹品红 + retro 金）。SEO 四件套 title/description/H1/H2 全站 11 页齐全。"
+          },
+          "reportUrl": "reports/level-4.html?site=twisted-tower-guide"
+        },
+        {
+          "id": 5,
+          "status": "in-progress",
+          "doneAt": null,
+          "summary": "Vercel 已部署（git 集成，push 自动部署）+ GA 已自动建（G-1L1FW1W8Q7）。域名 twistedtowerguide.com 待支付，GSC 待域名后建",
+          "report": {
+            "liveUrl": "https://twisted-tower-guide-git-main-ryuuu2020s-projects.vercel.app",
+            "online": true,
+            "gsc": {
+              "verified": false,
+              "property": null,
+              "sitemap": null
+            },
+            "ga": "G-1L1FW1W8Q7",
+            "harvest": "GA 用托管浏览器 cola 全自动建好（property 550060653，数据流 15445516537）。域名注册卡在 Spaceship 支付（真实付款需人工授权）。GSC 用域名 property + DNS TXT，依赖域名注册后配 DNS。"
+          },
+          "reportUrl": "reports/level-5.html?site=twisted-tower-guide"
+        },
+        {
+          "id": 6,
+          "status": "pending",
+          "doneAt": null,
+          "summary": "等待 GSC 数据产生后做第一次复盘",
+          "report": {
+            "site": "https://twistedtowerguide.com",
+            "gscImpressions": null,
+            "gscClicks": null,
+            "newKeywords": [],
+            "nextAction": null,
+            "reason": null,
+            "actions": null,
+            "newPages": [],
+            "harvest": null
+          },
+          "reportUrl": "reports/level-6.html?site=twisted-tower-guide"
         }
       ]
     }
