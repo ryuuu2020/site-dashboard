@@ -540,17 +540,18 @@
           "id": 5,
           "status": "in-progress",
           "doneAt": null,
-          "summary": "Vercel 已部署（git 集成，push 自动部署）+ GA 已自动建（G-1L1FW1W8Q7）。域名 twistedtowerguide.com 待支付，GSC 待域名后建",
+          "summary": "域名 twistedtowerguide.wiki 已购（¥11.80，自动续费已关），DNS A+TXT 已配，独立域名已上线。GSC 域名验证待 TXT 传播后重试",
           "report": {
-            "liveUrl": "https://twisted-tower-guide-git-main-ryuuu2020s-projects.vercel.app",
+            "liveUrl": "https://twistedtowerguide.wiki",
             "online": true,
+            "domain": "twistedtowerguide.wiki（.wiki 首年 ¥10.45，自动续费已关闭）",
             "gsc": {
               "verified": false,
-              "property": null,
+              "property": "sc-domain:twistedtowerguide.wiki",
               "sitemap": null
             },
             "ga": "G-1L1FW1W8Q7",
-            "harvest": "GA 用托管浏览器 cola 全自动建好（property 550060653，数据流 15445516537）。域名注册卡在 Spaceship 支付（真实付款需人工授权）。GSC 用域名 property + DNS TXT，依赖域名注册后配 DNS。"
+            "harvest": "域名用 .wiki（首年 ¥10.45+ICANN=¥11.80），注册后立刻去域名管理把「自动续费」关掉（续费 ¥174/年很贵，防止忘记扣款）。DNS 配了 A 记录（76.76.21.21→Vercel）+ TXT（google-site-verification=...→GSC），独立域名 twistedtowerguide.wiki 已返回 200 上线。GSC 域名 property sc-domain:twistedtowerguide.wiki 已建，但 DNS TXT 验证待传播（需等几小时重试）。踩坑：Spaceship 换了新 Launchpad 界面，域名管理藏在 ⌘+k 命令面板里；DNS 记录值列显示「清除」按钮，实际值是保存成功的，别误判为空。"
           },
           "reportUrl": "reports/level-5.html?site=twisted-tower-guide"
         },
