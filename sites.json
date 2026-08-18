@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-12T22:17:04Z",
+  "generated": "2026-08-18T22:17:37Z",
   "sites": [
     {
       "id": 1,
@@ -161,7 +161,7 @@
       "dir": "town-to-city-guide",
       "url": "https://towntocity.gguidehub.com",
       "steam": 3115220,
-      "pages": 35,
+      "pages": 36,
       "style": "6-城市蓝图",
       "styleTag": "style-6",
       "feats": {
@@ -236,8 +236,8 @@
         "ga4": 1,
         "gsc": 1
       },
-      "push": "07-07 00:32",
-      "update": "feat: add piton placement guide page",
+      "push": "08-16 20:19",
+      "update": "fix: nav active state, theme color contrast (FAQ grey-on-dark), hi-res hero banner",
       "eng": 0,
       "pps": 0,
       "launch": "6/29",
@@ -381,7 +381,7 @@
       "dir": "alabaster-dawn-guide",
       "url": "https://alabasterdawn.gguidehub.com",
       "steam": 3110760,
-      "pages": 19,
+      "pages": 22,
       "style": "A-战术指挥",
       "styleTag": "style-a",
       "feats": {
@@ -465,6 +465,28 @@
     },
     {
       "id": 22,
+      "name": "Cropia Guide Hub",
+      "dir": "cropia-guide",
+      "url": "https://cropia-guide.vercel.app",
+      "steam": 3714180,
+      "pages": 12,
+      "style": "未知",
+      "styleTag": "style-a",
+      "feats": {
+        "adsense": 1,
+        "adstxt": 1,
+        "ga4": 1,
+        "gsc": 1
+      },
+      "push": "",
+      "update": "",
+      "eng": 0,
+      "pps": 0,
+      "launch": "?",
+      "draft": false
+    },
+    {
+      "id": 23,
       "name": "Fading Echo",
       "dir": "fading-echo-guide",
       "url": "https://fadingecho.gguidehub.com",
@@ -486,12 +508,12 @@
       "draft": false
     },
     {
-      "id": 23,
+      "id": 24,
       "name": "Scrap Mechanic Hub",
       "dir": "scrapmechanic-hub",
       "url": "https://scrapmechanic-hub.vercel.app",
       "steam": 387990,
-      "pages": 15,
+      "pages": 23,
       "style": "未知",
       "styleTag": "style-a",
       "feats": {
@@ -500,11 +522,33 @@
         "ga4": 1,
         "gsc": 1
       },
-      "push": "",
-      "update": "",
+      "push": "08-16 15:01",
+      "update": "feat: add survival mods guide (verified Steam Workshop data)",
       "eng": 0,
       "pps": 0,
-      "launch": "?",
+      "launch": "8/16",
+      "draft": false
+    },
+    {
+      "id": 25,
+      "name": "Twisted Tower",
+      "dir": "twisted-tower-guide",
+      "url": "https://twisted-tower-guide.vercel.app",
+      "steam": 1575990,
+      "pages": 11,
+      "style": "未知",
+      "styleTag": "style-a",
+      "feats": {
+        "adsense": 1,
+        "adstxt": 1,
+        "ga4": 1,
+        "gsc": 1
+      },
+      "push": "08-16 22:46",
+      "update": "域名替换 twistedtowerguide.com → twistedtowerguide.wiki（sitemap/robots/canonical/JSON-LD）",
+      "eng": 0,
+      "pps": 0,
+      "launch": "8/16",
       "draft": false
     }
   ]

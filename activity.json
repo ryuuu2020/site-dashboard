@@ -1,7 +1,70 @@
 {
-  "generated": "2026-08-12T22:17:05Z",
+  "generated": "2026-08-18T22:17:37Z",
   "source": "local-git",
   "entries": [
+    {
+      "time": "08-16 22:46",
+      "timestamp": "2026-08-16T22:46:18+08:00",
+      "dot": "push",
+      "msg": "域名替换 twistedtowerguide.com → twistedtowerguide.wiki（sitemap/robots/canonical/JSON-LD）",
+      "site": "Twisted Tower"
+    },
+    {
+      "time": "08-16 22:13",
+      "timestamp": "2026-08-16T22:13:55+08:00",
+      "dot": "push",
+      "msg": "关卡4：用官方素材重写8个内容页，清除大模型编造内容（关卡名/武器/boss/收集品/谜题/结局）",
+      "site": "Twisted Tower"
+    },
+    {
+      "time": "08-16 20:40",
+      "timestamp": "2026-08-16T20:40:21+08:00",
+      "dot": "launch",
+      "msg": "chore: retrigger deployment",
+      "site": "Twisted Tower"
+    },
+    {
+      "time": "08-16 20:19",
+      "timestamp": "2026-08-16T20:19:43+08:00",
+      "dot": "fix",
+      "msg": "fix: nav active state, theme color contrast (FAQ grey-on-dark), hi-res hero banner",
+      "site": "Cairn"
+    },
+    {
+      "time": "08-16 15:01",
+      "timestamp": "2026-08-16T15:01:38+08:00",
+      "dot": "update",
+      "msg": "feat: add survival mods guide (verified Steam Workshop data)",
+      "site": "Scrap Mechanic Hub"
+    },
+    {
+      "time": "08-16 14:35",
+      "timestamp": "2026-08-16T14:35:46+08:00",
+      "dot": "fix",
+      "msg": "fix: accurate enemy/tool descriptions in 1.0 update page",
+      "site": "Scrap Mechanic Hub"
+    },
+    {
+      "time": "08-16 14:30",
+      "timestamp": "2026-08-16T14:30:39+08:00",
+      "dot": "update",
+      "msg": "feat: add 1.0 update guide + mining island pages",
+      "site": "Scrap Mechanic Hub"
+    },
+    {
+      "time": "08-15 17:43",
+      "timestamp": "2026-08-15T17:43:47+08:00",
+      "dot": "push",
+      "msg": "Remove leftover shared GSC verification (domain property uses DNS)",
+      "site": "Cairn"
+    },
+    {
+      "time": "08-15 01:17",
+      "timestamp": "2026-08-15T01:17:29+08:00",
+      "dot": "push",
+      "msg": "Switch to dedicated GA4 property (G-E579JJDZ11)",
+      "site": "Cairn"
+    },
     {
       "time": "08-04 23:37",
       "timestamp": "2026-08-04T23:37:05+08:00",
@@ -148,69 +211,6 @@
       "dot": "update",
       "msg": "feat: overhaul ship-layout-design (KD 16.4)",
       "site": "Space Haven"
-    },
-    {
-      "time": "07-08 10:51",
-      "timestamp": "2026-07-08T10:51:18+08:00",
-      "dot": "update",
-      "msg": "feat: overhaul secret-rooms as secret guide (KD 16.1)",
-      "site": "Realm of Ink"
-    },
-    {
-      "time": "07-08 10:51",
-      "timestamp": "2026-07-08T10:51:15+08:00",
-      "dot": "update",
-      "msg": "feat: add best-build-guide (KD 13.3)",
-      "site": "Die in the Dungeon"
-    },
-    {
-      "time": "07-07 00:32",
-      "timestamp": "2026-07-07T00:32:10+08:00",
-      "dot": "update",
-      "msg": "feat: add relics tier list page",
-      "site": "Vampire Crawlers"
-    },
-    {
-      "time": "07-07 00:32",
-      "timestamp": "2026-07-07T00:32:10+08:00",
-      "dot": "update",
-      "msg": "feat: add piton placement guide page",
-      "site": "Cairn"
-    },
-    {
-      "time": "07-07 00:32",
-      "timestamp": "2026-07-07T00:32:10+08:00",
-      "dot": "update",
-      "msg": "feat: add skills guide page",
-      "site": "Mewgenics"
-    },
-    {
-      "time": "07-07 00:32",
-      "timestamp": "2026-07-07T00:32:10+08:00",
-      "dot": "update",
-      "msg": "feat: add secret rooms guide page",
-      "site": "Realm of Ink"
-    },
-    {
-      "time": "07-07 00:32",
-      "timestamp": "2026-07-07T00:32:10+08:00",
-      "dot": "update",
-      "msg": "feat: add quest guide page",
-      "site": "Alabaster Dawn"
-    },
-    {
-      "time": "07-07 00:32",
-      "timestamp": "2026-07-07T00:32:04+08:00",
-      "dot": "update",
-      "msg": "feat: add weapon tier list and combat techniques pages",
-      "site": "Adira Nusantara"
-    },
-    {
-      "time": "07-07 00:32",
-      "timestamp": "2026-07-07T00:32:01+08:00",
-      "dot": "update",
-      "msg": "feat: add weapons tier list page (KD 26.2)",
-      "site": "HumanitZ"
     }
   ]
 }
