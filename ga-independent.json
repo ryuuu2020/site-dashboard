@@ -1,0 +1,26 @@
+{
+  "scrapmechanic-hub": {
+    "property": "549934267",
+    "totalPv": 50,
+    "totalSessions": 43,
+    "totalUsers": 43,
+    "totalEvents": 160,
+    "activeDays": 5
+  },
+  "cairn-guide": {
+    "property": "550023235",
+    "totalPv": 292,
+    "totalSessions": 210,
+    "totalUsers": 191,
+    "totalEvents": 840,
+    "activeDays": 5
+  },
+  "twisted-tower-guide": {
+    "property": "550060653",
+    "totalPv": 262,
+    "totalSessions": 147,
+    "totalUsers": 134,
+    "totalEvents": 767,
+    "activeDays": 4
+  }
+}

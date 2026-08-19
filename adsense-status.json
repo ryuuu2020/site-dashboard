@@ -1,0 +1,40 @@
+{
+  "generated": "2026-08-19T16:55:00+08:00",
+  "note": "AdSense 审核状态快照。source=manual（需在 AdSense 后台人工核对后更新，审核状态变化 Google 不会主动推，需定期回后台看）。publisher=pub-8925824244664340 账号独立于 gguidehub 主站。",
+  "publisher": "pub-8925824244664340",
+  "sites": {
+    "scrapmechanic-hub": {
+      "domain": "scrapmechanichub.com",
+      "status": "需要审核",
+      "statusKey": "review",
+      "adstxt": "已授权",
+      "registeredAt": "2026-08-19T16:52:00+08:00",
+      "lastCheck": "2026-08-19T16:52:00+08:00",
+      "note": "已脱离 gguidehub 主站，独立提交审核。线上 ads.txt 正常（200 + pub-8925824244664340）。"
+    },
+    "cairn-guide": {
+      "domain": "cairnguide.wiki",
+      "status": "需要审核",
+      "statusKey": "review",
+      "adstxt": "已授权",
+      "registeredAt": "2026-08-19T16:49:00+08:00",
+      "lastCheck": "2026-08-19T16:49:00+08:00",
+      "note": "已脱离 gguidehub 主站，独立提交审核。26 页内容站，三个站里内容最实，过审概率相对高。"
+    },
+    "twisted-tower-guide": {
+      "domain": "twistedtowerguide.wiki",
+      "status": "需要审核",
+      "statusKey": "review",
+      "adstxt": "已授权",
+      "registeredAt": "2026-08-19T16:51:00+08:00",
+      "lastCheck": "2026-08-19T16:51:00+08:00",
+      "note": "已脱离 gguidehub 主站，独立提交审核。8-18 游戏上线，处于流量爆发期，内容按官方素材写。"
+    }
+  },
+  "removed": {
+    "gguidehub.com": {
+      "removedAt": "2026-08-19T16:53:00+08:00",
+      "reason": "主站低价值内容卡审，脱离关系，不再用其申请 AdSense。"
+    }
+  }
+}

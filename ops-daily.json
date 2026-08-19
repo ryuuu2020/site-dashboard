@@ -1,0 +1,215 @@
+{
+  "date": "2026-08-19",
+  "generated_at": "2026-08-19T16:55:55.887611",
+  "gsc": {
+    "scrapmechanic-hub": {
+      "site": "https://scrapmechanichub.com/",
+      "clicks": 0,
+      "impressions": 10,
+      "keywordCount": 7,
+      "topKeywords": [
+        {
+          "kw": "scrap mechanic mining hub",
+          "clicks": 0,
+          "impressions": 4,
+          "position": 7.2
+        },
+        {
+          "kw": "scrap mechanic 1.0 guide",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 10
+        },
+        {
+          "kw": "scrap mechanic 1.0 map",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 5
+        },
+        {
+          "kw": "scrap mechanic crusher",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 4
+        },
+        {
+          "kw": "scrap mechanic dedicated server",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 3
+        },
+        {
+          "kw": "scrap mechanic mods in survival",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 7
+        },
+        {
+          "kw": "scrap mechanic raid defense",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 8
+        }
+      ],
+      "error": null
+    },
+    "cairn-guide": {
+      "site": "sc-domain:cairnguide.wiki",
+      "clicks": 0,
+      "impressions": 0,
+      "keywordCount": 0,
+      "topKeywords": [],
+      "error": null
+    },
+    "twisted-tower-guide": {
+      "site": "sc-domain:twistedtowerguide.wiki",
+      "clicks": 0,
+      "impressions": 0,
+      "keywordCount": 0,
+      "topKeywords": [],
+      "error": null
+    }
+  },
+  "ga": {
+    "scrapmechanic-hub": {
+      "property": "549934267",
+      "pv": 50,
+      "sessions": 43,
+      "users": 43,
+      "daily": {
+        "20260816": {
+          "pv": 16,
+          "sessions": 12,
+          "users": 12
+        },
+        "20260815": {
+          "pv": 15,
+          "sessions": 12,
+          "users": 12
+        },
+        "20260819": {
+          "pv": 11,
+          "sessions": 11,
+          "users": 11
+        },
+        "20260817": {
+          "pv": 7,
+          "sessions": 7,
+          "users": 7
+        },
+        "20260818": {
+          "pv": 1,
+          "sessions": 1,
+          "users": 1
+        }
+      },
+      "error": null
+    },
+    "cairn-guide": {
+      "property": "550023235",
+      "pv": 292,
+      "sessions": 210,
+      "users": 191,
+      "daily": {
+        "20260817": {
+          "pv": 88,
+          "sessions": 49,
+          "users": 42
+        },
+        "20260818": {
+          "pv": 74,
+          "sessions": 65,
+          "users": 61
+        },
+        "20260816": {
+          "pv": 64,
+          "sessions": 46,
+          "users": 41
+        },
+        "20260815": {
+          "pv": 34,
+          "sessions": 20,
+          "users": 19
+        },
+        "20260819": {
+          "pv": 32,
+          "sessions": 30,
+          "users": 28
+        }
+      },
+      "error": null
+    },
+    "twisted-tower-guide": {
+      "property": "550060653",
+      "pv": 267,
+      "sessions": 149,
+      "users": 135,
+      "daily": {
+        "20260819": {
+          "pv": 193,
+          "sessions": 80,
+          "users": 68
+        },
+        "20260817": {
+          "pv": 44,
+          "sessions": 41,
+          "users": 41
+        },
+        "20260818": {
+          "pv": 20,
+          "sessions": 19,
+          "users": 18
+        },
+        "20260816": {
+          "pv": 10,
+          "sessions": 9,
+          "users": 8
+        }
+      },
+      "error": null
+    }
+  },
+  "health": {
+    "scrapmechanic-hub": {
+      "ads_txt": {
+        "ok": true,
+        "detail": "200 + publisher 正确"
+      },
+      "sitemap": {
+        "ok": true,
+        "status": 200,
+        "pages": 24
+      }
+    },
+    "cairn-guide": {
+      "ads_txt": {
+        "ok": true,
+        "detail": "200 + publisher 正确"
+      },
+      "sitemap": {
+        "ok": true,
+        "status": 200,
+        "pages": 26
+      }
+    },
+    "twisted-tower-guide": {
+      "ads_txt": {
+        "ok": true,
+        "detail": "200 + publisher 正确"
+      },
+      "sitemap": {
+        "ok": true,
+        "status": 200,
+        "pages": 11
+      }
+    }
+  },
+  "anomalies": [
+    {
+      "site": "scrapmechanic-hub",
+      "level": "info",
+      "type": "gsc",
+      "msg": "Scrap Mechanic Hub 有展示(10)无点击，注意 CTR"
+    }
+  ]
+}

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>运营监控 · 独立站数据与审核状态</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --bg-card: #ffffff; --bg-elevated: #f0f2f5;
+    --border: #e2e6ec; --border-subtle: #eceff3;
+    --text: #1f2937; --text-secondary: #4b5563; --text-muted: #9aa5b1;
+    --green: #10b981; --green-bg: rgba(16,185,129,0.10); --green-text: #059669;
+    --red: #ef4444; --red-bg: rgba(239,68,68,0.10); --red-text: #dc2626;
+    --yellow: #d97706; --yellow-bg: rgba(245,158,11,0.14);
+    --blue: #3b82f6; --blue-bg: rgba(59,130,246,0.10); --blue-text: #2563eb;
+    --accent: #6366f1; --accent-dim: #4f46e5;
+    --purple: #9333ea; --purple-bg: rgba(168,85,247,0.12);
+    --heading: #111827;
+    --shadow: 0 1px 2px rgba(16,24,40,0.06), 0 1px 3px rgba(16,24,40,0.05);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.6;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+
+  .top-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+    padding-bottom: 1rem; border-bottom: 1px solid var(--border);
+  }
+  .top-bar h1 {
+    font-size: 1.125rem; font-weight: 700; letter-spacing: 0.02em;
+    display: flex; align-items: center; gap: 0.5rem;
+    font-family: 'SF Mono', 'Menlo', 'PingFang SC', monospace;
+  }
+  .top-bar h1 span { color: var(--accent); }
+  .top-actions { display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap; }
+  .btn {
+    padding:0.4rem 0.875rem; border-radius:0.375rem; font-size:0.75rem;
+    font-weight:600; cursor:pointer; border:1px solid var(--border);
+    background:var(--bg-card); color:var(--text-secondary);
+    transition:all 0.15s; font-family:inherit; letter-spacing:0.02em;
+    text-decoration:none; display:inline-block;
+  }
+  .btn:hover { border-color:var(--accent); color:var(--heading); background:var(--bg-elevated); }
+  .btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
+
+  .status-bar { display:flex; gap:0.75rem; align-items:center; font-size:0.6875rem; color:var(--text-muted); font-family:'SF Mono',monospace; flex-wrap:wrap; }
+  .pulse { width:8px; height:8px; border-radius:50%; display:inline-block; }
+  .pulse.live { background:var(--green); box-shadow:0 0 8px var(--green); animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .stats { display:grid; grid-template-columns:repeat(auto-fit, minmax(155px,1fr)); gap:0.625rem; margin-bottom:1.5rem; }
+  .stat {
+    background:var(--bg-card); border:1px solid var(--border); border-radius:0.5rem; padding:0.875rem 1rem;
+    position:relative; overflow:hidden; box-shadow:var(--shadow);
+  }
+  .stat::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--accent); }
+  .stat .label { font-size:0.625rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:0.25rem; }
+  .stat .value { font-size:1.5rem; font-weight:700; font-family:'SF Mono',monospace; }
+  .stat .sub { font-size:0.6875rem; color:var(--text-muted); margin-top:0.125rem; }
+
+  .section { margin-bottom:1.5rem; }
+  .section-title {
+    font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--text-muted); margin-bottom:0.75rem; display:flex; align-items:center; gap:0.5rem;
+  }
+  .section-title::after { content:''; flex:1; height:1px; background:var(--border); }
+  .section-meta { margin:-0.35rem 0 0.75rem; font-size:0.6875rem; color:var(--text-muted); font-family:'SF Mono',monospace; }
+
+  /* 站点卡片 */
+  .site-card {
+    background:var(--bg-card); border:1px solid var(--border); border-radius:0.5rem;
+    box-shadow:var(--shadow); margin-bottom:1.25rem; overflow:hidden;
+  }
+  .site-head {
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+    padding:0.875rem 1rem; border-bottom:1px solid var(--border);
+    background:var(--bg-elevated); flex-wrap:wrap;
+  }
+  .site-head .site-title { display:flex; align-items:center; gap:0.625rem; flex-wrap:wrap; }
+  .site-head .site-name { font-weight:700; font-size:0.9375rem; color:var(--heading); }
+  .site-head .site-domain { font-size:0.6875rem; color:var(--text-muted); font-family:'SF Mono',monospace; }
+  .site-head a { color:inherit; text-decoration:none; }
+  .site-head a:hover { color:var(--accent); }
+
+  /* 审核状态徽章 */
+  .audit-badge {
+    display:inline-flex; align-items:center; gap:0.3rem;
+    padding:0.25rem 0.75rem; border-radius:1rem; font-size:0.6875rem; font-weight:700;
+    letter-spacing:0.03em; white-space:nowrap;
+  }
+  .audit-badge.active { background:var(--green-bg); color:var(--green-text); }
+  .audit-badge.review { background:var(--yellow-bg); color:var(--yellow); }
+  .audit-badge.rejected { background:var(--red-bg); color:var(--red-text); }
+
+  /* 指标网格 */
+  .metrics { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:1px; background:var(--border-subtle); }
+  .metric {
+    background:var(--bg-card); padding:0.75rem 1rem; display:flex; flex-direction:column; gap:0.125rem;
+  }
+  .metric .label { font-size:0.625rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; }
+  .metric .value { font-size:1.25rem; font-weight:700; font-family:'SF Mono',monospace; color:var(--heading); }
+  .metric .value.ok { color:var(--green-text); }
+  .metric .value.warn { color:var(--yellow); }
+  .metric .value.bad { color:var(--red-text); }
+
+  .sub-grid { padding:0 1rem 0.75rem; }
+  .sub-row { padding:0.625rem 0; border-bottom:1px solid var(--border-subtle); }
+  .sub-row:last-child { border-bottom:none; }
+  .sub-row .sub-label { font-size:0.6875rem; color:var(--text-muted); margin-bottom:0.25rem; display:flex; align-items:center; gap:0.375rem; }
+  .sub-row .sub-label .k { font-weight:600; color:var(--text-secondary); }
+
+  /* 关键词 chips */
+  .kw-list { display:flex; flex-wrap:wrap; gap:0.375rem; }
+  .kw {
+    display:inline-flex; align-items:center; gap:0.375rem;
+    background:var(--bg-elevated); border:1px solid var(--border-subtle); border-radius:0.25rem;
+    padding:0.2rem 0.5rem; font-size:0.6875rem;
+  }
+  .kw .pos { font-family:'SF Mono',monospace; color:var(--blue-text); font-weight:600; }
+  .kw .imp { font-family:'SF Mono',monospace; color:var(--text-muted); }
+
+  /* 健康检查 */
+  .health { display:flex; flex-wrap:wrap; gap:0.375rem; }
+  .health-item {
+    display:inline-flex; align-items:center; gap:0.3rem;
+    background:var(--bg-elevated); border:1px solid var(--border-subtle); border-radius:0.25rem;
+    padding:0.2rem 0.5rem; font-size:0.6875rem;
+  }
+  .dot { width:6px; height:6px; border-radius:50%; display:inline-block; }
+  .dot.ok { background:var(--green); }
+  .dot.bad { background:var(--red); }
+
+  /* 迷你趋势条 */
+  .trend { display:flex; align-items:flex-end; gap:2px; height:36px; }
+  .trend .bar { flex:1; min-width:6px; background:var(--accent); border-radius:1px 1px 0 0; opacity:0.7; }
+  .trend .bar:hover { opacity:1; }
+
+  .note { font-size:0.6875rem; color:var(--text-muted); line-height:1.5; }
+
+  .empty {
+    background:var(--bg-card); border:1px dashed var(--border); border-radius:0.5rem;
+    padding:2.5rem; text-align:center; color:var(--text-muted); font-size:0.8125rem;
+  }
+
+  footer { text-align:center; margin-top:2rem; padding-top:1rem; border-top:1px solid var(--border); font-size:0.6875rem; color:var(--text-muted); }
+  footer a { color:var(--text-muted); }
+
+  @media (max-width:768px) {
+    .container { padding:0.75rem; }
+    .stats { grid-template-columns:repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="top-bar">
+    <h1><span>◈</span> 运营监控 · 独立站数据与审核</h1>
+    <div class="top-actions">
+      <a class="btn" href="./index.html">← 指挥中心</a>
+      <a class="btn" href="./voyage.html">✎ 航海作业</a>
+      <a class="btn" href="./keyword-radar.html">⌁ 热词雷达</a>
+      <a class="btn active" href="./ops.html">◉ 运营监控</a>
+    </div>
+  </div>
+
+  <div class="status-bar">
+    <span class="pulse live"></span>
+    <span id="meta">载入数据中…</span>
+  </div>
+
+  <!-- 汇总统计 -->
+  <div class="stats" id="stats"></div>
+
+  <!-- 审核状态总览 -->
+  <div class="section">
+    <div class="section-title">🛡 AdSense 审核状态</div>
+    <div class="section-meta" id="adsense-meta"></div>
+    <div id="audit-container"></div>
+  </div>
+
+  <!-- 站点数据卡 -->
+  <div class="section">
+    <div class="section-title">📊 站点数据</div>
+    <div id="sites-container"></div>
+  </div>
+
+  <!-- 异常 -->
+  <div class="section" id="anomaly-section" style="display:none">
+    <div class="section-title">⚠️ 异常与关注点</div>
+    <div id="anomaly-container"></div>
+  </div>
+
+  <footer>Cola 运营监控 · 每日自动更新 · <a href="./ops-daily.json" target="_blank">ops-daily.json</a> · <a href="./adsense-status.json" target="_blank">adsense-status.json</a></footer>
+</div>
+
+<script>
+// ── 工具 ──
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+async function loadJSON(url) {
+  try {
+    const r = await fetch(url, { cache: 'no-store' });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return await r.json();
+  } catch (e) {
+    return null;
+  }
+}
+
+// ── 站元信息（与 voyage.json 对齐） ──
+const SITE_META = {
+  'scrapmechanic-hub': { name: 'Scrap Mechanic Hub', domain: 'https://scrapmechanichub.com', dir: 'scrapmechanic-hub' },
+  'cairn-guide': { name: 'Cairn Guide', domain: 'https://cairnguide.wiki', dir: 'cairn-guide' },
+  'twisted-tower-guide': { name: 'Twisted Tower Guide', domain: 'https://twistedtowerguide.wiki', dir: 'twisted-tower-guide' },
+};
+
+const AUDIT_LABEL = {
+  'active': '已通过', 'review': '需要审核', 'rejected': '未通过', 'ready': '准备就绪',
+};
+const AUDIT_CLASS = {
+  'active': 'active', 'review': 'review', 'rejected': 'rejected', 'ready': 'active',
+};
+
+function fmtDate(s) {
+  if (!s) return '';
+  return s.replace('T', ' ').slice(0, 16);
+}
+
+// ── 渲染审核状态 ──
+function renderAudit(adsense) {
+  const container = document.getElementById('audit-container');
+  const meta = document.getElementById('adsense-meta');
+  if (!adsense || !adsense.sites) {
+    container.innerHTML = '<div class="empty">暂无审核状态数据（adsense-status.json 不可用）</div>';
+    return;
+  }
+  const sites = adsense.sites;
+  meta.textContent = `发布商 ${adsense.publisher} · 更新于 ${fmtDate(adsense.generated)} · 已脱离主站 gguidehub.com`;
+  const cards = Object.entries(sites).map(([key, s]) => {
+    const sm = SITE_META[key] || { name: key, domain: s.domain };
+    const cls = AUDIT_CLASS[s.statusKey] || 'review';
+    const label = AUDIT_LABEL[s.statusKey] || s.status || '待定';
+    const adstxt = (s.adstxt === '已授权' || s.adstxt === 'ok') ? '<span class="dot ok"></span> ads.txt 已授权' : `<span class="dot bad"></span> ads.txt ${esc(s.adstxt)}`;
+    return `
+      <div class="site-card">
+        <div class="site-head">
+          <div class="site-title">
+            <span class="site-name"><a href="${esc(sm.domain)}" target="_blank" rel="noreferrer">${esc(sm.name)}</a></span>
+            <span class="site-domain">${esc(sm.domain)}</span>
+          </div>
+          <span class="audit-badge ${cls}">${label}</span>
+        </div>
+        <div class="sub-grid">
+          <div class="sub-row">
+            <div class="sub-label"><span style="font-size:0.75rem">🕐</span> 登记时间：<strong>${fmtDate(s.registeredAt) || '—'}</strong></div>
+            <div class="health">${adstxt}</div>
+          </div>
+          ${s.note ? `<div class="sub-row"><div class="note">${esc(s.note)}</div></div>` : ''}
+        </div>
+      </div>`;
+  }).join('');
+  container.innerHTML = cards;
+  if (adsense.removed && Object.keys(adsense.removed).length) {
+    container.innerHTML += `<div class="note" style="padding:0 0.25rem">
+      🗑 已移除：${Object.entries(adsense.removed).map(([d, info]) => `${esc(d)}（${fmtDate(info.removedAt)}，${esc(info.reason)}）`).join('、')}
+    </div>`;
+  }
+}
+
+// ── 渲染站点数据卡 ──
+function renderSites(ops) {
+  const container = document.getElementById('sites-container');
+  if (!ops) {
+    container.innerHTML = '<div class="empty">暂无运营数据（ops-daily.json 不可用）</div>';
+    return;
+  }
+  const gsc = ops.gsc || {};
+  const ga = ops.ga || {};
+  const health = ops.health || {};
+  const keys = Object.keys(SITE_META);
+
+  const cards = keys.map(key => {
+    const sm = SITE_META[key];
+    const g = gsc[key] || {};
+    const a = ga[key] || {};
+    const h = health[key] || {};
+
+    // GA 指标
+    const pv = a.pv ?? 0, sess = a.sessions ?? 0, users = a.users ?? 0;
+    // GSC 指标
+    const imp = g.impressions ?? 0, clicks = g.clicks ?? 0;
+    const kws = (g.topKeywords || []).slice(0, 8);
+
+    // 健康检查
+    const adsOk = h.ads_txt?.ok;
+    const sitemapOk = h.sitemap?.ok;
+
+    // 迷你趋势（GA 逐日 PV）
+    let trendHtml = '<span class="note">暂无逐日数据</span>';
+    if (a.daily && Object.keys(a.daily).length) {
+      const days = Object.entries(a.daily).sort((x, y) => x[0].localeCompare(y[0]));
+      const maxPv = Math.max(...days.map(([, v]) => v.pv || 0), 1);
+      trendHtml = `<div class="trend">${days.map(([dt, v]) => {
+        const hh = Math.max(6, Math.round((v.pv || 0) / maxPv * 36));
+        const mm = dt.slice(4, 6) + '/' + dt.slice(6, 8);
+        return `<div class="bar" style="height:${hh}px" title="${mm}: ${v.pv} PV"></div>`;
+      }).join('')}</div>`;
+    }
+
+    return `
+      <div class="site-card">
+        <div class="site-head">
+          <div class="site-title">
+            <span class="site-name"><a href="${esc(sm.domain)}" target="_blank" rel="noreferrer">${esc(sm.name)}</a></span>
+            <span class="site-domain">${esc(sm.domain)}</span>
+          </div>
+          <a class="btn" href="./reports/level-6.html?site=${sm.dir}" style="font-size:0.6875rem">关卡6复盘 →</a>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><div class="label">GA 浏览 PV</div><div class="value">${pv}</div></div>
+          <div class="metric"><div class="label">GA 会话</div><div class="value">${sess}</div></div>
+          <div class="metric"><div class="label">GA 用户</div><div class="value">${users}</div></div>
+          <div class="metric"><div class="label">GSC 展示</div><div class="value">${imp}</div></div>
+          <div class="metric"><div class="label">GSC 点击</div><div class="value ${clicks > 0 ? 'ok' : 'warn'}">${clicks}</div></div>
+        </div>
+
+        <div class="sub-grid">
+          <div class="sub-row">
+            <div class="sub-label">📈 近 7 天 PV 趋势</div>
+            ${trendHtml}
+          </div>
+          <div class="sub-row">
+            <div class="sub-label"><span class="k">🔑 GSC 关键词</span>${kws.length ? '' : '（暂无排名）'}</div>
+            ${kws.length ? `<div class="kw-list">${kws.map(k => `<span class="kw">${esc(k.kw)} <span class="pos">#${k.position}</span><span class="imp">${k.impressions}展</span></span>`).join('')}</div>` : '<span class="note">尚未被收录，等 Google 抓取</span>'}
+          </div>
+          <div class="sub-row">
+            <div class="sub-label"><span class="k">🩺 健康检查</span></div>
+            <div class="health">
+              <span class="health-item"><span class="dot ${adsOk ? 'ok' : 'bad'}"></span> ads.txt</span>
+              <span class="health-item"><span class="dot ${sitemapOk ? 'ok' : 'bad'}"></span> sitemap ${h.sitemap?.pages ? `(${h.sitemap.pages}页)` : ''}</span>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+
+  container.innerHTML = cards;
+}
+
+// ── 渲染汇总统计 ──
+function renderStats(ops, adsense) {
+  const el = document.getElementById('stats');
+  if (!ops) { el.innerHTML = ''; return; }
+  const gsc = ops.gsc || {};
+  const ga = ops.ga || {};
+  const keys = Object.keys(SITE_META);
+  const totalPv = keys.reduce((s, k) => s + (ga[k]?.pv || 0), 0);
+  const totalUsers = keys.reduce((s, k) => s + (ga[k]?.users || 0), 0);
+  const totalImp = keys.reduce((s, k) => s + (gsc[k]?.impressions || 0), 0);
+
+  // 审核状态统计
+  let auditReview = 0, auditActive = 0;
+  if (adsense?.sites) {
+    Object.values(adsense.sites).forEach(s => {
+      if (s.statusKey === 'active' || s.statusKey === 'ready') auditActive++;
+      else auditReview++;
+    });
+  }
+
+  el.innerHTML = `
+    <div class="stat"><div class="label">独立站</div><div class="value">${keys.length}</div><div class="sub">每天自动监控</div></div>
+    <div class="stat"><div class="label">总 PV（近7天）</div><div class="value">${totalPv}</div><div class="sub">GA4 汇总</div></div>
+    <div class="stat"><div class="label">总用户</div><div class="value">${totalUsers}</div><div class="sub">GA4 汇总</div></div>
+    <div class="stat"><div class="label">GSC 总展示</div><div class="value">${totalImp}</div><div class="sub">近30天</div></div>
+    <div class="stat"><div class="label">AdSense 已过审</div><div class="value" style="color:var(--green)">${auditActive}/${keys.length}</div><div class="sub">${auditReview} 个待审核</div></div>
+  `;
+}
+
+// ── 渲染异常 ──
+function renderAnomalies(ops) {
+  const section = document.getElementById('anomaly-section');
+  const container = document.getElementById('anomaly-container');
+  const anomalies = ops?.anomalies || [];
+  if (!anomalies.length) { section.style.display = 'none'; return; }
+  section.style.display = '';
+  container.innerHTML = anomalies.map(a => {
+    const sm = SITE_META[a.site] || { name: a.site };
+    return `<div class="site-card" style="border-left:3px solid ${a.level === 'warn' ? 'var(--yellow)' : 'var(--blue)'}">
+      <div class="sub-grid">
+        <div class="sub-row">
+          <div class="sub-label"><strong>${esc(sm.name)}</strong> · ${esc(a.type || '')}</div>
+          <div class="note">${esc(a.msg || '')}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── 载入 ──
+(async function () {
+  const [ops, adsense] = await Promise.all([
+    loadJSON('./ops-daily.json'),
+    loadJSON('./adsense-status.json'),
+  ]);
+  const meta = document.getElementById('meta');
+  if (ops) {
+    meta.textContent = `数据快照 ${fmtDate(ops.generated_at)} · ${Object.keys(ops.gsc || {}).length} 站 GSC · ${Object.keys(ops.ga || {}).length} 站 GA · 健康检查 ${Object.keys(ops.health || {}).length} 站`;
+  } else {
+    meta.textContent = '⚠ 运营数据不可用（ops-daily.json 缺失）';
+  }
+  renderStats(ops, adsense);
+  renderAudit(adsense);
+  renderSites(ops);
+  renderAnomalies(ops);
+})();
+</script>
+</body>
+</html>
