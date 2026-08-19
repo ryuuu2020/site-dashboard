@@ -182,19 +182,31 @@
         },
         {
           "id": 6,
-          "status": "pending",
-          "doneAt": null,
-          "summary": "等待 GSC 数据产生后做第一次复盘",
+          "status": "done",
+          "doneAt": "2026-08-19",
+          "summary": "GSC 已产生首批数据（30 天 10 展示 / 0 点击 / 7 词）——关键词方向对（mining hub / 1.0 / crusher / dedicated server / raid defense 等），但点击仍为 0，需继续补齐长尾内页",
           "report": {
             "site": "https://scrapmechanichub.com",
-            "gscImpressions": null,
-            "gscClicks": null,
-            "newKeywords": [],
-            "nextAction": null,
-            "reason": null,
-            "actions": null,
-            "newPages": [],
-            "harvest": null
+            "gscImpressions": "10（最近 30 天）",
+            "gscClicks": "0",
+            "newKeywords": [
+              "scrap mechanic mining hub (展示4 · 位置7.2)",
+              "scrap mechanic 1.0 guide",
+              "scrap mechanic 1.0 map",
+              "scrap mechanic crusher",
+              "scrap mechanic dedicated server",
+              "scrap mechanic mods in survival",
+              "scrap mechanic raid defense"
+            ],
+            "nextAction": "继续补",
+            "reason": "已进入 Google 索引并开始有真实展示（10 次），证明域名/站内结构已被抓取认可；关键词方向与站内 19 页规划高度吻合（mining hub / crusher / dedicated server / raid defense 都是规划内长尾），无需换词。但点击 0、均位 3~10 徘徊，说明仍在「曝光未变现」阶段，靠加内页扩大覆盖面 + 优化标题/描述提升 CTR。",
+            "actions": "1) 针对已曝光的 7 个词逐词核对页面对应——mining hub / crusher / dedicated server / raid defense 若已有页则优化 title+meta 提升点击，若未覆盖则补页；2) 续跑 Steam 15 个 pending 页补齐长尾；3) 两周后再拉一次 GSC，若展示破 100 仍 0 点击则重点查 CTR 问题。",
+            "newPages": [
+              {"path": "/mining-hub", "keyword": "scrap mechanic mining hub", "question": "如何高效自动采矿与物流"},
+              {"path": "/crusher", "keyword": "scrap mechanic crusher", "question": "粉碎机怎么用 / 怎么造"},
+              {"path": "/dedicated-server", "keyword": "scrap mechanic dedicated server", "question": "怎么自建 / 连接专用服务器"}
+            ],
+            "harvest": "GSC 数据首次回填的实操价值：老站 scrapmechanichub.com 是 URL 前缀属性（https://…com/），服务账号 403 是因为查成了域名属性 prefix，换成 URL 前缀后立刻拉到 10 展示。已曝光关键词都是规划内长尾词，验证选词方向正确。踩坑：服务账号在不同 property 类型里权限不通用，sc-domain 与 URL-prefix 要分开试。"
           },
           "reportUrl": "reports/level-6.html?site=scrapmechanic-hub"
         }
@@ -329,15 +341,15 @@
           "id": 6,
           "status": "pending",
           "doneAt": null,
-          "summary": "等待 GSC 数据产生后做第一次复盘",
+          "summary": "GSC 尚无数据（0 展示 / 0 点击）——域名 cairnguide.wiki 新旧迁移后重新收录中，待首批数据产生后再正式复盘",
           "report": {
             "site": "https://cairnguide.wiki",
-            "gscImpressions": null,
-            "gscClicks": null,
+            "gscImpressions": "0（最近 30 天，尚未被收录）",
+            "gscClicks": "0",
             "newKeywords": [],
-            "nextAction": null,
-            "reason": null,
-            "actions": null,
+            "nextAction": "继续等收录",
+            "reason": "2026-08-19 拉取：sc-domain:cairnguide.wiki 最近 30 天 0 展示 0 点击，说明独立域名尚未进入 Google 索引（老站从 cairn-guide.vercel.app 迁移到 .wiki 后有一段重新收录期）。非内容质量问题，是迁移后的正常空窗。",
+            "actions": "1) 确认 sitemap 已提交且 26 页都含入（关卡 5 已完成）；2) 用 URL 检测工具主动提交首页 + 几个内页加速收录；3) 一周后再拉 GSC，有数据再定补页/优化。",
             "newPages": [],
             "harvest": null
           },
@@ -771,15 +783,15 @@
           "id": 6,
           "status": "pending",
           "doneAt": null,
-          "summary": "等待 GSC 数据产生后做第一次复盘",
+          "summary": "GSC 尚无数据（0 展示 / 0 点击）——站点 8-18 才上线，尚未被爬取收录，待首批数据产生后再正式复盘",
           "report": {
             "site": "https://twistedtowerguide.wiki",
-            "gscImpressions": null,
-            "gscClicks": null,
+            "gscImpressions": "0（最近 30 天，尚未被收录）",
+            "gscClicks": "0",
             "newKeywords": [],
-            "nextAction": null,
-            "reason": null,
-            "actions": null,
+            "nextAction": "继续等收录",
+            "reason": "2026-08-19 拉取：sc-domain:twistedtowerguide.wiki 最近 30 天 0 展示 0 点击。站点 8-16 上线、游戏 8-18 才发售，新域名 + 新站尚未进入 Google 索引，是正常冷启动。sitemap 11 页已于 8-16 提交，结构到位。",
+            "actions": "1) 用 URL 检测工具主动提交首页 + 几个核心内页（walkthrough / weapons / bosses）加速收录；2) 紧盯游戏发售后的攻略长尾（关卡 2 预测的 16 词）有没有开始产生联想/搜索；3) 一周后再拉 GSC，一旦出现 walkthrough/clock puzzle 等词即进入下一轮补页。",
             "newPages": [],
             "harvest": null
           },

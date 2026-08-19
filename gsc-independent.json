@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-08-19T16:03:59.331625",
+  "range": "2026-07-20 ~ 2026-08-19",
+  "sites": {
+    "scrapmechanic-hub": {
+      "site": "https://scrapmechanichub.com/",
+      "clicks": 0,
+      "impressions": 10,
+      "keywordCount": 7,
+      "topKeywords": [
+        {
+          "kw": "scrap mechanic mining hub",
+          "clicks": 0,
+          "impressions": 4,
+          "position": 7.2
+        },
+        {
+          "kw": "scrap mechanic 1.0 guide",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 10
+        },
+        {
+          "kw": "scrap mechanic 1.0 map",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 5
+        },
+        {
+          "kw": "scrap mechanic crusher",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 4
+        },
+        {
+          "kw": "scrap mechanic dedicated server",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 3
+        },
+        {
+          "kw": "scrap mechanic mods in survival",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 7
+        },
+        {
+          "kw": "scrap mechanic raid defense",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 8
+        }
+      ],
+      "error": null
+    },
+    "cairn-guide": {
+      "site": "sc-domain:cairnguide.wiki",
+      "clicks": 0,
+      "impressions": 0,
+      "keywordCount": 0,
+      "topKeywords": [],
+      "error": null
+    },
+    "twisted-tower-guide": {
+      "site": "sc-domain:twistedtowerguide.wiki",
+      "clicks": 0,
+      "impressions": 0,
+      "keywordCount": 0,
+      "topKeywords": [],
+      "error": null
+    }
+  }
+}
