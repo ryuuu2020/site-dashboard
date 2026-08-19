@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-18T22:17:37Z",
+  "generated": "2026-08-19T22:17:16Z",
   "sites": [
     {
       "id": 1,
@@ -236,8 +236,8 @@
         "ga4": 1,
         "gsc": 1
       },
-      "push": "08-16 20:19",
-      "update": "fix: nav active state, theme color contrast (FAQ grey-on-dark), hi-res hero banner",
+      "push": "08-19 17:04",
+      "update": "首页 title 补品牌词+核心子词：Cairn Guide — Climbing Survival, Crafting & Route Planning",
       "eng": 0,
       "pps": 0,
       "launch": "6/29",
@@ -513,7 +513,7 @@
       "dir": "scrapmechanic-hub",
       "url": "https://scrapmechanic-hub.vercel.app",
       "steam": 387990,
-      "pages": 23,
+      "pages": 24,
       "style": "未知",
       "styleTag": "style-a",
       "feats": {
@@ -522,8 +522,8 @@
         "ga4": 1,
         "gsc": 1
       },
-      "push": "08-16 15:01",
-      "update": "feat: add survival mods guide (verified Steam Workshop data)",
+      "push": "08-19 16:15",
+      "update": "新增 crusher 独立页 + 优化 mining-hub/raid-defense meta（回应 GSC 首轮曝光词）",
       "eng": 0,
       "pps": 0,
       "launch": "8/16",
@@ -544,8 +544,8 @@
         "ga4": 1,
         "gsc": 1
       },
-      "push": "08-16 22:46",
-      "update": "域名替换 twistedtowerguide.com → twistedtowerguide.wiki（sitemap/robots/canonical/JSON-LD）",
+      "push": "08-19 17:30",
+      "update": "清除 weapons/endings 页面的 after launch/release 占位，统一已发售姿态",
       "eng": 0,
       "pps": 0,
       "launch": "8/16",

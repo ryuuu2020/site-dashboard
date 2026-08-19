@@ -1,27 +1,41 @@
 {
-  "generated": "2026-08-18T22:17:37Z",
+  "generated": "2026-08-19T22:17:16Z",
   "source": "local-git",
   "entries": [
     {
-      "time": "08-16 22:46",
-      "timestamp": "2026-08-16T22:46:18+08:00",
-      "dot": "push",
-      "msg": "域名替换 twistedtowerguide.com → twistedtowerguide.wiki（sitemap/robots/canonical/JSON-LD）",
-      "site": "Twisted Tower"
-    },
-    {
-      "time": "08-16 22:13",
-      "timestamp": "2026-08-16T22:13:55+08:00",
-      "dot": "push",
-      "msg": "关卡4：用官方素材重写8个内容页，清除大模型编造内容（关卡名/武器/boss/收集品/谜题/结局）",
-      "site": "Twisted Tower"
-    },
-    {
-      "time": "08-16 20:40",
-      "timestamp": "2026-08-16T20:40:21+08:00",
+      "time": "08-19 17:30",
+      "timestamp": "2026-08-19T17:30:20+08:00",
       "dot": "launch",
-      "msg": "chore: retrigger deployment",
+      "msg": "清除 weapons/endings 页面的 after launch/release 占位，统一已发售姿态",
       "site": "Twisted Tower"
+    },
+    {
+      "time": "08-19 17:10",
+      "timestamp": "2026-08-19T17:10:46+08:00",
+      "dot": "launch",
+      "msg": "清空首页卡片+beginners-guide 遗留的 before launch / coming after launch 占位，统一改为已发售姿态",
+      "site": "Twisted Tower"
+    },
+    {
+      "time": "08-19 17:04",
+      "timestamp": "2026-08-19T17:04:40+08:00",
+      "dot": "push",
+      "msg": "首页 title 补品牌词+核心子词：Cairn Guide — Climbing Survival, Crafting & Route Planning",
+      "site": "Cairn"
+    },
+    {
+      "time": "08-19 17:04",
+      "timestamp": "2026-08-19T17:04:33+08:00",
+      "dot": "push",
+      "msg": "回填 Twisted Tower 发售后的真实状态：bosses/puzzles/collectibles/endings 四页 title 改陈述式，补评分/成就/剧情主线已知事实",
+      "site": "Twisted Tower"
+    },
+    {
+      "time": "08-19 16:15",
+      "timestamp": "2026-08-19T16:15:19+08:00",
+      "dot": "push",
+      "msg": "新增 crusher 独立页 + 优化 mining-hub/raid-defense meta（回应 GSC 首轮曝光词）",
+      "site": "Scrap Mechanic Hub"
     },
     {
       "time": "08-16 20:19",
@@ -45,24 +59,10 @@
       "site": "Scrap Mechanic Hub"
     },
     {
-      "time": "08-16 14:30",
-      "timestamp": "2026-08-16T14:30:39+08:00",
-      "dot": "update",
-      "msg": "feat: add 1.0 update guide + mining island pages",
-      "site": "Scrap Mechanic Hub"
-    },
-    {
       "time": "08-15 17:43",
       "timestamp": "2026-08-15T17:43:47+08:00",
       "dot": "push",
       "msg": "Remove leftover shared GSC verification (domain property uses DNS)",
-      "site": "Cairn"
-    },
-    {
-      "time": "08-15 01:17",
-      "timestamp": "2026-08-15T01:17:29+08:00",
-      "dot": "push",
-      "msg": "Switch to dedicated GA4 property (G-E579JJDZ11)",
       "site": "Cairn"
     },
     {
