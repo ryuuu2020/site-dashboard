@@ -401,69 +401,132 @@
     {
       "date": "2026-08-17",
       "sites": {
-        "oldenera.gguidehub.com": 20,
-        "demonlord.gguidehub.com": 14,
-        "menace.gguidehub.com": 10,
-        "dispatch.gguidehub.com": 3,
-        "novaroma.gguidehub.com": 2,
-        "humanitz.gguidehub.com": 1,
-        "mewgenics.gguidehub.com": 1,
-        "solarpunk.gguidehub.com": 1,
-        "towntocity.gguidehub.com": 1
+        "oldenera.gguidehub.com": 40,
+        "demonlord.gguidehub.com": 28,
+        "menace.gguidehub.com": 20,
+        "dispatch.gguidehub.com": 6,
+        "novaroma.gguidehub.com": 4,
+        "humanitz.gguidehub.com": 2,
+        "mewgenics.gguidehub.com": 2,
+        "solarpunk.gguidehub.com": 2,
+        "towntocity.gguidehub.com": 2,
+        "cropia.wiki": 70,
+        "scrapmechanichub.com": 7,
+        "twistedtowerguide.wiki": 44
       }
     },
     {
       "date": "2026-08-18",
       "sites": {
-        "oldenera.gguidehub.com": 17,
-        "mewgenics.gguidehub.com": 12,
-        "demonlord.gguidehub.com": 11,
-        "menace.gguidehub.com": 3,
-        "tabletoptavern.gguidehub.com": 3,
-        "dieinthedungeon.gguidehub.com": 2,
-        "solarpunk.gguidehub.com": 2,
-        "adiranusantara.gguidehub.com": 1,
-        "alabasterdawn.gguidehub.com": 1,
-        "dispatch.gguidehub.com": 1,
-        "goingmedieval.gguidehub.com": 1,
-        "humanitz.gguidehub.com": 1,
-        "novaroma.gguidehub.com": 1,
-        "realmofink.gguidehub.com": 1,
-        "shapez2.gguidehub.com": 1,
-        "spacehaven.gguidehub.com": 1,
-        "terrainvicta.gguidehub.com": 1,
-        "towntocity.gguidehub.com": 1,
-        "vampirecrawlers.gguidehub.com": 1,
-        "witchspire.gguidehub.com": 1
+        "oldenera.gguidehub.com": 34,
+        "mewgenics.gguidehub.com": 24,
+        "demonlord.gguidehub.com": 22,
+        "menace.gguidehub.com": 6,
+        "tabletoptavern.gguidehub.com": 6,
+        "dieinthedungeon.gguidehub.com": 4,
+        "solarpunk.gguidehub.com": 4,
+        "adiranusantara.gguidehub.com": 2,
+        "alabasterdawn.gguidehub.com": 2,
+        "dispatch.gguidehub.com": 2,
+        "goingmedieval.gguidehub.com": 2,
+        "humanitz.gguidehub.com": 2,
+        "novaroma.gguidehub.com": 2,
+        "realmofink.gguidehub.com": 2,
+        "shapez2.gguidehub.com": 2,
+        "spacehaven.gguidehub.com": 2,
+        "terrainvicta.gguidehub.com": 2,
+        "towntocity.gguidehub.com": 2,
+        "vampirecrawlers.gguidehub.com": 2,
+        "witchspire.gguidehub.com": 2,
+        "cropia.wiki": 46,
+        "scrapmechanichub.com": 10,
+        "twistedtowerguide.wiki": 24
       }
     },
     {
       "date": "2026-08-19",
       "sites": {
-        "oldenera.gguidehub.com": 10,
-        "dispatch.gguidehub.com": 5,
-        "demonlord.gguidehub.com": 3,
-        "solarpunk.gguidehub.com": 3,
-        "menace.gguidehub.com": 1,
-        "mewgenics.gguidehub.com": 1,
-        "tabletoptavern.gguidehub.com": 1
+        "oldenera.gguidehub.com": 20,
+        "dispatch.gguidehub.com": 10,
+        "demonlord.gguidehub.com": 6,
+        "solarpunk.gguidehub.com": 6,
+        "menace.gguidehub.com": 2,
+        "mewgenics.gguidehub.com": 2,
+        "tabletoptavern.gguidehub.com": 2,
+        "cropia.wiki": 68,
+        "scrapmechanichub.com": 23,
+        "twistedtowerguide.wiki": 304
       }
     },
     {
       "date": "2026-08-20",
       "sites": {
-        "demonlord.gguidehub.com": 11,
-        "oldenera.gguidehub.com": 5,
-        "solarpunk.gguidehub.com": 5,
-        "towntocity.gguidehub.com": 4,
-        "witchspire.gguidehub.com": 4,
+        "demonlord.gguidehub.com": 22,
+        "oldenera.gguidehub.com": 12,
+        "solarpunk.gguidehub.com": 10,
+        "towntocity.gguidehub.com": 8,
+        "witchspire.gguidehub.com": 8,
         "cropia-guide.vercel.app": 2,
-        "dispatch.gguidehub.com": 2,
-        "goingmedieval.gguidehub.com": 2,
+        "dispatch.gguidehub.com": 6,
+        "goingmedieval.gguidehub.com": 4,
+        "menace.gguidehub.com": 4,
+        "shapez2.gguidehub.com": 6,
+        "tabletoptavern.gguidehub.com": 4,
+        "terrainvicta.gguidehub.com": 4,
+        "cropia.wiki": 97,
+        "scrapmechanichub.com": 15,
+        "twistedtowerguide.wiki": 261
+      }
+    },
+    {
+      "date": "2026-08-21",
+      "sites": {
+        "cropia.wiki": 42,
+        "demonlord.gguidehub.com": 36,
+        "oldenera.gguidehub.com": 10,
+        "solarpunk.gguidehub.com": 4,
+        "terrainvicta.gguidehub.com": 4,
         "menace.gguidehub.com": 2,
-        "shapez2.gguidehub.com": 2,
+        "towntocity.gguidehub.com": 2,
+        "scrapmechanichub.com": 6,
+        "twistedtowerguide.wiki": 139
+      }
+    },
+    {
+      "date": "2026-08-22",
+      "sites": {
+        "cropia.wiki": 80,
+        "oldenera.gguidehub.com": 38,
+        "demonlord.gguidehub.com": 6,
+        "solarpunk.gguidehub.com": 6,
+        "menace.gguidehub.com": 4,
+        "shapez2.gguidehub.com": 4,
+        "towntocity.gguidehub.com": 4,
+        "fadingecho.gguidehub.com": 2,
         "tabletoptavern.gguidehub.com": 2,
-        "terrainvicta.gguidehub.com": 2
+        "terrainvicta.gguidehub.com": 2,
+        "witchspire.gguidehub.com": 2,
+        "scrapmechanichub.com": 9,
+        "twistedtowerguide.wiki": 88
+      }
+    },
+    {
+      "date": "2026-08-23",
+      "sites": {
+        "cropia.wiki": 96,
+        "towntocity.gguidehub.com": 32,
+        "oldenera.gguidehub.com": 18,
+        "shapez2.gguidehub.com": 16,
+        "demonlord.gguidehub.com": 10,
+        "solarpunk.gguidehub.com": 4,
+        "tabletoptavern.gguidehub.com": 4,
+        "witchspire.gguidehub.com": 4,
+        "dispatch.gguidehub.com": 2,
+        "humanitz.gguidehub.com": 2,
+        "menace.gguidehub.com": 2,
+        "terrainvicta.gguidehub.com": 2,
+        "scrapmechanichub.com": 8,
+        "twistedtowerguide.wiki": 66
       }
     }
   ]

@@ -1,7 +1,77 @@
 {
-  "generated": "2026-08-20T22:17:11Z",
+  "generated": "2026-08-24T14:58:59Z",
   "source": "local-git",
   "entries": [
+    {
+      "time": "08-24 22:05",
+      "timestamp": "2026-08-24T22:05:23+08:00",
+      "dot": "fix",
+      "msg": "news + 1-0-update: add v1.0.04 post-release patch (pause option, save & exit, controller fixes)",
+      "site": "Cropia Guide Hub"
+    },
+    {
+      "time": "08-24 22:04",
+      "timestamp": "2026-08-24T22:04:29+08:00",
+      "dot": "push",
+      "msg": "raids-defense: verified Farmbot ammo table; raid-calculator: purple raid FAQ",
+      "site": "Scrap Mechanic Hub"
+    },
+    {
+      "time": "08-21 21:04",
+      "timestamp": "2026-08-21T21:04:42+08:00",
+      "dot": "fix",
+      "msg": "Fix fabricated Drill Spawner enemy (not in game data), qualify Farmbot vehicle claim, add missing ws-tag orange/cyan var",
+      "site": "Scrap Mechanic Hub"
+    },
+    {
+      "time": "08-21 19:47",
+      "timestamp": "2026-08-21T19:47:36+08:00",
+      "dot": "fix",
+      "msg": "Add /raid-calculator + /underground pages; fix raids-defense numbers (Pineapple=L7, Farmbot=L5+); retarget resources-map",
+      "site": "Scrap Mechanic Hub"
+    },
+    {
+      "time": "08-21 16:53",
+      "timestamp": "2026-08-21T16:53:21+08:00",
+      "dot": "push",
+      "msg": "Remove fabricated combat/base-building pages; honest rewrites of 4 survival pages",
+      "site": "Cairn"
+    },
+    {
+      "time": "08-21 16:08",
+      "timestamp": "2026-08-21T16:08:07+08:00",
+      "dot": "fix",
+      "msg": "Remove fabricated /beginner-guide page (orphan, invented mechanics), fix piton-guide attribution line, redirect /beginne",
+      "site": "Cairn"
+    },
+    {
+      "time": "08-21 16:06",
+      "timestamp": "2026-08-21T16:06:56+08:00",
+      "dot": "launch",
+      "msg": "feat: Cropia 1.0 full release page (/1-0-update) — story finale, Deeper Cave, late-game items, Key Person Lv5; sitemap +",
+      "site": "Cropia Guide Hub"
+    },
+    {
+      "time": "08-21 16:03",
+      "timestamp": "2026-08-21T16:03:54+08:00",
+      "dot": "launch",
+      "msg": "Add On the Trail: Deep Water DLC page — release status, content, Free Roam + sitemap & internal links",
+      "site": "Cairn"
+    },
+    {
+      "time": "08-21 15:48",
+      "timestamp": "2026-08-21T15:48:14+08:00",
+      "dot": "update",
+      "msg": "feat: 收编全部 scripts，kd-* 硬编码 token 挪到环境变量 WC_MCP_TOKEN",
+      "site": "Fading Echo"
+    },
+    {
+      "time": "08-21 15:41",
+      "timestamp": "2026-08-21T15:41:39+08:00",
+      "dot": "push",
+      "msg": "init: 19541 浏览器控制工具链入库",
+      "site": "Fading Echo"
+    },
     {
       "time": "08-19 17:30",
       "timestamp": "2026-08-19T17:30:20+08:00",
@@ -18,52 +88,10 @@
     },
     {
       "time": "08-19 17:04",
-      "timestamp": "2026-08-19T17:04:40+08:00",
-      "dot": "push",
-      "msg": "首页 title 补品牌词+核心子词：Cairn Guide — Climbing Survival, Crafting & Route Planning",
-      "site": "Cairn"
-    },
-    {
-      "time": "08-19 17:04",
       "timestamp": "2026-08-19T17:04:33+08:00",
       "dot": "push",
       "msg": "回填 Twisted Tower 发售后的真实状态：bosses/puzzles/collectibles/endings 四页 title 改陈述式，补评分/成就/剧情主线已知事实",
       "site": "Twisted Tower"
-    },
-    {
-      "time": "08-19 16:15",
-      "timestamp": "2026-08-19T16:15:19+08:00",
-      "dot": "push",
-      "msg": "新增 crusher 独立页 + 优化 mining-hub/raid-defense meta（回应 GSC 首轮曝光词）",
-      "site": "Scrap Mechanic Hub"
-    },
-    {
-      "time": "08-16 20:19",
-      "timestamp": "2026-08-16T20:19:43+08:00",
-      "dot": "fix",
-      "msg": "fix: nav active state, theme color contrast (FAQ grey-on-dark), hi-res hero banner",
-      "site": "Cairn"
-    },
-    {
-      "time": "08-16 15:01",
-      "timestamp": "2026-08-16T15:01:38+08:00",
-      "dot": "update",
-      "msg": "feat: add survival mods guide (verified Steam Workshop data)",
-      "site": "Scrap Mechanic Hub"
-    },
-    {
-      "time": "08-16 14:35",
-      "timestamp": "2026-08-16T14:35:46+08:00",
-      "dot": "fix",
-      "msg": "fix: accurate enemy/tool descriptions in 1.0 update page",
-      "site": "Scrap Mechanic Hub"
-    },
-    {
-      "time": "08-15 17:43",
-      "timestamp": "2026-08-15T17:43:47+08:00",
-      "dot": "push",
-      "msg": "Remove leftover shared GSC verification (domain property uses DNS)",
-      "site": "Cairn"
     },
     {
       "time": "08-04 23:37",
@@ -183,34 +211,6 @@
       "dot": "update",
       "msg": "feat: add endgame guide (NG+, legendaries, secret bosses) and combat guide (Silat techniques, damage types) — KD=18.1, 1",
       "site": "Adira Nusantara"
-    },
-    {
-      "time": "07-08 10:51",
-      "timestamp": "2026-07-08T10:51:26+08:00",
-      "dot": "update",
-      "msg": "feat: overhaul boss-guide (KD 22.3)",
-      "site": "Alabaster Dawn"
-    },
-    {
-      "time": "07-08 10:51",
-      "timestamp": "2026-07-08T10:51:24+08:00",
-      "dot": "update",
-      "msg": "feat: overhaul trade guide (KD 21.4)",
-      "site": "Nova Roma"
-    },
-    {
-      "time": "07-08 10:51",
-      "timestamp": "2026-07-08T10:51:22+08:00",
-      "dot": "update",
-      "msg": "feat: adira boss-strategy overhaul (KD 20.6) + beginner-guide expansion",
-      "site": "Adira Nusantara"
-    },
-    {
-      "time": "07-08 10:51",
-      "timestamp": "2026-07-08T10:51:20+08:00",
-      "dot": "update",
-      "msg": "feat: overhaul ship-layout-design (KD 16.4)",
-      "site": "Space Haven"
     }
   ]
 }

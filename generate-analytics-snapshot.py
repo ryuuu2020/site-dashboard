@@ -21,6 +21,10 @@ from ga4_api import DEFAULT_SERVICE_ACCOUNT, Ga4ApiError, request_access_token, 
 SITES_JSON_PATH = DASHBOARD_DIR / "sites.json"
 ANALYTICS_JSON_PATH = DASHBOARD_DIR / "analytics.json"
 PROPERTY_ID = "542906144"
+# 三个独立站的专属 property（脱离 gguidehub 后新建，数据不在老聚合里）
+EXTRA_PROPERTY_IDS = ["549934267", "550023235", "550060653"]
+# 合并查询的全部 property：老聚合（*.gguidehub.com 子域）+ 三站独立
+ALL_PROPERTY_IDS = [PROPERTY_ID] + EXTRA_PROPERTY_IDS
 
 # Candidate keys for per-site average session duration in ga4-report-*.json files.
 DURATION_KEYS = ("avg_session_duration", "avgSessionDuration", "avg_duration", "duration")
@@ -95,7 +99,12 @@ def build_empty_site_stats(sites: list[dict], day_keys: list[str], name_to_host:
 
 
 def normalize_site_name(host: str, host_to_name: dict[str, str]) -> str | None:
-    return host_to_name.get(host)
+    if host in host_to_name:
+        return host_to_name[host]
+    # www. 前缀归一化（如 www.scrapmechanichub.com）
+    if host.startswith("www."):
+        return host_to_name.get(host[4:])
+    return None
 
 
 def build_live_snapshot(sites: list[dict]) -> dict:
@@ -116,36 +125,36 @@ def build_live_snapshot(sites: list[dict]) -> dict:
     history_daily: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
 
     token = request_access_token(DEFAULT_SERVICE_ACCOUNT, timeout=5)
-    summary_rows = run_report(
-        PROPERTY_ID,
-        token,
+
+    def run_all(dims, mets, limit):
+        """对全部 property 跑同一报表并合并 rows（hostName 不重叠，直接拼接）。"""
+        rows = []
+        for pid in ALL_PROPERTY_IDS:
+            try:
+                rows.extend(run_report(
+                    pid, token, dims, mets, start_str, end_str,
+                    limit=limit, timeout=10,
+                ).get("rows", []))
+            except Ga4ApiError:
+                if pid == PROPERTY_ID:
+                    raise  # 主 property 失败才报错，独立站失败容忍
+        return rows
+
+    summary_rows = run_all(
         ["hostName"],
         ["screenPageViews", "sessions", "activeUsers", "averageSessionDuration", "screenPageViewsPerSession"],
-        start_str,
-        end_str,
-        limit=2000,
-        timeout=10,
-    ).get("rows", [])
-    daily_rows = run_report(
-        PROPERTY_ID,
-        token,
+        2000,
+    )
+    daily_rows = run_all(
         ["hostName", "date"],
         ["screenPageViews"],
-        start_str,
-        end_str,
-        limit=20000,
-        timeout=10,
-    ).get("rows", [])
-    page_rows = run_report(
-        PROPERTY_ID,
-        token,
+        20000,
+    )
+    page_rows = run_all(
         ["hostName", "pagePath"],
         ["screenPageViews", "averageSessionDuration"],
-        start_str,
-        end_str,
-        limit=20000,
-        timeout=10,
-    ).get("rows", [])
+        20000,
+    )
 
     for row in summary_rows:
         host = row["dimensionValues"][0]["value"]

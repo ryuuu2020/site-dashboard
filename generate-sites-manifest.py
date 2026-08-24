@@ -88,9 +88,7 @@ def infer_url(site_dir: Path, existing: dict) -> str:
         match = re.search(pattern, text)
         if match:
             url = match.group(1).rstrip("/")
-            normalized = url.removesuffix("/sitemap.xml")
-            if "gguidehub.com" in normalized:
-                return normalized
+            return url.removesuffix("/sitemap.xml")
 
     if existing.get("url"):
         return existing["url"]
