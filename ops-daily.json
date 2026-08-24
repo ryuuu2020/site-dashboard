@@ -1,6 +1,6 @@
 {
   "date": "2026-08-24",
-  "generated_at": "2026-08-24T09:00:59.902996",
+  "generated_at": "2026-08-25T00:27:28.333795",
   "gsc": {
     "scrapmechanic-hub": {
       "site": "https://scrapmechanichub.com/",
@@ -255,9 +255,9 @@
   "ga": {
     "scrapmechanic-hub": {
       "property": "549934267",
-      "pv": 72,
-      "sessions": 60,
-      "users": 57,
+      "pv": 63,
+      "sessions": 53,
+      "users": 50,
       "daily": {
         "20260819": {
           "pv": 23,
@@ -269,25 +269,20 @@
           "sessions": 11,
           "users": 11
         },
-        "20260818": {
-          "pv": 9,
-          "sessions": 7,
-          "users": 7
-        },
         "20260822": {
           "pv": 9,
           "sessions": 6,
           "users": 6
         },
         "20260823": {
-          "pv": 8,
-          "sessions": 8,
-          "users": 6
+          "pv": 1,
+          "sessions": 1,
+          "users": 1
         },
         "20260821": {
-          "pv": 6,
-          "sessions": 5,
-          "users": 5
+          "pv": 1,
+          "sessions": 1,
+          "users": 1
         },
         "20260824": {
           "pv": 2,
@@ -299,58 +294,22 @@
     },
     "cairn-guide": {
       "property": "550023235",
-      "pv": 468,
-      "sessions": 328,
-      "users": 292,
-      "daily": {
-        "20260820": {
-          "pv": 97,
-          "sessions": 60,
-          "users": 53
-        },
-        "20260818": {
-          "pv": 88,
-          "sessions": 72,
-          "users": 66
-        },
-        "20260823": {
-          "pv": 87,
-          "sessions": 54,
-          "users": 48
-        },
-        "20260822": {
-          "pv": 75,
-          "sessions": 62,
-          "users": 52
-        },
-        "20260819": {
-          "pv": 58,
-          "sessions": 41,
-          "users": 38
-        },
-        "20260821": {
-          "pv": 50,
-          "sessions": 28,
-          "users": 24
-        },
-        "20260824": {
-          "pv": 13,
-          "sessions": 11,
-          "users": 11
-        }
-      },
+      "pv": 0,
+      "sessions": 0,
+      "users": 0,
+      "daily": {},
       "error": null
     },
     "twisted-tower-guide": {
       "property": "550060653",
-      "pv": 893,
-      "sessions": 422,
-      "users": 378,
+      "pv": 888,
+      "sessions": 411,
+      "users": 367,
       "daily": {
         "20260819": {
-          "pv": 306,
-          "sessions": 113,
-          "users": 96
+          "pv": 304,
+          "sessions": 111,
+          "users": 94
         },
         "20260820": {
           "pv": 261,
@@ -368,19 +327,14 @@
           "users": 41
         },
         "20260823": {
-          "pv": 59,
-          "sessions": 38,
+          "pv": 66,
+          "sessions": 39,
           "users": 34
         },
-        "20260818": {
-          "pv": 24,
+        "20260824": {
+          "pv": 30,
           "sessions": 21,
           "users": 19
-        },
-        "20260824": {
-          "pv": 16,
-          "sessions": 10,
-          "users": 9
         }
       },
       "error": null
