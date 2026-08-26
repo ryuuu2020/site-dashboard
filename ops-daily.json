@@ -1,6 +1,6 @@
 {
   "date": "2026-08-26",
-  "generated_at": "2026-08-26T14:27:40.109716",
+  "generated_at": "2026-08-26T17:30:06.105528",
   "gsc": {
     "scrapmechanic-hub": {
       "site": "https://scrapmechanichub.com/",
@@ -152,63 +152,6 @@
       ],
       "error": null
     },
-    "cropia-guide": {
-      "site": "sc-domain:cropia.wiki",
-      "clicks": 11,
-      "impressions": 305,
-      "keywordCount": 8,
-      "topKeywords": [
-        {
-          "kw": "cropia",
-          "clicks": 2,
-          "impressions": 261,
-          "position": 10.3
-        },
-        {
-          "kw": "cropia wiki",
-          "clicks": 9,
-          "impressions": 18,
-          "position": 1
-        },
-        {
-          "kw": "\"going medieval\" game -\"medieval total war\" -\"medieval engineers\" -\"medieval times\" -\"go medieval\" -\"ground of aces\"",
-          "clicks": 0,
-          "impressions": 8,
-          "position": 89
-        },
-        {
-          "kw": "cropia trainer",
-          "clicks": 0,
-          "impressions": 8,
-          "position": 8.6
-        },
-        {
-          "kw": "\"town to city\" game",
-          "clicks": 0,
-          "impressions": 5,
-          "position": 27
-        },
-        {
-          "kw": "cropia game",
-          "clicks": 0,
-          "impressions": 2,
-          "position": 6
-        },
-        {
-          "kw": "cropia review",
-          "clicks": 0,
-          "impressions": 2,
-          "position": 6
-        },
-        {
-          "kw": "cropia steam",
-          "clicks": 0,
-          "impressions": 1,
-          "position": 9
-        }
-      ],
-      "error": null
-    },
     "twisted-tower-guide": {
       "site": "sc-domain:twistedtowerguide.wiki",
       "clicks": 53,
@@ -308,8 +251,73 @@
       ],
       "error": null
     },
+    "cropia-guide": {
+      "site": "sc-domain:cropia.wiki",
+      "clicks": 11,
+      "impressions": 305,
+      "keywordCount": 8,
+      "topKeywords": [
+        {
+          "kw": "cropia",
+          "clicks": 2,
+          "impressions": 261,
+          "position": 10.3
+        },
+        {
+          "kw": "cropia wiki",
+          "clicks": 9,
+          "impressions": 18,
+          "position": 1
+        },
+        {
+          "kw": "\"going medieval\" game -\"medieval total war\" -\"medieval engineers\" -\"medieval times\" -\"go medieval\" -\"ground of aces\"",
+          "clicks": 0,
+          "impressions": 8,
+          "position": 89
+        },
+        {
+          "kw": "cropia trainer",
+          "clicks": 0,
+          "impressions": 8,
+          "position": 8.6
+        },
+        {
+          "kw": "\"town to city\" game",
+          "clicks": 0,
+          "impressions": 5,
+          "position": 27
+        },
+        {
+          "kw": "cropia game",
+          "clicks": 0,
+          "impressions": 2,
+          "position": 6
+        },
+        {
+          "kw": "cropia review",
+          "clicks": 0,
+          "impressions": 2,
+          "position": 6
+        },
+        {
+          "kw": "cropia steam",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 9
+        }
+      ],
+      "error": null
+    },
     "town-to-city-guide": {
       "site": "sc-domain:towntocityguide.wiki",
+      "clicks": 0,
+      "impressions": 0,
+      "keywordCount": 0,
+      "topKeywords": [],
+      "error": null
+    },
+    "big-walk-guide": {
+      "site": "sc-domain:thebigwalkguide.wiki",
       "clicks": 0,
       "impressions": 0,
       "keywordCount": 0,
@@ -320,9 +328,9 @@
   "ga": {
     "scrapmechanic-hub": {
       "property": "549934267",
-      "pv": 46,
-      "sessions": 38,
-      "users": 36,
+      "pv": 47,
+      "sessions": 40,
+      "users": 38,
       "daily": {
         "20260820": {
           "pv": 15,
@@ -355,7 +363,7 @@
           "users": 2
         },
         "20260826": {
-          "pv": 2,
+          "pv": 1,
           "sessions": 2,
           "users": 2
         }
@@ -377,6 +385,50 @@
           "pv": 1,
           "sessions": 1,
           "users": 1
+        }
+      },
+      "error": null
+    },
+    "twisted-tower-guide": {
+      "property": "550060653",
+      "pv": 627,
+      "sessions": 331,
+      "users": 301,
+      "daily": {
+        "20260820": {
+          "pv": 261,
+          "sessions": 116,
+          "users": 110
+        },
+        "20260821": {
+          "pv": 139,
+          "sessions": 80,
+          "users": 69
+        },
+        "20260822": {
+          "pv": 88,
+          "sessions": 44,
+          "users": 41
+        },
+        "20260823": {
+          "pv": 66,
+          "sessions": 39,
+          "users": 34
+        },
+        "20260824": {
+          "pv": 36,
+          "sessions": 23,
+          "users": 21
+        },
+        "20260826": {
+          "pv": 24,
+          "sessions": 20,
+          "users": 17
+        },
+        "20260825": {
+          "pv": 13,
+          "sessions": 9,
+          "users": 9
         }
       },
       "error": null
@@ -425,62 +477,26 @@
       },
       "error": null
     },
-    "twisted-tower-guide": {
-      "property": "550060653",
-      "pv": 624,
-      "sessions": 328,
-      "users": 299,
+    "town-to-city-guide": {
+      "property": "551674686",
+      "pv": 3,
+      "sessions": 5,
+      "users": 4,
       "daily": {
-        "20260820": {
-          "pv": 261,
-          "sessions": 116,
-          "users": 110
-        },
-        "20260821": {
-          "pv": 139,
-          "sessions": 80,
-          "users": 69
-        },
-        "20260822": {
-          "pv": 88,
-          "sessions": 44,
-          "users": 41
-        },
-        "20260823": {
-          "pv": 66,
-          "sessions": 39,
-          "users": 34
-        },
-        "20260824": {
-          "pv": 36,
-          "sessions": 23,
-          "users": 21
-        },
         "20260826": {
-          "pv": 21,
-          "sessions": 17,
-          "users": 15
-        },
-        "20260825": {
-          "pv": 13,
-          "sessions": 9,
-          "users": 9
+          "pv": 3,
+          "sessions": 5,
+          "users": 4
         }
       },
       "error": null
     },
-    "town-to-city-guide": {
-      "property": "551674686",
-      "pv": 2,
-      "sessions": 2,
-      "users": 2,
-      "daily": {
-        "20260826": {
-          "pv": 2,
-          "sessions": 2,
-          "users": 2
-        }
-      },
+    "big-walk-guide": {
+      "property": "551455636",
+      "pv": 0,
+      "sessions": 0,
+      "users": 0,
+      "daily": {},
       "error": null
     }
   },
@@ -507,17 +523,6 @@
         "pages": 24
       }
     },
-    "cropia-guide": {
-      "ads_txt": {
-        "ok": true,
-        "detail": "200 + publisher 正确"
-      },
-      "sitemap": {
-        "ok": true,
-        "status": 200,
-        "pages": 15
-      }
-    },
     "twisted-tower-guide": {
       "ads_txt": {
         "ok": true,
@@ -527,6 +532,17 @@
         "ok": true,
         "status": 200,
         "pages": 14
+      }
+    },
+    "cropia-guide": {
+      "ads_txt": {
+        "ok": true,
+        "detail": "200 + publisher 正确"
+      },
+      "sitemap": {
+        "ok": true,
+        "status": 200,
+        "pages": 15
       }
     },
     "town-to-city-guide": {
@@ -539,117 +555,30 @@
         "status": 200,
         "pages": 36
       }
+    },
+    "big-walk-guide": {
+      "ads_txt": {
+        "ok": true,
+        "detail": "200 + publisher 正确"
+      },
+      "sitemap": {
+        "ok": true,
+        "status": 200,
+        "pages": 10
+      }
     }
   },
   "placeholder": {
     "scrapmechanic-hub": {
-      "ok": false,
-      "hits": [
-        {
-          "page": "/underground",
-          "pattern": "once .*? releases"
-        },
-        {
-          "page": "/patch-notes",
-          "pattern": "coming soon"
-        }
-      ]
+      "ok": true,
+      "hits": []
     },
     "cairn-guide": {
       "ok": false,
       "hits": [
         {
-          "page": "/",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/about",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/beginner-survival",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/beginners-guide",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/climbing-routes",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/climbing-tips",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/crafting",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/crafting-recipes",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/faq",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/gear",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/gear-comparison",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/gear-guide",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/guides",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/map",
-          "pattern": "not published yet"
-        },
-        {
           "page": "/on-the-trail-dlc",
-          "pattern": "coming soon"
-        },
-        {
-          "page": "/piton-guide",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/privacy",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/resources-guide",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/route-guide",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/stamina-guide",
-          "pattern": "not published yet"
-        }
-      ]
-    },
-    "cropia-guide": {
-      "ok": false,
-      "hits": [
-        {
-          "page": "/1-0-update",
-          "pattern": "before launch"
-        },
-        {
-          "page": "/news",
-          "pattern": "will be added .*?(release|launch)"
+          "pattern": "to be (determined|confirmed|announced)"
         }
       ]
     },
@@ -657,120 +586,55 @@
       "ok": true,
       "hits": []
     },
+    "cropia-guide": {
+      "ok": true,
+      "hits": []
+    },
     "town-to-city-guide": {
-      "ok": false,
-      "hits": [
-        {
-          "page": "/",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/about",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/achievement-guide",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/beach-biome-economy-guide",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/beginner-colony-guide",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/beginner-walkthrough",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/beginners",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/best-buildings",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/buildings",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/citizen-happiness-guide",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/citizens",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/city-layout",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/city-upgrade-guide",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/defense-layout",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/economy",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/faq",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/industry-chains",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/layouts",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/logistics",
-          "pattern": "not published yet"
-        },
-        {
-          "page": "/news",
-          "pattern": "not published yet"
-        }
-      ]
+      "ok": true,
+      "hits": []
+    },
+    "big-walk-guide": {
+      "ok": true,
+      "hits": []
     }
   },
   "tabs": {
     "ok": true,
     "error": null,
     "note": null,
-    "count": 3,
+    "count": 4,
     "dir": "/Users/wangxiaolong/program/游戏站/logs/tabs-dump/2026-08-26",
     "tabs": [
       {
         "index": 1,
         "targetId": "t1",
-        "title": "Google Analytics",
-        "url": "https://analytics.google.com/analytics/web/#/a398970920p550023235/admin/property/settings",
+        "title": "Google Analytics | 首页",
+        "url": "https://analytics.google.com/analytics/web/#/a398970920p550023235/reports/intelligenthome",
         "snapshot_status": 200,
         "saved": true
       },
       {
         "index": 2,
         "targetId": "t4",
-        "title": "用户和权限",
-        "url": "https://search.google.com/search-console/users?resource_id=sc-domain:towntocityguide.wiki",
+        "title": "网站 – Google AdSense",
+        "url": "https://adsense.google.com/adsense/u/0/pub-8925824244664340/sites/list",
         "snapshot_status": 200,
         "saved": true
       },
       {
         "index": 3,
         "targetId": "t7",
-        "title": "网站 – Google AdSense",
+        "title": "Google AdSense",
         "url": "https://adsense.google.com/adsense/u/0/pub-8925824244664340/sites/detail/url=thebigwalkguide.wiki",
+        "snapshot_status": 200,
+        "saved": true
+      },
+      {
+        "index": 4,
+        "targetId": "t8",
+        "title": "Google AdSense",
+        "url": "https://adsense.google.com/adsense/u/0/pub-8925824244664340/sites/detail/url=towntocityguide.wiki",
         "snapshot_status": 200,
         "saved": true
       }
@@ -781,39 +645,44 @@
     "error": null,
     "sites": {
       "scrapmechanic-hub": {
-        "status": "窗口内未匹配到状态词",
-        "statusKey": "unknown",
-        "lastCheck": "2026-08-26T14:27:40+08:00"
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-08-26T17:30:06+08:00",
+        "adstxt": "已授权"
       },
       "cairn-guide": {
-        "status": "窗口内未匹配到状态词",
-        "statusKey": "unknown",
-        "lastCheck": "2026-08-26T14:27:40+08:00"
-      },
-      "cropia-guide": {
-        "status": "窗口内未匹配到状态词",
-        "statusKey": "unknown",
-        "lastCheck": "2026-08-26T14:27:40+08:00"
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-08-26T17:30:06+08:00",
+        "adstxt": "已授权"
       },
       "twisted-tower-guide": {
-        "status": "窗口内未匹配到状态词",
-        "statusKey": "unknown",
-        "lastCheck": "2026-08-26T14:27:40+08:00"
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-08-26T17:30:06+08:00",
+        "adstxt": "已授权"
+      },
+      "cropia-guide": {
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-08-26T17:30:06+08:00",
+        "adstxt": "未找到"
       },
       "town-to-city-guide": {
-        "status": "窗口内未匹配到状态词",
-        "statusKey": "unknown",
-        "lastCheck": "2026-08-26T14:27:40+08:00"
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-08-26T17:30:06+08:00",
+        "adstxt": "未找到"
+      },
+      "big-walk-guide": {
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-08-26T17:30:06+08:00",
+        "adstxt": "未找到"
       }
     }
   },
   "anomalies": [
-    {
-      "site": "scrapmechanic-hub",
-      "level": "warn",
-      "type": "placeholder",
-      "msg": "Scrap Mechanic Hub 存在占位文案残留: /patch-notes, /underground"
-    },
     {
       "site": "cairn-guide",
       "level": "info",
@@ -824,49 +693,25 @@
       "site": "cairn-guide",
       "level": "warn",
       "type": "placeholder",
-      "msg": "Cairn Guide 存在占位文案残留: /, /about, /beginner-survival, /beginners-guide, /climbing-routes, /climbing-tips, /crafting, /crafting-recipes, /faq, /gear, /gear-comparison, /gear-guide, /guides, /map, /on-the-trail-dlc, /piton-guide, /privacy, /resources-guide, /route-guide, /stamina-guide"
+      "msg": "Cairn Guide 存在占位文案残留: /on-the-trail-dlc"
     },
     {
       "site": "cropia-guide",
       "level": "warn",
-      "type": "placeholder",
-      "msg": "Cropia Guide 存在占位文案残留: /1-0-update, /news"
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: cropia.wiki → 未找到（线上文件状态不替代后台授权）"
     },
     {
       "site": "town-to-city-guide",
       "level": "warn",
-      "type": "placeholder",
-      "msg": "Town to City Guide 存在占位文案残留: /, /about, /achievement-guide, /beach-biome-economy-guide, /beginner-colony-guide, /beginner-walkthrough, /beginners, /best-buildings, /buildings, /citizen-happiness-guide, /citizens, /city-layout, /city-upgrade-guide, /defense-layout, /economy, /faq, /industry-chains, /layouts, /logistics, /news"
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: towntocityguide.wiki → 未找到（线上文件状态不替代后台授权）"
     },
     {
-      "site": "scrapmechanic-hub",
+      "site": "big-walk-guide",
       "level": "warn",
-      "type": "adsense",
-      "msg": "AdSense 状态未识别: scrapmechanichub.com (窗口内未匹配到状态词)，需人工看 /Users/wangxiaolong/program/游戏站/logs/adsense-check/2026-08-26-sites.snapshot.txt"
-    },
-    {
-      "site": "cairn-guide",
-      "level": "warn",
-      "type": "adsense",
-      "msg": "AdSense 状态未识别: cairnguide.wiki (窗口内未匹配到状态词)，需人工看 /Users/wangxiaolong/program/游戏站/logs/adsense-check/2026-08-26-sites.snapshot.txt"
-    },
-    {
-      "site": "cropia-guide",
-      "level": "warn",
-      "type": "adsense",
-      "msg": "AdSense 状态未识别: cropia.wiki (窗口内未匹配到状态词)，需人工看 /Users/wangxiaolong/program/游戏站/logs/adsense-check/2026-08-26-sites.snapshot.txt"
-    },
-    {
-      "site": "twisted-tower-guide",
-      "level": "warn",
-      "type": "adsense",
-      "msg": "AdSense 状态未识别: twistedtowerguide.wiki (窗口内未匹配到状态词)，需人工看 /Users/wangxiaolong/program/游戏站/logs/adsense-check/2026-08-26-sites.snapshot.txt"
-    },
-    {
-      "site": "town-to-city-guide",
-      "level": "warn",
-      "type": "adsense",
-      "msg": "AdSense 状态未识别: towntocityguide.wiki (窗口内未匹配到状态词)，需人工看 /Users/wangxiaolong/program/游戏站/logs/adsense-check/2026-08-26-sites.snapshot.txt"
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: thebigwalkguide.wiki → 未找到（线上文件状态不替代后台授权）"
     }
   ]
 }

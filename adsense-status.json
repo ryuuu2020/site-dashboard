@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-26T15:08:06+08:00",
+  "generated": "2026-08-26T17:30:06+08:00",
   "note": "AdSense 审核状态快照。source=auto（由每日 AdSense 审核状态检查 cron 自动读取后台）。publisher=pub-8925824244664340 账号独立于 gguidehub 主站。注意：filter_list 过滤项显示「准备就绪 / 正在准备 / 需要审核 / 需要注意」四类，但当前列表为「需要审核」，即尚未过审。",
   "publisher": "pub-8925824244664340",
   "sites": {
@@ -9,7 +9,7 @@
       "statusKey": "preparing",
       "adstxt": "已授权",
       "registeredAt": "2026-08-19T16:52:00+08:00",
-      "lastCheck": "2026-08-26T15:08:06+08:00",
+      "lastCheck": "2026-08-26T17:30:06+08:00",
       "note": "独立提交审核。线上 ads.txt 正常（200 + pub-8925824244664340）。"
     },
     "cairn-guide": {
@@ -18,14 +18,8 @@
       "statusKey": "preparing",
       "adstxt": "已授权",
       "registeredAt": "2026-08-19T16:49:00+08:00",
-      "lastCheck": "2026-08-26T15:08:06+08:00",
+      "lastCheck": "2026-08-26T17:30:06+08:00",
       "note": "独立提交审核。26 页内容站，三个站里内容最实，过审概率相对高。"
-    },
-    "cropia-guide": {
-      "domain": "cropia.wiki",
-      "status": "正在准备",
-      "statusKey": "preparing",
-      "lastCheck": "2026-08-26T15:08:06+08:00"
     },
     "twisted-tower-guide": {
       "domain": "twistedtowerguide.wiki",
@@ -33,14 +27,29 @@
       "statusKey": "preparing",
       "adstxt": "已授权",
       "registeredAt": "2026-08-19T16:51:00+08:00",
-      "lastCheck": "2026-08-26T15:08:06+08:00",
+      "lastCheck": "2026-08-26T17:30:06+08:00",
       "note": "独立提交审核。8-18 游戏上线，处于流量爆发期，内容按官方素材写。"
+    },
+    "cropia-guide": {
+      "domain": "cropia.wiki",
+      "status": "正在准备",
+      "statusKey": "preparing",
+      "lastCheck": "2026-08-26T17:30:06+08:00",
+      "adstxt": "未找到"
     },
     "town-to-city-guide": {
       "domain": "towntocityguide.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-08-26T15:08:06+08:00"
+      "lastCheck": "2026-08-26T17:30:06+08:00",
+      "adstxt": "未找到"
+    },
+    "big-walk-guide": {
+      "domain": "thebigwalkguide.wiki",
+      "status": "正在准备",
+      "statusKey": "preparing",
+      "lastCheck": "2026-08-26T17:30:06+08:00",
+      "adstxt": "未找到"
     }
   },
   "history": [
