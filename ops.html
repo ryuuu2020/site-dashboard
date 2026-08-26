@@ -211,7 +211,7 @@ async function loadJSON(url) {
   }
 }
 
-// ── 站元信息（与 voyage.json 对齐） ──
+// ── 站元信息（内置为兑底，实际以 ./sites.json 注册表为准，新站注册后自动出卡） ──
 const SITE_META = {
   'scrapmechanic-hub': { name: 'Scrap Mechanic Hub', domain: 'https://scrapmechanichub.com', dir: 'scrapmechanic-hub' },
   'cairn-guide': { name: 'Cairn Guide', domain: 'https://cairnguide.wiki', dir: 'cairn-guide' },
@@ -407,10 +407,16 @@ function renderAnomalies(ops) {
 
 // ── 载入 ──
 (async function () {
-  const [ops, adsense] = await Promise.all([
+  const [ops, adsense, registry] = await Promise.all([
     loadJSON('./ops-daily.json'),
     loadJSON('./adsense-status.json'),
+    loadJSON('./sites.json'),
   ]);
+  if (registry && Array.isArray(registry.sites)) {
+    for (const s of registry.sites) {
+      if (s && s.key) SITE_META[s.key] = { name: s.name, domain: s.domain, dir: s.dir };
+    }
+  }
   const meta = document.getElementById('meta');
   if (ops) {
     meta.textContent = `数据快照 ${fmtDate(ops.generated_at)} · ${Object.keys(ops.gsc || {}).length} 站 GSC · ${Object.keys(ops.ga || {}).length} 站 GA · 健康检查 ${Object.keys(ops.health || {}).length} 站`;
