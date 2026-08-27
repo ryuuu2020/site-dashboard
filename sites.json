@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-26",
+  "updated": "2026-08-27",
   "comment": "站点注册表 = 指挥中心唯一数据源。新增站点用 scripts/register-site.py 写入，勿手改多处。daily-ops.py 与 ops.html 都读这里。",
   "sites": [
     {
@@ -67,6 +67,16 @@
       "steam": "1478500",
       "registeredAt": "2026-08-26",
       "note": "08-25 由另一会话建站；08-26 体检确认后补注册进监控"
+    },
+    {
+      "key": "slay-the-spire-2-guide",
+      "name": "Slay the Spire 2 Guide",
+      "domain": "https://slaythespire2guide.wiki",
+      "dir": "slay-the-spire-2-guide",
+      "gsc_site": "sc-domain:slaythespire2guide.wiki",
+      "ga_property": "551840512",
+      "steam": "2868840",
+      "registeredAt": "2026-08-27"
     }
   ]
 }
