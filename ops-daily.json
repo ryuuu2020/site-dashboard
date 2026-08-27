@@ -1,6 +1,6 @@
 {
-  "date": "2026-08-26",
-  "generated_at": "2026-08-26T20:18:04.466976",
+  "date": "2026-08-27",
+  "generated_at": "2026-08-27T11:04:07.866696",
   "gsc": {
     "scrapmechanic-hub": {
       "site": "https://scrapmechanichub.com/",
@@ -323,24 +323,32 @@
       "keywordCount": 0,
       "topKeywords": [],
       "error": null
+    },
+    "slay-the-spire-2-guide": {
+      "site": "sc-domain:slaythespire2guide.wiki",
+      "clicks": 0,
+      "impressions": 0,
+      "keywordCount": 0,
+      "topKeywords": [],
+      "error": null
     }
   },
   "ga": {
     "scrapmechanic-hub": {
       "property": "549934267",
-      "pv": 51,
-      "sessions": 44,
-      "users": 42,
+      "pv": 42,
+      "sessions": 39,
+      "users": 37,
       "daily": {
-        "20260820": {
-          "pv": 15,
-          "sessions": 11,
-          "users": 11
-        },
         "20260822": {
           "pv": 9,
           "sessions": 6,
           "users": 6
+        },
+        "20260826": {
+          "pv": 3,
+          "sessions": 3,
+          "users": 3
         },
         "20260823": {
           "pv": 1,
@@ -352,17 +360,17 @@
           "sessions": 1,
           "users": 1
         },
-        "20260826": {
-          "pv": 2,
-          "sessions": 2,
-          "users": 2
-        },
         "20260824": {
           "pv": 4,
           "sessions": 4,
           "users": 4
         },
         "20260825": {
+          "pv": 2,
+          "sessions": 2,
+          "users": 2
+        },
+        "20260827": {
           "pv": 2,
           "sessions": 2,
           "users": 2
@@ -391,15 +399,10 @@
     },
     "twisted-tower-guide": {
       "property": "550060653",
-      "pv": 627,
-      "sessions": 331,
-      "users": 301,
+      "pv": 372,
+      "sessions": 222,
+      "users": 197,
       "daily": {
-        "20260820": {
-          "pv": 261,
-          "sessions": 116,
-          "users": 110
-        },
         "20260821": {
           "pv": 139,
           "sessions": 80,
@@ -421,29 +424,29 @@
           "users": 21
         },
         "20260826": {
-          "pv": 24,
-          "sessions": 20,
-          "users": 17
+          "pv": 27,
+          "sessions": 25,
+          "users": 21
         },
         "20260825": {
           "pv": 13,
           "sessions": 9,
           "users": 9
+        },
+        "20260827": {
+          "pv": 3,
+          "sessions": 2,
+          "users": 2
         }
       },
       "error": null
     },
     "cropia-guide": {
       "property": "550023235",
-      "pv": 193,
-      "sessions": 102,
-      "users": 85,
+      "pv": 144,
+      "sessions": 82,
+      "users": 70,
       "daily": {
-        "20260820": {
-          "pv": 49,
-          "sessions": 20,
-          "users": 15
-        },
         "20260823": {
           "pv": 48,
           "sessions": 21,
@@ -479,20 +482,33 @@
     },
     "town-to-city-guide": {
       "property": "551674686",
-      "pv": 4,
-      "sessions": 6,
-      "users": 5,
+      "pv": 12,
+      "sessions": 11,
+      "users": 10,
       "daily": {
         "20260826": {
-          "pv": 4,
-          "sessions": 6,
-          "users": 5
+          "pv": 6,
+          "sessions": 7,
+          "users": 6
+        },
+        "20260827": {
+          "pv": 6,
+          "sessions": 4,
+          "users": 4
         }
       },
       "error": null
     },
     "big-walk-guide": {
       "property": "551455636",
+      "pv": 0,
+      "sessions": 0,
+      "users": 0,
+      "daily": {},
+      "error": null
+    },
+    "slay-the-spire-2-guide": {
+      "property": "551840512",
       "pv": 0,
       "sessions": 0,
       "users": 0,
@@ -566,6 +582,17 @@
         "status": 200,
         "pages": 10
       }
+    },
+    "slay-the-spire-2-guide": {
+      "ads_txt": {
+        "ok": true,
+        "detail": "200 + publisher 正确"
+      },
+      "sitemap": {
+        "ok": true,
+        "status": 200,
+        "pages": 14
+      }
     }
   },
   "placeholder": {
@@ -597,28 +624,56 @@
     "big-walk-guide": {
       "ok": true,
       "hits": []
+    },
+    "slay-the-spire-2-guide": {
+      "ok": true,
+      "hits": []
     }
   },
   "tabs": {
     "ok": true,
     "error": null,
     "note": null,
-    "count": 2,
-    "dir": "/Users/wangxiaolong/program/游戏站/logs/tabs-dump/2026-08-26",
+    "count": 5,
+    "dir": "/Users/wangxiaolong/program/游戏站/logs/tabs-dump/2026-08-27",
     "tabs": [
       {
         "index": 1,
         "targetId": "t1",
         "title": "Google Analytics | 首页",
-        "url": "https://analytics.google.com/analytics/web/#/a398970920p550023235/reports/intelligenthome",
+        "url": "https://analytics.google.com/analytics/web/#/a398970920p551840512/reports/intelligenthome?restoreUserState=true",
         "snapshot_status": 200,
         "saved": true
       },
       {
         "index": 2,
+        "targetId": "t2",
+        "title": "用户和权限",
+        "url": "https://search.google.com/search-console/users?resource_id=sc-domain%3Atowntocityguide.wiki",
+        "snapshot_status": 200,
+        "saved": true
+      },
+      {
+        "index": 3,
+        "targetId": "t3",
+        "title": "https://www.google.com/search?hl=en&gl=us&num=10&pws=0&q=Slay+the+Spire+2+guide",
+        "url": "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fhl%3Den%26gl%3Dus%26num%3D10%26pws%3D0%26q%3DSlay%2Bthe%2BSpire%2B2%2Bguide&hl=en&q=EhAkB83A8AgCNwAAAAAAAAAAGK3ru9QGIjD-q35FcHNqQtvwNxluKb2vF_PLTqdF5q48Gwa2Swpu1fpe2p7l7_AMp9PbfvSb738yAnJSWgFD",
+        "snapshot_status": 200,
+        "saved": true
+      },
+      {
+        "index": 4,
         "targetId": "t4",
         "title": "网站 – Google AdSense",
         "url": "https://adsense.google.com/adsense/u/0/pub-8925824244664340/sites/list",
+        "snapshot_status": 200,
+        "saved": true
+      },
+      {
+        "index": 5,
+        "targetId": "t5",
+        "title": "slaythespire2guide.wiki - 高级 DNS - Spaceship",
+        "url": "https://www.spaceship.com/zh/application/advanced-dns-application/manage/slaythespire2guide.wiki/",
         "snapshot_status": 200,
         "saved": true
       }
@@ -631,38 +686,44 @@
       "scrapmechanic-hub": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-26T20:18:04+08:00",
+        "lastCheck": "2026-08-27T11:04:07+08:00",
         "adstxt": "已授权"
       },
       "cairn-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-26T20:18:04+08:00",
+        "lastCheck": "2026-08-27T11:04:07+08:00",
         "adstxt": "已授权"
       },
       "twisted-tower-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-26T20:18:04+08:00",
+        "lastCheck": "2026-08-27T11:04:07+08:00",
         "adstxt": "已授权"
       },
       "cropia-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-26T20:18:04+08:00",
+        "lastCheck": "2026-08-27T11:04:07+08:00",
         "adstxt": "未找到"
       },
       "town-to-city-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-26T20:18:04+08:00",
+        "lastCheck": "2026-08-27T11:04:07+08:00",
         "adstxt": "未找到"
       },
       "big-walk-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-26T20:18:04+08:00",
+        "lastCheck": "2026-08-27T11:04:07+08:00",
         "adstxt": "未找到"
+      },
+      "slay-the-spire-2-guide": {
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-08-27T11:04:07+08:00",
+        "adstxt": "已授权"
       }
     }
   },
