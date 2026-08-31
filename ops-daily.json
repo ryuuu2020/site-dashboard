@@ -1,48 +1,54 @@
 {
-  "date": "2026-08-27",
-  "generated_at": "2026-08-27T11:04:07.866696",
+  "date": "2026-08-31",
+  "generated_at": "2026-08-31T09:07:10.907533",
   "gsc": {
     "scrapmechanic-hub": {
       "site": "https://scrapmechanichub.com/",
-      "clicks": 8,
-      "impressions": 274,
-      "keywordCount": 60,
+      "clicks": 11,
+      "impressions": 344,
+      "keywordCount": 63,
       "topKeywords": [
         {
           "kw": "scrap mechanic raid calculator",
           "clicks": 0,
-          "impressions": 53,
-          "position": 9.2
+          "impressions": 64,
+          "position": 9.0
         },
         {
           "kw": "raid calculator scrap mechanic",
           "clicks": 0,
-          "impressions": 31,
-          "position": 9.2
+          "impressions": 37,
+          "position": 8.9
         },
         {
           "kw": "scrap mechanic raid levels",
           "clicks": 0,
-          "impressions": 26,
-          "position": 7.2
+          "impressions": 36,
+          "position": 7.1
         },
         {
           "kw": "scrap mechanic raid spawn distance",
-          "clicks": 0,
-          "impressions": 20,
-          "position": 8.7
+          "clicks": 2,
+          "impressions": 31,
+          "position": 8.5
         },
         {
           "kw": "scrap mechanic raids",
           "clicks": 2,
-          "impressions": 17,
-          "position": 8.8
+          "impressions": 20,
+          "position": 8.6
         },
         {
           "kw": "scrap mechanic raid",
           "clicks": 1,
+          "impressions": 11,
+          "position": 9
+        },
+        {
+          "kw": "how many spuds to kill a farmbot",
+          "clicks": 0,
           "impressions": 9,
-          "position": 9.4
+          "position": 6.2
         },
         {
           "kw": "scrap mechanic chapter 2 raid calculator",
@@ -53,8 +59,20 @@
         {
           "kw": "scrap mechanic farm raid calculator",
           "clicks": 1,
-          "impressions": 7,
+          "impressions": 8,
           "position": 8.1
+        },
+        {
+          "kw": "scrap mechanic raid calculator chapter 2",
+          "clicks": 1,
+          "impressions": 8,
+          "position": 7.6
+        },
+        {
+          "kw": "scrap mechanic raid defense",
+          "clicks": 0,
+          "impressions": 8,
+          "position": 7
         },
         {
           "kw": "scrap mechanic crop values",
@@ -63,40 +81,22 @@
           "position": 10
         },
         {
+          "kw": "scrap mechanic farm defense 2026",
+          "clicks": 0,
+          "impressions": 6,
+          "position": 6.5
+        },
+        {
           "kw": "scrap mechanic mining hub",
           "clicks": 0,
           "impressions": 6,
           "position": 10.2
         },
         {
-          "kw": "scrap mechanic raid defense",
-          "clicks": 0,
-          "impressions": 6,
-          "position": 7.2
-        },
-        {
-          "kw": "how many spuds to kill a farmbot",
+          "kw": "raid levels scrap mechanic",
           "clicks": 0,
           "impressions": 5,
-          "position": 6.2
-        },
-        {
-          "kw": "scrap mechanic 1.0 mods",
-          "clicks": 0,
-          "impressions": 5,
-          "position": 7.6
-        },
-        {
-          "kw": "scrap mechanic mods in survival",
-          "clicks": 0,
-          "impressions": 5,
-          "position": 8.8
-        },
-        {
-          "kw": "scrap mechanic farm defense",
-          "clicks": 0,
-          "impressions": 4,
-          "position": 17.2
+          "position": 7
         }
       ],
       "error": null
@@ -155,7 +155,7 @@
     "twisted-tower-guide": {
       "site": "sc-domain:twistedtowerguide.wiki",
       "clicks": 53,
-      "impressions": 528,
+      "impressions": 530,
       "keywordCount": 28,
       "topKeywords": [
         {
@@ -167,8 +167,8 @@
         {
           "kw": "twisted tower walkthrough",
           "clicks": 27,
-          "impressions": 150,
-          "position": 3.8
+          "impressions": 151,
+          "position": 3.9
         },
         {
           "kw": "twisted tower secret areas",
@@ -179,7 +179,7 @@
         {
           "kw": "twisted tower secrets",
           "clicks": 3,
-          "impressions": 38,
+          "impressions": 39,
           "position": 5.2
         },
         {
@@ -253,21 +253,27 @@
     },
     "cropia-guide": {
       "site": "sc-domain:cropia.wiki",
-      "clicks": 13,
-      "impressions": 326,
-      "keywordCount": 8,
+      "clicks": 17,
+      "impressions": 432,
+      "keywordCount": 9,
       "topKeywords": [
         {
           "kw": "cropia",
-          "clicks": 3,
-          "impressions": 279,
-          "position": 10.0
+          "clicks": 4,
+          "impressions": 368,
+          "position": 9.4
         },
         {
           "kw": "cropia wiki",
-          "clicks": 10,
-          "impressions": 19,
+          "clicks": 12,
+          "impressions": 22,
           "position": 1
+        },
+        {
+          "kw": "cropia trainer",
+          "clicks": 1,
+          "impressions": 13,
+          "position": 8.8
         },
         {
           "kw": "\"going medieval\" game -\"medieval total war\" -\"medieval engineers\" -\"medieval times\" -\"go medieval\" -\"ground of aces\"",
@@ -276,22 +282,22 @@
           "position": 89
         },
         {
-          "kw": "cropia trainer",
+          "kw": "cropia game",
           "clicks": 0,
           "impressions": 8,
-          "position": 8.6
+          "position": 6.4
         },
         {
           "kw": "\"town to city\" game",
           "clicks": 0,
-          "impressions": 5,
-          "position": 27
+          "impressions": 6,
+          "position": 27.8
         },
         {
-          "kw": "cropia game",
+          "kw": "cropia cheat engine",
           "clicks": 0,
-          "impressions": 4,
-          "position": 6
+          "impressions": 3,
+          "position": 64.7
         },
         {
           "kw": "cropia review",
@@ -302,7 +308,7 @@
         {
           "kw": "cropia steam",
           "clicks": 0,
-          "impressions": 1,
+          "impressions": 2,
           "position": 9
         }
       ],
@@ -319,9 +325,64 @@
     "big-walk-guide": {
       "site": "sc-domain:thebigwalkguide.wiki",
       "clicks": 0,
-      "impressions": 0,
-      "keywordCount": 0,
-      "topKeywords": [],
+      "impressions": 12,
+      "keywordCount": 9,
+      "topKeywords": [
+        {
+          "kw": "backpack big walk",
+          "clicks": 0,
+          "impressions": 2,
+          "position": 28.5
+        },
+        {
+          "kw": "big walk backpack",
+          "clicks": 0,
+          "impressions": 2,
+          "position": 30
+        },
+        {
+          "kw": "big walk 列車",
+          "clicks": 0,
+          "impressions": 2,
+          "position": 20
+        },
+        {
+          "kw": "big walk puzzle game",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 57
+        },
+        {
+          "kw": "big walk voice chat",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 2
+        },
+        {
+          "kw": "big walk wiki",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 22
+        },
+        {
+          "kw": "big waln",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 8
+        },
+        {
+          "kw": "the big step walkthrough",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 66
+        },
+        {
+          "kw": "the big walk",
+          "clicks": 0,
+          "impressions": 1,
+          "position": 11
+        }
+      ],
       "error": null
     },
     "slay-the-spire-2-guide": {
@@ -336,41 +397,41 @@
   "ga": {
     "scrapmechanic-hub": {
       "property": "549934267",
-      "pv": 42,
+      "pv": 41,
       "sessions": 39,
       "users": 37,
       "daily": {
-        "20260822": {
-          "pv": 9,
-          "sessions": 6,
-          "users": 6
-        },
         "20260826": {
           "pv": 3,
           "sessions": 3,
           "users": 3
         },
-        "20260823": {
-          "pv": 1,
-          "sessions": 1,
-          "users": 1
+        "20260828": {
+          "pv": 7,
+          "sessions": 7,
+          "users": 6
         },
-        "20260821": {
-          "pv": 1,
-          "sessions": 1,
-          "users": 1
+        "20260829": {
+          "pv": 6,
+          "sessions": 6,
+          "users": 5
         },
-        "20260824": {
-          "pv": 4,
-          "sessions": 4,
-          "users": 4
-        },
-        "20260825": {
-          "pv": 2,
-          "sessions": 2,
-          "users": 2
+        "20260830": {
+          "pv": 5,
+          "sessions": 5,
+          "users": 5
         },
         "20260827": {
+          "pv": 1,
+          "sessions": 1,
+          "users": 1
+        },
+        "20260831": {
+          "pv": 3,
+          "sessions": 3,
+          "users": 3
+        },
+        "20260825": {
           "pv": 2,
           "sessions": 2,
           "users": 2
@@ -380,16 +441,41 @@
     },
     "cairn-guide": {
       "property": "551467374",
-      "pv": 4,
-      "sessions": 3,
-      "users": 3,
+      "pv": 17,
+      "sessions": 15,
+      "users": 15,
       "daily": {
+        "20260827": {
+          "pv": 2,
+          "sessions": 2,
+          "users": 2
+        },
         "20260826": {
           "pv": 3,
           "sessions": 2,
           "users": 2
         },
+        "20260828": {
+          "pv": 2,
+          "sessions": 2,
+          "users": 2
+        },
+        "20260830": {
+          "pv": 2,
+          "sessions": 1,
+          "users": 1
+        },
         "20260825": {
+          "pv": 1,
+          "sessions": 1,
+          "users": 1
+        },
+        "20260829": {
+          "pv": 1,
+          "sessions": 1,
+          "users": 1
+        },
+        "20260831": {
           "pv": 1,
           "sessions": 1,
           "users": 1
@@ -399,78 +485,58 @@
     },
     "twisted-tower-guide": {
       "property": "550060653",
-      "pv": 372,
-      "sessions": 222,
-      "users": 197,
+      "pv": 144,
+      "sessions": 91,
+      "users": 82,
       "daily": {
-        "20260821": {
-          "pv": 139,
-          "sessions": 80,
-          "users": 69
-        },
-        "20260822": {
-          "pv": 88,
-          "sessions": 44,
-          "users": 41
-        },
-        "20260823": {
-          "pv": 66,
-          "sessions": 39,
-          "users": 34
-        },
-        "20260824": {
-          "pv": 36,
-          "sessions": 23,
-          "users": 21
-        },
         "20260826": {
-          "pv": 27,
-          "sessions": 25,
-          "users": 21
-        },
-        "20260825": {
-          "pv": 13,
-          "sessions": 9,
-          "users": 9
+          "pv": 36,
+          "sessions": 28,
+          "users": 24
         },
         "20260827": {
-          "pv": 3,
-          "sessions": 2,
-          "users": 2
+          "pv": 32,
+          "sessions": 16,
+          "users": 16
+        },
+        "20260829": {
+          "pv": 20,
+          "sessions": 12,
+          "users": 10
+        },
+        "20260825": {
+          "pv": 15,
+          "sessions": 11,
+          "users": 10
+        },
+        "20260830": {
+          "pv": 15,
+          "sessions": 10,
+          "users": 10
+        },
+        "20260831": {
+          "pv": 14,
+          "sessions": 4,
+          "users": 4
+        },
+        "20260828": {
+          "pv": 12,
+          "sessions": 10,
+          "users": 8
         }
       },
       "error": null
     },
     "cropia-guide": {
       "property": "550023235",
-      "pv": 144,
-      "sessions": 82,
-      "users": 70,
+      "pv": 28,
+      "sessions": 11,
+      "users": 10,
       "daily": {
-        "20260823": {
-          "pv": 48,
-          "sessions": 21,
-          "users": 16
-        },
-        "20260822": {
-          "pv": 40,
-          "sessions": 29,
-          "users": 25
-        },
-        "20260821": {
-          "pv": 21,
-          "sessions": 14,
-          "users": 12
-        },
         "20260825": {
-          "pv": 19,
-          "sessions": 9,
+          "pv": 28,
+          "sessions": 10,
           "users": 9
-        },
-        "20260824": {
-          "pv": 16,
-          "sessions": 8,
-          "users": 7
         },
         "20260826": {
           "pv": 0,
@@ -482,19 +548,39 @@
     },
     "town-to-city-guide": {
       "property": "551674686",
-      "pv": 12,
-      "sessions": 11,
-      "users": 10,
+      "pv": 48,
+      "sessions": 48,
+      "users": 47,
       "daily": {
+        "20260827": {
+          "pv": 16,
+          "sessions": 16,
+          "users": 16
+        },
+        "20260829": {
+          "pv": 10,
+          "sessions": 10,
+          "users": 10
+        },
+        "20260828": {
+          "pv": 8,
+          "sessions": 8,
+          "users": 8
+        },
         "20260826": {
           "pv": 6,
           "sessions": 7,
           "users": 6
         },
-        "20260827": {
-          "pv": 6,
-          "sessions": 4,
-          "users": 4
+        "20260830": {
+          "pv": 5,
+          "sessions": 5,
+          "users": 5
+        },
+        "20260831": {
+          "pv": 3,
+          "sessions": 2,
+          "users": 2
         }
       },
       "error": null
@@ -591,7 +677,7 @@
       "sitemap": {
         "ok": true,
         "status": 200,
-        "pages": 14
+        "pages": 16
       }
     }
   },
@@ -634,46 +720,14 @@
     "ok": true,
     "error": null,
     "note": null,
-    "count": 5,
-    "dir": "/Users/wangxiaolong/program/游戏站/logs/tabs-dump/2026-08-27",
+    "count": 1,
+    "dir": "/Users/wangxiaolong/program/游戏站/logs/tabs-dump/2026-08-31",
     "tabs": [
       {
         "index": 1,
-        "targetId": "t1",
-        "title": "Google Analytics | 首页",
-        "url": "https://analytics.google.com/analytics/web/#/a398970920p551840512/reports/intelligenthome?restoreUserState=true",
-        "snapshot_status": 200,
-        "saved": true
-      },
-      {
-        "index": 2,
-        "targetId": "t2",
-        "title": "用户和权限",
-        "url": "https://search.google.com/search-console/users?resource_id=sc-domain%3Atowntocityguide.wiki",
-        "snapshot_status": 200,
-        "saved": true
-      },
-      {
-        "index": 3,
-        "targetId": "t3",
-        "title": "https://www.google.com/search?hl=en&gl=us&num=10&pws=0&q=Slay+the+Spire+2+guide",
-        "url": "https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fhl%3Den%26gl%3Dus%26num%3D10%26pws%3D0%26q%3DSlay%2Bthe%2BSpire%2B2%2Bguide&hl=en&q=EhAkB83A8AgCNwAAAAAAAAAAGK3ru9QGIjD-q35FcHNqQtvwNxluKb2vF_PLTqdF5q48Gwa2Swpu1fpe2p7l7_AMp9PbfvSb738yAnJSWgFD",
-        "snapshot_status": 200,
-        "saved": true
-      },
-      {
-        "index": 4,
-        "targetId": "t4",
-        "title": "网站 – Google AdSense",
-        "url": "https://adsense.google.com/adsense/u/0/pub-8925824244664340/sites/list",
-        "snapshot_status": 200,
-        "saved": true
-      },
-      {
-        "index": 5,
-        "targetId": "t5",
-        "title": "slaythespire2guide.wiki - 高级 DNS - Spaceship",
-        "url": "https://www.spaceship.com/zh/application/advanced-dns-application/manage/slaythespire2guide.wiki/",
+        "targetId": "t8",
+        "title": "概述",
+        "url": "https://search.google.com/search-console?resource_id=sc-domain%3Aslaythespire2guide.wiki",
         "snapshot_status": 200,
         "saved": true
       }
@@ -686,43 +740,43 @@
       "scrapmechanic-hub": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-27T11:04:07+08:00",
-        "adstxt": "已授权"
+        "lastCheck": "2026-08-31T09:07:10+08:00",
+        "adstxt": "未找到"
       },
       "cairn-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-27T11:04:07+08:00",
-        "adstxt": "已授权"
+        "lastCheck": "2026-08-31T09:07:10+08:00",
+        "adstxt": "未找到"
       },
       "twisted-tower-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-27T11:04:07+08:00",
+        "lastCheck": "2026-08-31T09:07:10+08:00",
         "adstxt": "已授权"
       },
       "cropia-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-27T11:04:07+08:00",
+        "lastCheck": "2026-08-31T09:07:10+08:00",
         "adstxt": "未找到"
       },
       "town-to-city-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-27T11:04:07+08:00",
+        "lastCheck": "2026-08-31T09:07:10+08:00",
         "adstxt": "未找到"
       },
       "big-walk-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-27T11:04:07+08:00",
+        "lastCheck": "2026-08-31T09:07:10+08:00",
         "adstxt": "未找到"
       },
       "slay-the-spire-2-guide": {
         "status": "正在准备",
         "statusKey": "preparing",
-        "lastCheck": "2026-08-27T11:04:07+08:00",
+        "lastCheck": "2026-08-31T09:07:10+08:00",
         "adstxt": "已授权"
       }
     }
@@ -739,6 +793,24 @@
       "level": "warn",
       "type": "placeholder",
       "msg": "Cairn Guide 存在占位文案残留: /on-the-trail-dlc"
+    },
+    {
+      "site": "big-walk-guide",
+      "level": "info",
+      "type": "gsc",
+      "msg": "Big Walk Guide 有展示(12)无点击，注意 CTR"
+    },
+    {
+      "site": "scrapmechanic-hub",
+      "level": "warn",
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: scrapmechanichub.com → 未找到（线上文件状态不替代后台授权）"
+    },
+    {
+      "site": "cairn-guide",
+      "level": "warn",
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: cairnguide.wiki → 未找到（线上文件状态不替代后台授权）"
     },
     {
       "site": "cropia-guide",
