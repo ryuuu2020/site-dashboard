@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-27",
+  "updated": "2026-09-03",
   "comment": "站点注册表 = 指挥中心唯一数据源。新增站点用 scripts/register-site.py 写入，勿手改多处。daily-ops.py 与 ops.html 都读这里。",
   "sites": [
     {
@@ -77,6 +77,17 @@
       "ga_property": "551840512",
       "steam": "2868840",
       "registeredAt": "2026-08-27"
+    },
+    {
+      "key": "the-adventurers-guide",
+      "name": "The Adventurers Guide",
+      "domain": "https://theadventurersguide.wiki",
+      "dir": "the-adventurers-guide",
+      "gsc_site": "sc-domain:theadventurersguide.wiki",
+      "ga_property": "552674369",
+      "steam": "3062500",
+      "registeredAt": "2026-09-03",
+      "note": "Cloudflare Pages 战术站；Next.js 14 静态导出；包含 6 维属性计算器与编队规划器"
     }
   ]
 }
