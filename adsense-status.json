@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-31T10:00:00+08:00",
-  "note": "AdSense 审核状态快照。source=auto（由每日 AdSense 审核状态检查 cron 自动读取后台）。publisher=pub-8925824244664340 账号独立于 gguidehub 主站。当前列表 7 站审批状态全部为「正在准备」，尚未过审。08-31 10:00 快照与 08-30 快照一致，无状态变化，今日无过审。",
+  "generated": "2026-09-03T10:00:00+08:00",
+  "note": "AdSense 审核状态快照。source=auto（由每日 AdSense 审核状态检查 cron 自动读取后台）。publisher=pub-8925824244664340 账号独立于 gguidehub 主站。当前列表 7 站审批状态全部为「正在准备」，尚未过审。09-03 10:00 快照与 09-02 快照审批状态一致，今日无过审；但 twistedtowerguide.wiki 与 slaythespire2guide.wiki 的 Ads.txt 由「已授权」回退为「未找到」，需留意。",
   "publisher": "pub-8925824244664340",
   "sites": {
     "scrapmechanic-hub": {
@@ -9,8 +9,8 @@
       "statusKey": "preparing",
       "adstxt": "未找到",
       "registeredAt": "2026-08-19T16:52:00+08:00",
-      "lastCheck": "2026-08-31T10:00:00+08:00",
-      "note": "独立提交审核。线上 ads.txt 正常（200 + pub-8925824244664340）。"
+      "lastCheck": "2026-09-03T10:00:00+08:00",
+      "note": "独立提交审核。线上 ads.txt 正常（200 + pub-8925824244664340），但后台仍显示未找到。"
     },
     "cairn-guide": {
       "domain": "cairnguide.wiki",
@@ -18,45 +18,45 @@
       "statusKey": "preparing",
       "adstxt": "未找到",
       "registeredAt": "2026-08-19T16:49:00+08:00",
-      "lastCheck": "2026-08-31T10:00:00+08:00",
+      "lastCheck": "2026-09-03T10:00:00+08:00",
       "note": "独立提交审核。26 页内容站，三个站里内容最实，过审概率相对高。"
     },
     "twisted-tower-guide": {
       "domain": "twistedtowerguide.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "adstxt": "已授权",
+      "adstxt": "未找到",
       "registeredAt": "2026-08-19T16:51:00+08:00",
-      "lastCheck": "2026-08-31T10:00:00+08:00",
-      "note": "独立提交审核。8-18 游戏上线，处于流量爆发期，内容按官方素材写。"
+      "lastCheck": "2026-09-03T10:00:00+08:00",
+      "note": "独立提交审核。8-18 游戏上线，处于流量爆发期，内容按官方素材写。Ads.txt 由 09-02 的「已授权」回退为「未找到」。"
     },
     "cropia-guide": {
       "domain": "cropia.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-08-31T10:00:00+08:00",
+      "lastCheck": "2026-09-03T10:00:00+08:00",
       "adstxt": "未找到"
     },
     "town-to-city-guide": {
       "domain": "towntocityguide.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-08-31T10:00:00+08:00",
+      "lastCheck": "2026-09-03T10:00:00+08:00",
       "adstxt": "未找到"
     },
     "big-walk-guide": {
       "domain": "thebigwalkguide.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-08-31T10:00:00+08:00",
+      "lastCheck": "2026-09-03T10:00:00+08:00",
       "adstxt": "未找到"
     },
     "slay-the-spire-2-guide": {
       "domain": "slaythespire2guide.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-08-31T10:00:00+08:00",
-      "adstxt": "已授权"
+      "lastCheck": "2026-09-03T10:00:00+08:00",
+      "adstxt": "未找到"
     }
   },
   "history": [
@@ -113,6 +113,33 @@
         "正在准备"
       ],
       "note": "三站审批状态均为「正在准备」（尚未过审）。Ads.txt：scrapmechanichub=未找到，cairnguide=未找到，twistedtower=已授权。相比 08-28 快照无状态变化，今日无过审。"
+    },
+    {
+      "date": "2026-09-01",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "三站审批状态均为「正在准备」（尚未过审）。Ads.txt：scrapmechanichub=未找到，cairnguide=未找到，twistedtower=已授权。相比 08-31 快照无状态变化，今日无过审。"
+    },
+    {
+      "date": "2026-09-02",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "三站审批状态均为「正在准备」（尚未过审）。Ads.txt：scrapmechanichub=未找到，cairnguide=未找到，twistedtower=已授权。相比 09-01 快照无状态变化，今日无过审。"
+    },
+    {
+      "date": "2026-09-03",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "三站审批状态均为「正在准备」（尚未过审）。Ads.txt：scrapmechanichub=未找到，cairnguide=未找到，twistedtower=未找到（由 09-02 的「已授权」回退为「未找到」）。相比 09-02 快照审批状态无变化，今日无过审；twistedtowerguide.wiki 与 slaythespire2guide.wiki 的 Ads.txt 均由「已授权」变为「未找到」。"
     }
   ],
   "removed": {

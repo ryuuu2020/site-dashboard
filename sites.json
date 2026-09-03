@@ -87,7 +87,7 @@
       "ga_property": "552674369",
       "steam": "3062500",
       "registeredAt": "2026-09-03",
-      "note": "Cloudflare Pages 战术站；Next.js 14 静态导出；包含 6 维属性计算器与编队规划器"
+      "note": "Vercel 托管战术站；Next.js 14；包含 6 维属性计算器与编队规划器"
     }
   ]
 }
