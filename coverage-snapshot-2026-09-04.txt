@@ -1,0 +1,74 @@
+  !! sitemap 读取失败 https://scrapmechanichub.com: HTTP Error 403: Forbidden
+======================================================================
+收录体检 — 每站 sitemap 全量 URL Inspection
+======================================================================
+
+🚨 scrapmechanic-hub: 已索引 0/0 (0%)
+   🚨 首页未被正常索引 —— 整站权重源头有问题
+
+🚨 town-to-city-guide: 已索引 2/31 (6%)
+   🚨 首页未被正常索引 —— 整站权重源头有问题
+   ⚠️ canonical 冲突: https://towntocityguide.wiki
+   ⚠️ canonical 冲突: https://towntocityguide.wiki/beach-biome-economy-guide
+   ⚠️ canonical 冲突: https://towntocityguide.wiki/economy
+      Duplicate, Google chose different canonical than user refs=1  https://towntocityguide.wiki
+      Discovered - currently not indexed                   refs=1  https://towntocityguide.wiki/about
+      Discovered - currently not indexed                   refs=0  https://towntocityguide.wiki/achievement-guide
+      Duplicate without user-selected canonical            refs=1  https://towntocityguide.wiki/beach-biome-economy-guide
+      Discovered - currently not indexed                   refs=1  https://towntocityguide.wiki/beginners
+      URL is unknown to Google                             refs=0  https://towntocityguide.wiki/best-buildings
+      Discovered - currently not indexed                   refs=1  https://towntocityguide.wiki/buildings
+      Discovered - currently not indexed                   refs=0  https://towntocityguide.wiki/citizen-happiness-guide
+      URL is unknown to Google                             refs=0  https://towntocityguide.wiki/citizens
+      Discovered - currently not indexed                   refs=0  https://towntocityguide.wiki/city-upgrade-guide
+      Crawled - currently not indexed                      refs=1  https://towntocityguide.wiki/contact
+      Discovered - currently not indexed                   refs=0  https://towntocityguide.wiki/defense-layout
+      … 另有 17 页未索引
+
+⚠️ cropia-guide: 已索引 9/17 (53%)
+      URL is unknown to Google                             refs=0  https://cropia.wiki/cropia-on-steam
+      Discovered - currently not indexed                   refs=0  https://cropia.wiki/1-0-update
+      URL is unknown to Google                             refs=0  https://cropia.wiki/mining
+      Discovered - currently not indexed                   refs=0  https://cropia.wiki/community
+      Discovered - currently not indexed                   refs=0  https://cropia.wiki/faq
+      Discovered - currently not indexed                   refs=0  https://cropia.wiki/news
+      Discovered - currently not indexed                   refs=0  https://cropia.wiki/privacy
+      Crawled - currently not indexed                      refs=1  https://cropia.wiki/contact
+
+⚠️ twisted-tower-guide: 已索引 8/15 (53%)
+      Discovered - currently not indexed                   refs=0  https://twistedtowerguide.wiki/puzzles
+      Discovered - currently not indexed                   refs=0  https://twistedtowerguide.wiki/weapons
+      Discovered - currently not indexed                   refs=0  https://twistedtowerguide.wiki/characters
+      Discovered - currently not indexed                   refs=0  https://twistedtowerguide.wiki/faq
+      Discovered - currently not indexed                   refs=0  https://twistedtowerguide.wiki/gameplay-and-accessibility
+      Discovered - currently not indexed                   refs=0  https://twistedtowerguide.wiki/about
+      Discovered - currently not indexed                   refs=0  https://twistedtowerguide.wiki/privacy
+
+⚠️ slay-the-spire-2-guide: 已索引 9/16 (56%)
+      URL is unknown to Google                             refs=0  https://slaythespire2guide.wiki/cards
+      URL is unknown to Google                             refs=0  https://slaythespire2guide.wiki/map
+      URL is unknown to Google                             refs=0  https://slaythespire2guide.wiki/multiplayer
+      Discovered - currently not indexed                   refs=0  https://slaythespire2guide.wiki/platforms
+      URL is unknown to Google                             refs=0  https://slaythespire2guide.wiki/reviews
+      URL is unknown to Google                             refs=0  https://slaythespire2guide.wiki/about
+      URL is unknown to Google                             refs=0  https://slaythespire2guide.wiki/contact
+
+⚠️ cairn-guide: 已索引 11/17 (65%)
+      Discovered - currently not indexed                   refs=0  https://cairnguide.wiki/about
+      Discovered - currently not indexed                   refs=0  https://cairnguide.wiki/guides
+      Discovered - currently not indexed                   refs=0  https://cairnguide.wiki/on-the-trail-dlc
+      Discovered - currently not indexed                   refs=0  https://cairnguide.wiki/piton-guide
+      Excluded by ‘noindex’ tag                            refs=1  https://cairnguide.wiki/privacy
+      URL is unknown to Google                             refs=0  https://cairnguide.wiki/resources-guide
+
+⚠️ the-adventurers-guide: 已索引 8/11 (73%)
+   ⚠️ canonical 冲突: https://theadventurersguide.wiki/about/
+      Discovered - currently not indexed                   refs=0  https://theadventurersguide.wiki/planner/
+      Duplicate without user-selected canonical            refs=1  https://theadventurersguide.wiki/about/
+      Discovered - currently not indexed                   refs=0  https://theadventurersguide.wiki/contact/
+
+✅ big-walk-guide: 已索引 11/12 (92%)
+      URL is unknown to Google                             refs=0  https://thebigwalkguide.wiki/privacy
+
+说明：'Discovered - currently not indexed' 多为内容薄/与首页重复；
+      'URL is unknown to Google' 多为发现路径不足（sitemap 未覆盖或正文无内链）。

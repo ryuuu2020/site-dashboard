@@ -1,12 +1,12 @@
 {
-  "date": "2026-09-03",
-  "generated_at": "2026-09-03T09:05:38.870701",
+  "date": "2026-09-04",
+  "generated_at": "2026-09-04T09:11:34.542301",
   "gsc": {
     "scrapmechanic-hub": {
       "site": "https://scrapmechanichub.com/",
       "clicks": 11,
-      "impressions": 379,
-      "keywordCount": 68,
+      "impressions": 381,
+      "keywordCount": 69,
       "topKeywords": [
         {
           "kw": "scrap mechanic raid calculator",
@@ -154,8 +154,8 @@
     },
     "twisted-tower-guide": {
       "site": "sc-domain:twistedtowerguide.wiki",
-      "clicks": 55,
-      "impressions": 535,
+      "clicks": 57,
+      "impressions": 543,
       "keywordCount": 29,
       "topKeywords": [
         {
@@ -166,9 +166,9 @@
         },
         {
           "kw": "twisted tower walkthrough",
-          "clicks": 27,
-          "impressions": 153,
-          "position": 4.0
+          "clicks": 28,
+          "impressions": 156,
+          "position": 4.2
         },
         {
           "kw": "twisted tower secret areas",
@@ -184,9 +184,9 @@
         },
         {
           "kw": "twisted tower game wiki",
-          "clicks": 9,
-          "impressions": 32,
-          "position": 4.8
+          "clicks": 10,
+          "impressions": 37,
+          "position": 4.5
         },
         {
           "kw": "twisted tower trainer",
@@ -253,15 +253,15 @@
     },
     "cropia-guide": {
       "site": "sc-domain:cropia.wiki",
-      "clicks": 18,
-      "impressions": 507,
+      "clicks": 19,
+      "impressions": 532,
       "keywordCount": 9,
       "topKeywords": [
         {
           "kw": "cropia",
-          "clicks": 4,
-          "impressions": 432,
-          "position": 9.4
+          "clicks": 5,
+          "impressions": 457,
+          "position": 9.2
         },
         {
           "kw": "cropia wiki",
@@ -325,8 +325,8 @@
     "big-walk-guide": {
       "site": "sc-domain:thebigwalkguide.wiki",
       "clicks": 0,
-      "impressions": 54,
-      "keywordCount": 24,
+      "impressions": 60,
+      "keywordCount": 28,
       "topKeywords": [
         {
           "kw": "big walk backpack",
@@ -389,6 +389,18 @@
           "position": 20
         },
         {
+          "kw": "how to fix train in big walk",
+          "clicks": 0,
+          "impressions": 2,
+          "position": 28
+        },
+        {
+          "kw": "mapa big walk",
+          "clicks": 0,
+          "impressions": 2,
+          "position": 4
+        },
+        {
           "kw": "what platforms is big walk on",
           "clicks": 0,
           "impressions": 2,
@@ -405,18 +417,6 @@
           "clicks": 0,
           "impressions": 1,
           "position": 64
-        },
-        {
-          "kw": "big walk crossplay",
-          "clicks": 0,
-          "impressions": 1,
-          "position": 40
-        },
-        {
-          "kw": "big walk mountain",
-          "clicks": 0,
-          "impressions": 1,
-          "position": 4
         }
       ],
       "error": null
@@ -441,22 +441,25 @@
         }
       ],
       "error": null
+    },
+    "the-adventurers-guide": {
+      "site": "sc-domain:theadventurersguide.wiki",
+      "clicks": 0,
+      "impressions": 0,
+      "keywordCount": 0,
+      "topKeywords": [],
+      "error": null
     }
   },
   "ga": {
     "scrapmechanic-hub": {
       "property": "549934267",
-      "pv": 38,
-      "sessions": 38,
-      "users": 27,
+      "pv": 35,
+      "sessions": 37,
+      "users": 25,
       "daily": {
         "20260831": {
           "pv": 10,
-          "sessions": 7,
-          "users": 6
-        },
-        "20260828": {
-          "pv": 7,
           "sessions": 7,
           "users": 6
         },
@@ -475,14 +478,14 @@
           "sessions": 6,
           "users": 3
         },
+        "20260903": {
+          "pv": 5,
+          "sessions": 7,
+          "users": 5
+        },
         "20260902": {
           "pv": 3,
           "sessions": 6,
-          "users": 1
-        },
-        "20260903": {
-          "pv": 1,
-          "sessions": 1,
           "users": 1
         }
       },
@@ -490,7 +493,7 @@
     },
     "cairn-guide": {
       "property": "551467374",
-      "pv": 10,
+      "pv": 11,
       "sessions": 8,
       "users": 8,
       "daily": {
@@ -499,8 +502,8 @@
           "sessions": 2,
           "users": 2
         },
-        "20260828": {
-          "pv": 2,
+        "20260903": {
+          "pv": 3,
           "sessions": 2,
           "users": 2
         },
@@ -524,9 +527,9 @@
     },
     "twisted-tower-guide": {
       "property": "550060653",
-      "pv": 107,
-      "sessions": 67,
-      "users": 60,
+      "pv": 106,
+      "sessions": 64,
+      "users": 58,
       "daily": {
         "20260831": {
           "pv": 22,
@@ -549,19 +552,14 @@
           "users": 10
         },
         "20260902": {
-          "pv": 14,
+          "pv": 16,
           "sessions": 10,
           "users": 9
         },
-        "20260828": {
-          "pv": 12,
-          "sessions": 10,
-          "users": 8
-        },
         "20260903": {
-          "pv": 1,
-          "sessions": 1,
-          "users": 1
+          "pv": 10,
+          "sessions": 8,
+          "users": 7
         }
       },
       "error": null
@@ -576,22 +574,17 @@
     },
     "town-to-city-guide": {
       "property": "551674686",
-      "pv": 42,
-      "sessions": 37,
-      "users": 37,
+      "pv": 36,
+      "sessions": 30,
+      "users": 30,
       "daily": {
         "20260829": {
           "pv": 10,
           "sessions": 10,
           "users": 10
         },
-        "20260828": {
-          "pv": 8,
-          "sessions": 8,
-          "users": 8
-        },
         "20260903": {
-          "pv": 7,
+          "pv": 8,
           "sessions": 3,
           "users": 3
         },
@@ -606,9 +599,9 @@
           "users": 4
         },
         "20260902": {
-          "pv": 4,
-          "sessions": 4,
-          "users": 4
+          "pv": 5,
+          "sessions": 5,
+          "users": 5
         },
         "20260901": {
           "pv": 3,
@@ -633,6 +626,25 @@
       "users": 0,
       "daily": {},
       "error": null
+    },
+    "the-adventurers-guide": {
+      "property": "552674369",
+      "pv": 22,
+      "sessions": 21,
+      "users": 21,
+      "daily": {
+        "20260903": {
+          "pv": 11,
+          "sessions": 11,
+          "users": 11
+        },
+        "20260904": {
+          "pv": 11,
+          "sessions": 10,
+          "users": 10
+        }
+      },
+      "error": null
     }
   },
   "health": {
@@ -644,7 +656,7 @@
       "sitemap": {
         "ok": true,
         "status": 200,
-        "pages": 28
+        "pages": 32
       }
     },
     "cairn-guide": {
@@ -655,7 +667,7 @@
       "sitemap": {
         "ok": true,
         "status": 200,
-        "pages": 25
+        "pages": 17
       }
     },
     "twisted-tower-guide": {
@@ -677,7 +689,7 @@
       "sitemap": {
         "ok": true,
         "status": 200,
-        "pages": 16
+        "pages": 17
       }
     },
     "town-to-city-guide": {
@@ -688,7 +700,7 @@
       "sitemap": {
         "ok": true,
         "status": 200,
-        "pages": 37
+        "pages": 31
       }
     },
     "big-walk-guide": {
@@ -699,7 +711,7 @@
       "sitemap": {
         "ok": true,
         "status": 200,
-        "pages": 11
+        "pages": 12
       }
     },
     "slay-the-spire-2-guide": {
@@ -711,6 +723,17 @@
         "ok": true,
         "status": 200,
         "pages": 16
+      }
+    },
+    "the-adventurers-guide": {
+      "ads_txt": {
+        "ok": true,
+        "detail": "200 + publisher 正确"
+      },
+      "sitemap": {
+        "ok": true,
+        "status": 200,
+        "pages": 11
       }
     }
   },
@@ -747,20 +770,82 @@
     "slay-the-spire-2-guide": {
       "ok": true,
       "hits": []
+    },
+    "the-adventurers-guide": {
+      "ok": true,
+      "hits": []
     }
   },
   "tabs": {
-    "ok": false,
-    "error": "19541 不可达: HTTP 500 -> {'error': 'Error: browserType.connectOverCDP: Protocol error (Browser.setDownloadBehavior): Browser ",
+    "ok": true,
+    "error": null,
     "note": null,
-    "count": 0,
-    "dir": null,
-    "tabs": []
+    "count": 1,
+    "dir": "/Users/wangxiaolong/program/游戏站/logs/tabs-dump/2026-09-04",
+    "tabs": [
+      {
+        "index": 1,
+        "targetId": "t1",
+        "title": "网址检查",
+        "url": "https://search.google.com/search-console/inspect?resource_id=sc-domain%3Aslaythespire2guide.wiki&id=2MBxrx4uIPYSqG2p17AV6A",
+        "snapshot_status": 200,
+        "saved": true
+      }
+    ]
   },
   "adsense": {
-    "ok": false,
-    "error": "19541 不可达: HTTP 500",
-    "sites": {}
+    "ok": true,
+    "error": null,
+    "sites": {
+      "scrapmechanic-hub": {
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-09-04T09:11:34+08:00",
+        "adstxt": "未找到"
+      },
+      "cairn-guide": {
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-09-04T09:11:34+08:00",
+        "adstxt": "未找到"
+      },
+      "twisted-tower-guide": {
+        "status": "窗口内未匹配到状态词",
+        "statusKey": "unknown",
+        "lastCheck": "2026-09-04T09:11:34+08:00",
+        "adstxt": "已授权"
+      },
+      "cropia-guide": {
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-09-04T09:11:34+08:00",
+        "adstxt": "未找到"
+      },
+      "town-to-city-guide": {
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-09-04T09:11:34+08:00",
+        "adstxt": "未找到"
+      },
+      "big-walk-guide": {
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-09-04T09:11:34+08:00",
+        "adstxt": "未找到"
+      },
+      "slay-the-spire-2-guide": {
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-09-04T09:11:34+08:00",
+        "adstxt": "未找到"
+      },
+      "the-adventurers-guide": {
+        "status": "正在准备",
+        "statusKey": "preparing",
+        "lastCheck": "2026-09-04T09:11:34+08:00",
+        "adstxt": "已授权"
+      }
+    }
   },
   "anomalies": [
     {
@@ -779,19 +864,49 @@
       "site": "big-walk-guide",
       "level": "info",
       "type": "gsc",
-      "msg": "Big Walk Guide 有展示(54)无点击，注意 CTR"
+      "msg": "Big Walk Guide 有展示(60)无点击，注意 CTR"
     },
     {
-      "site": "browser",
+      "site": "scrapmechanic-hub",
       "level": "warn",
-      "type": "tabs-dump",
-      "msg": "tab 快照存档失败: 19541 不可达: HTTP 500 -> {'error': 'Error: browserType.connectOverCDP: Protocol error (Browser.setDownloadBehavior): Browser "
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: scrapmechanichub.com → 未找到（线上文件状态不替代后台授权）"
     },
     {
-      "site": "browser",
+      "site": "cairn-guide",
+      "level": "warn",
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: cairnguide.wiki → 未找到（线上文件状态不替代后台授权）"
+    },
+    {
+      "site": "twisted-tower-guide",
       "level": "warn",
       "type": "adsense",
-      "msg": "AdSense 主动查询失败: 19541 不可达: HTTP 500"
+      "msg": "AdSense 状态未识别: twistedtowerguide.wiki (窗口内未匹配到状态词)，需人工看 /Users/wangxiaolong/program/游戏站/logs/adsense-check/2026-09-04-sites.snapshot.txt"
+    },
+    {
+      "site": "cropia-guide",
+      "level": "warn",
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: cropia.wiki → 未找到（线上文件状态不替代后台授权）"
+    },
+    {
+      "site": "town-to-city-guide",
+      "level": "warn",
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: towntocityguide.wiki → 未找到（线上文件状态不替代后台授权）"
+    },
+    {
+      "site": "big-walk-guide",
+      "level": "warn",
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: thebigwalkguide.wiki → 未找到（线上文件状态不替代后台授权）"
+    },
+    {
+      "site": "slay-the-spire-2-guide",
+      "level": "warn",
+      "type": "adsense-ads-txt",
+      "msg": "AdSense ads.txt 后台仍未授权: slaythespire2guide.wiki → 未找到（线上文件状态不替代后台授权）"
     }
   ]
 }
