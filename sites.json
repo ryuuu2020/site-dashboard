@@ -1,101 +1,101 @@
 {
-  "version": 1,
-  "updated": "2026-09-04",
-  "comment": "站点注册表 = 指挥中心唯一数据源。新增站点用 scripts/register-site.py 写入，勿手改多处。daily-ops.py 与 ops.html 都读这里。 ga_mid 字段为 2026-09-04 经 GA Admin API（已启用）核实的真实 Measurement ID，勿凭 UI 向导记忆手抄。",
-  "sites": [
-    {
-      "key": "scrapmechanic-hub",
-      "name": "Scrap Mechanic Hub",
-      "domain": "https://scrapmechanichub.com",
-      "dir": "scrapmechanic-hub",
-      "gsc_site": "https://scrapmechanichub.com/",
-      "ga_property": "549934267",
-      "steam": "387990",
-      "registeredAt": "2026-08-14",
-      "note": "GSC 是 URL 前缀属性（历史原因，非域名属性）",
-      "ga_mid": "G-VXTYX7QCHV"
-    },
-    {
-      "key": "cairn-guide",
-      "name": "Cairn Guide",
-      "domain": "https://cairnguide.wiki",
-      "dir": "cairn-guide",
-      "gsc_site": "sc-domain:cairnguide.wiki",
-      "ga_property": "551467374",
-      "steam": "1588550",
-      "registeredAt": "2026-08-14",
-      "note": "专属干净 property 551467374（stream G-44L30N5VG3，08-25 commit 7760a85 上线）；旧 550023235 被站群 tag 污染仅留历史",
-      "ga_mid": "G-44L30N5VG3"
-    },
-    {
-      "key": "twisted-tower-guide",
-      "name": "Twisted Tower Guide",
-      "domain": "https://twistedtowerguide.wiki",
-      "dir": "twisted-tower-guide",
-      "gsc_site": "sc-domain:twistedtowerguide.wiki",
-      "ga_property": "550060653",
-      "steam": "1575990",
-      "registeredAt": "2026-08-14",
-      "ga_mid": "G-1L1FW1W8Q7"
-    },
-    {
-      "key": "cropia-guide",
-      "name": "Cropia Guide",
-      "domain": "https://cropia.wiki",
-      "dir": "cropia-guide",
-      "gsc_site": "sc-domain:cropia.wiki",
-      "ga_property": "550023235",
-      "steam": "3714180",
-      "registeredAt": "2026-08-25",
-      "note": "GA 数据经站群共享 tag G-ET6778V62K 双写进 542906144+550023235，监控只读 550023235 不叠加；复活于 08-25",
-      "ga_mid": "G-ET6778V62K"
-    },
-    {
-      "key": "town-to-city-guide",
-      "name": "Town to City Guide",
-      "domain": "https://towntocityguide.wiki",
-      "dir": "town-to-city-guide",
-      "gsc_site": "sc-domain:towntocityguide.wiki",
-      "ga_property": "551674686",
-      "steam": "3115220",
-      "registeredAt": "2026-08-25",
-      "note": "专属 property 551674686（tag G-5QV5VL08HX，2026-08-26 上线），干净无污染",
-      "ga_mid": "G-5QV5VL08HX"
-    },
-    {
-      "key": "big-walk-guide",
-      "name": "Big Walk Guide",
-      "domain": "https://thebigwalkguide.wiki",
-      "dir": "big-walk-guide",
-      "gsc_site": "sc-domain:thebigwalkguide.wiki",
-      "ga_property": "551455636",
-      "steam": "1478500",
-      "registeredAt": "2026-08-26",
-      "note": "08-25 由另一会话建站；08-26 体检确认后补注册进监控",
-      "ga_mid": "G-8N35LJY9MQ"
-    },
-    {
-      "key": "slay-the-spire-2-guide",
-      "name": "Slay the Spire 2 Guide",
-      "domain": "https://slaythespire2guide.wiki",
-      "dir": "slay-the-spire-2-guide",
-      "gsc_site": "sc-domain:slaythespire2guide.wiki",
-      "ga_property": "551840512",
-      "steam": "2868840",
-      "registeredAt": "2026-08-27",
-      "ga_mid": "G-BTP5H6Y788"
-    },
-    {
-      "key": "the-adventurers-guide",
-      "name": "The Adventurers Guide",
-      "domain": "https://theadventurersguide.wiki",
-      "dir": "the-adventurers-guide",
-      "gsc_site": "sc-domain:theadventurersguide.wiki",
-      "ga_property": "552674369",
-      "steam": "3062500",
-      "registeredAt": "2026-09-03",
-      "note": "Vercel 托管战术站；Next.js 14；包含 6 维属性计算器与编队规划器",
-      "ga_mid": "G-L9L28T4YPT"
-    }
-  ]
+ "version": 1,
+ "updated": "2026-09-04",
+ "comment": "站点注册表 = 指挥中心唯一数据源。新增站点用 scripts/register-site.py 写入，勿手改多处。daily-ops.py 与 ops.html 都读这里。 ga_mid 字段为 2026-09-04 经 GA Admin API（已启用）核实的真实 Measurement ID，勿凭 UI 向导记忆手抄。",
+ "sites": [
+  {
+   "key": "scrapmechanic-hub",
+   "name": "Scrap Mechanic Hub",
+   "domain": "https://scrapmechanichub.com",
+   "dir": "scrapmechanic-hub",
+   "gsc_site": "https://scrapmechanichub.com/",
+   "ga_property": "549934267",
+   "steam": "387990",
+   "registeredAt": "2026-08-14",
+   "note": "GSC 是 URL 前缀属性（历史原因，非域名属性）",
+   "ga_mid": "G-VXTYX7QCHV"
+  },
+  {
+   "key": "cairn-guide",
+   "name": "Cairn Guide",
+   "domain": "https://cairnguide.wiki",
+   "dir": "cairn-guide",
+   "gsc_site": "sc-domain:cairnguide.wiki",
+   "ga_property": "551467374",
+   "steam": "1588550",
+   "registeredAt": "2026-08-14",
+   "note": "专属干净 property 551467374（stream G-44L30N5VG3，08-25 commit 7760a85 上线）；旧 550023235 被站群 tag 污染仅留历史",
+   "ga_mid": "G-44L30N5VG3"
+  },
+  {
+   "key": "twisted-tower-guide",
+   "name": "Twisted Tower Guide",
+   "domain": "https://twistedtowerguide.wiki",
+   "dir": "twisted-tower-guide",
+   "gsc_site": "sc-domain:twistedtowerguide.wiki",
+   "ga_property": "550060653",
+   "steam": "1575990",
+   "registeredAt": "2026-08-14",
+   "ga_mid": "G-1L1FW1W8Q7"
+  },
+  {
+   "key": "cropia-guide",
+   "name": "Cropia Guide",
+   "domain": "https://cropia.wiki",
+   "dir": "cropia-guide",
+   "gsc_site": "sc-domain:cropia.wiki",
+   "ga_property": "542906144",
+   "steam": "3714180",
+   "registeredAt": "2026-08-25",
+   "note": "GA 数据经站群共享 tag G-ET6778V62K 单写进 542906144（Solarpunk property），监控读它并按 hostName=cropia.wiki 过滤；550023235 自 08-26 起已停收勿用；根治=独立 property（实验日志 E5b）",
+   "ga_mid": "G-ET6778V62K"
+  },
+  {
+   "key": "town-to-city-guide",
+   "name": "Town to City Guide",
+   "domain": "https://towntocityguide.wiki",
+   "dir": "town-to-city-guide",
+   "gsc_site": "sc-domain:towntocityguide.wiki",
+   "ga_property": "551674686",
+   "steam": "3115220",
+   "registeredAt": "2026-08-25",
+   "note": "专属 property 551674686（tag G-5QV5VL08HX，2026-08-26 上线），干净无污染",
+   "ga_mid": "G-5QV5VL08HX"
+  },
+  {
+   "key": "big-walk-guide",
+   "name": "Big Walk Guide",
+   "domain": "https://thebigwalkguide.wiki",
+   "dir": "big-walk-guide",
+   "gsc_site": "sc-domain:thebigwalkguide.wiki",
+   "ga_property": "551455636",
+   "steam": "1478500",
+   "registeredAt": "2026-08-26",
+   "note": "08-25 由另一会话建站；08-26 体检确认后补注册进监控",
+   "ga_mid": "G-8N35LJY9MQ"
+  },
+  {
+   "key": "slay-the-spire-2-guide",
+   "name": "Slay the Spire 2 Guide",
+   "domain": "https://slaythespire2guide.wiki",
+   "dir": "slay-the-spire-2-guide",
+   "gsc_site": "sc-domain:slaythespire2guide.wiki",
+   "ga_property": "551840512",
+   "steam": "2868840",
+   "registeredAt": "2026-08-27",
+   "ga_mid": "G-BTP5H6Y788"
+  },
+  {
+   "key": "the-adventurers-guide",
+   "name": "The Adventurers Guide",
+   "domain": "https://theadventurersguide.wiki",
+   "dir": "the-adventurers-guide",
+   "gsc_site": "sc-domain:theadventurersguide.wiki",
+   "ga_property": "552674369",
+   "steam": "3062500",
+   "registeredAt": "2026-09-03",
+   "note": "Vercel 托管战术站；Next.js 14；包含 6 维属性计算器与编队规划器",
+   "ga_mid": "G-L9L28T4YPT"
+  }
+ ]
 }
