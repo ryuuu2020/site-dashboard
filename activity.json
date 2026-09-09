@@ -1,97 +1,195 @@
 {
-  "generated": "2026-08-24T14:58:59Z",
+  "generated": "2026-09-09T22:17:20Z",
   "source": "local-git",
   "entries": [
     {
-      "time": "08-24 22:05",
-      "timestamp": "2026-08-24T22:05:23+08:00",
+      "time": "09-09 11:24",
+      "timestamp": "2026-09-09T11:24:11+08:00",
       "dot": "fix",
-      "msg": "news + 1-0-update: add v1.0.04 post-release patch (pause option, save & exit, controller fixes)",
-      "site": "Cropia Guide Hub"
+      "msg": "09-09 audit: 3 P0 classes fixed across 7 repos; daily-ops placeholder false-positive pattern dropped",
+      "site": "Fading Echo"
     },
     {
-      "time": "08-24 22:04",
-      "timestamp": "2026-08-24T22:04:29+08:00",
+      "time": "09-09 11:22",
+      "timestamp": "2026-09-09T11:22:15+08:00",
+      "dot": "fix",
+      "msg": "fix(facts): Windows-only platform answer restored, citizen tiers 4->3, Early Access wording removed, dead /food-producti",
+      "site": "Town to City"
+    },
+    {
+      "time": "09-09 11:22",
+      "timestamp": "2026-09-09T11:22:15+08:00",
+      "dot": "fix",
+      "msg": "fix: about page stale coverage claim narrowed, source label removed, sitemap no longer fakes lastmod",
+      "site": "Cairn"
+    },
+    {
+      "time": "09-09 11:22",
+      "timestamp": "2026-09-09T11:22:15+08:00",
       "dot": "push",
-      "msg": "raids-defense: verified Farmbot ammo table; raid-calculator: purple raid FAQ",
+      "msg": "DAILY: hip pack FAQ entry + keywords for 'big walk hip pack' (pos 8) and blue spiral building variant",
+      "site": "Big Walk Guide"
+    },
+    {
+      "time": "09-09 11:22",
+      "timestamp": "2026-09-09T11:22:15+08:00",
+      "dot": "fix",
+      "msg": "fix: contact double-suffix title, dead /vehicles-guide link removed, Farmbot Spud Gun hits aligned to 58",
       "site": "Scrap Mechanic Hub"
     },
     {
-      "time": "08-21 21:04",
-      "timestamp": "2026-08-21T21:04:42+08:00",
+      "time": "09-09 11:22",
+      "timestamp": "2026-09-09T11:22:15+08:00",
       "dot": "fix",
-      "msg": "Fix fabricated Drill Spawner enemy (not in game data), qualify Farmbot vehicle claim, add missing ws-tag orange/cyan var",
+      "msg": "fix(achievements): remove unverifiable in-game/library assertions and the locked-achievement inference; source labels to",
+      "site": "Slay the Spire 2 Guide"
+    },
+    {
+      "time": "09-09 11:22",
+      "timestamp": "2026-09-09T11:22:15+08:00",
+      "dot": "fix",
+      "msg": "style+trust: drop 'Official' publisher claims, remove AdSense-ID footer line, strip 29 em-dashes, fix titles, sitemap la",
+      "site": "The Adventurers Guide"
+    },
+    {
+      "time": "09-09 11:22",
+      "timestamp": "2026-09-09T11:22:15+08:00",
+      "dot": "fix",
+      "msg": "fix(facts): platform answer reversed to Windows only after double-source store check; Steam Deck claim removed (no ratin",
+      "site": "Twisted Tower Guide"
+    },
+    {
+      "time": "09-09 09:01",
+      "timestamp": "2026-09-09T09:01:58+08:00",
+      "dot": "fix",
+      "msg": "fix: align Farmbot Spud Gun guidance with 58-hit reference",
       "site": "Scrap Mechanic Hub"
     },
     {
-      "time": "08-21 19:47",
-      "timestamp": "2026-08-21T19:47:36+08:00",
-      "dot": "fix",
-      "msg": "Add /raid-calculator + /underground pages; fix raids-defense numbers (Pineapple=L7, Farmbot=L5+); retarget resources-map",
-      "site": "Scrap Mechanic Hub"
-    },
-    {
-      "time": "08-21 16:53",
-      "timestamp": "2026-08-21T16:53:21+08:00",
-      "dot": "push",
-      "msg": "Remove fabricated combat/base-building pages; honest rewrites of 4 survival pages",
-      "site": "Cairn"
-    },
-    {
-      "time": "08-21 16:08",
-      "timestamp": "2026-08-21T16:08:07+08:00",
-      "dot": "fix",
-      "msg": "Remove fabricated /beginner-guide page (orphan, invented mechanics), fix piton-guide attribution line, redirect /beginne",
-      "site": "Cairn"
-    },
-    {
-      "time": "08-21 16:06",
-      "timestamp": "2026-08-21T16:06:56+08:00",
-      "dot": "launch",
-      "msg": "feat: Cropia 1.0 full release page (/1-0-update) — story finale, Deeper Cave, late-game items, Key Person Lv5; sitemap +",
-      "site": "Cropia Guide Hub"
-    },
-    {
-      "time": "08-21 16:03",
-      "timestamp": "2026-08-21T16:03:54+08:00",
-      "dot": "launch",
-      "msg": "Add On the Trail: Deep Water DLC page — release status, content, Free Roam + sitemap & internal links",
-      "site": "Cairn"
-    },
-    {
-      "time": "08-21 15:48",
-      "timestamp": "2026-08-21T15:48:14+08:00",
+      "time": "09-08 10:35",
+      "timestamp": "2026-09-08T10:35:34+08:00",
       "dot": "update",
-      "msg": "feat: 收编全部 scripts，kd-* 硬编码 token 挪到环境变量 WC_MCP_TOKEN",
+      "msg": "09-08 fleet-wide update: cairn/bigwalk/sts2/cropia landed, matrix verdict frozen",
       "site": "Fading Echo"
     },
     {
-      "time": "08-21 15:41",
-      "timestamp": "2026-08-21T15:41:39+08:00",
+      "time": "09-08 10:31",
+      "timestamp": "2026-09-08T10:31:24+08:00",
       "dot": "push",
-      "msg": "init: 19541 浏览器控制工具链入库",
+      "msg": "Backpack cluster long-tail: head-term retitle, equip/use/upgrade intent coverage, FAQ entries, walkthrough internal link",
+      "site": "Big Walk Guide"
+    },
+    {
+      "time": "09-08 10:31",
+      "timestamp": "2026-09-08T10:31:09+08:00",
+      "dot": "update",
+      "msg": "SEO: cover Cropia wiki and Cropia game variants in home title/description, update dateModified",
+      "site": "Cropia Guide"
+    },
+    {
+      "time": "09-08 10:31",
+      "timestamp": "2026-09-08T10:31:09+08:00",
+      "dot": "update",
+      "msg": "achievements FAQ: add locked-achievements entry (Steam appdetails re-read 2026-09-08, still no achievements block), refr",
+      "site": "Slay the Spire 2 Guide"
+    },
+    {
+      "time": "09-08 10:31",
+      "timestamp": "2026-09-08T10:31:03+08:00",
+      "dot": "update",
+      "msg": "items cluster: FAQ adds item rundown and survival blanket answers, gear guide retitled to Cairn Items, beginner guide in",
+      "site": "Cairn"
+    },
+    {
+      "time": "09-08 10:14",
+      "timestamp": "2026-09-08T10:14:44+08:00",
+      "dot": "fix",
+      "msg": "09-08 long-tail rescan: scrap mods head-term fix f871bf3, E11 registered, bigwalk cluster noted",
       "site": "Fading Echo"
     },
     {
-      "time": "08-19 17:30",
-      "timestamp": "2026-08-19T17:30:20+08:00",
-      "dot": "launch",
-      "msg": "清除 weapons/endings 页面的 after launch/release 占位，统一已发售姿态",
-      "site": "Twisted Tower"
-    },
-    {
-      "time": "08-19 17:10",
-      "timestamp": "2026-08-19T17:10:46+08:00",
-      "dot": "launch",
-      "msg": "清空首页卡片+beginners-guide 遗留的 before launch / coming after launch 占位，统一改为已发售姿态",
-      "site": "Twisted Tower"
-    },
-    {
-      "time": "08-19 17:04",
-      "timestamp": "2026-08-19T17:04:33+08:00",
+      "time": "09-08 10:07",
+      "timestamp": "2026-09-08T10:07:39+08:00",
       "dot": "push",
-      "msg": "回填 Twisted Tower 发售后的真实状态：bosses/puzzles/collectibles/endings 四页 title 改陈述式，补评分/成就/剧情主线已知事实",
-      "site": "Twisted Tower"
+      "msg": "DAILY 09-08: mods page head-term retitle (GSC pos 52 for 'scrap mechanic mods') + FAQ mods-not-working entry + autocompl",
+      "site": "Scrap Mechanic Hub"
+    },
+    {
+      "time": "09-07 10:02",
+      "timestamp": "2026-09-07T10:02:00+08:00",
+      "dot": "push",
+      "msg": "DAILY 09-07: /wiki fact sheet page (wiki-cluster demand) + platform facts corrected to Windows/macOS/Linux per Steam API",
+      "site": "Twisted Tower Guide"
+    },
+    {
+      "time": "09-07 09:49",
+      "timestamp": "2026-09-07T09:49:58+08:00",
+      "dot": "update",
+      "msg": "content: 加厚 patch-notes 更新日志页至 1400+ 词（补 1.0 发布公告、终版 demo、beta/live 双分支说明，均源自 Steam API 实测）",
+      "site": "The Adventurers Guide"
+    },
+    {
+      "time": "09-07 09:45",
+      "timestamp": "2026-09-07T09:45:25+08:00",
+      "dot": "fix",
+      "msg": "SEO fix: remove duplicated site-name suffix from page titles (layout template already appends it)",
+      "site": "Cropia Guide"
+    },
+    {
+      "time": "09-07 09:38",
+      "timestamp": "2026-09-07T09:38:02+08:00",
+      "dot": "update",
+      "msg": "加厚 updates 与 layouts 页：更新历史结构化成段 + 选址逻辑与常见布局错误（仅引用仓内已有真实数据）",
+      "site": "Town to City"
+    },
+    {
+      "time": "09-07 09:38",
+      "timestamp": "2026-09-07T09:38:02+08:00",
+      "dot": "push",
+      "msg": "加厚 version-ledger / decision-lab / about 三页编辑性说明内容（AdSense 审计 Medium 项，仅方法论与已有事实重述）",
+      "site": "Slay the Spire 2 Guide"
+    },
+    {
+      "time": "09-07 09:35",
+      "timestamp": "2026-09-07T09:35:09+08:00",
+      "dot": "push",
+      "msg": "隐私页补 AdSense 第三方披露与 opt-out 链接，页脚加 About 链接，修正 About 页广告位描述",
+      "site": "Cairn"
+    },
+    {
+      "time": "09-07 09:34",
+      "timestamp": "2026-09-07T09:34:46+08:00",
+      "dot": "fix",
+      "msg": "AdSense audit fixes: unify release status with Steam API (1.0 released, drop early-access wording), add standard AdSense",
+      "site": "Cropia Guide"
+    },
+    {
+      "time": "09-07 08:54",
+      "timestamp": "2026-09-07T08:54:28+08:00",
+      "dot": "push",
+      "msg": "E2 prep: em-dash and AI-pattern purge across all pages",
+      "site": "Big Walk Guide"
+    },
+    {
+      "time": "09-06 20:38",
+      "timestamp": "2026-09-06T20:38:22+08:00",
+      "dot": "push",
+      "msg": "DAILY 09-06: interactive secret checklist page (localStorage tracker, 28/28 progress) + shared secrets data module",
+      "site": "Twisted Tower Guide"
+    },
+    {
+      "time": "09-05 16:53",
+      "timestamp": "2026-09-05T16:53:16+08:00",
+      "dot": "fix",
+      "msg": "SEO fix: remove duplicated site-name suffix from page titles (layout template already appends it)",
+      "site": "Town to City"
+    },
+    {
+      "time": "09-04 00:35",
+      "timestamp": "2026-09-04T00:35:02+08:00",
+      "dot": "fix",
+      "msg": "fix: add self-referencing trailing-slash canonical to every route",
+      "site": "The Adventurers Guide"
     },
     {
       "time": "08-04 23:37",
@@ -113,104 +211,6 @@
       "dot": "push",
       "msg": "Align footer support action",
       "site": "Going Medieval"
-    },
-    {
-      "time": "08-02 23:39",
-      "timestamp": "2026-08-02T23:39:16+08:00",
-      "dot": "update",
-      "msg": "Add editorial coverage boundaries",
-      "site": "Olden Era"
-    },
-    {
-      "time": "08-02 23:39",
-      "timestamp": "2026-08-02T23:39:06+08:00",
-      "dot": "update",
-      "msg": "Add editorial coverage boundaries",
-      "site": "Dispatch"
-    },
-    {
-      "time": "07-22 07:46",
-      "timestamp": "2026-07-22T07:46:12+08:00",
-      "dot": "fix",
-      "msg": "fix: remove stale afdian links and placeholder ads, rebuild static exports",
-      "site": "shapez 2"
-    },
-    {
-      "time": "07-22 07:45",
-      "timestamp": "2026-07-22T07:45:25+08:00",
-      "dot": "fix",
-      "msg": "fix: remove stale afdian links and placeholder ads, rebuild static exports",
-      "site": "Witchspire"
-    },
-    {
-      "time": "07-22 07:44",
-      "timestamp": "2026-07-22T07:44:37+08:00",
-      "dot": "fix",
-      "msg": "fix: remove stale afdian links and placeholder ads, rebuild static exports",
-      "site": "Vampire Crawlers"
-    },
-    {
-      "time": "07-22 07:43",
-      "timestamp": "2026-07-22T07:43:22+08:00",
-      "dot": "fix",
-      "msg": "fix: remove stale afdian links and placeholder ads, rebuild static exports",
-      "site": "Olden Era"
-    },
-    {
-      "time": "07-22 07:42",
-      "timestamp": "2026-07-22T07:42:17+08:00",
-      "dot": "fix",
-      "msg": "fix: remove stale afdian links and placeholder ads, rebuild static exports",
-      "site": "MENACE"
-    },
-    {
-      "time": "07-22 07:39",
-      "timestamp": "2026-07-22T07:39:13+08:00",
-      "dot": "fix",
-      "msg": "fix: remove stale afdian links and placeholder ads, rebuild static exports",
-      "site": "Dispatch"
-    },
-    {
-      "time": "07-09 00:35",
-      "timestamp": "2026-07-09T00:35:52+08:00",
-      "dot": "update",
-      "msg": "feat: enhance exploration guide with airship upgrade table and phased exploration strategy — KD=20.5",
-      "site": "Solarpunk"
-    },
-    {
-      "time": "07-09 00:35",
-      "timestamp": "2026-07-09T00:35:52+08:00",
-      "dot": "update",
-      "msg": "feat: add resource management guide (gold/wood/ore/gems, faction bonuses, build order) — KD=20.3",
-      "site": "Olden Era"
-    },
-    {
-      "time": "07-09 00:35",
-      "timestamp": "2026-07-09T00:35:52+08:00",
-      "dot": "update",
-      "msg": "feat: add combo guide page with card synergies, menu-card combos (KD=16.7)",
-      "site": "Tabletop Tavern"
-    },
-    {
-      "time": "07-09 00:35",
-      "timestamp": "2026-07-09T00:35:52+08:00",
-      "dot": "update",
-      "msg": "feat: rewrite tier list page with full weapon rankings, gear priorities, boss matchups (KD=9.0)",
-      "site": "Demon Lord"
-    },
-    {
-      "time": "07-09 00:35",
-      "timestamp": "2026-07-09T00:35:52+08:00",
-      "dot": "update",
-      "msg": "feat: add seasonal challenges guide (spring/summer/autumn/winter strategy, disasters, events) — KD=19.1",
-      "site": "Town to City"
-    },
-    {
-      "time": "07-09 00:35",
-      "timestamp": "2026-07-09T00:35:52+08:00",
-      "dot": "update",
-      "msg": "feat: add endgame guide (NG+, legendaries, secret bosses) and combat guide (Silat techniques, damage types) — KD=18.1, 1",
-      "site": "Adira Nusantara"
     }
   ]
 }
