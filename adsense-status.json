@@ -1,16 +1,18 @@
 {
-  "generated": "2026-09-04T10:00:00+08:00",
-  "note": "AdSense 审核状态快照。source=auto（由每日 AdSense 审核状态检查 cron 自动读取后台）。publisher=pub-8925824244664340 账号独立于 gguidehub 主站。今日检查三站：scrapmechanichub.com、cairnguide.wiki 仍为「正在准备」，twistedtowerguide.wiki 变为「需要注意」（低价值内容）；尚未过审。twistedtowerguide.wiki 的 Ads.txt 显示「已授权」。",
+  "generated": "2026-09-23T10:00:00+08:00",
+  "note": "AdSense 审核状态快照。source=auto（由每日 AdSense 审核状态检查 cron 自动读取后台）。publisher=pub-8925824244664340 账号独立于 gguidehub 主站。今日后台真实显示（10:00）：三站审批状态、状态详情、Ads.txt 与 09-22 记录完全一致，无任何变化，无过审。scrapmechanichub.com 维持需要注意（低价值内容）/ Ads.txt 未找到；cairnguide.wiki、twistedtowerguide.wiki 维持正在准备 / 未找到。thebigwalkguide.wiki 维持 Ads.txt 未找到（09-21 曾记录为已授权，该字段历史上多次翻转）。",
   "publisher": "pub-8925824244664340",
   "sites": {
     "scrapmechanic-hub": {
       "domain": "scrapmechanichub.com",
-      "status": "正在准备",
-      "statusKey": "preparing",
+      "status": "需要注意",
+      "statusKey": "needs_attention",
+      "statusDetail": "低价值内容",
       "adstxt": "未找到",
       "registeredAt": "2026-08-19T16:52:00+08:00",
-      "lastCheck": "2026-09-04T10:00:00+08:00",
-      "note": "独立提交审核。线上 ads.txt 正常（200 + pub-8925824244664340），但后台仍显示未找到。"
+      "lastCheck": "2026-09-23T10:00:00+08:00",
+      "lastUpdated": "2026-09-13T12:16:00+08:00",
+      "note": "独立提交审核。🚨 09-13 12:16 被拒：低价值内容，需整改内容后重新提交。🚨 09-20 10:00 后台实测 Ads.txt=未找到（此前 09-14~09-19 记录为已授权，该状态历史上多次翻转）。"
     },
     "cairn-guide": {
       "domain": "cairnguide.wiki",
@@ -18,55 +20,164 @@
       "statusKey": "preparing",
       "adstxt": "未找到",
       "registeredAt": "2026-08-19T16:49:00+08:00",
-      "lastCheck": "2026-09-04T10:00:00+08:00",
+      "lastCheck": "2026-09-23T10:00:00+08:00",
       "note": "独立提交审核。26 页内容站，三个站里内容最实，过审概率相对高。"
-    },
-    "twisted-tower-guide": {
-      "domain": "twistedtowerguide.wiki",
-      "status": "需要注意",
-      "statusKey": "requires_attention",
-      "adstxt": "已授权",
-      "registeredAt": "2026-08-19T16:51:00+08:00",
-      "lastCheck": "2026-09-04T10:00:00+08:00",
-      "note": "独立提交审核。8-18 游戏上线，处于流量爆发期，内容按官方素材写。当前 Ads.txt 显示「已授权」。"
     },
     "cropia-guide": {
       "domain": "cropia.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-09-04T09:11:34+08:00",
+      "lastCheck": "2026-09-23T10:00:00+08:00",
       "adstxt": "未找到"
+    },
+    "twisted-tower-guide": {
+      "domain": "twistedtowerguide.wiki",
+      "status": "正在准备",
+      "statusKey": "preparing",
+      "adstxt": "未找到",
+      "registeredAt": "2026-08-19T16:51:00+08:00",
+      "lastCheck": "2026-09-23T10:00:00+08:00",
+      "note": "独立提交审核。8-18 游戏上线，处于流量爆发期，内容按官方素材写。09-11 12:10 重新进入审核队列，状态详情为「—」。"
     },
     "town-to-city-guide": {
       "domain": "towntocityguide.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-09-04T09:11:34+08:00",
+      "lastCheck": "2026-09-23T10:00:00+08:00",
       "adstxt": "未找到"
     },
     "big-walk-guide": {
       "domain": "thebigwalkguide.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-09-04T09:11:34+08:00",
-      "adstxt": "未找到"
+      "lastCheck": "2026-09-23T10:00:00+08:00",
+      "adstxt": "未找到",
+      "note": "🚨 09-15 Ads.txt 由「未找到」恢复为「已授权」。🚨 09-22 10:00 后台实测 Ads.txt=未找到（09-21 记录为已授权，该状态历史上多次翻转）。审批状态仍为「正在准备」。"
     },
     "slay-the-spire-2-guide": {
       "domain": "slaythespire2guide.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-09-04T09:11:34+08:00",
+      "lastCheck": "2026-09-23T10:00:00+08:00",
       "adstxt": "未找到"
     },
     "the-adventurers-guide": {
       "domain": "theadventurersguide.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-09-04T09:11:34+08:00",
-      "adstxt": "已授权"
+      "lastCheck": "2026-09-23T10:00:00+08:00",
+      "adstxt": "未找到"
     }
   },
   "history": [
+    {
+      "date": "2026-09-23",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00）：三站 scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 未找到（最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 未找到（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。与 09-22 记录相比审批状态、状态详情、Ads.txt 均无变化，今日无过审。其余 5 站亦无变化（thebigwalkguide.wiki 维持 Ads.txt 未找到）。"
+    },
+    {
+      "date": "2026-09-22",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00，今日第三次检查）：三站 scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 未找到（最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 未找到（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。与今晨 09:02 快照相比审批状态、状态详情、Ads.txt 均无变化，今日无过审。🚨 thebigwalkguide.wiki 的 Ads.txt 由 09-21 记录的「已授权」变为「未找到」（审批状态仍为正在准备）。其余无变化。"
+    },
+    {
+      "date": "2026-09-21",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00，今日第二次检查）：三站 scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 未找到（行最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 未找到（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。与今晨 09:02 快照相比审批状态、状态详情、Ads.txt 均无变化，今日无过审。其余 5 站亦无变化（thebigwalkguide.wiki 维持 Ads.txt 已授权）。"
+    },
+    {
+      "date": "2026-09-20",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00）：三站 scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 未找到（行最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 未找到（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。🚨 相比 09-19 快照：scrapmechanichub.com 的 Ads.txt 由「已授权」变为「未找到」（该状态 09-13 起已多次翻转）；审批状态、状态详情及其余各站均无变化，今日无过审。"
+    },
+    {
+      "date": "2026-09-19",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00）：三站 scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 已授权（最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 未找到（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。相比 09-18 快照审批状态、状态详情、Ads.txt 状态均无变化，今日无过审。其余 5 站亦均无变化。"
+    },
+    {
+      "date": "2026-09-18",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00）：三站 scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 已授权（最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 未找到（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。相比 09-17 快照审批状态、状态详情、Ads.txt 状态均无变化，今日无过审。其余 5 站亦均无变化。"
+    },
+    {
+      "date": "2026-09-17",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00）：三站 scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 已授权（最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 未找到（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。相比今晨 09:01 快照审批状态、状态详情、Ads.txt 状态均无变化，今日无过审。其余 5 站亦均无变化（thebigwalkguide.wiki 维持 Ads.txt 已授权）。"
+    },
+    {
+      "date": "2026-09-15",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00）：审批状态与 09-14 快照相比无变化——scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 已授权（最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 未找到；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。🚨 thebigwalkguide.wiki 的 Ads.txt 由「未找到」恢复为「已授权」（审批状态仍为正在准备）。其余无变化，今日无过审。"
+    },
+    {
+      "date": "2026-09-14",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00）：🚨 scrapmechanichub.com 由「正在准备」变为「需要注意（低价值内容）」，后台最后更新 2026-09-13 12:16，正式被拒；Ads.txt 仍为「已授权」。cairnguide.wiki=正在准备 / 未找到（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。其余 5 站均「正在准备」。今日无过审，且新增一个被拒站。"
+    },
+    {
+      "date": "2026-09-13",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00）：8 站审批状态全部为「正在准备」，状态详情均为「—」。三站目标站点：scrapmechanichub.com=正在准备 / Ads.txt 已授权（最后更新 08-26）；cairnguide.wiki=正在准备 / 未找到（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。相比 09-12 快照无变化，今日无过审。注：09-13 09:00 快照 note 曾称 scrapmechanichub 的 Ads.txt 变「未找到」，与 sites 字段及 10:00 后台实测（已授权）矛盾，以页面实际显示为准。"
+    },
+    {
+      "date": "2026-09-12",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示：8 站审批状态全部为「正在准备」，状态详情均为「—」。🚨 相比 09-11 快照：twistedtowerguide.wiki 由「需要注意（低价值内容）」回到「正在准备」（最后更新 09-11 12:10）；scrapmechanichub.com 的 Ads.txt 由「已授权」变为「未找到」。其余无变化，今日无过审。"
+    },
+    {
+      "date": "2026-09-11",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "需要注意"
+      ],
+      "note": "后台真实显示：scrapmechanichub.com=正在准备 / Ads.txt 已授权（最后更新 08-26）；cairnguide.wiki=正在准备 / Ads.txt 未找到（08-26）；twistedtowerguide.wiki=需要注意（低价值内容） / Ads.txt 未找到（09-04）。⚠️ 相比 09-10 快照：twistedtowerguide.wiki 的 Ads.txt 由「已授权」回退为「未找到」，审批状态均无变化，今日无过审。"
+    },
     {
       "date": "2026-08-25",
       "status": [
@@ -156,6 +267,51 @@
         "正在准备"
       ],
       "note": "三站审批状态均为「正在准备」（尚未过审）。Ads.txt：scrapmechanichub=未找到，cairnguide=未找到，twistedtower=未找到（由 09-02 的「已授权」回退为「未找到」）。相比 09-02 快照审批状态无变化，今日无过审；twistedtowerguide.wiki 与 slaythespire2guide.wiki 的 Ads.txt 均由「已授权」变为「未找到」。"
+    },
+    {
+      "date": "2026-09-05",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "需要注意"
+      ],
+      "note": "后台真实显示：scrapmechanichub.com=正在准备 / Ads.txt 已授权；cairnguide.wiki=正在准备 / Ads.txt 未找到；twistedtowerguide.wiki=需要注意（低价值内容） / Ads.txt 已授权。相比记录中的上一快照，twistedtowerguide.wiki 的审批状态由「窗口内未匹配到状态词」更正为后台显示的「需要注意」；今日无过审。"
+    },
+    {
+      "date": "2026-09-06",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "需要注意"
+      ],
+      "note": "后台真实显示：scrapmechanichub.com=正在准备 / Ads.txt 已授权；cairnguide.wiki=正在准备 / Ads.txt 未找到；twistedtowerguide.wiki=需要注意（低价值内容） / Ads.txt 已授权。相比 09-05 快照无状态变化，今日无过审。"
+    },
+    {
+      "date": "2026-09-07",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "需要注意"
+      ],
+      "note": "后台真实显示：scrapmechanichub.com=正在准备 / Ads.txt 已授权；cairnguide.wiki=正在准备 / Ads.txt 未找到；twistedtowerguide.wiki=需要注意（低价值内容） / Ads.txt 已授权。相比 09-06 快照无状态变化，今日无过审。"
+    },
+    {
+      "date": "2026-09-10",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "需要注意"
+      ],
+      "note": "后台真实显示：scrapmechanichub.com=正在准备 / Ads.txt 已授权（最后更新 08-26）；cairnguide.wiki=正在准备 / Ads.txt 未找到（08-26）；twistedtowerguide.wiki=需要注意（低价值内容） / Ads.txt 已授权（09-04）。相比 09-08 快照审批状态与 Ads.txt 状态均无变化，今日无过审。"
+    },
+    {
+      "date": "2026-09-08",
+      "status": [
+        "正在准备",
+        "正在准备",
+        "需要注意"
+      ],
+      "note": "后台真实显示：scrapmechanichub.com=正在准备 / Ads.txt 已授权；cairnguide.wiki=正在准备 / Ads.txt 未找到；twistedtowerguide.wiki=需要注意（低价值内容） / Ads.txt 已授权。相比 09-07 快照审批状态与 Ads.txt 状态均无变化，今日无过审。"
     }
   ],
   "removed": {

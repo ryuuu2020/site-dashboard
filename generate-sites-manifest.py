@@ -198,16 +198,51 @@ def infer_latest_git_update(site_dir: Path, existing: dict) -> tuple[str, str]:
         return existing.get("push", ""), existing.get("update", "")
 
 
+REGISTRY_FIELDS = ("key", "gsc_site", "ga_property", "ga_mid", "registeredAt", "note")
+
+
+def load_registry_fields(path: Path) -> dict:
+    """按 dir 建索引，保留 scripts/register-site.py 写入的注册表字段。
+
+    2026-09-10 的日常刷新就是在这里不留神把它们整批舔掉的：sites.json 从 8 条注册表
+    变成 28 条仪表盘清单，key/gsc_site/ga_property 全丢，daily-ops 连续 13 天回退内置
+    清单并每天报一次「注册表无有效站点条目」。
+
+    键用 dir 而不是 url：infer_url 靠正则拓 metadataBase / BASE_URL，正则不中时
+    会退回 vercel.app 预发域名（sts2 就是这样被写成了 slay-the-spire-2-guide.vercel.app），
+    拿 url 当键反而匹配不上。
+    """
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    out: dict[str, dict] = {}
+    for s in data.get("sites") or []:
+        k = s.get("dir") or (s.get("url") or s.get("domain") or "").rstrip("/")
+        if k:
+            out[k] = {f: s[f] for f in REGISTRY_FIELDS if f in s}
+    return out
+
+
+PREV_REGISTRY = load_registry_fields(SITES_JSON_PATH)
+
+
 def build_site_entry(site_dir: Path, existing: dict, site_id: int) -> dict:
     existing = {**existing, **MANUAL_SITE_METADATA.get(site_dir.name, {})}
     style, style_tag = infer_style(site_dir, existing)
     push, update = infer_latest_git_update(site_dir, existing)
     existing_feats = {k: v for k, v in existing.get("feats", {}).items() if k != "afdian"}
-    return {
+    url = infer_url(site_dir, existing)
+    reg = PREV_REGISTRY.get(site_dir.name, {})
+    # 注册表里的 domain 是人工登记的线上域名，比正则推断可靠，优先采用。
+    if reg.get("domain"):
+        url = reg["domain"].rstrip("/")
+    entry = {
         "id": site_id,
         "name": infer_name(site_dir, existing),
         "dir": site_dir.name,
-        "url": infer_url(site_dir, existing),
+        "url": url,
+        "domain": url,
         "steam": infer_steam(site_dir, existing),
         "pages": infer_pages(site_dir, existing),
         "style": style,
@@ -220,6 +255,9 @@ def build_site_entry(site_dir: Path, existing: dict, site_id: int) -> dict:
         "launch": infer_launch(site_dir, existing),
         "draft": bool(existing.get("draft", False)),
     }
+    # 注册表字段原样继承。name 以生成值为准，不覆盖。
+    entry.update({f: v for f, v in reg.items() if f != "name"})
+    return entry
 
 
 def write_manifest(sites: list[dict]) -> None:

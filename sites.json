@@ -175,7 +175,14 @@
       "eng": 0,
       "pps": 0,
       "launch": "9/9",
-      "draft": false
+      "draft": false,
+      "key": "town-to-city-guide",
+      "gsc_site": "sc-domain:towntocityguide.wiki",
+      "ga_property": "551674686",
+      "ga_mid": "G-5QV5VL08HX",
+      "registeredAt": "2026-08-25",
+      "note": "专属 property 551674686（tag G-5QV5VL08HX，2026-08-26 上线），干净无污染",
+      "domain": "https://towntocityguide.wiki"
     },
     {
       "id": 9,
@@ -241,7 +248,14 @@
       "eng": 0,
       "pps": 0,
       "launch": "9/9",
-      "draft": false
+      "draft": false,
+      "key": "cairn-guide",
+      "gsc_site": "sc-domain:cairnguide.wiki",
+      "ga_property": "551467374",
+      "ga_mid": "G-44L30N5VG3",
+      "registeredAt": "2026-08-14",
+      "note": "专属干净 property 551467374（stream G-44L30N5VG3，08-25 commit 7760a85 上线）；旧 550023235 被站群 tag 污染仅留历史",
+      "domain": "https://cairnguide.wiki"
     },
     {
       "id": 12,
@@ -483,7 +497,14 @@
       "eng": 0,
       "pps": 0,
       "launch": "9/9",
-      "draft": false
+      "draft": false,
+      "key": "big-walk-guide",
+      "gsc_site": "sc-domain:thebigwalkguide.wiki",
+      "ga_property": "551455636",
+      "ga_mid": "G-8N35LJY9MQ",
+      "registeredAt": "2026-08-26",
+      "note": "08-25 由另一会话建站；08-26 体检确认后补注册进监控",
+      "domain": "https://thebigwalkguide.wiki"
     },
     {
       "id": 23,
@@ -505,7 +526,14 @@
       "eng": 0,
       "pps": 0,
       "launch": "9/8",
-      "draft": false
+      "draft": false,
+      "key": "cropia-guide",
+      "gsc_site": "sc-domain:cropia.wiki",
+      "ga_property": "542906144",
+      "ga_mid": "G-ET6778V62K",
+      "registeredAt": "2026-08-25",
+      "note": "GA 数据经站群共享 tag G-ET6778V62K 单写进 542906144（Solarpunk property），监控读它并按 hostName=cropia.wiki 过滤；550023235 自 08-26 起已停收勿用；根治=独立 property（实验日志 E5b）",
+      "domain": "https://cropia.wiki"
     },
     {
       "id": 24,
@@ -549,13 +577,20 @@
       "eng": 0,
       "pps": 0,
       "launch": "9/9",
-      "draft": false
+      "draft": false,
+      "key": "scrapmechanic-hub",
+      "gsc_site": "https://scrapmechanichub.com/",
+      "ga_property": "549934267",
+      "ga_mid": "G-VXTYX7QCHV",
+      "registeredAt": "2026-08-14",
+      "note": "GSC 是 URL 前缀属性（历史原因，非域名属性）",
+      "domain": "https://scrapmechanichub.com"
     },
     {
       "id": 26,
       "name": "Slay the Spire 2 Guide",
       "dir": "slay-the-spire-2-guide",
-      "url": "https://slay-the-spire-2-guide.vercel.app",
+      "url": "https://slaythespire2guide.wiki",
       "steam": 2868840,
       "pages": 18,
       "style": "未知",
@@ -571,7 +606,13 @@
       "eng": 0,
       "pps": 0,
       "launch": "9/9",
-      "draft": false
+      "draft": false,
+      "key": "slay-the-spire-2-guide",
+      "gsc_site": "sc-domain:slaythespire2guide.wiki",
+      "ga_property": "551840512",
+      "ga_mid": "G-BTP5H6Y788",
+      "registeredAt": "2026-08-27",
+      "domain": "https://slaythespire2guide.wiki"
     },
     {
       "id": 27,
@@ -593,7 +634,14 @@
       "eng": 0,
       "pps": 0,
       "launch": "9/9",
-      "draft": false
+      "draft": false,
+      "key": "the-adventurers-guide",
+      "gsc_site": "sc-domain:theadventurersguide.wiki",
+      "ga_property": "552674369",
+      "ga_mid": "G-L9L28T4YPT",
+      "registeredAt": "2026-09-03",
+      "note": "Vercel 托管战术站；Next.js 14；包含 6 维属性计算器与编队规划器",
+      "domain": "https://theadventurersguide.wiki"
     },
     {
       "id": 28,
@@ -615,7 +663,13 @@
       "eng": 0,
       "pps": 0,
       "launch": "9/9",
-      "draft": false
+      "draft": false,
+      "key": "twisted-tower-guide",
+      "gsc_site": "sc-domain:twistedtowerguide.wiki",
+      "ga_property": "550060653",
+      "ga_mid": "G-1L1FW1W8Q7",
+      "registeredAt": "2026-08-14",
+      "domain": "https://twistedtowerguide.wiki"
     }
   ]
 }
