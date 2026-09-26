@@ -1,33 +1,64 @@
 {
-  "generated": "2026-09-23T10:00:00+08:00",
-  "note": "AdSense 审核状态快照。source=auto（由每日 AdSense 审核状态检查 cron 自动读取后台）。publisher=pub-8925824244664340 账号独立于 gguidehub 主站。今日后台真实显示（10:00）：三站审批状态、状态详情、Ads.txt 与 09-22 记录完全一致，无任何变化，无过审。scrapmechanichub.com 维持需要注意（低价值内容）/ Ads.txt 未找到；cairnguide.wiki、twistedtowerguide.wiki 维持正在准备 / 未找到。thebigwalkguide.wiki 维持 Ads.txt 未找到（09-21 曾记录为已授权，该字段历史上多次翻转）。",
+  "generated": "2026-09-26T10:00:10+08:00",
+  "note": "AdSense 审核状态快照。source=auto（由每日 AdSense 审核状态检查 cron 自动读取后台）。publisher=pub-8925824244664340 账号独立于 gguidehub 主站。今日后台真实显示（10:00 第二次检查）：三站目标（scrapmechanichub.com=需要注意（低价值内容）/ 未找到；cairnguide.wiki=正在准备 / 已授权；twistedtowerguide.wiki=正在准备 / 未找到）。与今晨 09:03 快照相比全部无变化，无过审。其余 5 站亦无变化。",
   "publisher": "pub-8925824244664340",
   "sites": {
-    "scrapmechanic-hub": {
-      "domain": "scrapmechanichub.com",
-      "status": "需要注意",
-      "statusKey": "needs_attention",
-      "statusDetail": "低价值内容",
-      "adstxt": "未找到",
-      "registeredAt": "2026-08-19T16:52:00+08:00",
-      "lastCheck": "2026-09-23T10:00:00+08:00",
-      "lastUpdated": "2026-09-13T12:16:00+08:00",
-      "note": "独立提交审核。🚨 09-13 12:16 被拒：低价值内容，需整改内容后重新提交。🚨 09-20 10:00 后台实测 Ads.txt=未找到（此前 09-14~09-19 记录为已授权，该状态历史上多次翻转）。"
+    "town-to-city-guide": {
+      "domain": "towntocityguide.wiki",
+      "status": "正在准备",
+      "statusKey": "preparing",
+      "lastCheck": "2026-09-26T10:00:10+08:00",
+      "adstxt": "未找到"
     },
     "cairn-guide": {
       "domain": "cairnguide.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "adstxt": "未找到",
+      "adstxt": "已授权",
       "registeredAt": "2026-08-19T16:49:00+08:00",
-      "lastCheck": "2026-09-23T10:00:00+08:00",
+      "lastCheck": "2026-09-26T10:00:10+08:00",
       "note": "独立提交审核。26 页内容站，三个站里内容最实，过审概率相对高。"
+    },
+    "big-walk-guide": {
+      "domain": "thebigwalkguide.wiki",
+      "status": "需要注意",
+      "statusKey": "attention_required",
+      "statusDetail": "低价值内容",
+      "lastCheck": "2026-09-26T10:00:10+08:00",
+      "lastUpdated": "2026年9月24日 04:42",
+      "adstxt": "已授权",
+      "note": "🚨 09-24 10:00 后台实测：审批状态由「正在准备」变为「需要注意（低价值内容）」，后台最后更新 2026-09-24 04:42，正式被拒。Ads.txt 由「未找到」回到「已授权」（该字段历史上多次翻转）。"
     },
     "cropia-guide": {
       "domain": "cropia.wiki",
       "status": "正在准备",
       "statusKey": "preparing",
-      "lastCheck": "2026-09-23T10:00:00+08:00",
+      "lastCheck": "2026-09-26T10:00:10+08:00",
+      "adstxt": "未找到"
+    },
+    "scrapmechanic-hub": {
+      "domain": "scrapmechanichub.com",
+      "status": "需要注意",
+      "statusKey": "attention_required",
+      "statusDetail": "低价值内容",
+      "adstxt": "未找到",
+      "registeredAt": "2026-08-19T16:52:00+08:00",
+      "lastCheck": "2026-09-26T10:00:10+08:00",
+      "lastUpdated": "2026年9月13日 12:16",
+      "note": "独立提交审核。🚨 09-13 12:16 被拒：低价值内容，需整改内容后重新提交。🚨 09-20 10:00 后台实测 Ads.txt=未找到（此前 09-14~09-19 记录为已授权，该状态历史上多次翻转）。"
+    },
+    "slay-the-spire-2-guide": {
+      "domain": "slaythespire2guide.wiki",
+      "status": "正在准备",
+      "statusKey": "preparing",
+      "lastCheck": "2026-09-26T10:00:10+08:00",
+      "adstxt": "未找到"
+    },
+    "the-adventurers-guide": {
+      "domain": "theadventurersguide.wiki",
+      "status": "正在准备",
+      "statusKey": "preparing",
+      "lastCheck": "2026-09-26T10:00:10+08:00",
       "adstxt": "未找到"
     },
     "twisted-tower-guide": {
@@ -36,40 +67,38 @@
       "statusKey": "preparing",
       "adstxt": "未找到",
       "registeredAt": "2026-08-19T16:51:00+08:00",
-      "lastCheck": "2026-09-23T10:00:00+08:00",
+      "lastCheck": "2026-09-26T10:00:10+08:00",
       "note": "独立提交审核。8-18 游戏上线，处于流量爆发期，内容按官方素材写。09-11 12:10 重新进入审核队列，状态详情为「—」。"
-    },
-    "town-to-city-guide": {
-      "domain": "towntocityguide.wiki",
-      "status": "正在准备",
-      "statusKey": "preparing",
-      "lastCheck": "2026-09-23T10:00:00+08:00",
-      "adstxt": "未找到"
-    },
-    "big-walk-guide": {
-      "domain": "thebigwalkguide.wiki",
-      "status": "正在准备",
-      "statusKey": "preparing",
-      "lastCheck": "2026-09-23T10:00:00+08:00",
-      "adstxt": "未找到",
-      "note": "🚨 09-15 Ads.txt 由「未找到」恢复为「已授权」。🚨 09-22 10:00 后台实测 Ads.txt=未找到（09-21 记录为已授权，该状态历史上多次翻转）。审批状态仍为「正在准备」。"
-    },
-    "slay-the-spire-2-guide": {
-      "domain": "slaythespire2guide.wiki",
-      "status": "正在准备",
-      "statusKey": "preparing",
-      "lastCheck": "2026-09-23T10:00:00+08:00",
-      "adstxt": "未找到"
-    },
-    "the-adventurers-guide": {
-      "domain": "theadventurersguide.wiki",
-      "status": "正在准备",
-      "statusKey": "preparing",
-      "lastCheck": "2026-09-23T10:00:00+08:00",
-      "adstxt": "未找到"
     }
   },
   "history": [
+    {
+      "date": "2026-09-26",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00，今日第二次检查）：三站 scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 未找到（最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 已授权（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。与今晨 09:03 快照相比审批状态、状态详情、Ads.txt 均无变化，今日无过审。其余 5 站亦无变化（thebigwalkguide.wiki 维持需要注意（低价值内容）/ 已授权）。"
+    },
+    {
+      "date": "2026-09-25",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00）：三站 scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 未找到（最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 已授权（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。与 09-24 记录相比审批状态、状态详情、Ads.txt 均无变化，今日无过审。其余 5 站亦无变化（thebigwalkguide.wiki 维持需要注意（低价值内容）/ 已授权）。"
+    },
+    {
+      "date": "2026-09-24",
+      "status": [
+        "需要注意",
+        "正在准备",
+        "正在准备"
+      ],
+      "note": "后台真实显示（10:00）：三站 scrapmechanichub.com=需要注意（低价值内容）/ Ads.txt 未找到（最后更新 09-13 12:16）；cairnguide.wiki=正在准备 / 未找到（08-26）；twistedtowerguide.wiki=正在准备 / 未找到（09-11 12:10）。与 09-23 记录相比三站均无变化，今日无过审。🚨 thebigwalkguide.wiki 审批状态由「正在准备」变为「需要注意（低价值内容）」（最后更新 09-24 04:42，今日新增一个被拒站），Ads.txt 由「未找到」回到「已授权」。其余各站无变化。"
+    },
     {
       "date": "2026-09-23",
       "status": [
@@ -320,5 +349,5 @@
       "reason": "主站低价值内容卡审，脱离关系，不再用其申请 AdSense。"
     }
   },
-  "source": "auto-19541"
+  "source": "auto-10000"
 }
