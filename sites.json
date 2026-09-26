@@ -529,10 +529,10 @@
       "draft": false,
       "key": "cropia-guide",
       "gsc_site": "sc-domain:cropia.wiki",
-      "ga_property": "542906144",
-      "ga_mid": "G-ET6778V62K",
+      "ga_property": "556070937",
+      "ga_mid": "G-DWP4XGM94M",
       "registeredAt": "2026-08-25",
-      "note": "GA 数据经站群共享 tag G-ET6778V62K 单写进 542906144（Solarpunk property），监控读它并按 hostName=cropia.wiki 过滤；550023235 自 08-26 起已停收勿用；根治=独立 property（实验日志 E5b）",
+      "note": "2026-09-26 创建独立 GA4 property 556070937 与 web stream G-DWP4XGM94M；历史污染数据保留在 Solarpunk property 542906144，不再用于 Cropia 监控。",
       "domain": "https://cropia.wiki"
     },
     {
