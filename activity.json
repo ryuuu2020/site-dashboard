@@ -1,195 +1,195 @@
 {
-  "generated": "2026-09-09T22:17:20Z",
+  "generated": "2026-10-27T22:17:28Z",
   "source": "local-git",
   "entries": [
     {
-      "time": "09-09 11:24",
-      "timestamp": "2026-09-09T11:24:11+08:00",
-      "dot": "fix",
-      "msg": "09-09 audit: 3 P0 classes fixed across 7 repos; daily-ops placeholder false-positive pattern dropped",
+      "time": "10-26 14:34",
+      "timestamp": "2026-10-26T14:34:32+08:00",
+      "dot": "push",
+      "msg": "docs: 更新 .com 续费价记录（Namecheap 2026-10 现价约 $18.48+ICANN）",
       "site": "Fading Echo"
     },
     {
-      "time": "09-09 11:22",
-      "timestamp": "2026-09-09T11:22:15+08:00",
-      "dot": "fix",
-      "msg": "fix(facts): Windows-only platform answer restored, citizen tiers 4->3, Early Access wording removed, dead /food-producti",
-      "site": "Town to City"
-    },
-    {
-      "time": "09-09 11:22",
-      "timestamp": "2026-09-09T11:22:15+08:00",
-      "dot": "fix",
-      "msg": "fix: about page stale coverage claim narrowed, source label removed, sitemap no longer fakes lastmod",
-      "site": "Cairn"
-    },
-    {
-      "time": "09-09 11:22",
-      "timestamp": "2026-09-09T11:22:15+08:00",
+      "time": "10-26 14:30",
+      "timestamp": "2026-10-26T14:30:00+08:00",
       "dot": "push",
-      "msg": "DAILY: hip pack FAQ entry + keywords for 'big walk hip pack' (pos 8) and blue spiral building variant",
-      "site": "Big Walk Guide"
-    },
-    {
-      "time": "09-09 11:22",
-      "timestamp": "2026-09-09T11:22:15+08:00",
-      "dot": "fix",
-      "msg": "fix: contact double-suffix title, dead /vehicles-guide link removed, Farmbot Spud Gun hits aligned to 58",
-      "site": "Scrap Mechanic Hub"
-    },
-    {
-      "time": "09-09 11:22",
-      "timestamp": "2026-09-09T11:22:15+08:00",
-      "dot": "fix",
-      "msg": "fix(achievements): remove unverifiable in-game/library assertions and the locked-achievement inference; source labels to",
-      "site": "Slay the Spire 2 Guide"
-    },
-    {
-      "time": "09-09 11:22",
-      "timestamp": "2026-09-09T11:22:15+08:00",
-      "dot": "fix",
-      "msg": "style+trust: drop 'Official' publisher claims, remove AdSense-ID footer line, strip 29 em-dashes, fix titles, sitemap la",
-      "site": "The Adventurers Guide"
-    },
-    {
-      "time": "09-09 11:22",
-      "timestamp": "2026-09-09T11:22:15+08:00",
-      "dot": "fix",
-      "msg": "fix(facts): platform answer reversed to Windows only after double-source store check; Steam Deck claim removed (no ratin",
-      "site": "Twisted Tower Guide"
-    },
-    {
-      "time": "09-09 09:01",
-      "timestamp": "2026-09-09T09:01:58+08:00",
-      "dot": "fix",
-      "msg": "fix: align Farmbot Spud Gun guidance with 58-hit reference",
-      "site": "Scrap Mechanic Hub"
-    },
-    {
-      "time": "09-08 10:35",
-      "timestamp": "2026-09-08T10:35:34+08:00",
-      "dot": "update",
-      "msg": "09-08 fleet-wide update: cairn/bigwalk/sts2/cropia landed, matrix verdict frozen",
+      "msg": "docs: 重建域名资产清单（11 个已购域名，DoH+whois 实测数据）",
       "site": "Fading Echo"
     },
     {
-      "time": "09-08 10:31",
-      "timestamp": "2026-09-08T10:31:24+08:00",
+      "time": "09-29 22:05",
+      "timestamp": "2026-09-29T22:05:16+08:00",
       "dot": "push",
-      "msg": "Backpack cluster long-tail: head-term retitle, equip/use/upgrade intent coverage, FAQ entries, walkthrough internal link",
-      "site": "Big Walk Guide"
-    },
-    {
-      "time": "09-08 10:31",
-      "timestamp": "2026-09-08T10:31:09+08:00",
-      "dot": "update",
-      "msg": "SEO: cover Cropia wiki and Cropia game variants in home title/description, update dateModified",
-      "site": "Cropia Guide"
-    },
-    {
-      "time": "09-08 10:31",
-      "timestamp": "2026-09-08T10:31:09+08:00",
-      "dot": "update",
-      "msg": "achievements FAQ: add locked-achievements entry (Steam appdetails re-read 2026-09-08, still no achievements block), refr",
-      "site": "Slay the Spire 2 Guide"
-    },
-    {
-      "time": "09-08 10:31",
-      "timestamp": "2026-09-08T10:31:03+08:00",
-      "dot": "update",
-      "msg": "items cluster: FAQ adds item rundown and survival blanket answers, gear guide retitled to Cairn Items, beginner guide in",
-      "site": "Cairn"
-    },
-    {
-      "time": "09-08 10:14",
-      "timestamp": "2026-09-08T10:14:44+08:00",
-      "dot": "fix",
-      "msg": "09-08 long-tail rescan: scrap mods head-term fix f871bf3, E11 registered, bigwalk cluster noted",
+      "msg": "factory/mining: 合并 game-keyword-radar 独有能力（Gate B 准入/Similarweb 通道/撞车过滤/LLM 聚类/导出建站骨架）",
       "site": "Fading Echo"
     },
     {
-      "time": "09-08 10:07",
-      "timestamp": "2026-09-08T10:07:39+08:00",
+      "time": "09-26 23:51",
+      "timestamp": "2026-09-26T23:51:44+08:00",
       "dot": "push",
-      "msg": "DAILY 09-08: mods page head-term retitle (GSC pos 52 for 'scrap mechanic mods') + FAQ mods-not-working entry + autocompl",
-      "site": "Scrap Mechanic Hub"
-    },
-    {
-      "time": "09-07 10:02",
-      "timestamp": "2026-09-07T10:02:00+08:00",
-      "dot": "push",
-      "msg": "DAILY 09-07: /wiki fact sheet page (wiki-cluster demand) + platform facts corrected to Windows/macOS/Linux per Steam API",
-      "site": "Twisted Tower Guide"
-    },
-    {
-      "time": "09-07 09:49",
-      "timestamp": "2026-09-07T09:49:58+08:00",
-      "dot": "update",
-      "msg": "content: 加厚 patch-notes 更新日志页至 1400+ 词（补 1.0 发布公告、终版 demo、beta/live 双分支说明，均源自 Steam API 实测）",
-      "site": "The Adventurers Guide"
-    },
-    {
-      "time": "09-07 09:45",
-      "timestamp": "2026-09-07T09:45:25+08:00",
-      "dot": "fix",
-      "msg": "SEO fix: remove duplicated site-name suffix from page titles (layout template already appends it)",
-      "site": "Cropia Guide"
-    },
-    {
-      "time": "09-07 09:38",
-      "timestamp": "2026-09-07T09:38:02+08:00",
-      "dot": "update",
-      "msg": "加厚 updates 与 layouts 页：更新历史结构化成段 + 选址逻辑与常见布局错误（仅引用仓内已有真实数据）",
-      "site": "Town to City"
-    },
-    {
-      "time": "09-07 09:38",
-      "timestamp": "2026-09-07T09:38:02+08:00",
-      "dot": "push",
-      "msg": "加厚 version-ledger / decision-lab / about 三页编辑性说明内容（AdSense 审计 Medium 项，仅方法论与已有事实重述）",
-      "site": "Slay the Spire 2 Guide"
-    },
-    {
-      "time": "09-07 09:35",
-      "timestamp": "2026-09-07T09:35:09+08:00",
-      "dot": "push",
-      "msg": "隐私页补 AdSense 第三方披露与 opt-out 链接，页脚加 About 链接，修正 About 页广告位描述",
-      "site": "Cairn"
-    },
-    {
-      "time": "09-07 09:34",
-      "timestamp": "2026-09-07T09:34:46+08:00",
-      "dot": "fix",
-      "msg": "AdSense audit fixes: unify release status with Steam API (1.0 released, drop early-access wording), add standard AdSense",
-      "site": "Cropia Guide"
-    },
-    {
-      "time": "09-07 08:54",
-      "timestamp": "2026-09-07T08:54:28+08:00",
-      "dot": "push",
-      "msg": "E2 prep: em-dash and AI-pattern purge across all pages",
+      "msg": "完善隐私披露、页脚入口与真实更新日期",
       "site": "Big Walk Guide"
     },
     {
-      "time": "09-06 20:38",
-      "timestamp": "2026-09-06T20:38:22+08:00",
+      "time": "09-26 23:33",
+      "timestamp": "2026-09-26T23:33:16+08:00",
       "dot": "push",
-      "msg": "DAILY 09-06: interactive secret checklist page (localStorage tracker, 28/28 progress) + shared secrets data module",
-      "site": "Twisted Tower Guide"
+      "msg": "Cropia 切换到独立 GA4 web stream",
+      "site": "Cropia Guide"
     },
     {
-      "time": "09-05 16:53",
-      "timestamp": "2026-09-05T16:53:16+08:00",
-      "dot": "fix",
-      "msg": "SEO fix: remove duplicated site-name suffix from page titles (layout template already appends it)",
+      "time": "09-26 23:10",
+      "timestamp": "2026-09-26T23:10:23+08:00",
+      "dot": "push",
+      "msg": "同步 patch 与 news 页真实更新时间到 sitemap",
+      "site": "Scrap Mechanic Hub"
+    },
+    {
+      "time": "09-23 15:00",
+      "timestamp": "2026-09-23T15:00:02+08:00",
+      "dot": "push",
+      "msg": "清掉 shared 组件里遗留的站群默认作者名（该组件当前未被引用，属死代码，一并改回本站）",
+      "site": "Scrap Mechanic Hub"
+    },
+    {
+      "time": "09-23 14:55",
+      "timestamp": "2026-09-23T14:55:55+08:00",
+      "dot": "push",
+      "msg": "元数据与角标整改：去掉结构化数据里不存在的机构名（publisher/author/creator 改回本站），VERIFIED 类角标改为陈述版本号而非宣称核验",
+      "site": "The Adventurers Guide"
+    },
+    {
+      "time": "09-23 14:48",
+      "timestamp": "2026-09-23T14:48:53+08:00",
+      "dot": "push",
+      "msg": "去掉站群身份残留：privacy/terms/about 不再引用网络联系页与网络成员身份、去掉已停用的 afdian 打赏入口及其死样式",
+      "site": "Cropia Guide"
+    },
+    {
+      "time": "09-23 14:46",
+      "timestamp": "2026-09-23T14:46:56+08:00",
+      "dot": "push",
+      "msg": "去掉站群身份残留：两张自制图表去掉 gguidehub.com 水印重新生成、结构化数据作者与两处页脚不再挂网络名称、默认作者改回本站",
       "site": "Town to City"
     },
     {
-      "time": "09-04 00:35",
-      "timestamp": "2026-09-04T00:35:02+08:00",
-      "dot": "fix",
-      "msg": "fix: add self-referencing trailing-slash canonical to every route",
+      "time": "09-23 14:45",
+      "timestamp": "2026-09-23T14:45:51+08:00",
+      "dot": "push",
+      "msg": "去掉线上残留的站群身份：contact/privacy/about 三处 GameGuideHub 字样与结构化数据默认作者改回本站（含 author url）",
+      "site": "Cairn"
+    },
+    {
+      "time": "09-23 10:58",
+      "timestamp": "2026-09-23T10:58:05+08:00",
+      "dot": "update",
+      "msg": "on-the-trail-dlc: DLC now dated Oct 29, 2026 on its Steam page; drop the false 'no replacement date' wording (updates lo",
+      "site": "Cairn"
+    },
+    {
+      "time": "09-23 10:54",
+      "timestamp": "2026-09-23T10:54:49+08:00",
+      "dot": "push",
+      "msg": "收长 /beginners-guide 的 title：61 字符会被 SERP 切掉，删掉尾部 in Survival 两词压到 49",
+      "site": "Scrap Mechanic Hub"
+    },
+    {
+      "time": "09-23 10:52",
+      "timestamp": "2026-09-23T10:52:35+08:00",
+      "dot": "update",
+      "msg": "撤掉 16 页只刷日期的新鲜度声明：那些页内容一个字没动，却把 Last updated/dateModified 全归到 09-23，属于假的新鲜度声明。只保留 v1.2 真正改到的 updates 与 wiki 两页",
+      "site": "Twisted Tower Guide"
+    },
+    {
+      "time": "09-23 10:35",
+      "timestamp": "2026-09-23T10:35:21+08:00",
+      "dot": "push",
+      "msg": "完整性整改：4 张站内图 alt 改为画面实拍描述（原 alt 均与图不符）、about 去掉“直取官方日志/已核验客户端”口径、patch-notes 不再自称 Official 且去掉自证式新鲜度声明、privacy 开头改为如实披露 ",
       "site": "The Adventurers Guide"
+    },
+    {
+      "time": "09-23 10:28",
+      "timestamp": "2026-09-23T10:28:19+08:00",
+      "dot": "push",
+      "msg": "完整性整改: 图表 alt 去掉图上不可见细节、删假 SearchAction、about 去掉绝对口径与错误的 dark-themed 声明",
+      "site": "Cairn"
+    },
+    {
+      "time": "09-23 10:25",
+      "timestamp": "2026-09-23T10:25:45+08:00",
+      "dot": "push",
+      "msg": "整改: 删假站内搜索结构化数据、9 处图 alt 改为画面实际内容、去掉 the live game 类无法证实的实测口径、补正过期的最新版本号(1.4.10->1.5.1)",
+      "site": "Big Walk Guide"
+    },
+    {
+      "time": "09-23 10:25",
+      "timestamp": "2026-09-23T10:25:43+08:00",
+      "dot": "update",
+      "msg": "版本覆盖更新到官方 v1.2 (2026-09-18): updates 页新增 1.2 修复摘要与修订条目、wiki 版本表补 1.2 行；全站 Last updated/dateModified 归到 2026-09-23",
+      "site": "Twisted Tower Guide"
+    },
+    {
+      "time": "09-23 10:24",
+      "timestamp": "2026-09-23T10:24:49+08:00",
+      "dot": "update",
+      "msg": "按审计整改低价值内容落点：删除并不存在的站内搜索结构化数据（SearchAction），about/updates/cropia-on-steam/terms 及各页 zero-guess 说明去掉站不住的绝对口径（\"只用官方信息\"\"只写商",
+      "site": "Cropia Guide"
+    },
+    {
+      "time": "09-23 10:22",
+      "timestamp": "2026-09-23T10:22:52+08:00",
+      "dot": "update",
+      "msg": "按审计整改低价值内容落点：about/updates 及各页脚去掉站不住的绝对口径（如\"每页都对照当前补丁核过\"\"不转述二手帖\"\"数值已按游戏/补丁核验\"），删除并不存在的站内搜索结构化数据（SearchAction），hero 图 alt",
+      "site": "Town to City"
+    },
+    {
+      "time": "09-23 10:22",
+      "timestamp": "2026-09-23T10:22:46+08:00",
+      "dot": "push",
+      "msg": "整改: 删假站内搜索结构化数据、修两组与画面不符的图 alt、去掉无法证实的 in-game 口径与正文来源词、privacy 不再自称 privacy-preserving",
+      "site": "Slay the Spire 2 Guide"
+    },
+    {
+      "time": "09-23 10:22",
+      "timestamp": "2026-09-23T10:22:05+08:00",
+      "dot": "push",
+      "msg": "完整性整改: 图片 alt 按实际画面改写、删假 SearchAction、about 去掉绝对口径、privacy 如实披露 GA/AdSense、collectibles 去掉 Source 标注列",
+      "site": "Twisted Tower Guide"
+    },
+    {
+      "time": "09-18 10:21",
+      "timestamp": "2026-09-18T10:21:52+08:00",
+      "dot": "push",
+      "msg": "去掉站点网络标识：footer 不再挂 GameGuideHub 外链与网络声明，结构化数据 publisher 改回本站自身（AdSense 低价值内容整改）",
+      "site": "Town to City"
+    },
+    {
+      "time": "09-16 13:46",
+      "timestamp": "2026-09-16T13:46:41+08:00",
+      "dot": "push",
+      "msg": "SEO(09-16) 续: combat/classes/planner 三页 title 收进可见区",
+      "site": "The Adventurers Guide"
+    },
+    {
+      "time": "09-16 13:35",
+      "timestamp": "2026-09-16T13:35:04+08:00",
+      "dot": "fix",
+      "msg": "fix(09-16): /about 双后缀",
+      "site": "Slay the Spire 2 Guide"
+    },
+    {
+      "time": "09-16 13:31",
+      "timestamp": "2026-09-16T13:31:08+08:00",
+      "dot": "fix",
+      "msg": "fix(09-16): /about 双后缀",
+      "site": "Big Walk Guide"
+    },
+    {
+      "time": "09-16 13:01",
+      "timestamp": "2026-09-16T13:01:54+08:00",
+      "dot": "push",
+      "msg": "SEO(09-16): 21 页 title 收进 SERP 可见区",
+      "site": "Slay the Spire 2 Guide"
     },
     {
       "time": "08-04 23:37",
